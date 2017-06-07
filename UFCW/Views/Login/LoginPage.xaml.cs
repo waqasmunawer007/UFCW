@@ -33,15 +33,17 @@ namespace UFCW.Views.Login
                 loginVm.IsBusy = true;
                 LoginResponse response = await loginVm.LogiUser(email, password);
                 loginVm.IsBusy = false;
-				if (String.IsNullOrEmpty(response.Error))
+				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
 				{
-				    user = response.Profile;
-                    Debug.WriteLine("Login Success" + user.FIRST_NAME);
+					user = response.Profile;
+					Debug.WriteLine("Login Success" + user.FIRST_NAME);
 				}
 				else
 				{
-				    Debug.WriteLine("Error Occured: " + response.Error);
-					WarningLbl.Text = "Error: " + response.Error;
+					Debug.WriteLine("Error Occured: " + response.ErrorDetails);
+					WarningLbl.Text = "Error: " + response.ErrorText;
+
+					await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
 					WarningLbl.IsVisible = true;
 				}
 				//Indicator.Stop();

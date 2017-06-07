@@ -25,7 +25,7 @@
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand" InputTransparent="true"
                 IsVisible="{Binding Source={x:Reference Root}, Path=ShowBackgroundColor}"
-                HeightRequest="80"
+                HeightRequest="100"
 
             />
 
@@ -43,7 +43,7 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Orientation="Vertical"
-                Spacing="10">
+                Spacing="0">
                 
                 <Grid>
 

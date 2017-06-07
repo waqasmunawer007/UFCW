@@ -3,7 +3,10 @@ namespace UFCW.Services.Models.User
 {
     public class BaseResponse
     {
-		public string Error { get; set; }
+		public string APIName { get; set; }
+		public int ErrorCode { get; set; }
+		public string ErrorText { get; set; }
+		public string ErrorDetails { get; set; }
 
         public BaseResponse() {}
     }
