@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.WelcomePage"
+    BackgroundImage="{ DynamicResource WelcomeBackgroundImage }"
+    BackgroundColor="{ DynamicResource ComplementColor }"
+    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW"
+    >
+
+    <!-- MAIN CONTAINER-->
+    <Grid 
+        HorizontalOptions="FillAndExpand" 
+        VerticalOptions="FillAndExpand">
+
+        <!---BACKGROUND IMAGE -->
+        <Image 
+            Style="{DynamicResource WelcomeBackgroundImage}"/>
+
+        <Grid 
+            Padding="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            
+            <Grid 
+                Grid.Row="0"
+                ColumnSpacing="0"
+                Padding="0"
+                    HorizontalOptions="StartAndExpand"
+                Style="{ StaticResource BrandContainerStyle }">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                
+                <!--LOGO-->
+                <lottie:AnimationView
+                    Grid.Column="0"
+                    Margin="-20"
+                    x:Name="AnimationView"
+                    Animation="grial_animation.json"
+
+                    AutoPlay="false"
+                    HeightRequest="160"
+                    WidthRequest="160"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"/> 
+                
+
+                <StackLayout
+                    Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Spacing="0">
+                    <Label
+                        TextColor="{ DynamicResource OverImageTextColor }"
+                        FontSize="24"
+                        Text="GRIAL" 
+                        FontAttributes="Bold" 
+                        VerticalTextAlignment="Start"/>
+                    <Label 
+                        TextColor="{ DynamicResource OverImageTextColor }"
+                        FontSize="24"
+                        Text="UI.KIT" 
+                        VerticalTextAlignment="Start"/>
+                </StackLayout>
+
+            </Grid>
+
+                
+
+
+
+
+            <!--CLAIM TEXT-->
+            <StackLayout
+                Grid.Row="1"
+                Spacing="10"
+                Orientation="Vertical"
+                VerticalOptions="Center"
+                TranslationY="-20"
+                Padding="{ artina:OnOrientationDouble
+                    Default=20,
+                    PortraitTablet=20,
+                    LandscapeTablet=20 }">
+                <Label
+                    LineBreakMode="WordWrap"
+                    Text="Ready made UI’s for Xamarin.Forms."
+                    TextColor="{ DynamicResource OverImageTextColor }"
+                    VerticalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    AbsoluteLayout.LayoutFlags="All">
+                        <Label.FontSize> 
+                            <OnIdiom x:TypeArguments="x:Double"
+                                 Phone="26"
+                                 Tablet="36"/>
+                        </Label.FontSize>
+                </Label>
+                <Label
+                    LineBreakMode="WordWrap"
+                    Text="Take your app to the next level &#x0a; with Grial UI Kit."
+                    TextColor="{ DynamicResource OverImageTextColor }"
+                    VerticalTextAlignment="Center"
+                    FontSize="36"
+                    AbsoluteLayout.LayoutFlags="All">
+                        <Label.FontSize> 
+                            <OnIdiom x:TypeArguments="x:Double"
+                                 Phone="17"
+                                 Tablet="27"/>
+                        </Label.FontSize>
+                </Label>
+                
+
+
+                <!-- ICONS -->
+                <StackLayout
+                    Orientation="Horizontal"
+                    Spacing="20">
+
+                    <Label 
+                        Grid.Row="0"
+                        VerticalTextAlignment="Center"
+                        Text="{ x:Static local:GrialShapesFont.LogoXamarinStudio } " 
+                        FontSize="25"
+                        TextColor="{ DynamicResource OverImageTextColor }" 
+                        FontFamily="{ StaticResource IconsFontFamily }"/>
+
+                    <Label 
+                        Grid.Row="0"
+                        VerticalTextAlignment="Center"
+                        Text="{ x:Static local:GrialShapesFont.LogoVisualStudio } " 
+                        FontSize="25"
+                        TextColor="{ DynamicResource OverImageTextColor }" 
+                        FontFamily="{ StaticResource IconsFontFamily }"/>
+
+                    <Label 
+                        Grid.Row="0"
+                        VerticalTextAlignment="Center"
+                        Text="{ x:Static local:GrialShapesFont.LogoApple } " 
+                        FontSize="25"
+                        TextColor="{ DynamicResource OverImageTextColor }" 
+                        FontFamily="{ StaticResource IconsFontFamily }"/>
+
+                    <Label 
+                        Grid.Row="0"
+                        VerticalTextAlignment="Center"
+                        Text="{ x:Static local:GrialShapesFont.LogoAndroid } " 
+                        FontSize="25"
+                        TextColor="{ DynamicResource OverImageTextColor }" 
+                        FontFamily="{ StaticResource IconsFontFamily }"/>
+
+                    <Label 
+                        Grid.Row="0"
+                        VerticalTextAlignment="Center"
+                        Text="{ x:Static local:GrialShapesFont.LogoLottie } " 
+                        FontSize="45"
+                        TextColor="{ DynamicResource OverImageTextColor }" 
+                        FontFamily="{ StaticResource IconsFontFamily }"/>
+                    
+                </StackLayout>
+
+                <!-- ACCENT LINE -->
+                <BoxView 
+                    Style="{DynamicResource BrandNameOrnamentStyle}"
+                    BackgroundColor="{ DynamicResource AccentColor }"/>
+                
+            </StackLayout>
+            
+            <!--BUTTONS-->
+            <StackLayout
+                Grid.Row="2"
+                VerticalOptions="End" 
+                HorizontalOptions="FillAndExpand" 
+                Spacing="10">
+            
+                <artina:Button 
+                    Clicked="OnWalkthroughButtonTapped" 
+                    Style="{DynamicResource SecondaryActionButtonStyle}" 
+                    Text="See our walkthrough"
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="{ artina:OnOrientationDouble
+                        LandscapeTablet=600 }"
+                    HorizontalOptions="{ artina:OnOrientationLayoutOptions
+                        PortraitPhone=Fill,
+                        LandscapePhone=Fill,
+                        PortraitTablet=Fill,
+                        LandscapeTablet=Center }"/>
+                
+                <artina:Button 
+                    Clicked="OnBrowseSamplesButtonTapped" 
+                    Style="{DynamicResource PrimaryActionButtonStyle}" 
+                    Text="Browse our samples" 
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="{ artina:OnOrientationDouble
+                        LandscapeTablet=600 }"
+                    HorizontalOptions="{ artina:OnOrientationLayoutOptions
+                        PortraitPhone=Fill,
+                        LandscapePhone=Fill,
+                        PortraitTablet=Fill,
+                        LandscapeTablet=Center }"/>
+            
+            </StackLayout>
+
+        </Grid>
+    </Grid>
+
+</ContentPage>

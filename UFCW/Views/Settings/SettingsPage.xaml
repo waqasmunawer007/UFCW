@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    x:Class="UFCW.SettingsPage" 
+    Title="Settings"
+    BackgroundColor="{DynamicResource BasePageColor}">
+        
+        <StackLayout 
+            Padding="20" 
+            VerticalOptions="FillAndExpand">
+
+            <TableView Intent="Settings" VerticalOptions="Start">
+                <TableView.Root>
+                    <TableSection Title="Your Account"> 
+                        <ImageCell 
+                            ImageSource="{ StaticResource ThemeAvatarSample0Image }"
+                            Text="Robert Stainford"
+                            Detail="50 days logged in" 
+                            TextColor="{ DynamicResource BaseTextColor }"/>  
+                        <EntryCell Text="robert.stainford@uxdivers.com" Placeholder="Email"  />
+                        <EntryCell Placeholder="Phone number" />
+                    </TableSection>
+
+                    <TableSection Title="Connect Your Account">   
+                        <SwitchCell On="true" Text="Facebook" />
+                        <SwitchCell Text="Twitter" />
+                    </TableSection>
+                </TableView.Root>
+            </TableView>
+
+            <artina:Button 
+                Style="{DynamicResource SaveButtonStyle}" 
+                Text="Save Changes" />
+
+            <artina:Button 
+                Style="{DynamicResource DeleteButtonStyle}" 
+                Text="Delete Account" />
+
+        </StackLayout>
+</ContentPage>

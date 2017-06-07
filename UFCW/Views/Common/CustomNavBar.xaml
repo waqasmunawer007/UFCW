@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.CustomNavBar"
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW" 
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared">
+
+        
+        <Grid 
+            Style="{ StaticResource CustomNavBarStyle }"
+            Padding="0">
+
+            <Image
+                Source="custom_nav_bg.jpg"
+                Aspect="AspectFill"/>
+        
+            <Label 
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                TranslationY="20"
+                Margin="20,0"
+                Text="{ x:Static local:GrialShapesFont.Menu }"
+                FontSize="22"
+                TextColor="{ DynamicResource CustomNavBarTextColor }" 
+                Style="{ StaticResource FontIcon }">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHamburgerIconTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TranslationY="20"
+                FontSize="18"
+                Text="Welcome to Grial!" 
+                TextColor="{ DynamicResource CustomNavBarTextColor }" />
+
+            <Label 
+                HorizontalOptions="End"
+                TranslationY="20"
+                Margin="20,0"
+                VerticalOptions="Center"
+                Text="{ x:Static local:GrialShapesFont.Settings } " 
+                FontSize="22"
+                TextColor="{ DynamicResource CustomNavBarTextColor }" 
+                Style="{ StaticResource FontIcon }">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCogIconTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid >
+</ContentView>

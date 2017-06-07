@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="UFCW.Views.Login.LoginPage"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW" >
+
+    <!--PLATFORM SPECIFIC TOP PADDING-->
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            iOS="0, 20, 0, 0"
+            Android="0, 0, 0, 0"
+            WinPhone="0, 0, 0, 0" />
+    </ContentPage.Padding>
+    <!-- Custome Activity Indicator -->
+    <!--    <Grid VerticalOptions="Center">
+            <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <local:CustomActivityIndicator
+                Grid.Row="0"
+                x:Name="Indicator"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                IsEnabled ="true"
+                IsVisible="true"
+                />
+            <Label
+                Grid.Row="1"
+                HorizontalTextAlignment="Center"
+                Text="Loading..."
+            />
+        </Grid>-->
+    
+    <!---FIELDS CONTAINER-->
+    <StackLayout
+        Grid.Row="0"
+        VerticalOptions="StartAndExpand" 
+        BackgroundColor="{ DynamicResource BackgroundColor }"
+        HorizontalOptions="FillAndExpand"
+        Padding="0,0,0,0"
+    >
+        <!---LOGO-->
+        <Image 
+            Margin="0,0,0,0"
+            Grid.Column="0"
+            HeightRequest="64" 
+            WidthRequest="64" 
+            Source="{ StaticResource BrandImage }" 
+            BackgroundColor="{ DynamicResource AccentColor }"
+            HorizontalOptions="Center"
+            />
+        <!---Email FIELD-->
+        <Entry
+            x:Name="Email"
+            Placeholder="E-mail"
+            TextColor="{ DynamicResource OverImageTextColor }"
+            artina:EntryProperties.BorderStyle="RoundRect"
+            artina:EntryProperties.BorderWidth="2"
+            Style="{DynamicResource ArtinaLoginEntryStyle}"
+            HeightRequest="40"
+            HorizontalOptions="Center"
+            WidthRequest="250"
+        />
+        <!---PASSWORD FIELD-->
+        <Entry 
+            Grid.Row="2"
+            x:Name="Password"
+            Placeholder="Password"
+            IsPassword="true"
+            Style="{DynamicResource ArtinaLoginEntryStyle}" 
+            artina:EntryProperties.BorderStyle="RoundRect"
+            artina:EntryProperties.BorderWidth="2"
+            VerticalOptions="StartAndExpand" 
+            HorizontalOptions="Center"
+            WidthRequest="250"
+            HeightRequest="40"/>
+        <!---Warning LABEL-->
+        <Label
+            x:Name="WarningLbl"
+            IsEnabled="false"
+            IsVisible="false"
+            HorizontalOptions="CenterAndExpand"
+            TextColor="{ DynamicResource WarningColor }"
+            Text="Please Enter the valid username and password!"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="StartAndExpand"
+            VerticalTextAlignment="Start"
+        />
+        <artina:Button
+            Style="{DynamicResource PrimaryActionButtonStyle}"
+            VerticalOptions="End"
+            Text="Login"
+            HorizontalOptions="Center"
+            WidthRequest="150"
+            Clicked="LoginClicked"
+            Margin="0,5,0,0"
+        />
+
+        <!--Bottom GRID-->
+        <artina:GridOptionsView 
+            ColumnCount="2"
+            RowCount="4"
+            ColumnSpacing="1" 
+            RowSpacing="1" 
+            Margin="0,50,0,0" 
+            VerticalOptions="EndAndExpand" 
+            BackgroundColor="{DynamicResource ListViewSeparatorColor}"
+            ItemsSource="{Binding Items}">
+            <artina:GridOptionsView.ItemTemplate>
+                <DataTemplate>
+                    <local:DashboardItemTemplate
+                        ShowBackgroundImage="false"
+                        ShowBackgroundColor="false"
+                        ShowiconColoredCircleBackground="true"
+                        ShowiconBadge="false"
+                        TextColor="{ DynamicResource BaseTextColor }" />
+                </DataTemplate>
+            </artina:GridOptionsView.ItemTemplate>
+        </artina:GridOptionsView>
+    </StackLayout>
+</ContentPage>

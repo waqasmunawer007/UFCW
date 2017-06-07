@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    x:Class="UFCW.DashboardPage"
+    Title="This is Home Page for UFCW">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Icon="settings_icon.png" 
+            Priority="1" 
+            Clicked="NavigateToGrialSettingsPage"/>
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Content>
+        <artina:GridOptionsView 
+            ColumnCount="3"
+            RowCount="3"
+            ColumnSpacing="1" 
+            RowSpacing="1" 
+            Padding="0" 
+            VerticalOptions="FillAndExpand" 
+            BackgroundColor="{DynamicResource ListViewSeparatorColor}"
+            ItemsSource="{Binding Items}">
+            <artina:GridOptionsView.ItemTemplate>
+                <DataTemplate>
+                    <local:DashboardItemTemplate
+                        ShowBackgroundImage="false"
+                        ShowBackgroundColor="false"
+                        ShowiconColoredCircleBackground="true"
+                        TextColor="{ DynamicResource BaseTextColor }" />
+                </DataTemplate>
+            </artina:GridOptionsView.ItemTemplate>
+        </artina:GridOptionsView>
+    </ContentPage.Content>
+</ContentPage>

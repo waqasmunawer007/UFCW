@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{E46D7B62-6597-4CE1-97CA-C86E631BC978}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>UFCW.Services</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\UserService\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\UserService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BaseService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\User\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\User\LoginResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\IUserService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\BaseResponse.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.GrialDemoSettings"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    BackgroundColor="{DynamicResource BasePageColor}"
+    Title="Grial Themes Preview">
+
+
+    <ContentPage.Content>
+        <ScrollView
+            Padding="20,10">
+
+            <Grid
+                RowSpacing="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="170" />
+                </Grid.RowDefinitions>
+                
+                <!-- LIGHT THEME -->
+                <Grid
+                    Grid.Row="0"
+                    VerticalOptions="Center">
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Grid.Column="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Source="light_theme_thumbnail.png"/>
+
+                    <StackLayout
+                        Grid.Column="1"
+                        VerticalOptions="Center">
+                        <Label 
+                            Text="Light Theme"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"/>
+                        <Label 
+                            Text="Extra soft UI flavor"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"/>
+                        <artina:Button
+                            Text="Apply" 
+                            WidthRequest="100"
+                            HorizontalOptions="Center"
+                            Style="{ StaticResource PrimaryActionButtonStyle }"
+                            Clicked="OnBtnLightClicked"/>
+                    </StackLayout>
+                </Grid>
+
+                <!-- DARK THEME -->
+                <Grid
+                    Grid.Row="1"
+                    VerticalOptions="Center"
+                    HeightRequest="220">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Grid.Column="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Source="dark_theme_thumbnail.png"/>
+
+                    <StackLayout 
+                        Grid.Column="1"
+                        VerticalOptions="Center">
+                        <Label 
+                            Text="Dark Theme"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"/>
+                        
+                        <Label 
+                            Text="Batman's choise"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"/>
+                        
+                        <artina:Button
+                            Text="Apply"
+                            WidthRequest="100"
+                            HorizontalOptions="Center"
+                            Style="{ StaticResource PrimaryActionButtonStyle }"
+                            Clicked="OnBtnDarkClicked"/>
+                    </StackLayout>
+                </Grid>
+
+                <!-- CORPORATE THEME -->
+                <Grid
+                    Grid.Row="2"
+                    VerticalOptions="Center"
+                    HeightRequest="220">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Grid.Column="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Source="corporate_theme_thumbnail.png"/>
+
+                    <StackLayout 
+                        Grid.Column="1"
+                        VerticalOptions="Center">
+                        
+                        <Label 
+                            Text="Enterprise"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"/>
+                        
+                        <Label 
+                            Text="Impress your boss"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"/>
+                        
+                        <artina:Button
+                            Text="Apply"
+                            WidthRequest="100"
+                            HorizontalOptions="Center"
+                            Style="{ StaticResource PrimaryActionButtonStyle }"
+                            Clicked="OnBtnEnterpriseClicked"/>
+                    </StackLayout>
+                </Grid>
+
+                <!-- CUSTOM THEME -->
+                <Grid
+                    Grid.Row="3"
+                    VerticalOptions="Center"
+                    HeightRequest="220">
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Grid.Column="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Source="custom_theme_thumbnail.png"/>
+
+                    <StackLayout 
+                        Grid.Column="1"
+                        VerticalOptions="Center">
+                        
+                        <Label 
+                            Text="Custom ?"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"/>
+                        
+                        <Label 
+                            Text="Call the experts"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"/>
+                        
+                        <artina:Button
+                            Text="Contact"
+                            WidthRequest="100"
+                            HorizontalOptions="Center"
+                            Style="{ StaticResource PrimaryActionButtonStyle }"
+                            Clicked="OnBtnCustomClicked"/>
+                    </StackLayout>
+                    
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

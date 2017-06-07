@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.MainMenuPage"
+    Title="Main Menu" 
+    Style="{ DynamicResource MainMenuStyle }"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW"
+    Icon="{ StaticResource HamburguerIcon }">
+
+    <Grid
+        RowSpacing="0"
+        VerticalOptions="FillAndExpand" 
+        Padding="0,20,0,0"
+        Margin="0,0,0,10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        
+        <Grid
+            Grid.Row="0"
+            HorizontalOptions="Start" 
+            VerticalOptions="Start"
+            RowSpacing="0">
+
+            
+            <!-- LOGO -->
+            <local:BrandBlock 
+                Grid.Row="0"/>
+
+            <!--<artina:Button
+                Grid.Row="0"
+                Text="BUY"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                WidthRequest="80"
+                TranslationX="100"
+                Style="{ StaticResource SecondaryActionButtonStyle }"
+                Clicked="OnBtnCustomClicked"
+            />-->
+
+            
+            <!-- SCREENS COUNTER -->
+            <local:Badge 
+                BadgeText="{ Binding AllSamples.Count }" 
+                BadgeTextColor="#FFF" 
+                BadgeBackgroundColor="#F00"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+            />
+            
+        </Grid>
+
+        <ListView 
+            Grid.Row="1"
+            x:Name="sampleListView" 
+            ItemSelected="OnItemSelected"
+            ItemsSource="{ Binding SamplesGroupedByCategory }"
+            IsGroupingEnabled="true"
+            GroupDisplayBinding="{ Binding Name }"
+            SeparatorVisibility="None"
+            VerticalOptions="FillAndExpand"
+            Style="{ DynamicResource MainMenuListViewStyle }"
+            CachingStrategy="RecycleElement">
+                <ListView.GroupHeaderTemplate> 
+                    <DataTemplate> 
+                        <ViewCell> 
+                            <local:MainMenuGroupHeaderTemplate />
+                        </ViewCell> 
+                    </DataTemplate> 
+                </ListView.GroupHeaderTemplate> 
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <local:MainMenuItemTemplate />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

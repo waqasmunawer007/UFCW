@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.CustomNavBarPage"
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    BackgroundColor="{ DynamicResource BasePageColor }"
+    Title="Custom NavBar">
+
+    <!-- MAIN CONTAINER -->
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- CUSTOM NAVBAR -->
+        <local:CustomNavBar 
+            Grid.Row="0"/>
+
+        <!-- SCROLL AREA -->
+        <ScrollView 
+            Grid.Row="1"
+            Grid.RowSpan="1"
+            Padding="{ DynamicResource MainWrapperPadding }">
+            
+            <!-- MAIN CONTAINER -->
+            <Grid
+                ColumnSpacing="0" 
+                RowSpacing="0"
+                HorizontalOptions="Fill"
+                VerticalOptions="FillAndExpand" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- LOGO -->
+                <Grid 
+                    Grid.Row="0" 
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    Margin="20,20,0,0"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start">
+                
+                    <BoxView
+                        BackgroundColor="{ DynamicResource AccentColor }"/>
+                
+                    <Label
+                        TextColor="{ DynamicResource OverImageTextColor }"
+                        FontSize="42"
+                        Text="{ x:Static local:GrialShapesFont.LogoGrial }" 
+                        Style="{StaticResource FontIcon}"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                </Grid>
+
+
+                <!--CLAIM TEXT-->
+                <StackLayout
+                    Grid.Row="1"
+                    Spacing="10"
+                    Padding="20"
+                    Orientation="Vertical"
+                    VerticalOptions="Start"
+                    TranslationY="0">
+                    <Label
+                        LineBreakMode="WordWrap"
+                        Text="Custom NavBar"
+                        TextColor="{ DynamicResource BaseTextColor }"
+                        VerticalTextAlignment="Center"
+                        FontAttributes="Bold">
+                            <Label.FontSize> 
+                                <OnIdiom x:TypeArguments="x:Double"
+                                     Phone="26"
+                                     Tablet="36"/>
+                            </Label.FontSize>
+                    </Label>
+                    
+                    <Label
+                        LineBreakMode="WordWrap"
+                        Text="The NavBar on this page is totally custom which means you could add as many icons as you need and combine it with other views such as badges, etc."
+                        TextColor="{ DynamicResource BaseTextColor }"
+                        VerticalTextAlignment="Center">
+                            <Label.FontSize> 
+                                <OnIdiom x:TypeArguments="x:Double"
+                                     Phone="17"
+                                     Tablet="27"/>
+                            </Label.FontSize>
+                    </Label>
+
+                    <Label
+                        LineBreakMode="WordWrap"
+                        Text="Note the Menu displayed on top ;)"
+                        TextColor="{ DynamicResource OverImageTextColor }"
+                        VerticalTextAlignment="Center">
+                            <Label.FontSize> 
+                                <OnIdiom x:TypeArguments="x:Double"
+                                     Phone="17"
+                                     Tablet="27"/>
+                            </Label.FontSize>
+                    </Label>
+
+                    <!-- ACCENT LINE -->
+                    <BoxView 
+                        Style="{StaticResource BrandNameOrnamentStyle}"
+                        BackgroundColor="{ DynamicResource AccentColor }"/>
+                    
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+        
+    </Grid>
+
+</ContentPage>
