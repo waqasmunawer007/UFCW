@@ -26,40 +26,16 @@
             HorizontalOptions="Start" 
             VerticalOptions="Start"
             RowSpacing="0">
-
-            
             <!-- LOGO -->
             <local:BrandBlock 
                 Grid.Row="0"/>
-
-            <!--<artina:Button
-                Grid.Row="0"
-                Text="BUY"
-                VerticalOptions="Center"
-                HorizontalOptions="End"
-                WidthRequest="80"
-                TranslationX="100"
-                Style="{ StaticResource SecondaryActionButtonStyle }"
-                Clicked="OnBtnCustomClicked"
-            />-->
-
-            
-            <!-- SCREENS COUNTER -->
-            <local:Badge 
-                BadgeText="{ Binding AllSamples.Count }" 
-                BadgeTextColor="#FFF" 
-                BadgeBackgroundColor="#F00"
-                HorizontalOptions="End"
-                VerticalOptions="Start"
-            />
-            
         </Grid>
 
         <ListView 
             Grid.Row="1"
             x:Name="sampleListView" 
             ItemSelected="OnItemSelected"
-            ItemsSource="{ Binding SamplesGroupedByCategory }"
+            ItemsSource="{ Binding HamburgerMenuGroupedByCategory }"
             IsGroupingEnabled="true"
             GroupDisplayBinding="{ Binding Name }"
             SeparatorVisibility="None"

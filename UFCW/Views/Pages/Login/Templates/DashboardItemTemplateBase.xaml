@@ -10,7 +10,6 @@
     x:Class="UFCW.DashboardItemTemplate"
     x:Name="Root"
     BackgroundColor="{ DynamicResource BasePageColor }">
-
     <ContentView.Resources>
         <ResourceDictionary>
             <converter:GreaterThanZeroConverter
@@ -25,11 +24,7 @@
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand" InputTransparent="true"
                 IsVisible="{Binding Source={x:Reference Root}, Path=ShowBackgroundColor}"
-                HeightRequest="100"
-
-            />
-
-
+                HeightRequest="100"/>
             <ffimageloading:CachedImage 
                 FadeAnimationEnabled="true"
                 Source="{Binding BackgroundImage}" 
@@ -38,16 +33,13 @@
                 VerticalOptions="Fill"
                 HorizontalOptions="Fill"
                 IsVisible="{Binding Source={x:Reference Root}, Path=ShowBackgroundImage}"/>
-
             <StackLayout 
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Orientation="Vertical"
                 Spacing="0">
-                
                 <Grid>
-
-                    <Label
+                	<Label
                         Text="{Binding Shape}"
                         Style="{StaticResource DashboardItemTemplateShape}" 
                         HorizontalTextAlignment="Center"
@@ -55,9 +47,7 @@
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="Center"
                         IsVisible="{Binding Source={x:Reference Root}, Path=ShowiconColoredCircleBackground}"
-                        FontSize="40"
-
-                    />
+                        FontSize="40"/>
                     <Label
                         Text="{Binding Icon}"
                         TextColor="{Binding IconColor}"
@@ -65,8 +55,7 @@
                         HorizontalTextAlignment="Center"
                         VerticalOptions="Center"
                         HorizontalOptions="Center"
-                        Scale="1"
-                        />
+                        Scale="1"/>
                     <local:Badge 
                         Style="{ DynamicResource DashboardBadgeStyle }"
                         BadgeText="{ Binding Badge }" 
@@ -76,11 +65,8 @@
                         VerticalOptions="Start"
                         TranslationX="40"
                         TranslationY="-10"
-                        IsVisible="{Binding Source={x:Reference Root}, Path=ShowiconBadge}"
-                    />  
-                    
+                        IsVisible="{Binding Source={x:Reference Root}, Path=ShowiconBadge}"/>  
                 </Grid>
-
                 <Label 
                     Text="{Binding Name}" 
                     TextColor="{DynamicResource ButtonIconLabelColor}"
@@ -88,14 +74,13 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     FontAttributes="None"
-                    FontSize="12">
-
-                </Label>
+                    FontSize="12"/>
             </StackLayout>
-
-        </Grid>
+		</Grid>
     </ContentView.Content>
+	
     <ContentView.GestureRecognizers>
         <TapGestureRecognizer Tapped="OnWidgetTapped" />
     </ContentView.GestureRecognizers>
+	
 </local:DashboardItemTemplateBase>

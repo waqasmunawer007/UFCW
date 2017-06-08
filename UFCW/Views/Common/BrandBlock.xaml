@@ -21,10 +21,8 @@
 			HeightRequest="64" 
 			WidthRequest="64" 
 			Source="{ StaticResource BrandImage }" 
-			BackgroundColor="{ DynamicResource AccentColor }"
+			BackgroundColor="{ DynamicResource BasePageColor}"
 			/>		
-		
-
 		<StackLayout
 			Grid.Column="1"
 			Orientation="Vertical"
@@ -33,12 +31,13 @@
 			Spacing="0">
 			<Label
 				Style="{ DynamicResource BrandNameStyle }"
-				Text="GRIAL" 
+				Text="UFCW" 
 				FontAttributes="Bold" 
 				VerticalTextAlignment="Start"/>
 			<Label 
 				Style="{ DynamicResource BrandNameStyle }"
-				Text="UI.KIT" 
+				Text="a voice for working America"
+				FontSize="10"	
 				VerticalTextAlignment="Start"/>
 		</StackLayout>
 

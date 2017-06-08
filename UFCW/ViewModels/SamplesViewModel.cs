@@ -12,16 +12,16 @@ namespace UFCW
 
 		public SamplesViewModel(INavigation navigation)
 		{
-			SamplesCategories = new List<SampleCategory>(SamplesDefinition.SamplesCategories.Values);
-			AllSamples = SamplesDefinition.AllSamples;
-			SamplesGroupedByCategory = SamplesDefinition.SamplesGroupedByCategory;
+			//SamplesCategories = new List<SampleCategory>(SamplesDefinition.SamplesCategories.Values);
+			//AllSamples = SamplesDefinition.AllSamples;
+			HamburgerMenuGroupedByCategory = SamplesDefinition.HamburgerMenuGroupedByCategory;
 		}
 
-		public List<SampleCategory> SamplesCategories { get; set; }
+		//public List<SampleCategory> SamplesCategories { get; set; }
 
-		public List<Sample> AllSamples { get; set; }
+		//public List<Sample> AllSamples { get; set; }
 
-		public List<SampleGroup> SamplesGroupedByCategory { get; set; }
+		public List<SampleGroup> HamburgerMenuGroupedByCategory { get; set; }
 
 		public Sample SelectedSample
 		{

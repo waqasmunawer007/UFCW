@@ -25,6 +25,7 @@
 
 	    <item name="windowActionBar">false</item>
 		<item name="windowNoTitle">true</item>
+		 <item name="android:windowTranslucentStatus">true</item>
 		<!-- Used on ListView selected items -->
 		<item name="android:color">@color/AccentColor</item>
 		<item name="android:colorPressedHighlight">@color/AccentColor</item>

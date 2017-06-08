@@ -21,9 +21,9 @@ namespace UFCW
 			//MainPage.SetValue(NavigationPage.BarTextColorProperty, Color.White);
 		}
 
-		public static Page GetMainPage()
+		public static void LoadHomePage()
         {
-            return new UFCW.Views.Login.LoginPage();
+           
         }
 	}
 }

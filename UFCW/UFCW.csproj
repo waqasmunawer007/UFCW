@@ -71,21 +71,10 @@
     <Compile Include="Themes\GrialEnterpriseTheme.xaml.cs">
       <DependentUpon>GrialEnterpriseTheme.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Constants\AppConstants.cs" />
     <Compile Include="Utils\Utils.cs" />
-    <Compile Include="Views\Login\Templates\DashboardItemTemplateBase.xaml.cs">
-      <DependentUpon>DashboardItemTemplateBase.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Login\Templates\DashboardItemTemplateBase.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Login\DashboardViewModel.cs" />
-    <Compile Include="ViewModels\Login\SampleCategory.cs" />
-    <Compile Include="ViewModels\Login\Sample.cs" />
-    <Compile Include="ViewModels\Login\SampleCoordinator.cs" />
-    <Compile Include="ViewModels\Login\SamplesDefinition.cs" />
     <Compile Include="Models\SampleData.cs" />
     <Compile Include="Helpers\NavigationPageHelper.cs" />
     <Compile Include="Views\Navigation\MainMenuPage.xaml.cs">
@@ -123,6 +112,39 @@
     <Compile Include="Views\Navigation\Test\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomView\LoginEntry.cs" />
+    <Compile Include="Views\Pages\Login\LoginPage.xaml.cs">
+      <DependentUpon>..\..\Login\LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Login\Templates\DashboardItemTemplateBase.cs" />
+    <Compile Include="Views\Pages\Login\Templates\DashboardItemTemplateBase.xaml.cs">
+      <DependentUpon>..\..\..\Login\Templates\DashboardItemTemplateBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AccountPage.xaml.cs">
+      <DependentUpon>AccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PensionPage.xaml.cs">
+      <DependentUpon>PensionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\DocumentPage.xaml.cs">
+      <DependentUpon>DocumentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\LinksPage.xaml.cs">
+      <DependentUpon>LinksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\NewsPage.xaml.cs">
+      <DependentUpon>NewsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\FAQPage.xaml.cs">
+      <DependentUpon>FAQPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sample.cs" />
+    <Compile Include="Models\SampleCategory.cs" />
+    <Compile Include="Models\SampleCoordinator.cs" />
+    <Compile Include="Models\SamplesDefinition.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -160,12 +182,6 @@
     <EmbeddedResource Include="Themes\GrialEnterpriseTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login\LoginPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login\Templates\DashboardItemTemplateBase.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Navigation\MainMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -197,6 +213,33 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Navigation\Test\TestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Login\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Login\Templates\DashboardItemTemplateBase.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\AccountPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\DocumentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\LinksPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\NewsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\FAQPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -260,14 +303,15 @@
     <Folder Include="Themes\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Constants\" />
     <Folder Include="Utils\" />
-    <Folder Include="Views\Login\Templates\" />
     <Folder Include="ViewModels\Login\" />
     <Folder Include="Views\Settings\" />
     <Folder Include="Views\Navigation\Test\" />
     <Folder Include="Views\Navigation\Templates\" />
+    <Folder Include="Views\CustomView\" />
+    <Folder Include="Views\Pages\" />
+    <Folder Include="Views\Pages\Login\" />
   </ItemGroup>
   <Import Project="..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets" Condition="Exists('..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

@@ -10,9 +10,14 @@ namespace UFCW
 	public static class SamplesDefinition
 	{
 		private static List<SampleCategory> _samplesCategoryList;
+		private static List<SampleGroup> _samplesGroupedByCategory;
 		private static Dictionary<string, SampleCategory> _samplesCategories;
 		private static List<Sample> _allSamples;
-		private static List<SampleGroup> _samplesGroupedByCategory;
+
+
+		private static List<SampleGroup> _hamburgerMenuGroupedByCategory;
+		//private static List<Sample> _hamburgerMenuSamples;
+
 
 		public static string[] _categoriesColors = {
 			"#ffffff",
@@ -63,6 +68,22 @@ namespace UFCW
 				return _allSamples;
 			}
 		}
+		/// <summary>
+		/// Gets the hamburger menu option grouped by category.
+		/// </summary>
+		/// <value>The hamburger menu grouped by category.</value>
+		public static List<SampleGroup> HamburgerMenuGroupedByCategory
+		{
+			get
+			{
+				if (_hamburgerMenuGroupedByCategory == null)
+				{
+					InitializeHamubergerMenuOptions();
+				}
+
+				return _hamburgerMenuGroupedByCategory;
+			}
+		}
 
 		public static List<SampleGroup> SamplesGroupedByCategory
 		{
@@ -76,7 +97,39 @@ namespace UFCW
 				return _samplesGroupedByCategory;
 			}
 		}
+		/// <summary>
+		/// Creates the menu options for hamburger menu
+		/// </summary>
+		/// <returns>The hamburger menu options.</returns>
+		internal static Dictionary<string, SampleCategory> CreateHamburgerMenuOptions()
+		{ 
+			var menuCategories = new Dictionary<string, SampleCategory>();
 
+			menuCategories.Add(
+				"HamburgerMenu",
+				new SampleCategory
+				{
+					Name = "Menu",
+					BackgroundColor = Color.FromHex(_categoriesColors[0]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.AccountCircle,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+					SamplesList = new List<Sample> {
+					new Sample("Home", typeof(HomePage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Menu),
+					new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
+					new Sample("Pension", typeof(PensionPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
+					new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
+					new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
+					new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
+					new Sample("FAQ", typeof(FAQPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group)
+
+					}
+				}
+			);
+			return menuCategories;
+		}
 		internal static Dictionary<string, SampleCategory> CreateSamples()
 		{
 			var categories = new Dictionary<string, SampleCategory>();
@@ -91,7 +144,7 @@ namespace UFCW
                     Icon = GrialShapesFont.AccountCircle,
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 2,
-                Shape = GrialShapesFont.Circle,
+                	Shape = GrialShapesFont.Circle,
                     SamplesList = new List<Sample> {
                     new Sample("Item 1", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder, false, true),
                     new Sample("Item 2", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder, false, true),
@@ -112,11 +165,10 @@ namespace UFCW
                     Icon = GrialShapesFont.Lock,
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 2,
-                Shape = GrialShapesFont.Circle,
+               		 Shape = GrialShapesFont.Circle,
                     SamplesList = new List<Sample> {
                     new Sample("Document Timeline", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder, false, true),
                         new Sample("Timeline", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder, false, true),
-
                         new Sample("User Profile", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
                         new Sample("Social", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
                         new Sample("Social Variant", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
@@ -260,6 +312,35 @@ namespace UFCW
 			);
 			return categories;
 		}
+
+		internal static void InitializeHamubergerMenuOptions()
+		{
+			 Dictionary<string, SampleCategory> hamburgerMenuCategories = CreateHamburgerMenuOptions();
+			 Debug.WriteLine("Samples Created: " + _samplesCategories.Count);
+			//_samplesCategoryList = new List<SampleCategory>();
+
+			//foreach (var sample in _hamburgerMenuCategories.Values)
+			//{
+			//	_samplesCategoryList.Add(sample);
+			//}
+
+			//_allSamples = new List<Sample>();
+
+			_hamburgerMenuGroupedByCategory = new List<SampleGroup>();
+
+			foreach (var sampleCategory in hamburgerMenuCategories.Values)
+			{
+				var sampleItem = new SampleGroup(sampleCategory.Name.ToUpper());
+
+				foreach (var sample in sampleCategory.SamplesList)
+				{
+					//_allSamples.Add(sample);
+					sampleItem.Add(sample);
+				}
+				_hamburgerMenuGroupedByCategory.Add(sampleItem);
+			}
+		}
+
 
 		internal static void InitializeSamples()
 		{

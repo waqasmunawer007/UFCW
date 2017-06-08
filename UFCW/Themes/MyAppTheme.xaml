@@ -54,8 +54,9 @@
 
 	<!-- INDICATOR COLORS -->
 	<Color x:Key="OkColor">#22c064</Color>
-	<Color x:Key="ErrorColor">Red</Color>
+	<Color x:Key="ArtinaLoginEntryStyle">Red</Color>
 	<Color x:Key="WarningColor">#ffc107</Color>
+	<Color x:Key="ErrorColor">Red</Color>
 	<Color x:Key="NotificationColor">#1274d1</Color>
 
 	<!-- BUTTONS & ENTRY COLORS -->

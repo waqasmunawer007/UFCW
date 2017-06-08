@@ -12,8 +12,6 @@ namespace UFCW.Views.Login
     public partial class LoginPage : ContentPage
     {
         LoginViewModel loginVm;
-        User user;
-
         public LoginPage()
         {
             InitializeComponent();
@@ -22,35 +20,30 @@ namespace UFCW.Views.Login
 		}
 
         async Task LoginClicked()
-        {
-            string email = Email.Text;
-            string password = Password.Text;
-
-            if(!String.IsNullOrEmpty(email) && !String.IsNullOrEmpty(password))
+		{
+			if(!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
             {
                 //Indicator.Start();
-                WarningLbl.IsVisible = false;
+				loginVm.ShowError = false;
                 loginVm.IsBusy = true;
-                LoginResponse response = await loginVm.LogiUser(email, password);
-                loginVm.IsBusy = false;
+				//WaitingIndicator.Start();
+				LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
+               // WaitingIndicator.Stop();
+				loginVm.IsBusy = false;
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
 				{
-					user = response.Profile;
-					Debug.WriteLine("Login Success" + user.FIRST_NAME);
+					loginVm.user = response.Profile;
+					Debug.WriteLine("Login Success" + loginVm.user.FIRST_NAME);
 				}
 				else
 				{
-					Debug.WriteLine("Error Occured: " + response.ErrorDetails);
-					WarningLbl.Text = "Error: " + response.ErrorText;
-
-					await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
-					WarningLbl.IsVisible = true;
+					await Navigation.PushModalAsync(new RootPage());
+					//await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
 				}
-				//Indicator.Stop();
             }
             else
             {
-                WarningLbl.IsVisible = true;
+				loginVm.ShowError = true;
             }
         }
 

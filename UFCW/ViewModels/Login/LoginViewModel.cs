@@ -13,13 +13,15 @@ namespace UFCW.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public User user;
-        public bool isBusy = false;
+		private string email;
+		private string password;
+        private bool isBusy = false;
+		private bool showErrorLabel = false;
 
         public LoginViewModel()
         {
             
         }
-		
         public List<SampleCategory> Items
 		{
 			get
@@ -27,6 +29,47 @@ namespace UFCW.ViewModels
 				return SamplesDefinition.SamplesCategoryList;
 			}
 		}
+		public bool ShowError
+		{
+			get { return showErrorLabel; }
+			set
+			{
+				if (showErrorLabel != value)
+				{
+					showErrorLabel = value;
+					OnPropertyChanged("ShowError");
+				}
+			}
+		}
+
+		public string Email
+		{
+			get { return email; }
+			set
+			{
+				if (email != value)
+				{
+					email = value;
+					OnPropertyChanged("Email");
+				}
+			}
+		}
+		public string Password
+		{
+			get { return password; }
+			set
+			{
+				if (password != value)
+				{
+					password = value;
+					OnPropertyChanged("Password");
+				}
+			}
+		}
+		/// <summary>
+		/// Gets or sets a value indicating for Activity Indicator.
+		/// </summary>
+		/// <value><c>true</c> if is busy; otherwise, <c>false</c>.</value>
 		public bool IsBusy
 		{
 			get { return isBusy; }
@@ -39,7 +82,10 @@ namespace UFCW.ViewModels
 				}
 			}
 		}
-
+		/// <summary>
+		/// Ons the property changed.
+		/// </summary>
+		/// <param name="propertyName">Property name.</param>
 		protected virtual void OnPropertyChanged(string propertyName)
 		{
 			var changed = PropertyChanged;
@@ -48,7 +94,12 @@ namespace UFCW.ViewModels
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-
+		/// <summary>
+		/// Logis the user.
+		/// </summary>
+		/// <returns>The user.</returns>
+		/// <param name="email">Email.</param>
+		/// <param name="password">Password.</param>
         public async Task<LoginResponse> LogiUser(string email, string password)
         {
             IsBusy = true;

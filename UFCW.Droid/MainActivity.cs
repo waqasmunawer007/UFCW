@@ -54,10 +54,11 @@ namespace UFCW.Droid
 			FormsHelper.ForceLoadingAssemblyContainingType(typeof(UXDivers.Effects.Effects));
 
 			LoadApplication(new App());
-
-            Window.SetStatusBarColor(new Android.Graphics.Color(87, 169, 237));
+			if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+			{ 
+				Window.SetStatusBarColor(new Android.Graphics.Color(87, 169, 237));
+			}
 		}
-
 		public override void OnConfigurationChanged(Android.Content.Res.Configuration newConfig)
 		{
 			base.OnConfigurationChanged(newConfig);
