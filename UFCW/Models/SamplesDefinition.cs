@@ -117,13 +117,13 @@ namespace UFCW
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
 					SamplesList = new List<Sample> {
-					new Sample("Home", typeof(HomePage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Menu),
+                    new Sample("Home", typeof(HomePage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
 					new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
-					new Sample("Pension", typeof(PensionPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
-					new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
+					//new Sample("Pension", typeof(PensionPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
+                    new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
 					new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
-					new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
-					new Sample("FAQ", typeof(FAQPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group)
+                    new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy),
+                    new Sample("FAQ", typeof(FAQPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help)
 
 					}
 				}
@@ -202,10 +202,10 @@ namespace UFCW
                 "LOGIN4",
                 new SampleCategory
                 {
-                    Name = "Changed Device",
+                    Name = "News",
                     BackgroundColor = Color.FromHex(_categoriesColors[0]),
                     BackgroundImage = SampleData.LoginImageGalleryItems[0],
-	                Icon = GrialShapesFont.PhoneAndroid,
+	                Icon = FontAwesomeFont.Copy,
 	                IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 5,
                Shape = GrialShapesFont.Circle,
@@ -248,7 +248,7 @@ namespace UFCW
 				"LOGIN6",
 				new SampleCategory
                 {
-                    Name = "FAQ",
+                    Name = "About Us",
                     BackgroundColor = Color.FromHex(_categoriesColors[0]),
                     BackgroundImage = SampleData.LoginImageGalleryItems[0],
                     Icon = GrialShapesFont.Help,
@@ -270,10 +270,10 @@ namespace UFCW
 				"LOGIN7",
 				new SampleCategory
 				{
-					Name = "Live Chat",
+					Name = "FAQ",
 					BackgroundColor = Color.FromHex(_categoriesColors[0]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Send,
+					Icon = GrialShapesFont.Help,
                     IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 1,
                    Shape = GrialShapesFont.Circle,
@@ -292,10 +292,10 @@ namespace UFCW
 				"LOGIN8",
 				new SampleCategory
 				{
-					Name = "Internet Banking",
+					Name = "Links",
 					BackgroundColor = Color.FromHex(_categoriesColors[0]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Star,
+                    Icon = GrialShapesFont.Group,
                     IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 5,
 					Shape = GrialShapesFont.Circle,

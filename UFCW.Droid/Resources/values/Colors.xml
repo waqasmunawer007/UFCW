@@ -3,4 +3,6 @@
 	<color name="AccentColor">#FF02447A</color>
 	<color name="ComplementColor">#FF525ABB</color>
 	<color name="BaseTextColor">#FF666666</color>
+	<color name="SplashColor">#FF57a9ed</color>
+    
 </resources>

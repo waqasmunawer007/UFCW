@@ -21,7 +21,7 @@
 			HeightRequest="64" 
 			WidthRequest="64" 
 			Source="{ StaticResource BrandImage }" 
-			BackgroundColor="{ DynamicResource BasePageColor}"
+			BackgroundColor="{ DynamicResource MainMenuBackgroundColor}"
 			/>		
 		<StackLayout
 			Grid.Column="1"

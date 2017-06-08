@@ -34,11 +34,11 @@ namespace UFCW.Views.Login
 				{
 					loginVm.user = response.Profile;
 					Debug.WriteLine("Login Success" + loginVm.user.FIRST_NAME);
+                    await Navigation.PushModalAsync(new RootPage());
 				}
 				else
 				{
-					await Navigation.PushModalAsync(new RootPage());
-					//await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
+					await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
 				}
             }
             else

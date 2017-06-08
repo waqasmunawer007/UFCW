@@ -49,6 +49,7 @@ namespace UFCW
 		public const string Forum = "\ue926";
 		public const string Group = "\ue7ef";
 		public const string Help = "\ue887";
+		public const string Home = "\uef015";
 		public const string Hexagon = "\ue903";
 		public const string Hourglass = "\ue88c";
 		public const string InsertFile = "\ue24d";
