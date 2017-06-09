@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -38,8 +38,8 @@ namespace UFCW.Views.Login
 				}
 				else
 				{
-					await Navigation.PushModalAsync(new RootPage());
-					//await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
+					//await Navigation.PushModalAsync(new RootPage());
+					await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
 				}
             }
             else
