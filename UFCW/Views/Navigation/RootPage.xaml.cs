@@ -46,7 +46,7 @@ namespace UFCW
 		private void InitializeMasterDetail()
 		{
 			Master = new MainMenuPage(new NavigationService(Navigation, LaunchSampleInDetail));
-			Detail = NavigationPageHelper.Create(new HomePage());
+			Detail = NavigationPageHelper.Create(new ParticipantDetailPage());
 		}
 
 		private void LaunchSampleInDetail(Page page, bool animated)

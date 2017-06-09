@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace UFCW
 {
-	public partial class PensionPage : ContentPage
+	public partial class DependentsPage : ContentPage
 	{
-		public PensionPage()
+		public DependentsPage()
 		{
 			InitializeComponent();
 		}

@@ -120,14 +120,8 @@
     <Compile Include="Views\Pages\Login\Templates\DashboardItemTemplateBase.xaml.cs">
       <DependentUpon>..\..\..\Login\Templates\DashboardItemTemplateBase.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Pages\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\PensionPage.xaml.cs">
-      <DependentUpon>PensionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\DocumentPage.xaml.cs">
       <DependentUpon>DocumentPage.xaml</DependentUpon>
@@ -145,6 +139,33 @@
     <Compile Include="Models\SampleCategory.cs" />
     <Compile Include="Models\SampleCoordinator.cs" />
     <Compile Include="Models\SamplesDefinition.cs" />
+    <Compile Include="Views\Pages\ParticipantDetailPage.xaml.cs">
+      <DependentUpon>ParticipantDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\BenefitPlanPage.xaml.cs">
+      <DependentUpon>BenefitPlanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ChecksIssuedPage.xaml.cs">
+      <DependentUpon>ChecksIssuedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\DependentsPage.xaml.cs">
+      <DependentUpon>DependentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\TimeLossPage.xaml.cs">
+      <DependentUpon>TimeLossPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\EligibilityResportPage.xaml.cs">
+      <DependentUpon>EligibilityResportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SearchClaimsPage.xaml.cs">
+      <DependentUpon>SearchClaimsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ClaimsReportPage.xaml.cs">
+      <DependentUpon>ClaimsReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SelfPaymentPage.xaml.cs">
+      <DependentUpon>SelfPaymentPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -221,13 +242,7 @@
     <EmbeddedResource Include="Views\Pages\Login\Templates\DashboardItemTemplateBase.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\HomePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\AccountPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\PensionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\DocumentPage.xaml">
@@ -240,6 +255,33 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\FAQPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\ParticipantDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\BenefitPlanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\ChecksIssuedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\DependentsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\TimeLossPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\EligibilityResportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\SearchClaimsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\ClaimsReportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\SelfPaymentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

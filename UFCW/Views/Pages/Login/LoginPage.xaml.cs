@@ -38,7 +38,8 @@ namespace UFCW.Views.Login
 				}
 				else
 				{
-					await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
+					await Navigation.PushModalAsync(new RootPage());
+					//await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
 				}
             }
             else

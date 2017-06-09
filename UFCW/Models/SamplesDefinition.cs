@@ -106,7 +106,51 @@ namespace UFCW
 			var menuCategories = new Dictionary<string, SampleCategory>();
 
 			menuCategories.Add(
-				"HamburgerMenu",
+				"EiligibilityMenu",
+				new SampleCategory
+				{
+					Name = "Eligibility",
+					BackgroundColor = Color.FromHex(_categoriesColors[0]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.AccountCircle,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+					SamplesList = new List<Sample> {
+					new Sample("Participant Details", typeof(ParticipantDetailPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
+					new Sample("My Benefit Plans", typeof(BenefitPlanPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
+					new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
+					new Sample("My Dependents", typeof(DependentsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Dashboard),
+					new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
+					new Sample("Eligibility Report", typeof(EligibilityResportPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Dashboard),
+
+					}
+				}
+
+			);
+			menuCategories.Add(
+			"ClaimsMenu",
+			new SampleCategory
+			{
+				Name = "Claims",
+				BackgroundColor = Color.FromHex(_categoriesColors[0]),
+				BackgroundImage = SampleData.LoginImageGalleryItems[0],
+				Icon = GrialShapesFont.AccountCircle,
+				IconColor = Color.FromHex(_categoriesColors[0]),
+				Badge = 2,
+				Shape = GrialShapesFont.Circle,
+				SamplesList = new List<Sample> {
+					new Sample("Search Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Paste),
+					new Sample("Claims Report", typeof(ClaimsReportPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Paste),
+					new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Paste),
+					new Sample("Self Payments", typeof(SelfPaymentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
+					new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Paste)
+				}
+			}
+
+			);
+			menuCategories.Add(
+				"GeneralMenu",
 				new SampleCategory
 				{
 					Name = "Menu",
@@ -117,9 +161,7 @@ namespace UFCW
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
 					SamplesList = new List<Sample> {
-                    new Sample("Home", typeof(HomePage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
 					new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
-					//new Sample("Pension", typeof(PensionPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
                     new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
 					new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
                     new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy),
@@ -127,7 +169,9 @@ namespace UFCW
 
 					}
 				}
+				
 			);
+		
 			return menuCategories;
 		}
 		internal static Dictionary<string, SampleCategory> CreateSamples()

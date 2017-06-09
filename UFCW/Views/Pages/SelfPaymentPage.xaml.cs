@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace UFCW
 {
-	public partial class HomePage : ContentPage
+	public partial class SelfPaymentPage : ContentPage
 	{
-		public HomePage()
+		public SelfPaymentPage()
 		{
 			InitializeComponent();
 		}
