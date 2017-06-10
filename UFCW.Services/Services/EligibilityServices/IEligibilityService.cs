@@ -6,6 +6,6 @@ namespace UFCW.Services.Services.EligibilityServices
 {
     public interface IEligibilityService
     {
-        Task<TimeLossServerResponse> FetchTimeLoss(String Token,String SSN, String Email); //Fetch TimeLoss
+        Task<TimeLoss[]> FetchTimeLoss(String Token,String SSN, String Email); //Fetch TimeLoss
 	}
 }

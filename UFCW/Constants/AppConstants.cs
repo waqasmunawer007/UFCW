@@ -9,6 +9,7 @@ namespace UFCW.Constants
         public static string BaseUrl = BaseUrlLive;
 
         public static string LoginApi = "Login";
+        public static string TimeLossApi = "Eligibility/TimeLoss";
 
 
         public const string RESPONSE_CODE_OK = "200";

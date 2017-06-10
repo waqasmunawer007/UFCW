@@ -23,8 +23,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\User\LoginResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\IUserService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\TimeLossServerResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\IEligibilityService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\EligibilityService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\TimeLoss.cs" />
   </ItemGroup>
 </Project>

@@ -13,7 +13,7 @@ using UFCW.Services.Models.Eligibility;
 
 namespace UFCW.Services.UserService
 {
-    public class Eligibility : BaseService, IEligibilityService
+    public class EligibilityService : BaseService, IEligibilityService
     {
        /// <summary>
        /// Fetchs the time loss.
@@ -22,9 +22,20 @@ namespace UFCW.Services.UserService
        /// <param name="Token">Token.</param>
        /// <param name="SSN">Ssn.</param>
        /// <param name="Email">Email.</param>
-        public Task<TimeLossServerResponse> FetchTimeLoss(string Token, string SSN, string Email)
+        public async Task<TimeLoss[]> FetchTimeLoss(string Token, string SSN, string Email)
         {
-            throw new NotImplementedException();
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("Token", Token);
+            parameters.Add("SSN", SSN);
+            parameters.Add("Email", Email);
+
+			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+			HttpResponseMessage responseJson = await client.PostAsync(AppConstants.TimeLossApi, content);
+			var json = await responseJson.Content.ReadAsStringAsync();
+
+            var timeLossResponse = JsonConvert.DeserializeObject<TimeLoss[]>(json);
+			return timeLossResponse;
+
         }
     }
 }
