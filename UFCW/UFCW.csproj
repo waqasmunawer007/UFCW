@@ -167,6 +167,8 @@
       <DependentUpon>SelfPaymentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Eligibility\TImeLossViewModel.cs" />
+    <Compile Include="Constants\WebApiConstants.cs" />
+    <Compile Include="ViewModels\BenifitsViewModel.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
