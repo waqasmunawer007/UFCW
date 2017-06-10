@@ -13,6 +13,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\UserService\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\User\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\Eligibility\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\UserService.cs" />
@@ -21,5 +23,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\User\LoginResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\IUserService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\TimeLossServerResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\IEligibilityService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\EligibilityService.cs" />
   </ItemGroup>
 </Project>
