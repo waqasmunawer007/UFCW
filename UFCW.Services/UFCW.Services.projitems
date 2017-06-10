@@ -15,6 +15,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Models\User\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\Eligibility\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\Eligibility\Benifits\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\UserService.cs" />
@@ -26,5 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\TimeLossServerResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\IEligibilityService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\EligibilityService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Benifits\Benifits.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Benifits\BenifitsServerResponse.cs" />
   </ItemGroup>
 </Project>
