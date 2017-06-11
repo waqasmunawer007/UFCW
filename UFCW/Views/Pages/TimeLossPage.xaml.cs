@@ -4,12 +4,14 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using UFCW.Services.Models.Eligibility;
 using UFCW.ViewModels;
+using UFCW.Views.Pages;
 using Xamarin.Forms;
 
 namespace UFCW
 {
 	public partial class TimeLossPage : ContentPage
 	{
+        
         TimeLossViewModel timeLossViewModel;
 		public TimeLossPage()
 		{
@@ -45,6 +47,19 @@ namespace UFCW
 			{
                 timeLossViewModel.timeLossList.Add(timeLoss);
 			}
+		}
+        /// <summary>
+        /// Handles the TimeLoss item tapped event.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
+        protected async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+		{
+            var selectedTimeLoss = ((ListView)sender).SelectedItem;
+            TimeLoss timeLoss = (TimeLoss)selectedTimeLoss;
+            TimeLossDetailsPage timeLossDetailPage = new TimeLossDetailsPage();
+            timeLossDetailPage.BindingContext = timeLoss;
+            await Navigation.PushAsync(timeLossDetailPage);
 		}
 	}
 }

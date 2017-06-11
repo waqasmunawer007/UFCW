@@ -11,7 +11,6 @@ namespace UFCW
 	public partial class App : Application
 	{
 		public static MasterDetailPage MasterDetailPage;
-
 		public App()
 		{
 			InitializeComponent();
@@ -23,7 +22,7 @@ namespace UFCW
 
 		public static void LoadHomePage()
         {
-           
+            
         }
 	}
 }

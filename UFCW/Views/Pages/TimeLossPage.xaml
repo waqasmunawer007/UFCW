@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.TimeLossPage">
 	<ContentPage.Content>
-        <StackLayout VerticalOptions = "FillAndExpand" BackgroundColor="White" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-        <ListView x:Name="TimeLossList" >
-                <ListView.RowHeight>150</ListView.RowHeight>
+        <StackLayout VerticalOptions = "FillAndExpand" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+        <ListView x:Name="TimeLossList" ItemTapped="Handle_ItemTapped" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                        <StackLayout BackgroundColor="Gray" Padding="10,0,10,0" Spacing="10" 
-                        Orientation="Vertical">
-                             <Label Text="{Binding DraftId}" Font="Bold" TextColor="Black" />
-                            <Label Text="{Binding InsuredLastName}" TextColor="Gray" />
+                             <StackLayout BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,10,10,10"
+                                Orientation="Horizontal"> 
+                                 <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding DraftCheckNumber, StringFormat='Check Number: {0:N}'}"/>
+                                 <Label HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest = "20" Margin="0,0,20,0"  Style="{DynamicResource MainMenuRightChevronStyle}"/>
+                            </StackLayout>
+                             <!--<Grid
+                                BackgroundColor="{ DynamicResource BasePageColor }"
+                                ColumnSpacing="20"
+                                RowSpacing="5"
+                                Margin="10,10,10,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
 
-                        </StackLayout>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding SSN, StringFormat='SSN: {0:N}'}"/>
+                                        <Label Grid.Row="1" Grid.Column="0"  Text="{Binding DraftCheckNumber, StringFormat='Draft {0:N}'}"/>
+                                        <Label Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="End" WidthRequest = "20" Margin="0,0,20,0"  Style="{DynamicResource MainMenuRightChevronStyle}"/>
+                                </Grid>-->
                     </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

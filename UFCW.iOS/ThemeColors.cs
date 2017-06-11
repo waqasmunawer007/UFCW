@@ -22,6 +22,7 @@ namespace UFCW.iOS
 			{ "CustomNavBarTextColor", Color.FromHex("#FFFFFF") },
 			{ "ListViewItemTextColor", Color.FromHex("#666666") },
 			{ "AboutHeaderBackgroundColor", Color.FromHex("#FFFFFF") },
+			{ "DetailLabelHeaderColor", Color.FromHex("#000000") },
 			{ "BasePageColor", Color.FromHex("#FFFFFF") },
 			{ "BaseTabbedPageColor", Color.FromHex("#fafafa") },
 			{ "MainWrapperBackgroundColor", Color.FromHex("#EFEFEF") },

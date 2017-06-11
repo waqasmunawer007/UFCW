@@ -39,6 +39,7 @@
 	<Color x:Key="ListViewItemTextColor">#666666</Color>
 	<Color x:Key="AboutHeaderBackgroundColor">#FFFFFF</Color>
 
+    <Color x:Key="DetailLabelHeaderColor">#000000</Color>
 	<Color x:Key="BasePageColor">#FFFFFF</Color>
 	<Color x:Key="BaseTabbedPageColor">#fafafa</Color>
 
