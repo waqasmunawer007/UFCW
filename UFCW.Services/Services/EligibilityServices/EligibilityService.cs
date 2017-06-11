@@ -11,6 +11,7 @@ using System.Text;
 using UFCW.Services.Services.EligibilityServices;
 using UFCW.Services.Models.Eligibility;
 using UFCW.Services.Models.Eligibility.Benifits;
+using UFCW.Services.Models.Eligibility.ChecksIssued;
 
 namespace UFCW.Services.UserService
 {
@@ -62,6 +63,56 @@ namespace UFCW.Services.UserService
             //    Debug.WriteLine("Answer: " + item.Answer);
             //}
             return benifitsList;
+		}
+
+		/// <summary>
+		/// Fetchs issued Checks details
+		/// </summary>
+		/// <returns>The Checks oissued.</returns>
+		/// <param name="token">Token.</param>
+		/// <param name="SSN">Ssn.</param>
+		/// <param name="email">Email.</param>
+		public async Task<ChecksIssued[]> FetchChecksIssued(string token, string SSN, string email)
+		{
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add(WebApiConstants.TOKEN, token);
+			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.EMAIL, email);
+
+			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
+            HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.ChecksIssuedApi, content);
+			var json = await responseJson.Content.ReadAsStringAsync();
+			var benifitsList = JsonConvert.DeserializeObject<ChecksIssued[]>(json);
+			foreach (var item in benifitsList)
+			{
+                Debug.WriteLine("Issue Date: " + item.IssueDate);
+			}
+			return benifitsList;
+		}
+
+		/// <summary>
+		/// Fetchs Dependents details
+		/// </summary>
+		/// <returns>The Checks oissued.</returns>
+		/// <param name="token">Token.</param>
+		/// <param name="SSN">Ssn.</param>
+		/// <param name="email">Email.</param>
+        public async Task<Dependants[]> FetchDependents(string token, string SSN, string email)
+		{
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add(WebApiConstants.TOKEN, token);
+			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.EMAIL, email);
+
+			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
+            HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.DependentsApi, content);
+			var json = await responseJson.Content.ReadAsStringAsync();
+			var dependentssList = JsonConvert.DeserializeObject<Dependants[]>(json);
+			foreach (var item in dependentssList)
+			{
+                Debug.WriteLine("Issue Date: " + item.DateCreated);
+			}
+			return dependentssList;
 		}
     }
 }
