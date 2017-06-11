@@ -32,5 +32,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Benifits\BenifitsServerResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\ChecksIssued\ChecksIssued.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Dependants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Participant.cs" />
   </ItemGroup>
 </Project>

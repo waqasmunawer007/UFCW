@@ -93,7 +93,7 @@ namespace UFCW.Services.UserService
 		/// <summary>
 		/// Fetchs Dependents details
 		/// </summary>
-		/// <returns>The Checks oissued.</returns>
+		/// <returns>The Dependents list.</returns>
 		/// <param name="token">Token.</param>
 		/// <param name="SSN">Ssn.</param>
 		/// <param name="email">Email.</param>
@@ -107,12 +107,37 @@ namespace UFCW.Services.UserService
 			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
             HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.DependentsApi, content);
 			var json = await responseJson.Content.ReadAsStringAsync();
-			var dependentssList = JsonConvert.DeserializeObject<Dependants[]>(json);
-			foreach (var item in dependentssList)
+			var dependentsList = JsonConvert.DeserializeObject<Dependants[]>(json);
+			foreach (var item in dependentsList)
 			{
                 Debug.WriteLine("Issue Date: " + item.DateCreated);
 			}
-			return dependentssList;
+			return dependentsList;
+		}
+
+		/// <summary>
+		/// Fetchs Participants details
+		/// </summary>
+		/// <returns>The Participants.</returns>
+		/// <param name="token">Token.</param>
+		/// <param name="SSN">Ssn.</param>
+		/// <param name="email">Email.</param>
+		public async Task<Participant[]> FetchParticipants(string token, string SSN, string email)
+		{
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add(WebApiConstants.TOKEN, token);
+			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.EMAIL, email);
+
+			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
+            HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.ParticipantApi, content);
+			var json = await responseJson.Content.ReadAsStringAsync();
+            var participantsList = JsonConvert.DeserializeObject<Participant[]>(json);
+			foreach (var item in participantsList)
+			{
+				//Debug.WriteLine("Issue Date: " + item.DateCreated);
+			}
+			return participantsList;
 		}
     }
 }
