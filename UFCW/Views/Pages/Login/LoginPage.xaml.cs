@@ -35,7 +35,8 @@ namespace UFCW.Views.Login
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
 				{
 					loginVm.user = response.Profile;
-					Debug.WriteLine("Login Success" + loginVm.user.FIRST_NAME);
+                    App.user = response.Profile;
+                    Debug.WriteLine("Login Success" + loginVm.user.FirstName);
                     await Navigation.PushModalAsync(new RootPage());
 				}
 				else

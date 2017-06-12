@@ -2,29 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.BenefitPlanPage" Title="My Benefit Plans">
 	<ContentPage.Content>
         <StackLayout VerticalOptions = "FillAndExpand" BackgroundColor="Gray" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-<!--        <Button WidthRequest="100" HeightRequest="50" HorizontalOptions = "Center" VerticalOptions = "Start" Text ="Fetch Benefits" Clicked="FetchBenifits_Clicked" BackgroundColor = "Lime"/>-->
-
         <ListView x:Name="BenifitsList" HasUnevenRows="true">
-                <!--<ListView.RowHeight>150</ListView.RowHeight>-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                        <StackLayout BackgroundColor="Blue" Padding="10,0,10,0" Spacing="10" 
+                        <StackLayout BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,0,10,0" Spacing="10" 
                         Orientation="Vertical">
-                             <Label Text="{Binding Question}" Font="Bold" TextColor="Black" />
-                            <Label Text="{Binding Answer}" TextColor="Gray" />
-                          <!--    <WebView VerticalOptions="Center">
-                                <WebView.Source >
-                                    <HtmlWebViewSource Html="{Binding Answer}" />
-                                </WebView.Source>
-                           </WebView>-->
-
+                             <Label Text="{Binding Question}" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
+                            <Label Text="{Binding Answer}" TextColor="{DynamicResource BaseTextColor}" Margin="0,5,0,5"/>
                         </StackLayout>
                     </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
          </StackLayout> 
 	</ContentPage.Content>
 </ContentPage>

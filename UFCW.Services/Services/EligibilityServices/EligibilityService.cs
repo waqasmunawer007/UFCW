@@ -11,7 +11,7 @@ using System.Text;
 using UFCW.Services.Services.EligibilityServices;
 using UFCW.Services.Models.Eligibility;
 using UFCW.Services.Models.Eligibility.Benifits;
-using UFCW.Services.Models.Eligibility.ChecksIssued;
+using UFCW.Services.Models.Eligibility;
 
 namespace UFCW.Services.UserService
 {
@@ -72,7 +72,7 @@ namespace UFCW.Services.UserService
 		/// <param name="token">Token.</param>
 		/// <param name="SSN">Ssn.</param>
 		/// <param name="email">Email.</param>
-		public async Task<ChecksIssued[]> FetchChecksIssued(string token, string SSN, string email)
+		public async Task<CheckIssued[]> FetchChecksIssued(string token, string SSN, string email)
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, token);
@@ -82,7 +82,7 @@ namespace UFCW.Services.UserService
 			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
             HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.ChecksIssuedApi, content);
 			var json = await responseJson.Content.ReadAsStringAsync();
-			var benifitsList = JsonConvert.DeserializeObject<ChecksIssued[]>(json);
+			var benifitsList = JsonConvert.DeserializeObject<CheckIssued[]>(json);
 			foreach (var item in benifitsList)
 			{
                 Debug.WriteLine("Issue Date: " + item.IssueDate);
@@ -97,7 +97,7 @@ namespace UFCW.Services.UserService
 		/// <param name="token">Token.</param>
 		/// <param name="SSN">Ssn.</param>
 		/// <param name="email">Email.</param>
-        public async Task<Dependants[]> FetchDependents(string token, string SSN, string email)
+        public async Task<Dependant[]> FetchDependents(string token, string SSN, string email)
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, token);
@@ -107,37 +107,12 @@ namespace UFCW.Services.UserService
 			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
             HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.DependentsApi, content);
 			var json = await responseJson.Content.ReadAsStringAsync();
-			var dependentsList = JsonConvert.DeserializeObject<Dependants[]>(json);
+			var dependentsList = JsonConvert.DeserializeObject<Dependant[]>(json);
 			foreach (var item in dependentsList)
 			{
                 Debug.WriteLine("Issue Date: " + item.DateCreated);
 			}
 			return dependentsList;
-		}
-
-		/// <summary>
-		/// Fetchs Participants details
-		/// </summary>
-		/// <returns>The Participants.</returns>
-		/// <param name="token">Token.</param>
-		/// <param name="SSN">Ssn.</param>
-		/// <param name="email">Email.</param>
-		public async Task<Participant[]> FetchParticipants(string token, string SSN, string email)
-		{
-			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, SSN);
-			parameters.Add(WebApiConstants.EMAIL, email);
-
-			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
-            HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.ParticipantApi, content);
-			var json = await responseJson.Content.ReadAsStringAsync();
-            var participantsList = JsonConvert.DeserializeObject<Participant[]>(json);
-			foreach (var item in participantsList)
-			{
-				//Debug.WriteLine("Issue Date: " + item.DateCreated);
-			}
-			return participantsList;
 		}
     }
 }

@@ -26,9 +26,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\IEligibilityService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\EligibilityService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\TimeLoss.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Dependants.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Participant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Dependant.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Benifits.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\ChecksIssued.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\CheckIssued.cs" />
   </ItemGroup>
 </Project>

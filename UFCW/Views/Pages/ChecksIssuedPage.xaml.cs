@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using UFCW.Services.Models.Eligibility.ChecksIssued;
+using UFCW.Services.Models.Eligibility;
 using UFCW.ViewModels.Eligibility;
+using UFCW.Views.Pages;
 using Xamarin.Forms;
 
 namespace UFCW
@@ -21,17 +22,31 @@ namespace UFCW
         public async void FetchChecksIssued()
         {
 			checksIssuedVM.IsBusy = true;
-			ChecksIssued[] banifits = await checksIssuedVM.FetchChecksIssued();
-			UpdatePage(banifits);
+            CheckIssued[] checks = await checksIssuedVM.FetchChecksIssued();
+			UpdatePage(checks);
 			checksIssuedVM.IsBusy = false;
         }
 
-		private void UpdatePage(ChecksIssued[] data)
+		private void UpdatePage(CheckIssued[] data)
 		{
-			foreach (ChecksIssued checkDetail in data)
+			foreach (CheckIssued checkDetail in data)
 			{
                 checksIssuedVM.checksIssuedList.Add(checkDetail);
 			}
+		}
+
+		/// <summary>
+		/// Handles the Check Issued tapped event.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
+		protected async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+		{
+            var selectedCheck = ((ListView)sender).SelectedItem;
+            CheckIssued checkIssued = (CheckIssued)selectedCheck;
+            CheckIssuedDetailPage checksIssuedDetailPage = new CheckIssuedDetailPage();
+			checksIssuedDetailPage.BindingContext = checkIssued;
+			await Navigation.PushAsync(checksIssuedDetailPage);
 		}
 	}
 }

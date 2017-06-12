@@ -1,14 +1,13 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace UFCW.Services.Models.Eligibility.ChecksIssued
+namespace UFCW.Services.Models.Eligibility
 {
-    public class ChecksIssued
+    public class CheckIssued
     {
         [JsonProperty(PropertyName = "DRAFT_ID")]
         public string DraftID { get; set; }
-        [JsonProperty(PropertyName = "SSN")]
-		public string SSN { get; set; }
+ 		public string SSN { get; set; }
         [JsonProperty(PropertyName = "ISSUE_DATE")]
 		public string IssueDate { get; set; }
         [JsonProperty(PropertyName = "DRAFT_CHECK_NUMBER")]

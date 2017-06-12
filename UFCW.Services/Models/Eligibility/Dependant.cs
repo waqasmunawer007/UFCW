@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace UFCW.Services.Models.Eligibility
 {
-    public class Dependants
+    public class Dependant
     {
         [JsonProperty(PropertyName = "DEPENDENT_ID")]
 		public string DependentID { get; set; }

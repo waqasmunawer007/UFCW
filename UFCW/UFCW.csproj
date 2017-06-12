@@ -175,6 +175,12 @@
     <Compile Include="ViewModels\Eligibility\ChecksIssuedViewModel.cs" />
     <Compile Include="ViewModels\Eligibility\DependentsViewModel.cs" />
     <Compile Include="ViewModels\Eligibility\ParticipantsViewModel.cs" />
+    <Compile Include="Views\Pages\CheckIssuedDetailPage.xaml.cs">
+      <DependentUpon>CheckIssuedDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\DependantsDetailPage.xaml.cs">
+      <DependentUpon>DependantsDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -294,6 +300,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\TimeLossDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\CheckIssuedDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\DependantsDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

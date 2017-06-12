@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using UFCW.Services.UserService;
 using System.Collections.ObjectModel;
-using UFCW.Services.Models.Eligibility.ChecksIssued;
+using UFCW.Services.Models.Eligibility;
 using System.Threading.Tasks;
 
 namespace UFCW.ViewModels.Eligibility
@@ -10,7 +10,7 @@ namespace UFCW.ViewModels.Eligibility
     public class ChecksIssuedViewModel
     {
 		public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<ChecksIssued> checksIssuedList;
+        public ObservableCollection<CheckIssued> checksIssuedList;
 
 		private bool isBusy = false;
 
@@ -20,7 +20,7 @@ namespace UFCW.ViewModels.Eligibility
 
 		public ChecksIssuedViewModel()
 		{
-			checksIssuedList = new ObservableCollection<ChecksIssued>();
+			checksIssuedList = new ObservableCollection<CheckIssued>();
 		}
 
 
@@ -41,7 +41,7 @@ namespace UFCW.ViewModels.Eligibility
 			}
 		}
 
-		public async Task<ChecksIssued[]> FetchChecksIssued()
+		public async Task<CheckIssued[]> FetchChecksIssued()
 		{
 			var beniftisService = new EligibilityService();
             return await beniftisService.FetchChecksIssued(token, ssn, email);

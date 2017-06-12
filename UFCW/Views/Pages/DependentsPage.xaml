@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.DependentsPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.DependentsPage" Title="My Dependants">
 	<ContentPage.Content>
-		<StackLayout VerticalOptions = "FillAndExpand" BackgroundColor="Gray" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-<!--        <Button WidthRequest="100" HeightRequest="50" HorizontalOptions = "Center" VerticalOptions = "Start" Text ="Fetch Benefits" Clicked="FetchBenifits_Clicked" BackgroundColor = "Lime"/>-->
-
-        <ListView x:Name="DependentsList" HasUnevenRows="true">
-                <!--<ListView.RowHeight>150</ListView.RowHeight>-->
+		  <StackLayout VerticalOptions = "FillAndExpand" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+        <ListView x:Name="DependentsList" ItemTapped="Handle_ItemTapped" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                        <StackLayout BackgroundColor="Blue" Padding="10,0,10,0" Spacing="10" 
-                        Orientation="Vertical">
-                             <Label Text="{Binding DependentID}" Font="Bold" TextColor="Black" />
-                            <Label Text="{Binding DependentSSN}" TextColor="Gray" />
-                          <!--    <WebView VerticalOptions="Center">
-                                <WebView.Source >
-                                    <HtmlWebViewSource Html="{Binding Answer}" />
-                                </WebView.Source>
-                           </WebView>-->
-
-                        </StackLayout>
-                    </ViewCell>
+                             <StackLayout BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,10,10,10"
+                                Orientation="Horizontal"> 
+                                 <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding FirstName, StringFormat='Name: {0:N}'}"/>
+                                 <Label HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest = "20" Margin="0,0,20,0"  Style="{DynamicResource MainMenuRightChevronStyle}"/>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-         </StackLayout> 
+         </StackLayout>  
 	</ContentPage.Content>
 </ContentPage>

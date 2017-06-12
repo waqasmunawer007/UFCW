@@ -10,7 +10,7 @@ namespace UFCW.ViewModels.Eligibility
     public class DependentsViewModel
     {
 		public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<Dependants> dependentsList;
+        public ObservableCollection<Dependant> dependentsList;
 
 		private bool isBusy = false;
 
@@ -20,7 +20,7 @@ namespace UFCW.ViewModels.Eligibility
 
 		public DependentsViewModel()
 		{
-            dependentsList = new ObservableCollection<Dependants>();
+            dependentsList = new ObservableCollection<Dependant>();
 		}
 
 
@@ -41,7 +41,7 @@ namespace UFCW.ViewModels.Eligibility
 			}
 		}
 
-        public async Task<Dependants[]> FetchDependents()
+        public async Task<Dependant[]> FetchDependents()
 		{
 			var beniftisService = new EligibilityService();
             return await beniftisService.FetchDependents(token, ssn, email);

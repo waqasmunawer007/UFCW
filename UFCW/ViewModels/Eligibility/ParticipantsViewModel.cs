@@ -10,7 +10,7 @@ namespace UFCW.ViewModels.Eligibility
     public class ParticipantsViewModel
     {
 		public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<Participant> participantsList;
+        //public ObservableCollection<Participant> participantsList;
 
 		private bool isBusy = false;
 
@@ -20,7 +20,7 @@ namespace UFCW.ViewModels.Eligibility
 
 		public ParticipantsViewModel()
 		{
-            participantsList = new ObservableCollection<Participant>();
+            //participantsList = new ObservableCollection<Participant>();
 		}
 
 
@@ -41,11 +41,11 @@ namespace UFCW.ViewModels.Eligibility
 			}
 		}
 
-        public async Task<Participant[]> FetchParticipants()
-		{
-			var beniftisService = new EligibilityService();
-            return await beniftisService.FetchParticipants(token, ssn, email);
-		}
+  //      public async Task<Participant[]> FetchParticipants()
+		//{
+		//	var beniftisService = new EligibilityService();
+  //          return await beniftisService.FetchParticipants(token, ssn, email);
+		//}
 
 		/// <summary>
 		/// Ons the property changed.
