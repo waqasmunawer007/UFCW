@@ -19,10 +19,10 @@ namespace UFCW
 		}
 		public async void FetchParticipants()
 		{
-			participantsVM.IsBusy = true;
-            Participant[] participants = await participantsVM.FetchParticipants();
-			UpdatePage(participants);
-			participantsVM.IsBusy = false;
+			//participantsVM.IsBusy = true;
+   //         Participant[] participants = await participantsVM.FetchParticipants();
+			//UpdatePage(participants);
+			//participantsVM.IsBusy = false;
 		}
 
 		private void UpdatePage(Participant[] data)
