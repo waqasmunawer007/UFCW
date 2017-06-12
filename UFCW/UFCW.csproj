@@ -168,10 +168,13 @@
     </Compile>
     <Compile Include="ViewModels\Eligibility\TImeLossViewModel.cs" />
     <Compile Include="Constants\WebApiConstants.cs" />
-    <Compile Include="ViewModels\BenifitsViewModel.cs" />
     <Compile Include="Views\Pages\TimeLossDetailsPage.xaml.cs">
       <DependentUpon>TimeLossDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Eligibility\BenifitsViewModel.cs" />
+    <Compile Include="ViewModels\Eligibility\ChecksIssuedViewModel.cs" />
+    <Compile Include="ViewModels\Eligibility\DependentsViewModel.cs" />
+    <Compile Include="ViewModels\Eligibility\ParticipantsViewModel.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

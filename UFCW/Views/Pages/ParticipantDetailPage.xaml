@@ -1,6 +1,30 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.ParticipantDetailPage">
 	<ContentPage.Content>
-		<Label VerticalOptions = "CenterAndExpand" HorizontalOptions = "CenterAndExpand" Text ="Participant Detail Page"/>
+		<StackLayout VerticalOptions = "FillAndExpand" BackgroundColor="Gray" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+<!--        <Button WidthRequest="100" HeightRequest="50" HorizontalOptions = "Center" VerticalOptions = "Start" Text ="Fetch Benefits" Clicked="FetchBenifits_Clicked" BackgroundColor = "Lime"/>-->
+
+        <ListView x:Name="ParticipantsList" HasUnevenRows="true">
+                <!--<ListView.RowHeight>150</ListView.RowHeight>-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <StackLayout BackgroundColor="Blue" Padding="10,0,10,0" Spacing="10" 
+                        Orientation="Vertical">
+                            <!-- <Label Text="{Binding DependentID}" Font="Bold" TextColor="Black" />
+                            <Label Text="{Binding DependentSSN}" TextColor="Gray" />-->
+                          <!--    <WebView VerticalOptions="Center">
+                                <WebView.Source >
+                                    <HtmlWebViewSource Html="{Binding Answer}" />
+                                </WebView.Source>
+                           </WebView>-->
+
+                        </StackLayout>
+                    </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+         </StackLayout> 
 	</ContentPage.Content>
 </ContentPage>

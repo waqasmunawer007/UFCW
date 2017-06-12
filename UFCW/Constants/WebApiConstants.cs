@@ -3,8 +3,12 @@ namespace UFCW.Constants
 {
     public class WebApiConstants
     {
-        #region API's
-        public static string BenifitsApi = "Eligibility/BenefitPlans";
+		#region API's
+		public static string BenifitsApi = "Eligibility/BenefitPlans";
+		public static string ParticipantApi = "Eligibility/Participant";
+		public static string ChecksIssuedApi = "Eligibility/ChecksIssued";
+		public static string TimeLossApi = "Eligibility/TimeLoss";
+		public static string DependentsApi = "Eligibility/Dependents";
         #endregion
 
 
