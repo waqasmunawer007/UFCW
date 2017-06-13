@@ -117,12 +117,12 @@ namespace UFCW
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
 					SamplesList = new List<Sample> {
-					new Sample("Participant Details", typeof(ParticipantDetailPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
-					new Sample("My Benefit Plans", typeof(BenefitPlanPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
-					new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
-					new Sample("My Dependents", typeof(DependentsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Dashboard),
-					new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Dashboard),
-					new Sample("Eligibility Report", typeof(EligibilityResportPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Dashboard),
+                    new Sample("Participant Details", typeof(ParticipantDetailPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+                    new Sample("My Benefit Plans", typeof(BenefitPlanPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help),
+                    new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.CreditCard),
+                    new Sample("My Dependents", typeof(DependentsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Group),
+                    new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder),
+                    new Sample("Eligibility Report", typeof(EligibilityResportPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy),
 
 					}
 				}
@@ -140,11 +140,11 @@ namespace UFCW
 				Badge = 2,
 				Shape = GrialShapesFont.Circle,
 				SamplesList = new List<Sample> {
-					new Sample("Search Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Paste),
-					new Sample("Claims Report", typeof(ClaimsReportPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Paste),
-					new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Paste),
+                    new Sample("Search Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Search),
+                    new Sample("Claims Report", typeof(ClaimsReportPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy),
+                    new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.CreditCard),
 					new Sample("Self Payments", typeof(SelfPaymentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
-					new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Paste)
+                    new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder)
 				}
 			}
 
@@ -161,9 +161,9 @@ namespace UFCW
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
 					SamplesList = new List<Sample> {
-					new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
-                    new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
-					new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
+                    new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+                    new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile),
+                    new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public),
                     new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy),
                     new Sample("FAQ", typeof(FAQPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help)
 
@@ -185,7 +185,7 @@ namespace UFCW
                     Name = "Register",
                     BackgroundColor = Color.FromHex(_categoriesColors[0]),
                     BackgroundImage = SampleData.LoginImageGalleryItems[0],
-                    Icon = GrialShapesFont.AccountCircle,
+                    Icon = GrialShapesFont.Person,
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 2,
                 	Shape = GrialShapesFont.Circle,
@@ -273,7 +273,7 @@ namespace UFCW
                     Name = "Contact Us",
                     BackgroundColor = Color.FromHex(_categoriesColors[0]),
                     BackgroundImage = SampleData.LoginImageGalleryItems[0],
-	                Icon = GrialShapesFont.Email,
+                Icon = GrialShapesFont.SocialWhatsapp,
 	                IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 2,
                 Shape = GrialShapesFont.Circle,
@@ -339,7 +339,7 @@ namespace UFCW
 					Name = "Links",
 					BackgroundColor = Color.FromHex(_categoriesColors[0]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-                    Icon = GrialShapesFont.Group,
+                    Icon = GrialShapesFont.Public,
                     IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 5,
 					Shape = GrialShapesFont.Circle,
