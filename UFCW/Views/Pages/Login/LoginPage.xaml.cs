@@ -21,15 +21,15 @@ namespace UFCW.Views.Login
 
         async Task LoginClicked()
 		{
-			//if(!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
+			if(!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
             {
                 //Indicator.Start();
 				loginVm.ShowError = false;
                 loginVm.IsBusy = true;
 				//WaitingIndicator.Start();
-				//LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
+				LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
 
-				LoginResponse response = await loginVm.LogiUser("Sam@paysolar.com", "P@ssw0rd");
+				//LoginResponse response = await loginVm.LogiUser("Sam@paysolar.com", "P@ssw0rd");
                // WaitingIndicator.Stop();
 				loginVm.IsBusy = false;
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
@@ -46,10 +46,10 @@ namespace UFCW.Views.Login
 					await this.DisplayAlert("Login Failed!", "\n" + response.ErrorDetails, "Try Again!");
 				}
             }
-    //        else
-    //        {
-				//loginVm.ShowError = true;
-            //}
+            else
+            {
+				loginVm.ShowError = true;
+            }
         }
 
     }
