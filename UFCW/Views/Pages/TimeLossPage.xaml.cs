@@ -21,7 +21,10 @@ namespace UFCW
             TimeLossList.ItemsSource = timeLossViewModel.timeLossList;
              GetTimeLosses();
 		}
-
+		/// <summary>
+		/// Gets the time losses list from the server
+		/// </summary>
+		/// <returns>The time losses.</returns>
         private async Task GetTimeLosses()
         {
             timeLossViewModel.IsBusy = true;

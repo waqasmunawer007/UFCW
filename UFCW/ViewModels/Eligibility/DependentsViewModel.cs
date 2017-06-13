@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UFCW.ViewModels.Eligibility
 {
-    public class DependentsViewModel
+	public class DependentsViewModel:INotifyPropertyChanged
     {
 		public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Dependant> dependentsList;

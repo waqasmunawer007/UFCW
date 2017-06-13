@@ -8,12 +8,12 @@ namespace UFCW
 {
 	public partial class ParticipantDetailPage : ContentPage
 	{
-        ParticipantsViewModel participantsVM;
+        //ParticipantsViewModel participantsVM;
 		public ParticipantDetailPage()
 		{
 			InitializeComponent();
-			participantsVM = new ParticipantsViewModel();
-            BindingContext = App.user;
+			//participantsVM = new ParticipantsViewModel();
+			BindingContext = App.user;
             //FetchParticipants();
 		}
 	}

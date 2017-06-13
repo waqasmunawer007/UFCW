@@ -40,9 +40,7 @@
         VerticalOptions="FillAndExpand" 
         BackgroundColor="{ DynamicResource BackgroundColor }"
         HorizontalOptions="FillAndExpand"
-        Padding="0,40,0,0">
-        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
-             VerticalOptions="Center" HorizontalOptions="Center"/>
+        Padding="0,60,0,0">
        <!--  <local:CustomActivityIndicator
                 x:Name="WaitingIndicator"
                 HorizontalOptions="CenterAndExpand"
@@ -103,6 +101,8 @@
             Clicked="LoginClicked"
             Margin="0,15,0,0"
         />
+		 <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+             HorizontalOptions="Center"/>
         <!--Bottom GRID-->
         <artina:GridOptionsView 
             ColumnCount="2"

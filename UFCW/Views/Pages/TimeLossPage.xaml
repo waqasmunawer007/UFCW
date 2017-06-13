@@ -2,13 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.TimeLossPage" Title="Time Loss">
 	<ContentPage.Content>
         <StackLayout VerticalOptions = "FillAndExpand" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-        <ListView x:Name="TimeLossList" ItemTapped="Handle_ItemTapped" >
+        	<ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+	             						VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+			<ListView x:Name="TimeLossList" ItemTapped="Handle_ItemTapped" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                              <StackLayout BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,10,10,10"
                                 Orientation="Horizontal"> 
-                                 <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding DraftCheckNumber, StringFormat='Check Number: {0:N}'}"/>
+                                 <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="{Binding DraftCheckNumber, StringFormat='Check Number: {0:N}'}"/>
                                  <Label HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest = "20" Margin="0,0,20,0"  Style="{DynamicResource MainMenuRightChevronStyle}"/>
                             </StackLayout>
                              <!--<Grid

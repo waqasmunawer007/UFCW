@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using UFCW.Services.Models.User;
 using UFCW.Views.Navigation.Test;
 using Xamarin.Forms;
 
@@ -7,8 +8,6 @@ namespace UFCW
 {
 	public partial class RootPage : MasterDetailPage
 	{
-		
-
 		public RootPage()
 		{
 			InitializeComponent();
@@ -28,13 +27,6 @@ namespace UFCW
 
 			SampleCoordinator.SampleSelected += SampleCoordinator_SampleSelected;
 			await Task.Delay(500).ContinueWith(t => NavigationService.BeginInvokeOnMainThreadAsync(InitializeMasterDetail));
-			//if (_showWelcome)
-			//{
-			//	_showWelcome = false;
-			//	await Navigation.PushModalAsync(NavigationPageHelper.Create(new WelcomePage()));
-			//	await Task.Delay(500)
-			//		.ContinueWith(t => NavigationService.BeginInvokeOnMainThreadAsync(InitializeMasterDetail));
-			//}
 		}
 
 		protected override void OnDisappearing()
@@ -46,7 +38,8 @@ namespace UFCW
 		private void InitializeMasterDetail()
 		{
 			Master = new MainMenuPage(new NavigationService(Navigation, LaunchSampleInDetail));
-			Detail = NavigationPageHelper.Create(new ParticipantDetailPage());
+			ParticipantDetailPage participantDetail = new ParticipantDetailPage();
+			Detail = NavigationPageHelper.Create(participantDetail);
 		}
 
 		private void LaunchSampleInDetail(Page page, bool animated)

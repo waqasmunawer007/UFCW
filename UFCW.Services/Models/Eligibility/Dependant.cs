@@ -14,7 +14,7 @@ namespace UFCW.Services.Models.Eligibility
         [JsonProperty(PropertyName = "DEPENDENT_NUMBER")]
         public Int64 DependentNumber { get; set; }
         [JsonProperty(PropertyName = "FUND_ID")]
-		public string FunddID { get; set; }
+		public string FundID { get; set; }
         [JsonProperty(PropertyName = "COVERAGE_PF")]
 		public string CoveragePF { get; set; }
         [JsonProperty(PropertyName = "DEPENDENT_TYPE")]

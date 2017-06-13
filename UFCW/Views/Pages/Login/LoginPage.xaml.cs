@@ -35,8 +35,9 @@ namespace UFCW.Views.Login
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
 				{
 					loginVm.user = response.Profile;
-                    App.user = response.Profile;
+                    User user = response.Profile;
                     Debug.WriteLine("Login Success" + loginVm.user.FirstName);
+					App.user = user;
                     await Navigation.PushModalAsync(new RootPage());
 				}
 				else
@@ -51,18 +52,5 @@ namespace UFCW.Views.Login
             //}
         }
 
-		//public static bool IsPageInNavigationStack<TPage>(INavigation navigation) where TPage : Page
-		//{
-		//	if (navigation.NavigationStack.Count > 1)
-		//	{
-		//		var last = navigation.NavigationStack[navigation.NavigationStack.Count - 2];
-
-		//		if (last is TPage)
-		//		{
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
     }
 }

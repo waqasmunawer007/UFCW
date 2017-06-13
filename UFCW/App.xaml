@@ -26,6 +26,8 @@
 			<!-- UNITS -->
             <x:Double x:Key="FontSize11">11</x:Double>
 			<x:Double x:Key="BaseFontSize">16</x:Double>
+			<x:Double x:Key="BaseTitleFontSize">14</x:Double>
+			<x:Double x:Key="BaseTitleValueSize">14</x:Double>
 			<x:Double x:Key="BaseButtonHeight">44</x:Double>
 			<x:Double x:Key="BaseButtonBorderRadius">22</x:Double>
 

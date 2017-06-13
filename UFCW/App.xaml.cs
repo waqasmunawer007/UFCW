@@ -12,13 +12,12 @@ namespace UFCW
 	public partial class App : Application
 	{
 		public static MasterDetailPage MasterDetailPage;
-        public static User user;
+		public static User user;
 		public App()
 		{
 			InitializeComponent();
-            user = new User();
+			user = new User();
             MainPage = new UFCW.Views.Login.LoginPage();
-
 			//MainPage.SetValue(NavigationPage.BarTextColorProperty, Color.White);
 		}
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UFCW.ViewModels.Eligibility
 {
-    public class ChecksIssuedViewModel
+    public class ChecksIssuedViewModel: INotifyPropertyChanged
     {
 		public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<CheckIssued> checksIssuedList;
