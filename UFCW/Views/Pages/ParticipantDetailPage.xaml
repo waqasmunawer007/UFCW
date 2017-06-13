@@ -4,7 +4,7 @@
 	<ContentPage.Content>
 		<ScrollView Orientation="Vertical" >
 
-			<StackLayout Orientation = "Vertical"  Margin="10,10,10,10">
+			<StackLayout Orientation = "Vertical"  Margin="10,20,10,10">
 			 <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Participant Details"/>
               <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
               <Grid 

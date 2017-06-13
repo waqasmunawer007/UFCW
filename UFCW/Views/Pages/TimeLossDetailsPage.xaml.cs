@@ -10,6 +10,7 @@ namespace UFCW.Views.Pages
         public TimeLossDetailsPage()
         {
             InitializeComponent();
-        }
+           
+		}
     }
 }

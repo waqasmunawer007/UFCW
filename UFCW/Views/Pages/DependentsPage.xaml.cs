@@ -14,6 +14,7 @@ namespace UFCW
 		public DependentsPage()
 		{
 			InitializeComponent();
+			NavigationPage.SetBackButtonTitle(this, ""); //hide back button title
 			dependentsVM = new DependentsViewModel();
 			BindingContext = dependentsVM;
             DependentsList.ItemsSource = dependentsVM.dependentsList;
@@ -48,6 +49,7 @@ namespace UFCW
             DependantsDetailPage dependantsDetailPage = new DependantsDetailPage();
 			dependantsDetailPage.BindingContext = dependant;
 			await Navigation.PushAsync(dependantsDetailPage);
+            ((ListView)sender).SelectedItem = null;
 		}
 	}
 }

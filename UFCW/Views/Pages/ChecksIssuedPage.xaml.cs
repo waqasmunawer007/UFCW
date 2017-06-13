@@ -13,6 +13,7 @@ namespace UFCW
 		public ChecksIssuedPage()
 		{
 			InitializeComponent();
+			NavigationPage.SetBackButtonTitle(this, ""); //hide back button title
 			checksIssuedVM = new ChecksIssuedViewModel();
 			BindingContext = checksIssuedVM;
 			ChecksIssuedList.ItemsSource = checksIssuedVM.checksIssuedList;
@@ -47,6 +48,7 @@ namespace UFCW
             CheckIssuedDetailPage checksIssuedDetailPage = new CheckIssuedDetailPage();
 			checksIssuedDetailPage.BindingContext = checkIssued;
 			await Navigation.PushAsync(checksIssuedDetailPage);
+            ((ListView)sender).SelectedItem = null;
 		}
 	}
 }

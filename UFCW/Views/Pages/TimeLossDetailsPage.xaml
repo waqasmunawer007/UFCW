@@ -8,7 +8,7 @@
 
     <ContentPage.Content>
         <ScrollView Orientation="Vertical" >
-			<StackLayout Orientation = "Vertical"  Padding="0,10,0,10">
+			<StackLayout Orientation = "Vertical"  Padding="0,20,0,10">
 			 <Label Font="Bold" Margin="10,0,0,0" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" FontSize="{DynamicResource BaseFontSize}" Text="{Binding DraftCheckNumber , StringFormat='Check #  {0:N}'}"/>
               <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
 	            <Grid 

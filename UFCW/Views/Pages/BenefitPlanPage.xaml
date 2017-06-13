@@ -10,7 +10,7 @@
 	</ContentPage.Resources>
 
 	<ContentPage.Content>
-        <StackLayout VerticalOptions = "FillAndExpand" Padding="10,10,10,10" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+        <StackLayout VerticalOptions = "FillAndExpand" Padding="10,20,10,10" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
         	<ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
 	             						VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
 			<ListView x:Name="BenifitsList" HasUnevenRows="true">

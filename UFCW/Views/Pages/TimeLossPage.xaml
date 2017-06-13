@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.TimeLossPage" Title="Time Loss">
 	<ContentPage.Content>
-        <StackLayout VerticalOptions = "FillAndExpand" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+        <StackLayout VerticalOptions = "FillAndExpand" Padding="0,10,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
         	<ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
 	             						VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
 			<ListView x:Name="TimeLossList" ItemTapped="Handle_ItemTapped" >

@@ -16,6 +16,7 @@ namespace UFCW
 		public TimeLossPage()
 		{
 			InitializeComponent();
+            NavigationPage.SetBackButtonTitle(this, "");
             timeLossViewModel = new TimeLossViewModel();
             BindingContext = timeLossViewModel;
             TimeLossList.ItemsSource = timeLossViewModel.timeLossList;
@@ -63,6 +64,7 @@ namespace UFCW
             TimeLossDetailsPage timeLossDetailPage = new TimeLossDetailsPage();
             timeLossDetailPage.BindingContext = timeLoss;
             await Navigation.PushAsync(timeLossDetailPage);
+            ((ListView)sender).SelectedItem = null;
 		}
 	}
 }

@@ -10,6 +10,7 @@ namespace UFCW.Views.Pages
         public CheckIssuedDetailPage()
         {
             InitializeComponent();
-        }
+            NavigationPage.SetBackButtonTitle(this, "");
+		}
     }
 }
