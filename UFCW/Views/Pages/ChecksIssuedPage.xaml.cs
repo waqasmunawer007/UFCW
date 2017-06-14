@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UFCW.Constants;
 using UFCW.Services.Models.Eligibility;
 using UFCW.ViewModels.Eligibility;
 using UFCW.Views.Pages;
@@ -20,14 +21,28 @@ namespace UFCW
 			FetchChecksIssued();
 		}
 
+		/// <summary>
+		/// Fetchs the issued checks list from the server.
+		/// </summary>
         public async void FetchChecksIssued()
         {
 			checksIssuedVM.IsBusy = true;
             CheckIssued[] checks = await checksIssuedVM.FetchChecksIssued();
-			UpdatePage(checks);
+			if (checks != null)
+			{
+				UpdatePage(checks);
+			}
+			else
+			{ 
+				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+			}
 			checksIssuedVM.IsBusy = false;
         }
 
+		/// <summary>
+		/// Updates the listview 
+		/// </summary>
+		/// <param name="data">Data.</param>
 		private void UpdatePage(CheckIssued[] data)
 		{
 			foreach (CheckIssued checkDetail in data)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using UFCW.Constants;
 using UFCW.Services.Models.Eligibility;
 using UFCW.ViewModels;
 using UFCW.Views.Pages;
@@ -16,7 +17,7 @@ namespace UFCW
 		public TimeLossPage()
 		{
 			InitializeComponent();
-            NavigationPage.SetBackButtonTitle(this, "");
+            NavigationPage.SetBackButtonTitle(this, ""); //hide back button title
             timeLossViewModel = new TimeLossViewModel();
             BindingContext = timeLossViewModel;
             TimeLossList.ItemsSource = timeLossViewModel.timeLossList;
@@ -29,19 +30,18 @@ namespace UFCW
         private async Task GetTimeLosses()
         {
             timeLossViewModel.IsBusy = true;
-            string email = "sam@paysolar.com";
+            string email = "sam@paysolar.com"; //Todo temprary code
             string token = "0000";
             string ssn = "413112352";
            TimeLoss[] timeLossServerResponse = await timeLossViewModel.GetTimeLoss(token, ssn, email);
             if (timeLossServerResponse != null)
             {
-                Debug.WriteLine("Time loss found " + timeLossServerResponse.Length);
                 UpdatePage(timeLossServerResponse);
             }
-            else
-            {
-				Debug.WriteLine("Time loss not found "); 
-            }
+    		else
+			{
+				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+			}
             timeLossViewModel.IsBusy = false;
         }
 

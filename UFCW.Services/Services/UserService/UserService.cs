@@ -13,6 +13,13 @@ namespace UFCW.Services.UserService
 {
     public class UserService: BaseService, IUserService
     {
+		
+		/// <summary>
+		/// Logins the user from server.
+		/// </summary>
+		/// <returns>The user.</returns>
+		/// <param name="username">Username.</param>
+		/// <param name="password">Password.</param>
 		public async Task<LoginResponse> LoginUser(String username, string password)
 		{
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -22,7 +29,6 @@ namespace UFCW.Services.UserService
             var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
             HttpResponseMessage responseJson = await client.PostAsync(AppConstants.LoginApi, content);
             var json = await responseJson.Content.ReadAsStringAsync();
-            //Debug.WriteLine("Response:   \n" + json);
             var loginResponse = JsonConvert.DeserializeObject<LoginResponse>(json);
 			return loginResponse;
 		}

@@ -8,13 +8,10 @@ namespace UFCW
 {
 	public partial class ParticipantDetailPage : ContentPage
 	{
-        //ParticipantsViewModel participantsVM;
 		public ParticipantDetailPage()
 		{
 			InitializeComponent();
-			//participantsVM = new ParticipantsViewModel();
-			BindingContext = App.user;
-            //FetchParticipants();
+			BindingContext = App.user; //TODO remove this code once Key-Pairs db integrated
 		}
 	}
 }

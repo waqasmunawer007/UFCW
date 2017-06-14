@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UFCW.Constants;
 using UFCW.Services.Models.Eligibility;
 using UFCW.ViewModels.Eligibility;
 using UFCW.Views.Pages;
@@ -21,11 +22,21 @@ namespace UFCW
 			FetchDependents();
 		}
 
+		/// <summary>
+		/// Fetchs the dependents list from server
+		/// </summary>
         public async void FetchDependents()
         {
 			dependentsVM.IsBusy = true;
             Dependant[] banifits = await dependentsVM.FetchDependents();
-			UpdatePage(banifits);
+			if (banifits != null)
+			{
+				UpdatePage(banifits);
+			}
+			else
+			{ 
+				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+			}
 			dependentsVM.IsBusy = false;
 		}
 

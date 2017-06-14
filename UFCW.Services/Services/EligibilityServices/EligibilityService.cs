@@ -27,9 +27,9 @@ namespace UFCW.Services.UserService
         public async Task<TimeLoss[]> FetchTimeLoss(string Token, string SSN, string Email)
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("Token", Token);
-            parameters.Add("SSN", SSN);
-            parameters.Add("Email", Email);
+            parameters.Add(WebApiConstants.TOKEN, Token);
+            parameters.Add(WebApiConstants.SSN, SSN);
+            parameters.Add(WebApiConstants.EMAIL, Email);
 
 			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
 			HttpResponseMessage responseJson = await client.PostAsync(AppConstants.TimeLossApi, content);
@@ -58,10 +58,6 @@ namespace UFCW.Services.UserService
             HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.BenifitsApi, content);
 			var json = await responseJson.Content.ReadAsStringAsync();
             var benifitsList = JsonConvert.DeserializeObject<Benifits[]>(json);
-            //foreach (var item in benifitsList)
-            //{
-            //    Debug.WriteLine("Answer: " + item.Answer);
-            //}
             return benifitsList;
 		}
 
@@ -82,16 +78,12 @@ namespace UFCW.Services.UserService
 			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
             HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.ChecksIssuedApi, content);
 			var json = await responseJson.Content.ReadAsStringAsync();
-			var benifitsList = JsonConvert.DeserializeObject<CheckIssued[]>(json);
-			foreach (var item in benifitsList)
-			{
-                Debug.WriteLine("Issue Date: " + item.IssueDate);
-			}
-			return benifitsList;
+			var checkedIssuesList = JsonConvert.DeserializeObject<CheckIssued[]>(json);
+			return checkedIssuesList;
 		}
 
 		/// <summary>
-		/// Fetchs Dependents details
+		/// Fetchs Dependents details.
 		/// </summary>
 		/// <returns>The Dependents list.</returns>
 		/// <param name="token">Token.</param>
@@ -108,10 +100,6 @@ namespace UFCW.Services.UserService
             HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.DependentsApi, content);
 			var json = await responseJson.Content.ReadAsStringAsync();
 			var dependentsList = JsonConvert.DeserializeObject<Dependant[]>(json);
-			foreach (var item in dependentsList)
-			{
-                Debug.WriteLine("Issue Date: " + item.DateCreated);
-			}
 			return dependentsList;
 		}
     }

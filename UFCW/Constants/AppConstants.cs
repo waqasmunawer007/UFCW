@@ -13,6 +13,13 @@ namespace UFCW.Constants
 
 
         public const string RESPONSE_CODE_OK = "200";
+		//Error Strings
+		public const string ERROR_MESSAGE = "Something went wrong. Please check your internet settings and then try again.";
+		public const string ERROR_TITLE = "Error";
+		public const string DIALOG_OK_OPTION = "Try again!";
+		public const string LOGIN_FAILED = "Login Failed!";
+
+
     }
 
     public enum Environment
