@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using UFCW.Services.Models.User;
 using UFCW.Views.Navigation.Test;
+using UFCW.Views.Pages.Pension;
 using Xamarin.Forms;
 
 namespace UFCW
@@ -40,6 +41,9 @@ namespace UFCW
 			Master = new MainMenuPage(new NavigationService(Navigation, LaunchSampleInDetail));
 			ParticipantDetailPage participantDetail = new ParticipantDetailPage();
 			Detail = NavigationPageHelper.Create(participantDetail);
+
+   //         RetireeDetailPage retireeDetailDetail = new RetireeDetailPage();
+			//Detail = NavigationPageHelper.Create(retireeDetailDetail);
 		}
 
 		private void LaunchSampleInDetail(Page page, bool animated)

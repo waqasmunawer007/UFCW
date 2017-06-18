@@ -15,6 +15,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)Models\User\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\Eligibility\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\Pension\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\Pension\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\UserService.cs" />
@@ -29,5 +31,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Dependant.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Benifits.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\CheckIssued.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Pension\Retiree.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Pension\PensionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Pension\IPensionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Pension\SummaryPlanDoc.cs" />
   </ItemGroup>
 </Project>

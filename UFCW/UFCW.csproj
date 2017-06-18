@@ -182,6 +182,32 @@
       <DependentUpon>DependantsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\HTMLSourceConverter.cs" />
+    <Compile Include="ViewModels\Pension\RetireeViewModel.cs" />
+    <Compile Include="Views\Pages\Pension\RetireeDetailPage.xaml.cs">
+      <DependentUpon>RetireeDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Pension\My_Benifits.xaml.cs">
+      <DependentUpon>My_Benifits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Pension\MyTaxes.xaml.cs">
+      <DependentUpon>MyTaxes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Pension\MonthlyBenefits.xaml.cs">
+      <DependentUpon>MonthlyBenefits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Pension\DirectDeposit.xaml.cs">
+      <DependentUpon>DirectDeposit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Pension\SurvivorDate.xaml.cs">
+      <DependentUpon>SurvivorDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Pension\SummaryPlanDocPage.xaml.cs">
+      <DependentUpon>SummaryPlanDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Pension\SummaryPlanDocViewModel.cs" />
+    <Compile Include="Views\Pages\Pension\SummaryPlanDocDetailPage.xaml.cs">
+      <DependentUpon>SummaryPlanDocDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -309,6 +335,30 @@
     <EmbeddedResource Include="Views\Pages\DependantsDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Pension\RetireeDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Pension\My_Benifits.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Pension\MyTaxes.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Pension\MonthlyBenefits.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Pension\DirectDeposit.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Pension\SurvivorDate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Pension\SummaryPlanDoc.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Pension\SummaryPlanDocDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UXDivers.Effects">
@@ -380,6 +430,8 @@
     <Folder Include="Views\Pages\" />
     <Folder Include="Views\Pages\Login\" />
     <Folder Include="ViewModels\Eligibility\" />
+    <Folder Include="ViewModels\Pension\" />
+    <Folder Include="Views\Pages\Pension\" />
   </ItemGroup>
   <Import Project="..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets" Condition="Exists('..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

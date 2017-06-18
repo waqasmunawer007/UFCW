@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using UFCW.Views.Login;
 using UFCW.Views.Navigation.Test;
+using UFCW.Views.Pages.Pension;
 using Xamarin.Forms;
 
 namespace UFCW
@@ -129,10 +130,10 @@ namespace UFCW
 
 			);
 			menuCategories.Add(
-			"ClaimsMenu",
+			"Retiree",
 			new SampleCategory
 			{
-				Name = "Claims",
+				Name = "Retiree",
 				BackgroundColor = Color.FromHex(_categoriesColors[0]),
 				BackgroundImage = SampleData.LoginImageGalleryItems[0],
 				Icon = GrialShapesFont.AccountCircle,
@@ -140,15 +141,39 @@ namespace UFCW
 				Badge = 2,
 				Shape = GrialShapesFont.Circle,
 				SamplesList = new List<Sample> {
-                    new Sample("Search Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Search),
-                    new Sample("Claims Report", typeof(ClaimsReportPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy),
-                    new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.CreditCard),
-					new Sample("Self Payments", typeof(SelfPaymentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
-                    new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder)
+					new Sample("Summary Docs", typeof(SummaryPlanDocPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder),
+                    new Sample("My Benefits", typeof(My_Benifits), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Search),
+					new Sample("My Taxes", typeof(MyTaxes), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy),
+					new Sample("Monthly Benefits", typeof(MonthlyBenefits), SampleData.LoginImageGalleryItems[0], GrialShapesFont.CreditCard),
+					new Sample("Direct Deposit", typeof(DirectDeposit), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
+					new Sample("Survivor's Data", typeof(SurvivorDate), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder)
+
+
 				}
 			}
 
-			);
+			); 
+            menuCategories.Add(
+			 "ClaimsMenu",
+			 new SampleCategory
+			 {
+				 Name = "Claims",
+				 BackgroundColor = Color.FromHex(_categoriesColors[0]),
+				 BackgroundImage = SampleData.LoginImageGalleryItems[0],
+				 Icon = GrialShapesFont.AccountCircle,
+				 IconColor = Color.FromHex(_categoriesColors[0]),
+				 Badge = 2,
+				 Shape = GrialShapesFont.Circle,
+				 SamplesList = new List<Sample> {
+					new Sample("Search Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Search),
+					new Sample("Claims Report", typeof(ClaimsReportPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy),
+					new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.CreditCard),
+					new Sample("Self Payments", typeof(SelfPaymentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
+					new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder)
+				 }
+			 }
+
+			 );
 			menuCategories.Add(
 				"GeneralMenu",
 				new SampleCategory
