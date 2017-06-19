@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -26,7 +26,7 @@ namespace UFCW.ViewModels
 		{
 			get
 			{
-				return SamplesDefinition.SamplesCategoryList;
+                return SamplesDefinition.LoginGridItemsList;
 			}
 		}
 		public bool ShowError

@@ -18,5 +18,7 @@ namespace UFCW
 		public string Icon { get; set; }
         public string Shape { get; set; }
 		public int Badge { get; set; }
+        public Page page { get; set; }
+
 	}
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -89,13 +89,15 @@ namespace UFCW
 			{
 				return;
 			}
-
+            SampleCategory scatagory = (SampleCategory)BindingContext;
 			_processingTag = true;
 
 			try
 			{
 				await AnimateItem(this, animationDuration);
-
+                await App.nav.PushAsync(scatagory.page);
+                //new NavigationPage(scatagory.page);
+                //await Navigation.PushModalAsync();
 				//await SamplesListFromCategoryPage.NavigateToCategory((SampleCategory)BindingContext, Navigation);
 			}
 			finally

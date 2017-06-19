@@ -10,7 +10,7 @@
                         <ViewCell>
                              <StackLayout BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,0,10,10"
                                 Orientation="Horizontal"> 
-                                 <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="{Binding Title, StringFormat='Check Number: {0:N}'}"/>
+                                 <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="{Binding Title}"/>
                                  <Label HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest = "20" Margin="0,0,20,0"  Style="{DynamicResource MainMenuRightChevronStyle}"/>
                             </StackLayout>
                              <!--<Grid

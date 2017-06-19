@@ -11,6 +11,7 @@ namespace UFCW
 	public static class SamplesDefinition
 	{
 		private static List<SampleCategory> _samplesCategoryList;
+		private static List<SampleCategory> loginGridItemsList;
 		private static List<SampleGroup> _samplesGroupedByCategory;
 		private static Dictionary<string, SampleCategory> _samplesCategories;
 		private static List<Sample> _allSamples;
@@ -42,6 +43,19 @@ namespace UFCW
 				}
 
 				return _samplesCategoryList;
+			}
+		}
+
+		public static List<SampleCategory> LoginGridItemsList
+		{
+			get
+			{
+                if (loginGridItemsList == null)
+				{
+                    SetLoginItemsGrid();
+				}
+
+				return loginGridItemsList;
 			}
 		}
 
@@ -385,7 +399,7 @@ namespace UFCW
 		internal static void InitializeHamubergerMenuOptions()
 		{
 			 Dictionary<string, SampleCategory> hamburgerMenuCategories = CreateHamburgerMenuOptions();
-			 Debug.WriteLine("Samples Created: " + _samplesCategories.Count);
+			 
 			//_samplesCategoryList = new List<SampleCategory>();
 
 			//foreach (var sample in _hamburgerMenuCategories.Values)
@@ -438,6 +452,131 @@ namespace UFCW
 				}
 
 				_samplesGroupedByCategory.Add(sampleItem);
+			}
+		}
+
+        internal static void SetLoginItemsGrid()
+		{
+			var categories = new Dictionary<string, SampleCategory>();
+
+            categories.Add(
+                "Register",
+                new SampleCategory
+                {
+                    Name = "Register",
+                    BackgroundColor = Color.FromHex(_categoriesColors[0]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = GrialShapesFont.Person,
+                    IconColor = Color.FromHex(_categoriesColors[0]),
+                    Badge = 2,
+                    Shape = GrialShapesFont.Circle,
+                    page = new AccountPage()
+				}
+			);
+			categories.Add(
+				"ForgotPassword",
+				new SampleCategory
+				{
+					Name = "Forgot Password",
+					BackgroundColor = Color.FromHex(_categoriesColors[2]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.Lock,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+					page = new AccountPage()
+				}
+			);
+			categories.Add(
+				"Notifications",
+				new SampleCategory
+				{
+					Name = "Notifications",
+					BackgroundColor = Color.FromHex(_categoriesColors[2]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.Notifications,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+					page = new AccountPage()
+				}
+			);
+			categories.Add(
+				"News",
+				new SampleCategory
+				{
+					Name = "News",
+					BackgroundColor = Color.FromHex(_categoriesColors[0]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = FontAwesomeFont.Copy,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 5,
+					Shape = GrialShapesFont.Circle,
+					page = new AccountPage()
+				}
+			);
+
+
+			categories.Add(
+				"ContactUs",
+				new SampleCategory
+				{
+					Name = "Contact Us",
+					BackgroundColor = Color.FromHex(_categoriesColors[0]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.SocialWhatsapp,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+					page = new AccountPage()
+				}
+			);
+			categories.Add(
+				"AboutUs",
+				new SampleCategory
+				{
+					Name = "About Us",
+					BackgroundColor = Color.FromHex(_categoriesColors[0]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.Help,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+					page = new AccountPage()
+				}
+			);
+			categories.Add(
+				"FAQ",
+				new SampleCategory
+				{
+					Name = "FAQ",
+					BackgroundColor = Color.FromHex(_categoriesColors[0]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.Help,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 1,
+					Shape = GrialShapesFont.Circle,
+					page = new AccountPage()
+				}
+			);
+			categories.Add(
+				"Links",
+				new SampleCategory
+				{
+					Name = "Links",
+					BackgroundColor = Color.FromHex(_categoriesColors[0]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.Public,
+					IconColor = Color.FromHex(_categoriesColors[0]),
+					Badge = 5,
+					Shape = GrialShapesFont.Circle,
+					page = new AccountPage()
+				}
+			);
+            loginGridItemsList = new List<SampleCategory>();
+			foreach (var sample in categories.Values)
+			{
+                loginGridItemsList.Add(sample);
 			}
 		}
 

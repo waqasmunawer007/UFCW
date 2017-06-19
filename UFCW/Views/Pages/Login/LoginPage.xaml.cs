@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -22,6 +22,7 @@ namespace UFCW.Views.Login
             loginVm = new LoginViewModel();
             retireeVM = new RetireeViewModel();
             BindingContext = loginVm;
+            NavigationPage.SetHasNavigationBar(this, false);
 		}
 
 		//      async Task LoginClicked()

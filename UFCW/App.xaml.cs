@@ -15,12 +15,14 @@ namespace UFCW
 		public static MasterDetailPage MasterDetailPage;
 		public static User user;
         public static Retiree retiree;
+        public static INavigation nav;
 		public App()
 		{
 			InitializeComponent();
 			user = new User();
             retiree = new Retiree();
-            MainPage = new UFCW.Views.Login.LoginPage();
+            MainPage = new NavigationPage(new UFCW.Views.Login.LoginPage());
+            nav = MainPage.Navigation;
 			//MainPage.SetValue(NavigationPage.BarTextColorProperty, Color.White);
 		}
 
