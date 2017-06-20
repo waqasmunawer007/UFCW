@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Pension.SummaryPlanDocDetailPage" Title="Summary Plan Docs Detai">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Pension.SummaryPlanDocDetailPage" Title="Summary Plan Doc Detail">
 	<ContentPage.Content>
          <ScrollView Orientation="Vertical" >
-            <StackLayout Orientation = "Vertical"  Padding="0,20,0,10">
+            <StackLayout Orientation = "Vertical"  Padding="10,20,10,0">
               <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
-                <Grid 
+                <Label Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Title"/>
+                <Label HorizontalOptions="Start"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Title}"/>                        
+
+                <Label Font="Bold" Margin="0,10,0,0" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Link"/>
+                <Button x:Name="LinkToOpen" Margin="0,-15,0,0" HorizontalOptions="Start" TextColor="Blue"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Link}" Clicked="Handle_Clicked"/>
+                <!--<Grid 
                     ColumnSpacing="1" 
                     RowSpacing="1" 
                     Padding="10,0,10,0"
@@ -18,7 +23,7 @@
                     <Label Grid.Row="2" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Link:"/>
                     <Button Grid.Row="3" x:Name="LinkToOpen" Grid.Column="0" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Link}" Clicked="Handle_Clicked"/>
 
-                   </Grid>
+                   </Grid>-->
                  <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
              </StackLayout>
         </ScrollView>

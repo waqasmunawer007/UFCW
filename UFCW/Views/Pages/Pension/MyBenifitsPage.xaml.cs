@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace UFCW.Views.Pages.Pension
 {
-    public partial class DirectDeposit : ContentPage
+    public partial class MyBenifitsPage : ContentPage
     {
-        public DirectDeposit()
+        public MyBenifitsPage()
         {
             InitializeComponent();
-            BindingContext = App.retiree.Direct_Deposit;
+            BindingContext = App.retiree.My_Benefits;
         }
     }
 }

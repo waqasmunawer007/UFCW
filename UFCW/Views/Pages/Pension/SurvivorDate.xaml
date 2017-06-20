@@ -14,13 +14,13 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                     
-                       <Label Grid.Row="0" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Survivor Gender:"/>
+                       <Label Grid.Row="0" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Gender"/>
                         <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SurvivorGender}"/>
 
-                         <Label Grid.Row="1" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Sucrvivor Birth Date:"/>
+                         <Label Grid.Row="1" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Date of Birth"/>
                         <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SucrvivorBirthDate}"/>
                     
-                        <Label Grid.Row="2" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Gross:"/>
+                        <Label Grid.Row="2" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Gross"/>
                         <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SucrvivorGross}"/>
 
                         <Label Grid.Row="3" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Rate Amount"/>

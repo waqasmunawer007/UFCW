@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace UFCW.Views.Pages.Pension
 {
-    public partial class MonthlyBenefits : ContentPage
+    public partial class MonthlyBenefitsPage : ContentPage
     {
-        public MonthlyBenefits()
+        public MonthlyBenefitsPage()
         {
             InitializeComponent();
             BindingContext = App.retiree.Monthly_Benefits;

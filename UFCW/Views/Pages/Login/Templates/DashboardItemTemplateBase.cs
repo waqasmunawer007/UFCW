@@ -95,10 +95,7 @@ namespace UFCW
 			try
 			{
 				await AnimateItem(this, animationDuration);
-                await App.nav.PushAsync(scatagory.page);
-                //new NavigationPage(scatagory.page);
-                //await Navigation.PushModalAsync();
-				//await SamplesListFromCategoryPage.NavigateToCategory((SampleCategory)BindingContext, Navigation);
+                await Navigation.PushAsync(scatagory.page);
 			}
 			finally
 			{

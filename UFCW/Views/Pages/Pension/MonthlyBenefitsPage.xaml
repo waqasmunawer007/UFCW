@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Pension.MonthlyBenefits" Title="Monthly Benifits">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Pension.MonthlyBenefitsPage" Title="Monthly Benifits">
 	<ContentPage.Content>
          <ScrollView Orientation="Vertical" >
             <StackLayout Orientation = "Vertical"  Padding="0,20,0,10">
@@ -14,20 +14,20 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                     
-                       <Label Grid.Row="0" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="MTH_TotalBenifit"/>
+                       <Label Grid.Row="0" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Total Benifit"/>
                         <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding MTH_TotalBenifit}"/>
 
-                         <Label Grid.Row="1" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="MTH_DOM_REL_TaxReciept"/>
+                         <Label Grid.Row="1" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="DOM Tax Reciept"/>
                         <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding MTH_DOM_REL_TaxReciept}"/>
                     
-                        <Label Grid.Row="2" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="MTH_DOM_REL_TaxPartic"/>
+                        <Label Grid.Row="2" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="DOM Tax Participant"/>
                         <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding MTH_DOM_REL_TaxPartic}"/>
 
-                        <Label Grid.Row="3" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="MTH_BenifitGross"/>
+                        <Label Grid.Row="3" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Benifit Gross"/>
                         <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding MTH_BenifitGross}"/>
 
 
-                        <Label Grid.Row="4" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="MTH_FED_Taxes"/>
+                        <Label Grid.Row="4" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Federal Taxes"/>
                         <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding MTH_FED_Taxes}"/>
                     </Grid>
                  <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />

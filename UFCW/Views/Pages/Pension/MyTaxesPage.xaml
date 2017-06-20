@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Pension.MyTaxes" Title="My Taxes">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Pension.MyTaxesPage" Title="My Taxes">
 	<ContentPage.Content>
         <ScrollView Orientation="Vertical" >
             <StackLayout Orientation = "Vertical"  Padding="0,20,0,10">
@@ -14,16 +14,16 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                     
-                       <Label Grid.Row="0" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="IsFedTax"/>
+                       <Label Grid.Row="0" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Is Federal Tax"/>
                         <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding IsFedTax}"/>
 
-                         <Label Grid.Row="1" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="TaxExemptType"/>
+                         <Label Grid.Row="1" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Tax Exempt Type"/>
                         <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding TaxExemptType}"/>
                     
-                        <Label Grid.Row="2" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="TaxAllowancesNumber"/>
+                        <Label Grid.Row="2" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Tax Allowances Number"/>
                         <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding TaxAllowancesNumber}"/>
 
-                        <Label Grid.Row="3" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="YTD_FedTaxes"/>
+                        <Label Grid.Row="3" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="YTD Federal Taxes"/>
                         <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding YTD_FedTaxes}"/>
                     </Grid>
                  <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />

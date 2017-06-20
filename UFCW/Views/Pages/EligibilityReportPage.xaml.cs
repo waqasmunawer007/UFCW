@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace UFCW
 {
-	public partial class EligibilityResportPage : ContentPage
+	public partial class EligibilityReportPage : ContentPage
 	{
-		public EligibilityResportPage()
+		public EligibilityReportPage()
 		{
 			InitializeComponent();
 		}

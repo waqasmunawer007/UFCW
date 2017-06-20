@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="UFCW.Views.Pages.Eligibility.EligibilityMenuPage" 
+    x:Class="UFCW.Views.Pages.Pension.PensionMenuPage"
     xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
     xmlns:local="clr-namespace:UFCW;assembly=UFCW" 
-    Title = "Eligibility"
+    Title = "Pension"
     BackgroundColor="{ DynamicResource BackgroundColor }">
-	<ContentPage.Content>
+    <ContentPage.Content>
         <StackLayout
         VerticalOptions="StartAndExpand"
         HorizontalOptions="FillAndExpand"
@@ -33,5 +33,5 @@
             </artina:GridOptionsView.ItemTemplate>
         </artina:GridOptionsView>
     </StackLayout>
-	</ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

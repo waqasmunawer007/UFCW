@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using UFCW.Views.Login;
 using UFCW.Views.Navigation.Test;
+using UFCW.Views.Pages.Eligibility;
 using UFCW.Views.Pages.Pension;
 using Xamarin.Forms;
 
@@ -50,9 +51,9 @@ namespace UFCW
 		{
 			get
 			{
-                if (loginGridItemsList == null)
+				if (loginGridItemsList == null)
 				{
-                    SetLoginItemsGrid();
+					SetLoginItemsGrid();
 				}
 
 				return loginGridItemsList;
@@ -124,74 +125,6 @@ namespace UFCW
 				"EiligibilityMenu",
 				new SampleCategory
 				{
-					Name = "Eligibility",
-					BackgroundColor = Color.FromHex(_categoriesColors[0]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.AccountCircle,
-					IconColor = Color.FromHex(_categoriesColors[0]),
-					Badge = 2,
-					Shape = GrialShapesFont.Circle,
-					SamplesList = new List<Sample> {
-                    new Sample("Participant Details", typeof(ParticipantDetailPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
-                    new Sample("My Benefit Plans", typeof(BenefitPlanPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help),
-                    new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.CreditCard),
-                    new Sample("My Dependents", typeof(DependentsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Group),
-                    new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder),
-                    new Sample("Eligibility Report", typeof(EligibilityResportPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy),
-
-					}
-				}
-
-			);
-			menuCategories.Add(
-			"Retiree",
-			new SampleCategory
-			{
-				Name = "Retiree",
-				BackgroundColor = Color.FromHex(_categoriesColors[0]),
-				BackgroundImage = SampleData.LoginImageGalleryItems[0],
-				Icon = GrialShapesFont.AccountCircle,
-				IconColor = Color.FromHex(_categoriesColors[0]),
-				Badge = 2,
-				Shape = GrialShapesFont.Circle,
-				SamplesList = new List<Sample> {
-					new Sample("Summary Docs", typeof(SummaryPlanDocPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder),
-                    new Sample("My Benefits", typeof(My_Benifits), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Search),
-					new Sample("My Taxes", typeof(MyTaxes), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy),
-					new Sample("Monthly Benefits", typeof(MonthlyBenefits), SampleData.LoginImageGalleryItems[0], GrialShapesFont.CreditCard),
-					new Sample("Direct Deposit", typeof(DirectDeposit), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
-					new Sample("Survivor's Data", typeof(SurvivorDate), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder)
-
-
-				}
-			}
-
-			); 
-            menuCategories.Add(
-			 "ClaimsMenu",
-			 new SampleCategory
-			 {
-				 Name = "Claims",
-				 BackgroundColor = Color.FromHex(_categoriesColors[0]),
-				 BackgroundImage = SampleData.LoginImageGalleryItems[0],
-				 Icon = GrialShapesFont.AccountCircle,
-				 IconColor = Color.FromHex(_categoriesColors[0]),
-				 Badge = 2,
-				 Shape = GrialShapesFont.Circle,
-				 SamplesList = new List<Sample> {
-					new Sample("Search Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Search),
-					new Sample("Claims Report", typeof(ClaimsReportPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy),
-					new Sample("Checks Issued", typeof(ChecksIssuedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.CreditCard),
-					new Sample("Self Payments", typeof(SelfPaymentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Paste),
-					new Sample("Time Loss", typeof(TimeLossPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder)
-				 }
-			 }
-
-			 );
-			menuCategories.Add(
-				"GeneralMenu",
-				new SampleCategory
-				{
 					Name = "Menu",
 					BackgroundColor = Color.FromHex(_categoriesColors[0]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
@@ -200,17 +133,19 @@ namespace UFCW
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
 					SamplesList = new List<Sample> {
-                    new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
-                    new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile),
-                    new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public),
-                    new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy),
-                    new Sample("FAQ", typeof(FAQPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help)
-
+                    new Sample("Eligibility", typeof(EligibilityMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+                    new Sample("Pension", typeof(PensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+                    new Sample("Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+				    new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+					new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile),
+					new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public),
+					new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy),
+					new Sample("FAQ", typeof(FAQPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help)
 					}
 				}
-				
+
 			);
-		
+
 			return menuCategories;
 		}
 		internal static Dictionary<string, SampleCategory> CreateSamples()
