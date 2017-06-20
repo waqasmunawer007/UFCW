@@ -40,11 +40,11 @@ namespace UFCW.ViewModels.Pension
 			categories.Add(
 				"MyBenefits",
 				new SampleCategory
-				{
-					Name = "My Benefits",
-					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Person,
+                {
+                    Name = "My Benefits",
+                    BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = GrialShapesFont.Person,
 					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
@@ -58,7 +58,7 @@ namespace UFCW.ViewModels.Pension
 					Name = "My Taxes",
 					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Help,
+                    Icon = GrialShapesFont.CardAmericaExpress,
 					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
@@ -68,11 +68,11 @@ namespace UFCW.ViewModels.Pension
 			categories.Add(
 				"MonthlyBenefits",
 				new SampleCategory
-				{
-					Name = "Monthly Benefits",
-					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.CreditCard,
+                {
+                    Name = "Monthly Benefits",
+                    BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = GrialShapesFont.QueryBuilder,
 					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
