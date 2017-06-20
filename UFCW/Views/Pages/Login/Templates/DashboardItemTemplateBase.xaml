@@ -74,6 +74,7 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     FontAttributes="None"
+                    Margin="0,3,0,0"
                     FontSize="12"/>
             </StackLayout>
 		</Grid>
