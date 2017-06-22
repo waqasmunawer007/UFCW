@@ -17,6 +17,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\Pension\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\Pension\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\ActivePension\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\ActivePension\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\UserService.cs" />
@@ -35,5 +37,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\Pension\PensionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Pension\IPensionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Pension\SummaryPlanDoc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\Profile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\MyBenifits.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\CurrentYearContribution.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\HistoryByEmployer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\HistoryByYear.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\PlanDocument.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ActivePension\ActivePensionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ActivePension\IActivePensionService.cs" />
   </ItemGroup>
 </Project>

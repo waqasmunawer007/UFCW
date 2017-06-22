@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.Views.Pages.PensionActive.MyBenifitsPage"
+    Title="My Benifits">
+	<ContentPage.Content>
+        <StackLayout Orientation = "Vertical"  Margin="10,20,10,10">
+             <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Benifts Detail"/>
+              <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+            <Label x:Name="BenefitsLabel" HorizontalTextAlignment="Start"></Label>
+            <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

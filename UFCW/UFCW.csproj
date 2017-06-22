@@ -201,13 +201,10 @@
     <Compile Include="Views\Pages\Pension\SurvivorDate.xaml.cs">
       <DependentUpon>SurvivorDate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Pension\SummaryPlanDocPage.xaml.cs">
-      <DependentUpon>SummaryPlanDoc.xaml</DependentUpon>
+    <Compile Include="Views\Pages\Pension\PensionSummaryPlanDocPage.xaml.cs">
+      <DependentUpon>PensionSummaryPlanDocPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Pension\SummaryPlanDocViewModel.cs" />
-    <Compile Include="Views\Pages\Pension\SummaryPlanDocDetailPage.xaml.cs">
-      <DependentUpon>SummaryPlanDocDetailPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Pages\Eligibility\EligibilityMenuPage.xaml.cs">
       <DependentUpon>EligibilityMenuPage.xaml</DependentUpon>
     </Compile>
@@ -216,6 +213,40 @@
       <DependentUpon>PensionMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Pension\PensionMenuVM.cs" />
+    <Compile Include="Views\Pages\PensionActive\ActivePensionMenuPage.xaml.cs">
+      <DependentUpon>ActivePensionMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ActivePension\ActivePensionMenuVM.cs" />
+    <Compile Include="Views\Pages\PensionActive\ParticipantDetailPage.xaml.cs">
+      <DependentUpon>ParticipantDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PensionActive\MyBenifitsPage.xaml.cs">
+      <DependentUpon>MyBenifitsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PensionActive\CurrentYearContributionPage.xaml.cs">
+      <DependentUpon>CurrentYearContributionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PensionActive\ContributionHistoryEmployerPage.xaml.cs">
+      <DependentUpon>ContributionHistoryEmployerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PensionActive\ContributionHistoryYearPage.xaml.cs">
+      <DependentUpon>ContributionHistoryYearPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PensionActive\DocumentsPage.xaml.cs">
+      <DependentUpon>DocumentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ActivePension\HistoryByEmployerVM.cs" />
+    <Compile Include="ViewModels\ActivePension\HistoryByYearVM.cs" />
+    <Compile Include="ViewModels\ActivePension\CurrentYearContributionVM.cs" />
+    <Compile Include="ViewModels\ActivePension\DocumentsVM.cs" />
+    <Compile Include="ViewModels\ActivePension\MyBenifitsVM.cs" />
+    <Compile Include="ViewModels\ActivePension\ParticipantDetailVM.cs" />
+    <Compile Include="Views\Pages\PensionActive\HistoryByEmployerDetailPage.xaml.cs">
+      <DependentUpon>HistoryByEmployerDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PensionActive\HistoryByYearDetailPage.xaml.cs">
+      <DependentUpon>HistoryByYearDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -361,16 +392,40 @@
     <EmbeddedResource Include="Views\Pages\Pension\SurvivorDate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\SummaryPlanDoc.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\SummaryPlanDocDetailPage.xaml">
+    <EmbeddedResource Include="Views\Pages\Pension\PensionSummaryPlanDocPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Eligibility\EligibilityMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Pension\PensionMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\ActivePensionMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\ParticipantDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\MyBenifitsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\CurrentYearContributionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\ContributionHistoryEmployerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\ContributionHistoryYearPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\DocumentsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\HistoryByEmployerDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\PensionActive\HistoryByYearDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -447,6 +502,8 @@
     <Folder Include="ViewModels\Pension\" />
     <Folder Include="Views\Pages\Pension\" />
     <Folder Include="Views\Pages\Eligibility\" />
+    <Folder Include="Views\Pages\PensionActive\" />
+    <Folder Include="ViewModels\ActivePension\" />
   </ItemGroup>
   <Import Project="..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets" Condition="Exists('..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

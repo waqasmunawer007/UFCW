@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Pension.SummaryPlanDocPage" Title="Summary Plan Docs">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.Views.Pages.PensionActive.ContributionHistoryYearPage"
+    Title="Contribution History (Year)">
 	<ContentPage.Content>
         <StackLayout VerticalOptions = "FillAndExpand" Padding="0,10,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
-                                        VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-            <ListView x:Name="SummaryPlanDocsList" ItemTapped="Handle_ItemTapped" >
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <ListView x:Name="HistoryBYearList" ItemTapped="Handle_ItemTapped" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                              <StackLayout BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,0,10,10"
                                 Orientation="Horizontal"> 
-                                 <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="{Binding Title}"/>
+                                 <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="{Binding FirstContributionDate, StringFormat='Contribution Date: {0:N}'}"/>
                                  <Label HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest = "20" Margin="0,0,20,0"  Style="{DynamicResource MainMenuRightChevronStyle}"/>
                             </StackLayout>
                     </ViewCell>

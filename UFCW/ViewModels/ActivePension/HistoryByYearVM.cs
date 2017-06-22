@@ -2,26 +2,30 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using UFCW.Services.Models.Pension;
-using UFCW.Services.Services.Pension;
+using UFCW.Services.Models.ActivePension;
+using UFCW.Services.Services.ActivePension;
 
-namespace UFCW.ViewModels.Pension
+namespace UFCW.ViewModels.ActivePension
 {
-    public class SummaryPlanDocViewModel: INotifyPropertyChanged
+    public class HistoryByYearVM: INotifyPropertyChanged
     {
-        public SummaryPlanDocViewModel()
-        {
-            SummaryPlanDocsList = new ObservableCollection<SummaryPlanDoc>();
-        }
-
 		public event PropertyChangedEventHandler PropertyChanged;
-		public ObservableCollection<SummaryPlanDoc> SummaryPlanDocsList;
+        public ObservableCollection<HistoryByYear> historyByYearList;
 
 		private bool isBusy = false;
 
-		string email = "UfcwRetiree@sinettechnologies.com";
+		string email = "sam@paysolar.com";
 		string token = "0000";
-		string ssn = "512429544";
+		string ssn = "413112352";
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:UFCW.ViewModels.ActivePension.HistoryByYearVM"/> class.
+        /// </summary>
+		public HistoryByYearVM()
+		{
+			historyByYearList = new ObservableCollection<HistoryByYear>();
+		}
+
 
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
@@ -40,10 +44,14 @@ namespace UFCW.ViewModels.Pension
 			}
 		}
 
-		public async Task<SummaryPlanDoc[]> FetchSummaryPlanDocs()
+		/// <summary>
+        /// Fetchs the history by year.
+        /// </summary>
+        /// <returns>The history by year.</returns>
+        public async Task<HistoryByYear[]> FetchHistoryByYear()
 		{
-            var pansionService = new PensionService();
-            return await pansionService.FetchSummaryPlanDoc(token, ssn, email);
+			var service = new ActivePensionService();
+            return await service.FetchHistoryByYear(token, ssn);
 		}
 
 		/// <summary>
@@ -58,5 +66,5 @@ namespace UFCW.ViewModels.Pension
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-    }
+	}
 }

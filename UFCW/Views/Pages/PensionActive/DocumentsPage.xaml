@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.Views.Pages.PensionActive.DocumentsPage"
+    Title="Documents">
+	<ContentPage.Content>
+        <StackLayout VerticalOptions = "FillAndExpand" Padding="0,10,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <ListView x:Name="DocumentsList" RowHeight="150" >
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                             <StackLayout  BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,10,10,10" Orientation="Vertical" VerticalOptions="FillAndExpand"> 
+                                <Label HorizontalOptions="StartAndExpand" Margin="0,4,0,0" Font="Bold" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="Title"/>
+                                <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="{Binding Title}"/>
+                                <Label HorizontalOptions="StartAndExpand" Margin="0,5,0,0" Font="Bold" VerticalTextAlignment="Start" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="Link"/>
+                                <Button Clicked="LinkClicked" Margin="0,-13,0,0" HorizontalOptions="Start" TextColor="Blue" Text="{Binding Link}"/>
+                            </StackLayout>
+                    </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+         </StackLayout> 
+	</ContentPage.Content>
+</ContentPage>

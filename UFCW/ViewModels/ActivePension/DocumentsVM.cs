@@ -2,26 +2,29 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using UFCW.Services.Models.Pension;
-using UFCW.Services.Services.Pension;
+using UFCW.Services.Models.ActivePension;
+using UFCW.Services.Services.ActivePension;
 
-namespace UFCW.ViewModels.Pension
+namespace UFCW.ViewModels.ActivePension
 {
-    public class SummaryPlanDocViewModel: INotifyPropertyChanged
+    public class DocumentsVM: INotifyPropertyChanged
     {
-        public SummaryPlanDocViewModel()
-        {
-            SummaryPlanDocsList = new ObservableCollection<SummaryPlanDoc>();
-        }
-
 		public event PropertyChangedEventHandler PropertyChanged;
-		public ObservableCollection<SummaryPlanDoc> SummaryPlanDocsList;
+        public ObservableCollection<PlanDocument> documentsList;
 
 		private bool isBusy = false;
 
-		string email = "UfcwRetiree@sinettechnologies.com";
+		string email = "sam@paysolar.com";
 		string token = "0000";
-		string ssn = "512429544";
+		string ssn = "413112352";
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:UFCW.ViewModels.ActivePension.DocumentsVM"/> class.
+        /// </summary>
+		public DocumentsVM()
+		{
+			documentsList = new ObservableCollection<PlanDocument>();
+		}
 
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
@@ -40,10 +43,14 @@ namespace UFCW.ViewModels.Pension
 			}
 		}
 
-		public async Task<SummaryPlanDoc[]> FetchSummaryPlanDocs()
+        /// <summary>
+        /// Fetchs the documents.
+        /// </summary>
+        /// <returns>The documents.</returns>
+        public async Task<PlanDocument[]> FetchDocuments()
 		{
-            var pansionService = new PensionService();
-            return await pansionService.FetchSummaryPlanDoc(token, ssn, email);
+            var beniftisService = new ActivePensionService();
+            return await beniftisService.FetchDocuments(token, ssn);
 		}
 
 		/// <summary>
@@ -58,5 +65,5 @@ namespace UFCW.ViewModels.Pension
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-    }
+	}
 }

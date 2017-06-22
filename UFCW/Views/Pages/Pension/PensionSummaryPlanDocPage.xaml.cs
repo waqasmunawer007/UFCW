@@ -7,10 +7,10 @@ using Xamarin.Forms;
 
 namespace UFCW.Views.Pages.Pension
 {
-    public partial class SummaryPlanDocPage : ContentPage
+    public partial class PensionSummaryPlanDocPage : ContentPage
     {
         SummaryPlanDocViewModel summaryPlanDocVM;
-        public SummaryPlanDocPage()
+        public PensionSummaryPlanDocPage()
         {
             InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, ""); //hide back button title
@@ -18,6 +18,13 @@ namespace UFCW.Views.Pages.Pension
 			BindingContext = summaryPlanDocVM;
             SummaryPlanDocsList.ItemsSource = summaryPlanDocVM.SummaryPlanDocsList;
 			FetchSummaryPlanDocs();
+			SummaryPlanDocsList.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+			{
+				// don't do anything if we just de-selected the row
+				if (e.Item == null) return;
+				// do something with e.SelectedItem
+				((ListView)sender).SelectedItem = null; // de-select the row
+			};
         }
 
 		/// <summary>
@@ -50,19 +57,15 @@ namespace UFCW.Views.Pages.Pension
 			}
 		}
 
-		/// <summary>
-		/// Handles the Summary Doc tapped event.
-		/// </summary>
-		/// <param name="sender">Sender.</param>
-		/// <param name="e">E.</param>
-		protected async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        /// <summary>
+        /// Handle Link clicked.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
+		public void LinkClicked(object sender, System.EventArgs e)
 		{
-			var selectedsummaryDoc = ((ListView)sender).SelectedItem;
-			SummaryPlanDoc summaryDoc = (SummaryPlanDoc)selectedsummaryDoc;
-            SummaryPlanDocDetailPage summaryPlanDetailPage = new SummaryPlanDocDetailPage();
-			summaryPlanDetailPage.BindingContext = summaryDoc;
-			await Navigation.PushAsync(summaryPlanDetailPage);
-			((ListView)sender).SelectedItem = null;
+			string url = ((Button)sender).Text;
+			Device.OpenUri(new System.Uri(url));
 		}
     }
 }

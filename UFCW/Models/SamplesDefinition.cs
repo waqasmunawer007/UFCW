@@ -5,6 +5,7 @@ using UFCW.Views.Login;
 using UFCW.Views.Navigation.Test;
 using UFCW.Views.Pages.Eligibility;
 using UFCW.Views.Pages.Pension;
+using UFCW.Views.Pages.PensionActive;
 using Xamarin.Forms;
 
 namespace UFCW
@@ -134,8 +135,9 @@ namespace UFCW
 					Shape = GrialShapesFont.Circle,
 					SamplesList = new List<Sample> {
                     new Sample("Eligibility", typeof(EligibilityMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
-                    new Sample("Pension", typeof(PensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
-                    new Sample("Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+					new Sample("Pension", typeof(PensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+					new Sample("Active Pension", typeof(ActivePensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+					new Sample("Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 				    new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 					new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile),
 					new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public),

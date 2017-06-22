@@ -1,127 +1,126 @@
 ﻿using System;
 using System.Collections.Generic;
-using UFCW.Views.Pages.Pension;
+using UFCW.Views.Pages.PensionActive;
 using Xamarin.Forms;
 
-namespace UFCW.ViewModels.Pension
+namespace UFCW.ViewModels.ActivePension
 {
-    public class PensionMenuVM
+    public class ActivePensionMenuVM
     {
-        private static List<SampleCategory> pensionGridItemsList;
+		private static List<SampleCategory> ActivepensionGridItemsList;
 
 		public List<SampleCategory> Items
 		{
-
 			get
 			{
-				if (pensionGridItemsList == null)
+                if (ActivepensionGridItemsList == null)
 				{
-                    return GetPensionItemsGrid();
+                    return GetActivePensionItemsGrid();
 				}
 
-				return pensionGridItemsList;
+				return ActivepensionGridItemsList;
 			}
 		}
 
-		List<SampleCategory> GetPensionItemsGrid()
+		List<SampleCategory> GetActivePensionItemsGrid()
 		{
 			var categories = new Dictionary<string, SampleCategory>();
 
 			categories.Add(
-				"MyBenefits",
-				new SampleCategory
-                {
-                    Name = "My Benefits",
-                    BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
-                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
-                    Icon = GrialShapesFont.Person,
-					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
-					Badge = 2,
-					Shape = GrialShapesFont.Circle,
-					page = new MyBenifitsPage()
-				}
-			);
-			categories.Add(
-				"MyTaxes",
+				"ParticipantDetails",
 				new SampleCategory
 				{
-					Name = "My Taxes",
-					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-                    Icon = GrialShapesFont.CardAmericaExpress,
-					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
-					Badge = 2,
-					Shape = GrialShapesFont.Circle,
-					page = new MyTaxesPage()
-				}
-			);
-			categories.Add(
-				"MonthlyBenefits",
-				new SampleCategory
-                {
-                    Name = "Monthly Benefits",
-                    BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
-                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
-                    Icon = GrialShapesFont.QueryBuilder,
-					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
-					Badge = 2,
-					Shape = GrialShapesFont.Circle,
-					page = new MonthlyBenefitsPage()
-				}
-			);
-			categories.Add(
-				"DirectDeposit",
-				new SampleCategory
-				{
-					Name = "Direct Deposit",
+					Name = "Participant Details",
 					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-                    Icon = FontAwesomeFont.CreditCard,
+					Icon = GrialShapesFont.Person,
+					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+                    page = new UFCW.Views.Pages.PensionActive.ParticipantDetailPage()
+				}
+			);
+			categories.Add(
+				"MyBenifits",
+				new SampleCategory
+				{
+					Name = "My Benifits",
+					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.CardAmericaExpress,
+					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+                    page = new MyBenifitsPage()
+				}
+			);
+			categories.Add(
+				"CurrentYearContributions",
+				new SampleCategory
+				{
+					Name = "Current Year Contributions",
+					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = GrialShapesFont.QueryBuilder,
+					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
+					Badge = 2,
+					Shape = GrialShapesFont.Circle,
+                    page = new CurrentYearContributionPage()
+				}
+			);
+			categories.Add(
+				"ContributionHistoryEmp",
+				new SampleCategory
+				{
+                Name = "Contribution History (Employer)",
+					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
+					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+					Icon = FontAwesomeFont.CreditCard,
 					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					Badge = 5,
 					Shape = GrialShapesFont.Circle,
-					page = new DirectDepositPage()
+                page = new ContributionHistoryEmployerPage()
 				}
 			);
 
 
 			categories.Add(
-				"SurvivorData",
+				"ContributionHistoryYear",
 				new SampleCategory
 				{
-					Name = "Survivor's Data",
+                    Name = "Contribution History \n(Year)",
 					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-                    Icon = GrialShapesFont.Copy,
+					Icon = GrialShapesFont.Copy,
 					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
-					page = new SurvivorDate()
+					page = new ContributionHistoryYearPage()
 				}
 			);
 
 			categories.Add(
-				"SummaryDocs",
+				"Documents",
 				new SampleCategory
 				{
-					Name = "Summary Plan Docs",
+					Name = "Documents",
 					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
 					Icon = GrialShapesFont.Paste,
 					IconColor = Color.FromHex(SamplesDefinition._categoriesColors[0]),
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
-					page = new PensionSummaryPlanDocPage()
+                page = new DocumentsPage()
 				}
 			);
 
-			pensionGridItemsList = new List<SampleCategory>();
+			ActivepensionGridItemsList = new List<SampleCategory>();
 			foreach (var sample in categories.Values)
 			{
-				pensionGridItemsList.Add(sample);
+				ActivepensionGridItemsList.Add(sample);
 			}
 
-			return pensionGridItemsList;
+			return ActivepensionGridItemsList;
 		}
 	}
 }

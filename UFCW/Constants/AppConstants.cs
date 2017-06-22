@@ -13,6 +13,15 @@ namespace UFCW.Constants
         public static string PensionRetireeApi      = "PensionRetiree";
 		public static string SummaryPlanDocApi      = "PensionRetiree/SummaryPlanDocuments";
 
+		//Active pension
+		public static string AP_ProfileApi              = "Pension/Profile";
+		public static string AP_BenifitsApi             = "PensionActive/MyBenefits";
+		public static string AP_CrntYrContributionApi   = "PensionActive/CurrentYearContribution";
+		public static string AP_ContHistoryEmployerApi  = "PensionActive/HistoryByEmployer";
+		public static string AP_ContHistoryYearApi      = "PensionActive/HistoryByYear";
+		public static string AP_DocumentsApi            = "PensionActive/SummaryPlanDocuments";
+
+
 
         public const string RESPONSE_CODE_OK        = "200";
 		//Error Strings
