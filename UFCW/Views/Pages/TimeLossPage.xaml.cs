@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using UFCW.Constants;
+using UFCW.Helpers;
 using UFCW.Services.Models.Eligibility;
 using UFCW.ViewModels;
 using UFCW.Views.Pages;
@@ -30,10 +31,10 @@ namespace UFCW
         private async Task GetTimeLosses()
         {
             timeLossViewModel.IsBusy = true;
-            string email = "sam@paysolar.com"; //Todo temprary code
-            string token = "0000";
-            string ssn = "413112352";
-           TimeLoss[] timeLossServerResponse = await timeLossViewModel.GetTimeLoss(token, ssn, email);
+            //string email = "sam@paysolar.com"; //Todo temprary code
+            //string token = "0000";
+            //string ssn = "413112352";
+			TimeLoss[] timeLossServerResponse = await timeLossViewModel.GetTimeLoss(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
             if (timeLossServerResponse != null)
             {
                 UpdatePage(timeLossServerResponse);

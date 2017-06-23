@@ -247,6 +247,7 @@
     <Compile Include="Views\Pages\PensionActive\HistoryByYearDetailPage.xaml.cs">
       <DependentUpon>HistoryByYearDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Settings.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -475,6 +476,12 @@
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.5.8\lib\portable-net45+wp80+win8+wpa81\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.5.8\lib\portable-net45+wp80+win8+wpa81\Plugin.Settings.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

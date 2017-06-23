@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.Pension;
 using UFCW.Services.Services.Pension;
 
@@ -13,9 +14,9 @@ namespace UFCW.ViewModels.Pension
 
 		private bool isBusy = false;
 
-		string email = "UfcwRetiree@sinettechnologies.com";
-		string token = "0000";
-		string ssn = "512429544";
+		//string email = "UfcwRetiree@sinettechnologies.com";
+		//string token = "0000";
+		//string ssn = "512429544";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UFCW.ViewModels.Pension.RetireeViewModel"/> class.
@@ -65,7 +66,7 @@ namespace UFCW.ViewModels.Pension
         public async Task<Retiree> FetchRetiree()
 		{
 			var pensionService = new PensionService();
-            return await pensionService.FetchRetiree(token, ssn, email);
+			return await pensionService.FetchRetiree(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
 		}
 
 		/// <summary>

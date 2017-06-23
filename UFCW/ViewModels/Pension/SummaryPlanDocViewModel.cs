@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.Pension;
 using UFCW.Services.Services.Pension;
 
@@ -19,9 +20,9 @@ namespace UFCW.ViewModels.Pension
 
 		private bool isBusy = false;
 
-		string email = "UfcwRetiree@sinettechnologies.com";
-		string token = "0000";
-		string ssn = "512429544";
+		//string email = "UfcwRetiree@sinettechnologies.com";
+		//string token = "0000";
+		//string ssn = "512429544";
 
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
@@ -43,7 +44,7 @@ namespace UFCW.ViewModels.Pension
 		public async Task<SummaryPlanDoc[]> FetchSummaryPlanDocs()
 		{
             var pansionService = new PensionService();
-            return await pansionService.FetchSummaryPlanDoc(token, ssn, email);
+            return await pansionService.FetchSummaryPlanDoc(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
 		}
 
 		/// <summary>

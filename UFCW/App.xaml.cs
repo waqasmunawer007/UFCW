@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UFCW.Helpers;
 using UFCW.Services.Models.Pension;
 using UFCW.Services.Models.User;
 using Xamarin.Forms;
@@ -20,10 +21,9 @@ namespace UFCW
 		{
 			InitializeComponent();
 			user = new User();
-            retiree = new Retiree();
-            MainPage = new NavigationPage(new UFCW.Views.Login.LoginPage());
-            nav = MainPage.Navigation;
-			//MainPage.SetValue(NavigationPage.BarTextColorProperty, Color.White);
+			retiree = new Retiree();
+			MainPage = new NavigationPage(new UFCW.Views.Login.LoginPage());
+			nav = MainPage.Navigation;
 		}
 
 		public static void LoadHomePage()
