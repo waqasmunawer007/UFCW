@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.ActivePension;
 using UFCW.Services.Services.ActivePension;
 
@@ -12,10 +13,6 @@ namespace UFCW.ViewModels.ActivePension
         private MyBenifits benifits;
 		private bool isBusy = false;
 
-		string email = "UfcwRetiree@sinettechnologies.com";
-		string token = "0000";
-		string ssn = "413112352";
-
 		/// <summary>
         /// Initializes a new instance of the <see cref="T:UFCW.ViewModels.ActivePension.MyBenifitsVM"/> class.
         /// </summary>
@@ -23,7 +20,6 @@ namespace UFCW.ViewModels.ActivePension
 		{
             benifits = new MyBenifits();
 		}
-
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
 		/// </summary>
@@ -64,10 +60,9 @@ namespace UFCW.ViewModels.ActivePension
 		public async Task<MyBenifits> FetchBenifits()
 		{
 			var pensionService = new ActivePensionService();
-            benifits = await pensionService.FetchBenifits(token, ssn);;
+            benifits = await pensionService.FetchBenifits(Settings.UserToken, Settings.UserSSN);;
             return benifits;
 		}
-
 		/// <summary>
 		/// Ons the property changed.
 		/// </summary>

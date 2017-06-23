@@ -4,6 +4,7 @@ using UFCW.Services.Models.Eligibility.Benifits;
 using System.ComponentModel;
 using UFCW.Services.UserService;
 using System.Collections.ObjectModel;
+using UFCW.Helpers;
 
 namespace UFCW.ViewModels
 {
@@ -11,19 +12,12 @@ namespace UFCW.ViewModels
 	{
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Benifits> BenifitsList;
-		
         private bool isBusy = false;
-
-		string email = "sam@paysolar.com";
-		string token = "0000";
-		string ssn = "413112352";
 
         public BenifitsViewModel()
         {
             BenifitsList = new ObservableCollection<Benifits>();
         }
-
-
         /// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
 		/// </summary>
@@ -42,8 +36,8 @@ namespace UFCW.ViewModels
 		}
         public async Task<Benifits[]> FetchBenifits()
 		{
-            var beniftisService = new EligibilityService();
-            return await beniftisService.FetchUserBenifits(token, ssn, email);
+			var eligibilityService = new EligibilityService();
+            return await eligibilityService.FetchUserBenifits(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
 		}
 
 		/// <summary>

@@ -123,9 +123,6 @@
     <Compile Include="Views\Pages\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\DocumentPage.xaml.cs">
-      <DependentUpon>DocumentPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Pages\LinksPage.xaml.cs">
       <DependentUpon>LinksPage.xaml</DependentUpon>
     </Compile>
@@ -139,80 +136,47 @@
     <Compile Include="Models\SampleCategory.cs" />
     <Compile Include="Models\SampleCoordinator.cs" />
     <Compile Include="Models\SamplesDefinition.cs" />
-    <Compile Include="Views\Pages\ParticipantDetailPage.xaml.cs">
-      <DependentUpon>ParticipantDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\BenefitPlanPage.xaml.cs">
-      <DependentUpon>BenefitPlanPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\ChecksIssuedPage.xaml.cs">
-      <DependentUpon>ChecksIssuedPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\DependentsPage.xaml.cs">
-      <DependentUpon>DependentsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\TimeLossPage.xaml.cs">
-      <DependentUpon>TimeLossPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\EligibilityReportPage.xaml.cs">
-      <DependentUpon>EligibilityReportPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Pages\SearchClaimsPage.xaml.cs">
       <DependentUpon>SearchClaimsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\ClaimsReportPage.xaml.cs">
-      <DependentUpon>ClaimsReportPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\SelfPaymentPage.xaml.cs">
-      <DependentUpon>SelfPaymentPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\Eligibility\TImeLossViewModel.cs" />
     <Compile Include="Constants\WebApiConstants.cs" />
-    <Compile Include="Views\Pages\TimeLossDetailsPage.xaml.cs">
-      <DependentUpon>TimeLossDetailsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\Eligibility\BenifitsViewModel.cs" />
     <Compile Include="ViewModels\Eligibility\ChecksIssuedViewModel.cs" />
     <Compile Include="ViewModels\Eligibility\DependentsViewModel.cs" />
     <Compile Include="ViewModels\Eligibility\ParticipantsViewModel.cs" />
-    <Compile Include="Views\Pages\CheckIssuedDetailPage.xaml.cs">
-      <DependentUpon>CheckIssuedDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\DependantsDetailPage.xaml.cs">
-      <DependentUpon>DependantsDetailPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Converters\HTMLSourceConverter.cs" />
-    <Compile Include="ViewModels\Pension\RetireeViewModel.cs" />
-    <Compile Include="Views\Pages\Pension\RetireeDetailPage.xaml.cs">
+    <Compile Include="ViewModels\RetireePension\RetireeViewModel.cs" />
+    <Compile Include="Views\Pages\PensionRetiree\RetireeDetailPage.xaml.cs">
       <DependentUpon>RetireeDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Pension\MyBenifitsPage.xaml.cs">
+    <Compile Include="Views\Pages\PensionRetiree\MyBenifitsPage.xaml.cs">
       <DependentUpon>MyBenifitsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Pension\MyTaxesPage.xaml.cs">
+    <Compile Include="Views\Pages\PensionRetiree\MyTaxesPage.xaml.cs">
       <DependentUpon>MyTaxesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Pension\MonthlyBenefitsPage.xaml.cs">
+    <Compile Include="Views\Pages\PensionRetiree\MonthlyBenefitsPage.xaml.cs">
       <DependentUpon>MonthlyBenefitsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Pension\DirectDepositPage.xaml.cs">
+    <Compile Include="Views\Pages\PensionRetiree\DirectDepositPage.xaml.cs">
       <DependentUpon>DirectDepositPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Pension\SurvivorDate.xaml.cs">
+    <Compile Include="Views\Pages\PensionRetiree\SurvivorDate.xaml.cs">
       <DependentUpon>SurvivorDate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Pension\PensionSummaryPlanDocPage.xaml.cs">
+    <Compile Include="Views\Pages\PensionRetiree\PensionSummaryPlanDocPage.xaml.cs">
       <DependentUpon>PensionSummaryPlanDocPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Pension\SummaryPlanDocViewModel.cs" />
+    <Compile Include="ViewModels\RetireePension\SummaryPlanDocViewModel.cs" />
     <Compile Include="Views\Pages\Eligibility\EligibilityMenuPage.xaml.cs">
       <DependentUpon>EligibilityMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Eligibility\EligibilityMenuVM.cs" />
-    <Compile Include="Views\Pages\Pension\PensionMenuPage.xaml.cs">
+    <Compile Include="Views\Pages\PensionRetiree\PensionMenuPage.xaml.cs">
       <DependentUpon>PensionMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Pension\PensionMenuVM.cs" />
+    <Compile Include="ViewModels\RetireePension\PensionMenuVM.cs" />
     <Compile Include="Views\Pages\PensionActive\ActivePensionMenuPage.xaml.cs">
       <DependentUpon>ActivePensionMenuPage.xaml</DependentUpon>
     </Compile>
@@ -248,6 +212,42 @@
       <DependentUpon>HistoryByYearDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Views\Pages\Eligibility\BenefitPlanPage.xaml.cs">
+      <DependentUpon>BenefitPlanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\CheckIssuedDetailPage.xaml.cs">
+      <DependentUpon>CheckIssuedDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\ChecksIssuedPage.xaml.cs">
+      <DependentUpon>ChecksIssuedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\DependantsDetailPage.xaml.cs">
+      <DependentUpon>DependantsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\DependentsPage.xaml.cs">
+      <DependentUpon>DependentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\EligibilityReportPage.xaml.cs">
+      <DependentUpon>EligibilityReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\ParticipantDetailPage.xaml.cs">
+      <DependentUpon>ParticipantDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\TimeLossDetailsPage.xaml.cs">
+      <DependentUpon>TimeLossDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\TimeLossPage.xaml.cs">
+      <DependentUpon>TimeLossPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Eligibility\SelfPaymentPage.xaml.cs">
+      <DependentUpon>SelfPaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\DocumentPage.xaml.cs">
+      <DependentUpon>DocumentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ClaimsReportPage.xaml.cs">
+      <DependentUpon>ClaimsReportPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -327,9 +327,6 @@
     <EmbeddedResource Include="Views\Pages\AccountPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\DocumentPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\LinksPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -339,67 +336,34 @@
     <EmbeddedResource Include="Views\Pages\FAQPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\ParticipantDetailPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\BenefitPlanPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\ChecksIssuedPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\DependentsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\TimeLossPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\EligibilityReportPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\SearchClaimsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\ClaimsReportPage.xaml">
+    <EmbeddedResource Include="Views\Pages\PensionRetiree\RetireeDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\SelfPaymentPage.xaml">
+    <EmbeddedResource Include="Views\Pages\PensionRetiree\MyBenifitsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\TimeLossDetailsPage.xaml">
+    <EmbeddedResource Include="Views\Pages\PensionRetiree\MyTaxesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\CheckIssuedDetailPage.xaml">
+    <EmbeddedResource Include="Views\Pages\PensionRetiree\MonthlyBenefitsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\DependantsDetailPage.xaml">
+    <EmbeddedResource Include="Views\Pages\PensionRetiree\DirectDepositPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\RetireeDetailPage.xaml">
+    <EmbeddedResource Include="Views\Pages\PensionRetiree\SurvivorDate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\MyBenifitsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\MyTaxesPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\MonthlyBenefitsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\DirectDepositPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\SurvivorDate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\PensionSummaryPlanDocPage.xaml">
+    <EmbeddedResource Include="Views\Pages\PensionRetiree\PensionSummaryPlanDocPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Eligibility\EligibilityMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\Pension\PensionMenuPage.xaml">
+    <EmbeddedResource Include="Views\Pages\PensionRetiree\PensionMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\PensionActive\ActivePensionMenuPage.xaml">
@@ -427,6 +391,42 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\PensionActive\HistoryByYearDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\BenefitPlanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\CheckIssuedDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\ChecksIssuedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\DependantsDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\DependentsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\EligibilityReportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\ParticipantDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\TimeLossDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\TimeLossPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\SelfPaymentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\DocumentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\ClaimsReportPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -506,8 +506,8 @@
     <Folder Include="Views\Pages\" />
     <Folder Include="Views\Pages\Login\" />
     <Folder Include="ViewModels\Eligibility\" />
-    <Folder Include="ViewModels\Pension\" />
-    <Folder Include="Views\Pages\Pension\" />
+    <Folder Include="ViewModels\RetireePension\" />
+    <Folder Include="Views\Pages\PensionRetiree\" />
     <Folder Include="Views\Pages\Eligibility\" />
     <Folder Include="Views\Pages\PensionActive\" />
     <Folder Include="ViewModels\ActivePension\" />

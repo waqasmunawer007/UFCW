@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.ActivePension;
 using UFCW.Services.Services.ActivePension;
 
@@ -11,19 +12,12 @@ namespace UFCW.ViewModels.ActivePension
     {
 		public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<HistoryByEmployer> historyByEmployerList;
-
 		private bool isBusy = false;
-
-		string email = "sam@paysolar.com";
-		string token = "0000";
-		string ssn = "413112352";
 
 		public HistoryByEmployerVM()
 		{
 			historyByEmployerList = new ObservableCollection<HistoryByEmployer>();
 		}
-
-
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
 		/// </summary>
@@ -40,7 +34,6 @@ namespace UFCW.ViewModels.ActivePension
 				}
 			}
 		}
-
         /// <summary>
         /// Fetchs the history by employer.
         /// </summary>
@@ -48,9 +41,8 @@ namespace UFCW.ViewModels.ActivePension
 		public async Task<HistoryByEmployer[]> FetchHistoryByEmployer()
 		{
             var service = new ActivePensionService();
-            return await service.FetchHistoryByEmployer(token, ssn);
+            return await service.FetchHistoryByEmployer(Settings.UserToken, Settings.UserSSN);
 		}
-
 		/// <summary>
 		/// Ons the property changed.
 		/// </summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,20 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Token);
 			parameters.Add(WebApiConstants.SSN, SSN);
+            try
+            {
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+				HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_BenifitsApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
 
-			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_BenifitsApi, content);
-			var json = await responseJson.Content.ReadAsStringAsync();
-
-            var profile = JsonConvert.DeserializeObject<MyBenifits>(json);
-			return profile;
+				var benefitsData = JsonConvert.DeserializeObject<MyBenifits>(json);
+				return benefitsData;
+            }
+            catch(Exception ex)
+            {
+              Debug.WriteLine("ActivePensionFetchBenifits", ex.Message);  
+            }
+            return null;
         }
 
         /// <summary>
@@ -42,13 +50,19 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Token);
 			parameters.Add(WebApiConstants.SSN, SSN);
-
-			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_CrntYrContributionApi, content);
-			var json = await responseJson.Content.ReadAsStringAsync();
-
-            var model = JsonConvert.DeserializeObject<CurrentYearContribution>(json);
-			return model;
+            try
+            {
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+				HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_CrntYrContributionApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				var contributionData = JsonConvert.DeserializeObject<CurrentYearContribution>(json);
+				return contributionData;
+            }
+            catch(Exception ex)
+            {
+              Debug.WriteLine("FetchCurrentYearContribution", ex.Message);  
+            }
+            return null;
         }
 
         /// <summary>
@@ -62,13 +76,22 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Token);
 			parameters.Add(WebApiConstants.SSN, SSN);
-
-			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_DocumentsApi, content);
-			var json = await responseJson.Content.ReadAsStringAsync();
-
-            var profile = JsonConvert.DeserializeObject<PlanDocument[]>(json);
-			return profile;
+            try
+            {
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+				HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_DocumentsApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (!json.Equals("[]")) //only parse json if it contains data
+				{
+					var planDocumentsData = JsonConvert.DeserializeObject<PlanDocument[]>(json);
+					return planDocumentsData;
+				}
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("FetchDocuments", ex.Message);
+			}
+            return null;
         }
 
         /// <summary>
@@ -82,13 +105,22 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Token);
 			parameters.Add(WebApiConstants.SSN, SSN);
-
-			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_ContHistoryEmployerApi, content);
-			var json = await responseJson.Content.ReadAsStringAsync();
-
-            var profile = JsonConvert.DeserializeObject<HistoryByEmployer[]>(json);
-			return profile;
+            try
+            {
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+				HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_ContHistoryEmployerApi, content);
+                string json = await responseJson.Content.ReadAsStringAsync();
+                if (!json.Equals("[]")) //only parse json if it contains data
+                {
+					var historyData = JsonConvert.DeserializeObject<HistoryByEmployer[]>(json);
+					return historyData;
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("FetchEmployerHistory",ex.Message);    
+            }
+            return null;
         }
 
         /// <summary>
@@ -102,13 +134,23 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Token);
 			parameters.Add(WebApiConstants.SSN, SSN);
-
-			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_ContHistoryYearApi, content);
-			var json = await responseJson.Content.ReadAsStringAsync();
-
-            var profile = JsonConvert.DeserializeObject<HistoryByYear[]>(json);
-			return profile;
+            try
+            {
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+				HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_ContHistoryYearApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (!json.Equals("[]")) //only parse json if it contains data
+				{
+					var historyByYearData = JsonConvert.DeserializeObject<HistoryByYear[]>(json);
+					return historyByYearData;
+				}
+				
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("FetchHistoryByYear", ex.Message);
+			}
+            return null;
         }
 
         /// <summary>
@@ -122,13 +164,19 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Token);
 			parameters.Add(WebApiConstants.SSN, SSN);
-
-			var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
-			HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_ProfileApi, content);
-			var json = await responseJson.Content.ReadAsStringAsync();
-
-			var profile = JsonConvert.DeserializeObject<Profile>(json);
-			return profile;
+            try
+            {
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+				HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_ProfileApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				var profile = JsonConvert.DeserializeObject<Profile>(json);
+				return profile;
+            }
+            catch(Exception ex)
+            {
+                 Debug.WriteLine("ActivePensionFetchProfile", ex.Message);   
+            }
+            return null;
 		}
     }
 }

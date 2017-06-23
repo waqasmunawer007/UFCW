@@ -4,6 +4,7 @@ using UFCW.Services.UserService;
 using System.Collections.ObjectModel;
 using UFCW.Services.Models.Eligibility;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 
 namespace UFCW.ViewModels.Eligibility
 {
@@ -11,12 +12,9 @@ namespace UFCW.ViewModels.Eligibility
     {
 		public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<CheckIssued> checksIssuedList;
-
 		private bool isBusy = false;
 
-		string email = "sam@paysolar.com";
-		string token = "0000";
-		string ssn = "413112352";
+		
 
 		public ChecksIssuedViewModel()
 		{
@@ -43,8 +41,9 @@ namespace UFCW.ViewModels.Eligibility
 
 		public async Task<CheckIssued[]> FetchChecksIssued()
 		{
+            string ssn = "413112352"; //Todo remove this hard code value, once logged in SSN has valid data
 			var beniftisService = new EligibilityService();
-            return await beniftisService.FetchChecksIssued(token, ssn, email);
+            return await beniftisService.FetchChecksIssued(Settings.UserToken, ssn, Settings.UserEmail);
 		}
 
 		/// <summary>

@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.ActivePension;
 using UFCW.Services.Services.ActivePension;
 
@@ -11,12 +12,7 @@ namespace UFCW.ViewModels.ActivePension
     {
 		public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<HistoryByYear> historyByYearList;
-
 		private bool isBusy = false;
-
-		string email = "sam@paysolar.com";
-		string token = "0000";
-		string ssn = "413112352";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UFCW.ViewModels.ActivePension.HistoryByYearVM"/> class.
@@ -25,7 +21,6 @@ namespace UFCW.ViewModels.ActivePension
 		{
 			historyByYearList = new ObservableCollection<HistoryByYear>();
 		}
-
 
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
@@ -43,7 +38,6 @@ namespace UFCW.ViewModels.ActivePension
 				}
 			}
 		}
-
 		/// <summary>
         /// Fetchs the history by year.
         /// </summary>
@@ -51,7 +45,7 @@ namespace UFCW.ViewModels.ActivePension
         public async Task<HistoryByYear[]> FetchHistoryByYear()
 		{
 			var service = new ActivePensionService();
-            return await service.FetchHistoryByYear(token, ssn);
+            return await service.FetchHistoryByYear(Settings.UserToken, Settings.UserSSN);
 		}
 
 		/// <summary>

@@ -33,7 +33,8 @@ namespace UFCW.Views.Pages.PensionActive
 			}
 			else
 			{
-				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+                //Todo replace it with empty data message in center of the screen
+				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
 			}
 			historyByEmployerVM.IsBusy = false;
 		}

@@ -33,8 +33,9 @@ namespace UFCW
 				UpdatePage(checks);
 			}
 			else
-			{ 
-				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+			{
+				//todo show this message in center of the screen, if data list is empty
+				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
 			}
 			checksIssuedVM.IsBusy = false;
         }

@@ -26,25 +26,24 @@ namespace UFCW.Views.Pages.Pension
 				((ListView)sender).SelectedItem = null; // de-select the row
 			};
         }
-
-		/// <summary>
-		/// Fetchs the Summary Plan Docs from the server.
-		/// </summary>
-		public async void FetchSummaryPlanDocs()
-		{
-			summaryPlanDocVM.IsBusy = true;
+        /// <summary>
+        /// Fetchs the Summary Plan Docs from the server.
+        /// </summary>
+        public async void FetchSummaryPlanDocs()
+        {
+            summaryPlanDocVM.IsBusy = true;
             SummaryPlanDoc[] list = await summaryPlanDocVM.FetchSummaryPlanDocs();
             if (list != null)
-			{
-                UpdatePage(list); 
-			}
-			else
-			{
-				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
-			}
-			summaryPlanDocVM.IsBusy = false;
-		}
-
+            {
+                UpdatePage(list);
+            }
+            else
+            {
+                //Todo replace it with empty data message in center of the screen
+                await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+            }
+            summaryPlanDocVM.IsBusy = false;
+        }
 		/// <summary>
 		/// Updates the listview 
 		/// </summary>
@@ -56,7 +55,6 @@ namespace UFCW.Views.Pages.Pension
                 summaryPlanDocVM.SummaryPlanDocsList.Add(summaryDoc);
 			}
 		}
-
         /// <summary>
         /// Handle Link clicked.
         /// </summary>

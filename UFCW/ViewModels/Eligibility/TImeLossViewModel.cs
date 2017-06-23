@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.Eligibility;
 using UFCW.Services.Models.User;
 using UFCW.Services.UserService;
@@ -64,14 +65,11 @@ namespace UFCW.ViewModels
         /// Gets the time loss.
         /// </summary>
         /// <returns>The time loss.</returns>
-        /// <param name="token">Token.</param>
-        /// <param name="ssn">Ssn.</param>
-        /// <param name="email">Email.</param>
-        public async Task<TimeLoss[]> GetTimeLoss(string token, string ssn, string email)
+        public async Task<TimeLoss[]> GetTimeLoss()
         {
-          
-            var eligibilityService = new EligibilityService();
-            timeLossServerResponse = await eligibilityService.FetchTimeLoss(token, ssn,email);
+            string ssn = "413112352"; //Todo remove this hard code value, once logged in SSN has valid data
+			var eligibilityService = new EligibilityService();
+            timeLossServerResponse = await eligibilityService.FetchTimeLoss(Settings.UserToken, ssn,Settings.UserEmail);
             return timeLossServerResponse;
         }
     }

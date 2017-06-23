@@ -16,7 +16,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Models\Eligibility\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\EligibilityServices\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\Pension\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Services\Pension\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\RetireePension\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\ActivePension\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\ActivePension\" />
   </ItemGroup>
@@ -34,8 +34,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\Benifits.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\CheckIssued.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Pension\Retiree.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Pension\PensionService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Pension\IPensionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\RetireePension\PensionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\RetireePension\IPensionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Pension\SummaryPlanDoc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\Profile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\MyBenifits.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.ActivePension;
 using UFCW.Services.Services.ActivePension;
 
@@ -11,10 +12,6 @@ namespace UFCW.ViewModels.ActivePension
 		public event PropertyChangedEventHandler PropertyChanged;
         private Profile _profile;
 		private bool isBusy = false;
-
-		string email = "UfcwRetiree@sinettechnologies.com";
-		string token = "0000";
-		string ssn = "512429544";
 
 		/// <summary>
         /// Initializes a new instance of the <see cref="T:UFCW.ViewModels.ActivePension.ParticipantDetailVM"/> class.
@@ -65,7 +62,7 @@ namespace UFCW.ViewModels.ActivePension
 		public async Task<Profile> FetchProfile()
 		{
 			var pensionService = new ActivePensionService();
-            _profile = await pensionService.FetchProfile(token, ssn);
+            _profile = await pensionService.FetchProfile(Settings.UserToken, Settings.UserSSN);
             return _profile;
 		}
 

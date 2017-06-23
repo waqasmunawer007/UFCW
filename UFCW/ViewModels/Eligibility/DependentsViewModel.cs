@@ -4,6 +4,7 @@ using UFCW.Services.UserService;
 using System.Collections.ObjectModel;
 using UFCW.Services.Models.Eligibility;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 
 namespace UFCW.ViewModels.Eligibility
 {
@@ -11,13 +12,8 @@ namespace UFCW.ViewModels.Eligibility
     {
 		public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Dependant> dependentsList;
-
 		private bool isBusy = false;
-
-		string email = "sam@paysolar.com";
-		string token = "0000";
-		string ssn = "413112352";
-
+		
 		public DependentsViewModel()
 		{
             dependentsList = new ObservableCollection<Dependant>();
@@ -43,8 +39,8 @@ namespace UFCW.ViewModels.Eligibility
 
         public async Task<Dependant[]> FetchDependents()
 		{
-			var beniftisService = new EligibilityService();
-            return await beniftisService.FetchDependents(token, ssn, email);
+			var eligibilityService = new EligibilityService();
+            return await eligibilityService.FetchDependents(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
 		}
 
 		/// <summary>

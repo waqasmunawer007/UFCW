@@ -7,16 +7,11 @@ using System.Threading.Tasks;
 
 namespace UFCW.ViewModels.Eligibility
 {
-    public class ParticipantsViewModel
+    public class ParticipantsViewModel:INotifyPropertyChanged
     {
 		public event PropertyChangedEventHandler PropertyChanged;
-        //public ObservableCollection<Participant> participantsList;
-
 		private bool isBusy = false;
 
-		string email = "sam@paysolar.com";
-		string token = "0000";
-		string ssn = "413112352";
 
 		public ParticipantsViewModel()
 		{

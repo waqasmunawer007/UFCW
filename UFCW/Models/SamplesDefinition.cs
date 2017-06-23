@@ -135,7 +135,7 @@ namespace UFCW
 					Shape = GrialShapesFont.Circle,
 					SamplesList = new List<Sample> {
                     new Sample("Eligibility", typeof(EligibilityMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
-					new Sample("Pension", typeof(PensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+					new Sample("Pension Retiree", typeof(PensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 					new Sample("Active Pension", typeof(ActivePensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 					new Sample("Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 				    new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),

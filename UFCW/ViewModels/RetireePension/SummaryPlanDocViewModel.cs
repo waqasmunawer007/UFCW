@@ -14,15 +14,9 @@ namespace UFCW.ViewModels.Pension
         {
             SummaryPlanDocsList = new ObservableCollection<SummaryPlanDoc>();
         }
-
 		public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<SummaryPlanDoc> SummaryPlanDocsList;
-
 		private bool isBusy = false;
-
-		//string email = "UfcwRetiree@sinettechnologies.com";
-		//string token = "0000";
-		//string ssn = "512429544";
 
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
@@ -40,7 +34,6 @@ namespace UFCW.ViewModels.Pension
 				}
 			}
 		}
-
 		public async Task<SummaryPlanDoc[]> FetchSummaryPlanDocs()
 		{
             var pansionService = new PensionService();

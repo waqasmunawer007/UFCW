@@ -31,17 +31,15 @@ namespace UFCW
         private async Task GetTimeLosses()
         {
             timeLossViewModel.IsBusy = true;
-            //string email = "sam@paysolar.com"; //Todo temprary code
-            //string token = "0000";
-            //string ssn = "413112352";
-			TimeLoss[] timeLossServerResponse = await timeLossViewModel.GetTimeLoss(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
+			TimeLoss[] timeLossServerResponse = await timeLossViewModel.GetTimeLoss();
             if (timeLossServerResponse != null)
             {
                 UpdatePage(timeLossServerResponse);
             }
     		else
 			{
-				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+                //todo show this message in center of the screen, if data list is empty
+                await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
 			}
             timeLossViewModel.IsBusy = false;
         }

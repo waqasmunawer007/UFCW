@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.ActivePension;
 using UFCW.Services.Services.ActivePension;
 
@@ -11,10 +12,6 @@ namespace UFCW.ViewModels.ActivePension
 		public event PropertyChangedEventHandler PropertyChanged;
         private CurrentYearContribution _currentYearContribution;
 		private bool isBusy = false;
-
-		string email = "UfcwRetiree@sinettechnologies.com";
-		string token = "0000";
-		string ssn = "413112352";
 
 		/// <summary>
         /// Initializes a new instance of the <see cref="T:UFCW.ViewModels.ActivePension.CurrentYearContributionVM"/> class.
@@ -65,7 +62,7 @@ namespace UFCW.ViewModels.ActivePension
 		public async Task<CurrentYearContribution> FetchCurrentYearContribution()
 		{
 			var pensionService = new ActivePensionService();
-            currentYearContribution = await pensionService.FetchCurrentYearContribution(token, ssn);
+            currentYearContribution = await pensionService.FetchCurrentYearContribution(Settings.UserToken, Settings.UserSSN);
             return currentYearContribution;
 		}
 
