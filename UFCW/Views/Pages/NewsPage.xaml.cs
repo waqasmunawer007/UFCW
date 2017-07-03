@@ -18,17 +18,17 @@ namespace UFCW
 			BindingContext = viewModel;
             NewsList.ItemsSource = viewModel.NewsList;	
 		}
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
 			GoogleAnalytics.Current.Tracker.SendView("News Page");
 			if (ifPublicNewsRequest)
 			{
-				viewModel.FetchPublicNews();
+				await viewModel.FetchPublicNews();
 			}
 			else
 			{
-                viewModel.FetchAuthNews();
+                await viewModel.FetchAuthNews();
 			}
         }
 

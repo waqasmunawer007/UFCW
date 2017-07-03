@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW"
     x:Class="UFCW.Views.AboutUsPage">
+    <ContentPage.Resources>
+         <ResourceDictionary>
+            <local:HTMLSourceConverter x:Key="htmlSource" ></local:HTMLSourceConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <StackLayout Orientation = "Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,10,0,10" >
-     <ActivityIndicator Margin="0,10,0,0" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
-	 <WebView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <WebView.Source>
-            <HtmlWebViewSource Html="{Binding URL}"/>
-        </WebView.Source>
-    </WebView>
+        <WebView VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand" Source="{Binding URL, Converter={StaticResource htmlSource}}" />
      </StackLayout>   
 </ContentPage>

@@ -25,17 +25,17 @@ namespace UFCW.Views
 			};
         }
 
-		protected override void OnAppearing()
+        protected async override void OnAppearing()
 		{
 			base.OnAppearing();
 			GoogleAnalytics.Current.Tracker.SendView("NonCore FAQ Page");
 			if (ifPublicFAQRequest)
 			{
-                viewModel.FetchPublicFAQ();
+                await viewModel.FetchPublicFAQ();
 			}
 			else
 			{
-                viewModel.FetchAuthFAQ();
+                await viewModel.FetchAuthFAQ();
 			}
 		}
 

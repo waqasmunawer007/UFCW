@@ -50,14 +50,12 @@ namespace UFCW.ViewModels.NonCore
 		/// <returns>The public news.</returns>
 		public async Task FetchPublicAboutUS()
 		{
-			IsBusy = true;
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchPublicNonCoreData();
 			if (responseData != null)
 			{
                 URL = responseData.AboutUS;
 			}
-			IsBusy = false;
 	     }
         /// <summary>
         /// Fetchs the authentcated user about us.
@@ -65,14 +63,12 @@ namespace UFCW.ViewModels.NonCore
         /// <returns>The auth about us.</returns>
 		public async Task FetchAuthAboutUS()
 		{
-			IsBusy = true;
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
 			if (responseData != null)
 			{
 				URL = responseData.AboutUS;
 			}
-			IsBusy = false;
 		}
 
 

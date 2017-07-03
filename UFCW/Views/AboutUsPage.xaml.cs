@@ -13,22 +13,24 @@ namespace UFCW.Views
         public AboutUsPage()
         {
             InitializeComponent();
-            viewModel = new AboutUsViewModel();
-            BindingContext = viewModel;
+			
 			
         }
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
             GoogleAnalytics.Current.Tracker.SendView("About Us Page");
+			viewModel = new AboutUsViewModel();
+			
 			if (ifPublicAboutUsRequest)
 			{
-				viewModel.FetchPublicAboutUS();
+                await viewModel.FetchPublicAboutUS();
 			}
 			else
 			{
-                viewModel.FetchAuthAboutUS();
+                await viewModel.FetchAuthAboutUS();
 			}
+            BindingContext = viewModel;
 		}
         protected override void OnDisappearing()
         {

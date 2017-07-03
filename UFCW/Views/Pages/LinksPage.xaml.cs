@@ -24,17 +24,17 @@ namespace UFCW
 				((ListView)sender).SelectedItem = null; // de-select the row
 			};
 		}
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
             GoogleAnalytics.Current.Tracker.SendView("Links Page");
 			if (ifPublicLinksRequest)
 			{
-				viewModel.FetchPublicLinks();
+                await viewModel.FetchPublicLinks();
 			}
 			else
 			{
-                viewModel.FetchAuthLinks();
+                await viewModel.FetchAuthLinks();
 			}
 		}
 
