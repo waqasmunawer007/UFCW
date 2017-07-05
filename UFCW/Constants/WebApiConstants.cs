@@ -9,11 +9,22 @@ namespace UFCW.Constants
 		public static string ChecksIssuedApi = "Eligibility/ChecksIssued";
 		public static string TimeLossApi = "Eligibility/TimeLoss";
 		public static string DependentsApi = "Eligibility/Dependents";
-        #endregion
+		#endregion
+
+		#region Calims API's
+		public static string FAQApi = "Claims/faq";
+        public static string ClaimSearchOptionsApi = "Claims/SearchOptionList";
+        public static string ClaimsSearchQueryAPi = "Claims/Query";
+        public static string ClaimsDetailApi = "Claims/Detail";
+        public static string ClaimsEOBApi = "Claims/EOB";
 
 
-        #region Fields Constatns
-        public const string TOKEN = "Token";
+		
+		#endregion
+
+
+		#region Fields Constatns
+		public const string TOKEN = "Token";
         public const string SSN = "SSN";
         public const string EMAIL = "Email";
         #endregion

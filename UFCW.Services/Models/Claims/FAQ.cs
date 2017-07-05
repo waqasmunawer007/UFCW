@@ -1,7 +1,7 @@
 ﻿using System;
 namespace UFCW.Services
 {
-	public class FaqQuestion
+	public class FAQ
 	{
 		public string FaqID { get; set; }
 		public string Question { get; set; }

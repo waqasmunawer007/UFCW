@@ -47,8 +47,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\ActivePension\PlanDocument.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ActivePension\ActivePensionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ActivePension\IActivePensionService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Claims\FaqQuestion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Claims\FAQ.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Claims\ClaimFilters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Claims\Claim.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Claims\IClaimService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Claims\ClaimService.cs" />
   </ItemGroup>
 </Project>
