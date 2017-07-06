@@ -287,6 +287,10 @@
     </Compile>
     <Compile Include="ViewModels\NonCore\NewsLetterViewModel.cs" />
     <Compile Include="Models\Profile.cs" />
+    <Compile Include="Views\NonCoreFAQPage.xaml.cs">
+      <DependentUpon>NonCoreFAQPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\NonCore\NonCoreFAQViewModel.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -487,6 +491,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\NonCoreDocument.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NonCoreFAQPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -144,7 +144,7 @@ namespace UFCW
             samplesList.Add(new Sample("Documents", typeof(NonCoreDocument), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Folder));
             samplesList.Add(new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public));
             samplesList.Add(new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy));
-            samplesList.Add(new Sample("FAQ", typeof(FAQsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help));
+            samplesList.Add(new Sample("FAQ", typeof(NonCoreFAQPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help));
             samplesList.Add(new Sample("Logout", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Power));
 
             menuCategories.Add(
@@ -496,7 +496,7 @@ namespace UFCW
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 1,
                     Shape = GrialShapesFont.Circle,
-                    page = new FAQsPage()
+                    page = new NonCoreFAQPage() {ifPublicFAQRequest = true}
                 }
             );
             categories.Add(

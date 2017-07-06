@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Plugin.GoogleAnalytics;
 using UFCW.ViewModels.NonCore;
 using Xamarin.Forms;
 
@@ -19,6 +20,7 @@ namespace UFCW.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("About Us Page");
 			if (ifPublicAboutUsRequest)
 			{
 				viewModel.FetchPublicAboutUS();
