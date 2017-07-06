@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services;
@@ -44,5 +45,10 @@ namespace UFCW
 				viewModel.FAQList.Add(faq);
 			}
 		}
-	}
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("FAQs Page");
+        }
+    }
 }

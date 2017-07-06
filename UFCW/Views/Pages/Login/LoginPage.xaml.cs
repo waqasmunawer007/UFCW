@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using Plugin.GoogleAnalytics;
 using UFCW.Constants;
 using UFCW.Helpers;
 using UFCW.Services.Models.Pension;
@@ -24,18 +25,23 @@ namespace UFCW.Views.Login
             pensionViewModel = new PensionMenuVM();
             BindingContext = loginVm;
             NavigationPage.SetHasNavigationBar(this, false);
-		}
-      
-		async Task LoginClicked()
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("Login Page");
+        }
+        async Task LoginClicked()
 		{
-			if (!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
+            GoogleAnalytics.Current.Tracker.SendEvent("Button", "Clicked", AppConstants.Login_Event_Message, 1);
+            if (!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
 			{
 				loginVm.ShowError = false;
 				loginVm.IsBusy = true;
 				//LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
 				LoginResponse response = await loginVm.LogiUser("UfcwActiveHW@sinettechnologies.com", "P@ssw0rd"); //for Eligibilty & Active pension
-              //  LoginResponse response = await loginVm.LogiUser("ufcwRetiree@sinettechnologies.com", "P@ssw0rd");
-               // LoginResponse response = await loginVm.LogiUser("UfcwActive@sinettechnologies.com", "P@ssw0rd");
+                //LoginResponse response = await loginVm.LogiUser("ufcwRetiree@sinettechnologies.com", "P@ssw0rd");
+                //LoginResponse response = await loginVm.LogiUser("UfcwActive@sinettechnologies.com", "P@ssw0rd");
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
 				{
 					loginVm.user = response.Profile;

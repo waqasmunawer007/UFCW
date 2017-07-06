@@ -25,7 +25,7 @@ namespace UFCW.Views
 			}
 			else
 			{
-				viewModel.FetchPublicAboutUS();
+                viewModel.FetchAuthAboutUS();
 			}
 		}
         protected override void OnDisappearing()

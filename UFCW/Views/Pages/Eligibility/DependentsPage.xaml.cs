@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.Eligibility;
@@ -63,13 +64,15 @@ namespace UFCW
 			dependantsDetailPage.BindingContext = dependant;
 			await Navigation.PushAsync(dependantsDetailPage);
             ((ListView)sender).SelectedItem = null;
+            GoogleAnalytics.Current.Tracker.SendEvent("ListView", "ItemTapped", AppConstants.Dependant_Event_Message , 1);
 		}
 
 		protected override void OnAppearing()
 		{
 			FetchDependents();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("Dependants Page");
+        }
 
 		protected override void OnDisappearing()
 		{

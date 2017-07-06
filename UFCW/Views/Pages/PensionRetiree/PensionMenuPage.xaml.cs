@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.Pension;
@@ -16,6 +17,11 @@ namespace UFCW.Views.Pages.Pension
             pensionMenuVM = new PensionMenuVM();
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = pensionMenuVM;
+            }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("Retiree Pension Page");
         }
     }
 }

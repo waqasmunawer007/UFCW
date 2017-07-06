@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Services;
 using UFCW.ViewModels.Claims;
@@ -71,6 +72,7 @@ namespace UFCW.Views.Pages.Claim
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("EOB Service Provider Page");
 		}
 
 		protected override void OnDisappearing()

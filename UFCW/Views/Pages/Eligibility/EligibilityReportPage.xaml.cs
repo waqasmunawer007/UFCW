@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.ViewModels.Eligibility;
 using Xamarin.Forms;
@@ -29,8 +30,9 @@ namespace UFCW
 		}
         protected override void OnAppearing()
         {
-            GetEligibilityReport();
             base.OnAppearing();
+			GetEligibilityReport();
+			GoogleAnalytics.Current.Tracker.SendView("Eligibility Report Page");
         }
         protected override void OnDisappearing()
         {
@@ -45,5 +47,6 @@ namespace UFCW
             await viewModel.FetchEligibilityReport();
 			viewModel.IsBusy = false;
 		}
-	}
+       
+    }
 }

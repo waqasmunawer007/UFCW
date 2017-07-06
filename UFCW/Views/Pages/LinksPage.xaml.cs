@@ -1,4 +1,5 @@
-﻿using System;
+using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.ViewModels.NonCore;
 using Xamarin.Forms;
@@ -26,6 +27,7 @@ namespace UFCW
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("Links Page");
 			if (ifPublicLinksRequest)
 			{
 				viewModel.FetchPublicLinks();
@@ -42,5 +44,6 @@ namespace UFCW
             viewModel.IsBusy = false;
             viewModel.LinksList.Clear();
         }
-	}
+    
+    }
 }

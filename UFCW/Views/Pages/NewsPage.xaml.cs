@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.ViewModels;
 using UFCW.Views.Pages;
@@ -20,6 +21,7 @@ namespace UFCW
         protected override void OnAppearing()
         {
             base.OnAppearing();
+			GoogleAnalytics.Current.Tracker.SendView("News Page");
 			if (ifPublicNewsRequest)
 			{
 				viewModel.FetchPublicNews();
@@ -46,5 +48,6 @@ namespace UFCW
 			await Navigation.PushAsync(newsDetailPage);
 			((ListView)sender).SelectedItem = null;
 		}
-	}
+
+    }
 }

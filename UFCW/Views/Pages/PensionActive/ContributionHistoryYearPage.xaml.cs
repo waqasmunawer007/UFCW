@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.ActivePension;
@@ -65,13 +66,15 @@ namespace UFCW.Views.Pages.PensionActive
 			historyDetailPage.BindingContext = history;
 			await Navigation.PushAsync(historyDetailPage);
 			((ListView)sender).SelectedItem = null;
-		}
+            GoogleAnalytics.Current.Tracker.SendEvent("ListView", "ItemTapped", AppConstants.HistoryByYear_Message , 1);
+        }
 
 		protected override void OnAppearing()
 		{
 			FetchHistoryByYear();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("Contribution History (Year) Page");
+        }
 
 		protected override void OnDisappearing()
 		{

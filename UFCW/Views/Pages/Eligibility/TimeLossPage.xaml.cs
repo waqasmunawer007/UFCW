@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -65,13 +66,15 @@ namespace UFCW
             timeLossDetailPage.BindingContext = timeLoss;
             await Navigation.PushAsync(timeLossDetailPage);
             ((ListView)sender).SelectedItem = null;
+            GoogleAnalytics.Current.Tracker.SendEvent("ListView", "ItemTapped", AppConstants.TimeLoss_Event_Message , 1);
 		}
 
 		protected override void OnAppearing()
 		{
 			GetTimeLosses();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("Time Loss Page");
+        }
 
 		protected override void OnDisappearing()
 		{

@@ -44,7 +44,7 @@ namespace UFCW.ViewModels.Eligibility
 				"BenefitPlans",
 				new SampleCategory
 				{
-					Name = "My Benefit Plans",
+					Name = "Benefit FAQ",
 					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
                     Icon = GrialShapesFont.Help,

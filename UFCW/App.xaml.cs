@@ -1,3 +1,4 @@
+using Plugin.GoogleAnalytics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,24 @@ namespace UFCW
 			retiree = new Retiree();
 			MainPage = new NavigationPage(new UFCW.Views.Login.LoginPage());
 			nav = MainPage.Navigation;
-		}
 
-		public static void LoadHomePage()
+            //Google analytics initialization
+
+            GoogleAnalytics.Current.Config.TrackingId = "UA-103573382-1";
+            //GoogleAnalytics.Current.Config.AppId = "AppID";
+            GoogleAnalytics.Current.Config.AppName = "test123";
+            //GoogleAnalytics.Current.Config.AppVersion = "1.0.0.0";
+            //GoogleAnalytics.Current.Config.Debug = true;
+            //For tracking install and starts app, you can change default event properties:
+            //GoogleAnalytics.Current.Config.ServiceCategoryName = "App";
+            //GoogleAnalytics.Current.Config.InstallMessage = "Install";
+            //GoogleAnalytics.Current.Config.StartMessage = "Start";
+            //GoogleAnalytics.Current.Config.AppInstallerId = "someID"; // for custom installer id
+            GoogleAnalytics.Current.InitTracker();
+            
+        }
+
+        public static void LoadHomePage()
         {
             
         }

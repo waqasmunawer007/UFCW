@@ -1,4 +1,5 @@
-﻿using System;
+using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -40,6 +41,7 @@ namespace UFCW
         {
             base.OnAppearing();
             FetchSearchFilterOptions();
+            GoogleAnalytics.Current.Tracker.SendView("Search Claim Page");
         }
         /// <summary>
         /// Adjust the UI style for Reset and Search Buttons.

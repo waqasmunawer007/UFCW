@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.Pension;
@@ -62,7 +63,8 @@ namespace UFCW.Views.Pages.Pension
 		{
 			FetchSummaryPlanDocs();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("Pension Summary Plan Document Page");
+        }
 
 		protected override void OnDisappearing()
 		{

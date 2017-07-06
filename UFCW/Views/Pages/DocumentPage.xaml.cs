@@ -6,16 +6,16 @@ using Xamarin.Forms;
 
 namespace UFCW
 {
-	public partial class SelfPaymentPage : ContentPage
+	public partial class DocumentPage : ContentPage
 	{
-		public SelfPaymentPage()
+		public DocumentPage()
 		{
 			InitializeComponent();
 		}
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            GoogleAnalytics.Current.Tracker.SendView("Self Payment Page");
+            GoogleAnalytics.Current.Tracker.SendView("Document Page");
         }
     }
 }
