@@ -52,5 +52,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Claims\Claim.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Claims\IClaimService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Claims\ClaimService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Claims\ClaimDetail.cs" />
   </ItemGroup>
 </Project>

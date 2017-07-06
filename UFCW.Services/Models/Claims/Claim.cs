@@ -1,7 +1,9 @@
 ﻿using System;
+using UFCW.Services.Models;
+
 namespace UFCW.Services
 {
-	public class Claim
+	public class Claim:BaseResponse
 	{
 		public string CLAIM_ID { get; set; }
 		public object SSN { get; set; }

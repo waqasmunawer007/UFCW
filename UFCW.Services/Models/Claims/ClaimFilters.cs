@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using UFCW.Services.Models;
 
 namespace UFCW.Services
 {
-	public class ClaimFilters
+	public class ClaimFilters: BaseResponse
 	{
 		public List<ClaimType> ClaimTypes { get; set; }
 		public List<ClaimStatus> ClaimStatuses { get; set; }

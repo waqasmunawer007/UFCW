@@ -17,9 +17,6 @@ namespace UFCW.Constants
         public static string ClaimsSearchQueryAPi = "Claims/Query";
         public static string ClaimsDetailApi = "Claims/Detail";
         public static string ClaimsEOBApi = "Claims/EOB";
-
-
-		
 		#endregion
 
 
@@ -27,6 +24,11 @@ namespace UFCW.Constants
 		public const string TOKEN = "Token";
         public const string SSN = "SSN";
         public const string EMAIL = "Email";
+		public const string ClaimStatus = "CLAIM_STATUS";
+		public const string ClaimType = "CLAIM_TYPE";
+		public const string FromDate = "FROM_DATE";
+		public const string ToDate = "TO_DATE";
+		public const string ClaimNumber = "TO_DATE";
         #endregion
 
         #region General Constants

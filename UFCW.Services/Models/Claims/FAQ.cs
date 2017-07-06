@@ -1,7 +1,9 @@
 ﻿using System;
+using UFCW.Services.Models;
+
 namespace UFCW.Services
 {
-	public class FAQ
+	public class FAQ: BaseResponse
 	{
 		public string FaqID { get; set; }
 		public string Question { get; set; }

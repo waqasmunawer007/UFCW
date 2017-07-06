@@ -137,12 +137,12 @@ namespace UFCW
                     new Sample("Eligibility", typeof(EligibilityMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 					new Sample("Pension Retiree", typeof(PensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 					new Sample("Active Pension", typeof(ActivePensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
-					new Sample("Claims", typeof(SearchClaimsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
+					new Sample("Claims", typeof(SearchClaimPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 				    new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person),
 					new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile),
 					new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public),
 					new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy),
-					new Sample("FAQ", typeof(FAQPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help),
+					new Sample("FAQ", typeof(FAQsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help),
                     new Sample("Logout", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Power)
 					}
 				}
