@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UFCW.Constants;
 using UFCW.Services;
 using Xamarin.Forms;
@@ -14,11 +15,46 @@ namespace UFCW
 			InitializeComponent();
 			viewModel = new SearchClaimViewModel();
 			BindingContext = viewModel;
-			//FAQsList.ItemsSource = viewModel.FAQList;
+			ClaimsList.ItemsSource = PrePareSampleData();
 			//FetchFAQs();
 
 			UpdateUIStyle();
 		}
+
+		private ObservableCollection<ClaimDetail> PrePareSampleData()
+		{
+			ObservableCollection<ClaimDetail> sampleData = new ObservableCollection<ClaimDetail>();
+			ClaimDetail c1 = new ClaimDetail();
+			c1.CLAIM_NUMBER = 1212;
+			c1.INSURED_INITIALS = "abs";
+			c1.PATIENT = "SELF";
+			c1.DENTAL_SERVICE = "Dental";
+
+			ClaimDetail c2 = new ClaimDetail();
+			c2.CLAIM_NUMBER = 1213;
+			c2.INSURED_INITIALS = "absdsd";
+			c2.PATIENT = "SELF";
+			c2.DENTAL_SERVICE = "Dental";
+
+			ClaimDetail c3 = new ClaimDetail();
+			c3.CLAIM_NUMBER = 1214;
+			c3.INSURED_INITIALS = "xyzw";
+			c3.PATIENT = "SELF";
+			c3.DENTAL_SERVICE = "Dental";
+
+			ClaimDetail c4 = new ClaimDetail();
+			c4.CLAIM_NUMBER = 545656;
+			c4.INSURED_INITIALS = "stve";
+			c4.PATIENT = "SELF";
+			c4.DENTAL_SERVICE = "Dental";
+
+			sampleData.Add(c1);
+			sampleData.Add(c2);
+			sampleData.Add(c3);
+			sampleData.Add(c4);
+			return sampleData;
+		}
+
 		/// <summary>
 		/// Updates the UI style for Reset and Search Buttons.
 		/// </summary>
@@ -55,7 +91,7 @@ namespace UFCW
 		public async void ApplySearchFilter(string claimType, string claimStatus, string fromDate, string toDate)
 		{
 			viewModel.IsBusy = true;
-			Claim[] searchedClaims = await viewModel.ApplyClaimSearch(claimType,claimStatus,fromDate,toDate);
+			ClaimDetail[] searchedClaims = await viewModel.ApplyClaimSearch(claimType,claimStatus,fromDate,toDate);
 			if (searchedClaims != null)
 			{
 				UpdatePage(searchedClaims);
@@ -67,9 +103,9 @@ namespace UFCW
 			}
 			viewModel.IsBusy = false;
 		}
-		private void UpdatePage(Claim[] data)
+		private void UpdatePage(ClaimDetail[] data)
 		{
-			foreach (Claim claim in data)
+			foreach (ClaimDetail claim in data)
 			{
 				viewModel.SearchedClaimsList.Add(claim);
 			}

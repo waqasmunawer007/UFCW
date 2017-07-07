@@ -11,12 +11,12 @@ namespace UFCW
 	public class SearchClaimViewModel: INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		public ObservableCollection<Claim> SearchedClaimsList;
+		public ObservableCollection<ClaimDetail> SearchedClaimsList;
 		private bool isBusy = false;
 
 		public SearchClaimViewModel()
 		{
-			SearchedClaimsList = new ObservableCollection<Claim>();
+			SearchedClaimsList = new ObservableCollection<ClaimDetail>();
 		}
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
@@ -44,14 +44,14 @@ namespace UFCW
 			return await claimService.FetchSearchFilters(Settings.UserToken, Settings.UserSSN);
 		}
 		/// <summary>
-		/// Applies the claim search based on different filter values.
+		/// Applies the claim search.
 		/// </summary>
 		/// <returns>The claim search.</returns>
 		/// <param name="claimType">Claim type.</param>
 		/// <param name="claimStatus">Claim status.</param>
 		/// <param name="fromDate">From date.</param>
 		/// <param name="toDate">To date.</param>
-		public async Task<Claim[]> ApplyClaimSearch(string claimType, string claimStatus, string fromDate, string toDate)
+		public async Task<ClaimDetail[]> ApplyClaimSearch(string claimType, string claimStatus, string fromDate, string toDate)
 		{
 			var claimService = new ClaimService();
 			return await claimService.SearchClaim(Settings.UserToken, Settings.UserSSN, claimType,claimStatus,fromDate,toDate);

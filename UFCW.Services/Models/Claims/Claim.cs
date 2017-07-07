@@ -6,45 +6,45 @@ namespace UFCW.Services
 	public class Claim:BaseResponse
 	{
 		public string CLAIM_ID { get; set; }
-		public object SSN { get; set; }
-		public object CLAIM_NUMBER { get; set; }
-		public object CLAIM_SUFFIX { get; set; }
-		public object CLAIM_TYPE { get; set; }
-		public object COVERAGE_PF { get; set; }
-		public object FUND_ID { get; set; }
-		public object PLAN_ID { get; set; }
-		public object LOCAL_NUMBER { get; set; }
-		public object CLAIMANT_TYPE { get; set; }
-		public object EMPLOYER_NAME { get; set; }
-		public object COV_FROM_DATE { get; set; }
-		public object COV_TO_DATE { get; set; }
-		public object MAINTENANCE_DATE { get; set; }
-		public object ADJUSTMENT_CODE { get; set; }
-		public object CLAIM_STATUS { get; set; }
-		public object SERVICE_REMARKS { get; set; }
-		public object PAY_REMARKS { get; set; }
-		public object GENDER { get; set; }
+		public long SSN { get; set; }
+		public long CLAIM_NUMBER { get; set; }
+		public string CLAIM_SUFFIX { get; set; }
+		public string CLAIM_TYPE { get; set; }
+		public string COVERAGE_PF { get; set; }
+		public string FUND_ID { get; set; }
+		public string PLAN_ID { get; set; }
+		public long LOCAL_NUMBER { get; set; }
+		public string CLAIMANT_TYPE { get; set; }
+		public string EMPLOYER_NAME { get; set; }
+		public string COV_FROM_DATE { get; set; }
+		public string COV_TO_DATE { get; set; }
+		public string MAINTENANCE_DATE { get; set; }
+		public string ADJUSTMENT_CODE { get; set; }
+		public string CLAIM_STATUS { get; set; }
+		public string SERVICE_REMARKS { get; set; }
+		public string PAY_REMARKS { get; set; }
+		public string GENDER { get; set; }
 		public int AGE { get; set; }
-		public object INSURED_INITIALS { get; set; }
-		public object INSURED_LAST_NAME { get; set; }
-		public object ADDRESS1 { get; set; }
-		public object ADDRESS2 { get; set; }
-		public object CITY { get; set; }
-		public object STATE_CODE { get; set; }
-		public object ZIP_CODE { get; set; }
-		public object DEP_FIRST_NAME { get; set; }
-		public object DEP_LAST_NAME { get; set; }
-		public object DEP_INITIAL { get; set; }
-		public object DEP_TYPE { get; set; }
-		public object YTD_DENTAL { get; set; }
-		public object DENTAL_DEDUCTION { get; set; }
+		public string INSURED_INITIALS { get; set; }
+		public string INSURED_LAST_NAME { get; set; }
+		public string ADDRESS1 { get; set; }
+		public string ADDRESS2 { get; set; }
+		public string CITY { get; set; }
+		public int STATE_CODE { get; set; }
+		public int ZIP_CODE { get; set; }
+		public string DEP_FIRST_NAME { get; set; }
+		public string DEP_LAST_NAME { get; set; }
+		public string DEP_INITIAL { get; set; }
+		public string DEP_TYPE { get; set; }
+		public string YTD_DENTAL { get; set; }
+		public string DENTAL_DEDUCTION { get; set; }
 		public object LT_DENTAL { get; set; }
 		public object LT_ORTHODONTIC { get; set; }
-		public object X_RAY_DATE { get; set; }
-		public object EXAM_CLEAN_DATE { get; set; }
-		public object CLAIM_FILE_FLAG { get; set; }
-		public object ADJUSTMENT_EXPL { get; set; }
-		public object DateCreated { get; set; }
-		public object DateUpdated { get; set; }
+		public string X_RAY_DATE { get; set; }
+		public string EXAM_CLEAN_DATE { get; set; }
+		public string CLAIM_FILE_FLAG { get; set; }
+		public string ADJUSTMENT_EXPL { get; set; }
+		public string DateCreated { get; set; }
+		public string DateUpdated { get; set; }
 	}
 }

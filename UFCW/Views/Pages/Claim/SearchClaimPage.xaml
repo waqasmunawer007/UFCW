@@ -72,6 +72,22 @@
 		            Text="Search"
 		            WidthRequest="100"/>
 			</StackLayout>
+
+			<ListView x:Name="ClaimsList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                     <ViewCell>
+			           <Grid HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,10,10,10" ColumnSpacing="2"  >
+					     	<Label Text="{Binding CLAIM_NUMBER}"  Grid.Row="0" Grid.Column="0" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
+						 	<Label Text="{Binding INSURED_INITIALS}"  Grid.Row="0" Grid.Column="1" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
+							<Label Text="{Binding PATIENT}"  Grid.Row="0" Grid.Column="2" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
+							<Label Text="{Binding DENTAL_SERVICE}"  Grid.Row="0" Grid.Column="3" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
+					   </Grid>
+                    </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -138,7 +138,7 @@ namespace UFCW.Services.Services.Claims
 		/// <param name="claimStatus">Claim status.</param>
 		/// <param name="fromData">From data.</param>
 		/// <param name="toDate">To date.</param>
-		public async Task<Claim[]> SearchClaim(string token, string ssn, string claimType, string claimStatus, string fromDate, string toDate)
+		public async Task<ClaimDetail[]> SearchClaim(string token, string ssn, string claimType, string claimStatus, string fromDate, string toDate)
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, token);
@@ -155,7 +155,7 @@ namespace UFCW.Services.Services.Claims
 				var json = await responseJson.Content.ReadAsStringAsync();
 				if (!json.Equals("[]")) //only parse json if it contains data
 				{
-					var searchResponse = JsonConvert.DeserializeObject<Claim[]>(json);
+					var searchResponse = JsonConvert.DeserializeObject<ClaimDetail[]>(json);
 					return searchResponse;
 				}
 			}
