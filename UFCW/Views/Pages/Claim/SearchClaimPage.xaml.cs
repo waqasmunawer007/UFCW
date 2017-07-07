@@ -16,8 +16,20 @@ namespace UFCW
 			BindingContext = viewModel;
 			//FAQsList.ItemsSource = viewModel.FAQList;
 			//FetchFAQs();
-		}
 
+			UpdateUIStyle();
+		}
+		/// <summary>
+		/// Updates the UI style for Reset and Search Buttons.
+		/// </summary>
+		private void UpdateUIStyle()
+		{ 
+			SearchButton.HeightRequest = 35;
+			SearchButton.FontSize = 12;
+			ResetButton.HeightRequest = 35;
+			ResetButton.FontSize = 12;
+			ResetButton.BackgroundColor = Color.FromHex("EF5350");
+		}
 		public async void FetchSearchFilterOptions()
 		{
 			viewModel.IsBusy = true;
