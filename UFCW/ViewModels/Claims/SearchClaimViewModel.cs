@@ -10,6 +10,15 @@ namespace UFCW
 {
 	public class SearchClaimViewModel: INotifyPropertyChanged
 	{
+		private readonly static DateTime MinDate = DateTime.Parse("Jan 1 1960");
+		private readonly static DateTime MaxDate = DateTime.Parse("Dec 31 2050");
+        private readonly static DateTime FromDate = DateTime.Parse("Jan 1 1980");
+
+		public DateTime Now => DateTime.Now;
+        public DateTime FromDateDefault => FromDate;
+		public DateTime MinimumDate => MinDate;
+		public DateTime MaximumDate => MaxDate;
+
 		public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<ClaimDetail> SearchedClaimsList;
 		private bool isBusy = false;

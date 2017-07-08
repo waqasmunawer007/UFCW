@@ -11,16 +11,21 @@
 		 <!-- Filters dropdown grid-->
             <Grid 
                 ColumnSpacing="10" 
-                RowSpacing="10" 
-                Padding="10,10,10,10"
+                RowSpacing="5" 
+                Padding="10,10,10,0"
                 VerticalOptions="Start" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                     <RowDefinition Height="40" />
-                    <RowDefinition Height="40" />
+                    <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
 				<!--Cliam Type filter -->
-					 <Picker  Grid.Row="0" Grid.Column="0" x:Name="TypePicker" Title="Select claim type">
+					 <Picker 
+                        artina:PickerProperties.BorderStyle="BottomLine"
+                        artina:PickerProperties.BorderWidth="1" 
+                        TextColor="{ DynamicResource BaseTextColor }"
+                        artina:PickerProperties.BorderColor="Gray" 
+                        Grid.Row="0" Grid.Column="0" x:Name="TypePicker" Title="Select claim type">
 					  <Picker.ItemsSource>
 					    <x:Array Type="{x:Type x:String}">
 					      <x:String>Baboon</x:String>
@@ -34,34 +39,51 @@
 					  </Picker.ItemsSource>
 					</Picker>
 				<!--Cliam Status filter -->
-					 <Picker Grid.Row="0"  Grid.Column="1" x:Name="StatusPicker" Title="Select claim status"/>
+					 <Picker 
+                        artina:PickerProperties.BorderStyle="BottomLine" 
+                        artina:PickerProperties.BorderWidth="1" 
+                        TextColor="{ DynamicResource BaseTextColor }"
+                        artina:PickerProperties.BorderColor="Gray"
+                        Grid.Row="0"  Grid.Column="1" x:Name="StatusPicker"
+                        Title="Select claim status"/>
 				 <!--Patient filter -->
-					 <Picker  Grid.Row="1" Grid.Column="0" x:Name="PatientPicker" Title="Select Patient"/>
+					 <Picker  
+                        artina:PickerProperties.BorderStyle="BottomLine" 
+                        artina:PickerProperties.BorderWidth="1" 
+                        TextColor="{ DynamicResource BaseTextColor }"
+                        artina:PickerProperties.BorderColor="Gray"
+                         Grid.Row="1" Grid.Column="0" x:Name="PatientPicker" Title="Select Patient"/>
 				 <!--Dependent's First Name filter -->
-					 <Picker Grid.Row="1" Grid.Column="1" x:Name="DependentPicker" Title="Select depedent"/>
+					 <Picker 
+                        artina:PickerProperties.BorderStyle="BottomLine" artina:PickerProperties.BorderWidth="1" 
+                        artina:PickerProperties.BorderColor="Gray"
+                         TextColor="{ DynamicResource BaseTextColor }"
+                        Grid.Row="1" Grid.Column="1" x:Name="DependentPicker" Title="Select depedent"/>
 				 <!--From Date picket -->
-					 <DatePicker Grid.Row="2" Grid.Column="0" x:Name="FromDatePicker" />
+                    <DatePicker Grid.Row="2" Grid.Column="0" x:Name="FromDatePicker" VerticalOptions="CenterAndExpand" 
+                            Date="{Binding FromDateDefault}" 
+                            MinimumDate="{Binding MinimumDate}" 
+                            MaximumDate="{Binding MaximumDate}"
+                            artina:PickerProperties.BorderStyle="BottomLine"
+                            artina:PickerProperties.BorderWidth="1" 
+                            artina:PickerProperties.BorderColor="Gray"      
+                            TextColor="{ DynamicResource BaseTextColor }">
+                        <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                    </DatePicker>
 				<!--To Date picket -->
-					 <DatePicker Grid.Row="2" Grid.Column="1" x:Name="ToDatePicker" >
-					 	 <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
-					         <DatePicker.MinimumDate>
-					            <sys:DateTime x:FactoryMethod="Parse">
-					               <x:Arguments>
-					                  <x:String>Jan 1 2000</x:String>
-					               </x:Arguments>
-					            </sys:DateTime>
-					         </DatePicker.MinimumDate>
-					         <DatePicker.MaximumDate>
-					            <sys:DateTime x:FactoryMethod="Parse">
-					               <x:Arguments>
-					                  <x:String>Dec 31 2050</x:String>
-					               </x:Arguments>
-					            </sys:DateTime>
-					         </DatePicker.MaximumDate>
+					 <DatePicker Grid.Row="2" VerticalOptions="CenterAndExpand"  Grid.Column="1" x:Name="ToDatePicker"
+                        Date="{Binding Now}" 
+                        MinimumDate="{Binding MinimumDate}" 
+                        MaximumDate="{Binding MaximumDate}"
+                        artina:PickerProperties.BorderStyle="BottomLine"
+                        artina:PickerProperties.BorderWidth="1" 
+                        artina:PickerProperties.BorderColor="Gray"
+                        TextColor="{ DynamicResource BaseTextColor }">
+				 	    <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
 				</DatePicker>
 			</Grid>
 			<!-- Search & Reset Button layout -->
-			<StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,5,10,0">
+			<StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
 				 <artina:Button
 					x:Name="ResetButton"	
 		            Style="{DynamicResource PrimaryActionButtonStyle}"
