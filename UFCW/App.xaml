@@ -29,6 +29,7 @@
 			<x:Double x:Key="BaseTitleFontSize">14</x:Double>
 			<x:Double x:Key="BaseTitleValueSize">14</x:Double>
 			<x:Double x:Key="BaseButtonHeight">44</x:Double>
+            <x:Double x:Key="BaseSmallButtonHeight">32</x:Double>
 			<x:Double x:Key="BaseButtonBorderRadius">22</x:Double>
 
 
@@ -383,6 +384,13 @@
                 <Setter Property="BorderRadius" Value="10" />
 				<Setter Property="HeightRequest" Value="{DynamicResource BaseButtonHeight}" /> 
 			</Style>
+
+            <Style x:Key="PrimaryActionSmallButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource AccentColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource LabelButtonColor}" />
+                <Setter Property="BorderRadius" Value="10" />
+                <Setter Property="HeightRequest" Value="{DynamicResource BaseSmallButtonHeight}" /> 
+            </Style>
 
 			<Style x:Key="SecondaryActionButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
 				<Setter Property="BackgroundColor" Value="{DynamicResource ComplementColor}" />

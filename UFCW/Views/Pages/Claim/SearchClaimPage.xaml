@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 		xmlns:local="clr-namespace:UFCW;assembly=UFCW"
@@ -8,15 +8,16 @@
 		x:Class="UFCW.SearchClaimPage">
 	<ContentPage.Content>
 	    <StackLayout Orientation = "Vertical"  Padding="0,10,0,10">
-			
 		 <!-- Filters dropdown grid-->
             <Grid 
-                ColumnSpacing="5" 
-                RowSpacing="2" 
-                Padding="10,2,10,0"
+                ColumnSpacing="10" 
+                RowSpacing="10" 
+                Padding="10,10,10,10"
                 VerticalOptions="Start" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
 				<!--Cliam Type filter -->
 					 <Picker  Grid.Row="0" Grid.Column="0" x:Name="TypePicker" Title="Select claim type">
@@ -33,7 +34,7 @@
 					  </Picker.ItemsSource>
 					</Picker>
 				<!--Cliam Status filter -->
-					 <Picker Grid.Row="0" Grid.Column="1" x:Name="StatusPicker" Title="Select claim status"/>
+					 <Picker Grid.Row="0"  Grid.Column="1" x:Name="StatusPicker" Title="Select claim status"/>
 				 <!--Patient filter -->
 					 <Picker  Grid.Row="1" Grid.Column="0" x:Name="PatientPicker" Title="Select Patient"/>
 				 <!--Dependent's First Name filter -->
@@ -65,24 +66,52 @@
 					x:Name="ResetButton"	
 		            Style="{DynamicResource PrimaryActionButtonStyle}"
 		            Text="Reset"
-		            WidthRequest="100"/>
+		            WidthRequest="80"/>
 				 <artina:Button
 					x:Name="SearchButton"	
 		            Style="{DynamicResource PrimaryActionButtonStyle}"
 		            Text="Search"
-		            WidthRequest="100"/>
+		            WidthRequest="80"/>
 			</StackLayout>
-
-			<ListView x:Name="ClaimsList">
+            <!-- Header Layout -->
+             <Grid 
+                ColumnSpacing="10" 
+                RowSpacing="2"
+                BackgroundColor="{DynamicResource MainMenuBackgroundColor}"
+                Margin="0,10,0,0"
+                Padding="10,10,10,10"
+                VerticalOptions="Start" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row ="0"  HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"  VerticalTextAlignment="Center" Grid.Column="0" Text="Claim Number" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="1" Text="Insured Name" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="2" Text="Patient" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="3" Text="Service Providers" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="4" Text="" LineBreakMode="WordWrap"/>
+             </Grid>
+			<ListView x:Name="ClaimsList" VerticalOptions="StartAndExpand" RowHeight="50" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                      <ViewCell>
-			           <Grid HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="10,10,10,10" ColumnSpacing="2"  >
-					     	<Label Text="{Binding CLAIM_NUMBER}"  Grid.Row="0" Grid.Column="0" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
-						 	<Label Text="{Binding INSURED_INITIALS}"  Grid.Row="0" Grid.Column="1" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
-							<Label Text="{Binding PATIENT}"  Grid.Row="0" Grid.Column="2" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
-							<Label Text="{Binding DENTAL_SERVICE}"  Grid.Row="0" Grid.Column="3" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
-					   </Grid>
+                        <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10" ColumnSpacing="10"  >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                             
+                            <Label  Text="{Binding CLAIM_NUMBER}" VerticalTextAlignment="Center" FontSize="14" Grid.Row="0" Grid.Column="0" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding INSURED_INITIALS}"  FontSize="14"  Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding PATIENT}"  Grid.Row="0" Grid.Column="2" FontSize="12" VerticalTextAlignment="Center"  TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding DENTAL_SERVICE}"  Grid.Row="0" Grid.Column="3" FontSize="12"  VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <artina:Button
+                                Grid.Row="0" Grid.Column="4"
+                                x:Name="DetailButton"    
+                                Style="{DynamicResource PrimaryActionSmallButtonStyle}"
+                                Text="Details"
+                                VerticalOptions="Center"
+                                FontSize="10"   
+                                WidthRequest="30"/>
+                       </Grid>
                     </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

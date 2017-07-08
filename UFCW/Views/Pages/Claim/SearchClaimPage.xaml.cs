@@ -32,7 +32,7 @@ namespace UFCW
 
 			ClaimDetail c2 = new ClaimDetail();
 			c2.CLAIM_NUMBER = 1213;
-			c2.INSURED_INITIALS = "absdsd";
+			c2.INSURED_INITIALS = "absdsd xfr";
 			c2.PATIENT = "SELF";
 			c2.DENTAL_SERVICE = "Dental";
 
@@ -61,9 +61,9 @@ namespace UFCW
 		private void UpdateUIStyle()
 		{ 
 			SearchButton.HeightRequest = 35;
-			SearchButton.FontSize = 12;
+			SearchButton.FontSize = 14;
 			ResetButton.HeightRequest = 35;
-			ResetButton.FontSize = 12;
+			ResetButton.FontSize = 14;
 			ResetButton.BackgroundColor = Color.FromHex("EF5350");
 		}
 		public async void FetchSearchFilterOptions()
