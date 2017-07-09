@@ -58,7 +58,7 @@
                         artina:EntryProperties.BorderWidth="0.3"
                         Placeholder="Dependent's Name"
                         Style="{StaticResource ArtinaEntryStyle}" 
-                        TextColor="{DynamicResource BaseTextColor }"
+                        TextColor="{    DynamicResource BaseTextColor }"
                         x:Name="DependentPicker"
                         artina:EntryProperties.BorderColor="{DynamicResource BaseTextColor}" Text="{Binding FirstDependentName}"/>
 					 
