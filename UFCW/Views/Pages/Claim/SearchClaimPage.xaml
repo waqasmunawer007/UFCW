@@ -57,37 +57,45 @@
 				 <!--Dependent's First Name -->
                     <Entry 
                         Grid.Row="1" Grid.Column="1"
-                        Placeholder="Dependent's First Name"
+                        Placeholder="Dependent's Name"
                         Style="{StaticResource ArtinaEntryStyle}" 
                         TextColor="{ DynamicResource BaseTextColor }"
                         x:Name="DependentPicker"
                         artina:EntryProperties.BorderColor="Gray" Text="{Binding FirstDependentName}"/>
 					 
 				 <!--From Date picket -->
-                    <DatePicker Grid.Row="2" Grid.Column="0" x:Name="FromDatePicker" VerticalOptions="CenterAndExpand" 
-                            Date="{Binding FromDate}" 
+                    <StackLayout Grid.Row="2" Grid.Column="0" VerticalOptions="Start" Margin="0,5,0,0" Orientation="Vertical">
+                        <Label Text="From Date" FontSize="14" TextColor="{DynamicResource BaseTextColor }" />
+                         <DatePicker  x:Name="FromDatePicker" VerticalOptions="CenterAndExpand" 
+                                Date="{Binding FromDate}" 
+                                MinimumDate="{Binding MinimumDate}" 
+                                MaximumDate="{Binding MaximumDate}"
+                                artina:PickerProperties.BorderStyle="BottomLine"
+                                artina:PickerProperties.BorderWidth="1" 
+                                artina:PickerProperties.BorderColor="Gray"      
+                                TextColor="{ DynamicResource BaseTextColor }">
+                            <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                        </DatePicker>
+                    </StackLayout>
+                   
+				<!--To Date picker -->
+                    <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="Start" Margin="0,5,0,0" Orientation="Vertical">
+                        <Label Text="To Date" FontSize="14" TextColor="{DynamicResource BaseTextColor }" />
+                        <DatePicker  VerticalOptions="CenterAndExpand" x:Name="ToDatePicker"
+                            Date="{Binding ToDate}" 
                             MinimumDate="{Binding MinimumDate}" 
                             MaximumDate="{Binding MaximumDate}"
                             artina:PickerProperties.BorderStyle="BottomLine"
                             artina:PickerProperties.BorderWidth="1" 
-                            artina:PickerProperties.BorderColor="Gray"      
+                            artina:PickerProperties.BorderColor="Gray"
                             TextColor="{ DynamicResource BaseTextColor }">
-                        <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
-                    </DatePicker>
-				<!--To Date picket -->
-					 <DatePicker Grid.Row="2" VerticalOptions="CenterAndExpand"  Grid.Column="1" x:Name="ToDatePicker"
-                        Date="{Binding ToDate}" 
-                        MinimumDate="{Binding MinimumDate}" 
-                        MaximumDate="{Binding MaximumDate}"
-                        artina:PickerProperties.BorderStyle="BottomLine"
-                        artina:PickerProperties.BorderWidth="1" 
-                        artina:PickerProperties.BorderColor="Gray"
-                        TextColor="{ DynamicResource BaseTextColor }">
-				 	    <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
-				</DatePicker>
+                            <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                        </DatePicker>
+                   </StackLayout> 
+					 
 			</Grid>
 			<!-- Search & Reset Button layout -->
-			<StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
+			<StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="EndAndExpand" Margin="0,30,10,0">
 				 <artina:Button
 					x:Name="ResetButton"
                     Command="{Binding ResetFiltersCommand}"
