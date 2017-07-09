@@ -250,6 +250,9 @@
     <Compile Include="Views\Pages\Claim\SearchClaimPage.xaml.cs">
       <DependentUpon>SearchClaimPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\Claim\ClaimDetailPage.xaml.cs">
+      <DependentUpon>ClaimDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -429,6 +432,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Claim\SearchClaimPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Claim\ClaimDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

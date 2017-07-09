@@ -9,56 +9,38 @@ namespace UFCW
 {
 	public partial class SearchClaimPage : ContentPage
 	{
+		
 		SearchClaimViewModel viewModel;
+        ObservableCollection<ClaimDetail> sampleData = new ObservableCollection<ClaimDetail>();
+		
+
+
 		public SearchClaimPage()
 		{
 			InitializeComponent();
-			viewModel = new SearchClaimViewModel();
+            viewModel = new SearchClaimViewModel(Navigation);
 			BindingContext = viewModel;
-			ClaimsList.ItemsSource = PrePareSampleData();
-			//FetchFAQs();
-
-			UpdateUIStyle();
+            ClaimsList.ItemsSource = viewModel.SearchedClaimsList;
+			AdjustUIStyle(); //adjust Search & Reset button sizes
 		}
 
-		private ObservableCollection<ClaimDetail> PrePareSampleData()
-		{
-			ObservableCollection<ClaimDetail> sampleData = new ObservableCollection<ClaimDetail>();
-			ClaimDetail c1 = new ClaimDetail();
-			c1.CLAIM_NUMBER = 1212;
-			c1.INSURED_INITIALS = "abs";
-			c1.PATIENT = "SELF";
-			c1.DENTAL_SERVICE = "Dental";
+   //     void Handle_ClaimDetailClicked(object sender, System.EventArgs e)
+   //     {
+			//var button = sender as Button;
+        //    var claimDetail = button.BindingContext as ClaimDetail;
+        //}
 
-			ClaimDetail c2 = new ClaimDetail();
-			c2.CLAIM_NUMBER = 1213;
-			c2.INSURED_INITIALS = "absdsd xfr";
-			c2.PATIENT = "SELF";
-			c2.DENTAL_SERVICE = "Dental";
+        //private async void LoadMoreClaims_ItemAppearing(object sender, ItemVisibilityEventArgs e)
+        //{
+        //    var viewCellDetails = e.Item as ClaimDetail;
 
-			ClaimDetail c3 = new ClaimDetail();
-			c3.CLAIM_NUMBER = 1214;
-			c3.INSURED_INITIALS = "xyzw";
-			c3.PATIENT = "SELF";
-			c3.DENTAL_SERVICE = "Dental";
-
-			ClaimDetail c4 = new ClaimDetail();
-			c4.CLAIM_NUMBER = 545656;
-			c4.INSURED_INITIALS = "stve";
-			c4.PATIENT = "SELF";
-			c4.DENTAL_SERVICE = "Dental";
-
-			sampleData.Add(c1);
-			sampleData.Add(c2);
-			sampleData.Add(c3);
-			sampleData.Add(c4);
-			return sampleData;
-		}
+        //}
+       
 
 		/// <summary>
-		/// Updates the UI style for Reset and Search Buttons.
+		/// Adjust the UI style for Reset and Search Buttons.
 		/// </summary>
-		private void UpdateUIStyle()
+		private void AdjustUIStyle()
 		{ 
 			SearchButton.HeightRequest = 35;
 			SearchButton.FontSize = 14;

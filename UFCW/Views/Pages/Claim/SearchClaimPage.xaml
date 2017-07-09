@@ -21,47 +21,51 @@
                 </Grid.RowDefinitions>
 				<!--Cliam Type filter -->
 					 <Picker 
+                        Title="Select claim type"
                         artina:PickerProperties.BorderStyle="BottomLine"
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{ DynamicResource BaseTextColor }"
                         artina:PickerProperties.BorderColor="Gray" 
-                        Grid.Row="0" Grid.Column="0" x:Name="TypePicker" Title="Select claim type">
-					  <Picker.ItemsSource>
-					    <x:Array Type="{x:Type x:String}">
-					      <x:String>Baboon</x:String>
-					      <x:String>Capuchin Monkey</x:String>
-					      <x:String>Blue Monkey</x:String>
-					      <x:String>Squirrel Monkey</x:String>
-					      <x:String>Golden Lion Tamarin</x:String>
-					      <x:String>Howler Monkey</x:String>
-					      <x:String>Japanese Macaque</x:String>
-					    </x:Array>
-					  </Picker.ItemsSource>
+                        ItemsSource="{Binding ClaimTypes}"
+                        ItemDisplayBinding="{Binding Text, Mode=OneWay}"
+                        SelectedIndex="{Binding ClaimTypeSelectedIndex}"
+                        Grid.Row="0" Grid.Column="0" x:Name="TypePicker" >
 					</Picker>
 				<!--Cliam Status filter -->
 					 <Picker 
+                        Title="Select claim status"
                         artina:PickerProperties.BorderStyle="BottomLine" 
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{ DynamicResource BaseTextColor }"
-                        artina:PickerProperties.BorderColor="Gray"
+                         artina:PickerProperties.BorderColor="Gray"
                         Grid.Row="0"  Grid.Column="1" x:Name="StatusPicker"
-                        Title="Select claim status"/>
+                        ItemsSource="{Binding ClaimStatuses}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedIndex="{Binding ClaimStatusSelectedIndex}"
+                        />
 				 <!--Patient filter -->
 					 <Picker  
+                        Title="Select Patient"
                         artina:PickerProperties.BorderStyle="BottomLine" 
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{ DynamicResource BaseTextColor }"
                         artina:PickerProperties.BorderColor="Gray"
-                         Grid.Row="1" Grid.Column="0" x:Name="PatientPicker" Title="Select Patient"/>
-				 <!--Dependent's First Name filter -->
-					 <Picker 
-                        artina:PickerProperties.BorderStyle="BottomLine" artina:PickerProperties.BorderWidth="1" 
-                        artina:PickerProperties.BorderColor="Gray"
-                         TextColor="{ DynamicResource BaseTextColor }"
-                        Grid.Row="1" Grid.Column="1" x:Name="DependentPicker" Title="Select depedent"/>
+                        ItemsSource="{Binding PatientTypes}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedIndex="{Binding PatientSelectedIndex}"
+                        Grid.Row="1" Grid.Column="0" x:Name="PatientPicker" />
+				 <!--Dependent's First Name -->
+                    <Entry 
+                        Grid.Row="1" Grid.Column="1"
+                        Placeholder="Dependent's First Name"
+                        Style="{StaticResource ArtinaEntryStyle}" 
+                        TextColor="{ DynamicResource BaseTextColor }"
+                        x:Name="DependentPicker"
+                        artina:EntryProperties.BorderColor="Gray" Text="{Binding FirstDependentName}"/>
+					 
 				 <!--From Date picket -->
                     <DatePicker Grid.Row="2" Grid.Column="0" x:Name="FromDatePicker" VerticalOptions="CenterAndExpand" 
-                            Date="{Binding FromDateDefault}" 
+                            Date="{Binding FromDate}" 
                             MinimumDate="{Binding MinimumDate}" 
                             MaximumDate="{Binding MaximumDate}"
                             artina:PickerProperties.BorderStyle="BottomLine"
@@ -72,7 +76,7 @@
                     </DatePicker>
 				<!--To Date picket -->
 					 <DatePicker Grid.Row="2" VerticalOptions="CenterAndExpand"  Grid.Column="1" x:Name="ToDatePicker"
-                        Date="{Binding Now}" 
+                        Date="{Binding ToDate}" 
                         MinimumDate="{Binding MinimumDate}" 
                         MaximumDate="{Binding MaximumDate}"
                         artina:PickerProperties.BorderStyle="BottomLine"
@@ -85,12 +89,14 @@
 			<!-- Search & Reset Button layout -->
 			<StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
 				 <artina:Button
-					x:Name="ResetButton"	
+					x:Name="ResetButton"
+                    Command="{Binding ResetFiltersCommand}"
 		            Style="{DynamicResource PrimaryActionButtonStyle}"
 		            Text="Reset"
 		            WidthRequest="80"/>
 				 <artina:Button
-					x:Name="SearchButton"	
+					x:Name="SearchButton"
+                    Command="{Binding SearchClaimCommand}"
 		            Style="{DynamicResource PrimaryActionButtonStyle}"
 		            Text="Search"
 		            WidthRequest="80"/>
@@ -112,11 +118,15 @@
                 <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="3" Text="Service Providers" LineBreakMode="WordWrap"/>
                 <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="4" Text="" LineBreakMode="WordWrap"/>
              </Grid>
-			<ListView x:Name="ClaimsList" VerticalOptions="StartAndExpand" RowHeight="50" >
+			<ListView 
+                x:Name="ClaimsList" 
+                VerticalOptions="StartAndExpand" 
+                RowHeight="50"
+                >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                      <ViewCell>
-                        <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10" ColumnSpacing="10"  >
+                        <Grid x:Name="Item" HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10" ColumnSpacing="10"  >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
@@ -127,11 +137,14 @@
                             <Label Text="{Binding DENTAL_SERVICE}"  Grid.Row="0" Grid.Column="3" FontSize="12"  VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
                             <artina:Button
                                 Grid.Row="0" Grid.Column="4"
-                                x:Name="DetailButton"    
+                                x:Name="DetailButton"
+                                Command="{Binding DetailClaimCommand}"
+                                BindingContext="{Binding Source={x:Reference ClaimsList}, Path=BindingContext}"
+                                CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
                                 Style="{DynamicResource PrimaryActionSmallButtonStyle}"
                                 Text="Details"
                                 VerticalOptions="Center"
-                                FontSize="10"   
+                                FontSize="10"
                                 WidthRequest="30"/>
                        </Grid>
                     </ViewCell>
