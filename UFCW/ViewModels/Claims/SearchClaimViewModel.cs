@@ -31,10 +31,6 @@ namespace UFCW
         public ICommand SearchClaimCommand { get; set; }
         public ICommand ResetFiltersCommand { get; set; }
 
-
-		
-
-
 		//Pickers TODO temp code
         List<ClaimType> claimTypes = new List<ClaimType>
 		{

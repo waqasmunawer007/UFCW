@@ -22,7 +22,6 @@
 				<!--Cliam Type filter -->
 					 <Picker 
                         Title="Select claim type"
-                        artina:PickerProperties.BorderStyle="BottomLine"
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{ DynamicResource BaseTextColor }"
                         artina:PickerProperties.BorderColor="Gray" 
@@ -34,7 +33,6 @@
 				<!--Cliam Status filter -->
 					 <Picker 
                         Title="Select claim status"
-                        artina:PickerProperties.BorderStyle="BottomLine" 
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{ DynamicResource BaseTextColor }"
                          artina:PickerProperties.BorderColor="Gray"
@@ -46,7 +44,6 @@
 				 <!--Patient filter -->
 					 <Picker  
                         Title="Select Patient"
-                        artina:PickerProperties.BorderStyle="BottomLine" 
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{ DynamicResource BaseTextColor }"
                         artina:PickerProperties.BorderColor="Gray"
@@ -57,11 +54,13 @@
 				 <!--Dependent's First Name -->
                     <Entry 
                         Grid.Row="1" Grid.Column="1"
+                        artina:EntryProperties.BorderStyle="RoundRect"
+                        artina:EntryProperties.BorderWidth="0.3"
                         Placeholder="Dependent's Name"
                         Style="{StaticResource ArtinaEntryStyle}" 
-                        TextColor="{ DynamicResource BaseTextColor }"
+                        TextColor="{DynamicResource BaseTextColor }"
                         x:Name="DependentPicker"
-                        artina:EntryProperties.BorderColor="Gray" Text="{Binding FirstDependentName}"/>
+                        artina:EntryProperties.BorderColor="{DynamicResource BaseTextColor}" Text="{Binding FirstDependentName}"/>
 					 
 				 <!--From Date picket -->
                     <StackLayout Grid.Row="2" Grid.Column="0" VerticalOptions="Start" Margin="0,5,0,0" Orientation="Vertical">
@@ -70,9 +69,8 @@
                                 Date="{Binding FromDate}" 
                                 MinimumDate="{Binding MinimumDate}" 
                                 MaximumDate="{Binding MaximumDate}"
-                                artina:PickerProperties.BorderStyle="BottomLine"
                                 artina:PickerProperties.BorderWidth="1" 
-                                artina:PickerProperties.BorderColor="Gray"      
+                                artina:PickerProperties.BorderColor="Black"      
                                 TextColor="{ DynamicResource BaseTextColor }">
                             <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
                         </DatePicker>
@@ -85,7 +83,6 @@
                             Date="{Binding ToDate}" 
                             MinimumDate="{Binding MinimumDate}" 
                             MaximumDate="{Binding MaximumDate}"
-                            artina:PickerProperties.BorderStyle="BottomLine"
                             artina:PickerProperties.BorderWidth="1" 
                             artina:PickerProperties.BorderColor="Gray"
                             TextColor="{ DynamicResource BaseTextColor }">
