@@ -420,28 +420,36 @@
 				<Setter Property="TextColor" Value="White" />
 				<Setter Property="BackgroundColor" Value="Transparent" />
 			</Style>
+			<Style x:Key="ArtinaRoundedEntryStyle" TargetType="Entry">
+				<Setter Property="BackgroundColor" Value="Transparent"/>
+				<Setter Property="TextColor" Value="{ DynamicResource BaseTextColor}" />
+				<Setter Property="artina:EntryProperties.BorderStyle" Value="RoundRect" />
+				<Setter Property="artina:EntryProperties.BorderWidth" Value="0.3"/>
+				<Setter Property="artina:EntryProperties.BorderColor" Value="Gray" />
+				<Setter Property="artina:EntryProperties.PlaceholderColor" Value="{ DynamicResource Gray}" />
 
-			<Style x:Key="ArtinaLoginEntryStyle" TargetType="Entry" BasedOn="{ StaticResource LoginEntryStyle }">
-				<Setter Property="artina:EntryProperties.BorderStyle" Value="BottomLine" />
-				<Setter Property="artina:EntryProperties.BorderColor" Value="{ DynamicResource OverImageTextColor }" />
-				<Setter Property="artina:EntryProperties.PlaceholderColor" Value="{ DynamicResource OverImageTextColor }" />
-
-				<Style.Triggers>
-					<Trigger TargetType="Entry" Property="IsFocused" Value="True">
-						<Setter Property="artina:EntryProperties.BorderColor" Value="{ DynamicResource AccentColor }" />
-					</Trigger>
-
-					<!-- 
-					     Workaround:
+			</Style>
+			
+				<Style x:Key="ArtinaLoginEntryStyle" TargetType="Entry" BasedOn="{ StaticResource LoginEntryStyle }">
+					<Setter Property="artina:EntryProperties.BorderStyle" Value="BottomLine" />
+					<Setter Property="artina:EntryProperties.BorderColor" Value="{ DynamicResource OverImageTextColor }" />
+					<Setter Property="artina:EntryProperties.PlaceholderColor" Value="{ DynamicResource OverImageTextColor }" />
 					
-						 This double Property Trigger daclaration should not be necessary. Setting the Trigger for IsFocused=True
-					     should be enough. But Property Triggers don't play nice with DynamicResource values (XF 2.3.3.193). As a workaround
-					     the Trigger for IsFocused=False has been added too. 
-					-->
-					<Trigger TargetType="Entry" Property="IsFocused" Value="False">
-						<Setter Property="artina:EntryProperties.BorderColor" Value="{ DynamicResource OverImageTextColor }" />
-					</Trigger>
-				</Style.Triggers>
+					<Style.Triggers>
+						<Trigger TargetType="Entry" Property="IsFocused" Value="True">
+							<Setter Property="artina:EntryProperties.BorderColor" Value="{ DynamicResource AccentColor }" />
+						</Trigger>
+						<!-- 
+						     Workaround:
+						
+							 This double Property Trigger daclaration should not be necessary. Setting the Trigger for IsFocused=True
+						     should be enough. But Property Triggers don't play nice with DynamicResource values (XF 2.3.3.193). As a workaround
+						     the Trigger for IsFocused=False has been added too. 
+						-->
+						<Trigger TargetType="Entry" Property="IsFocused" Value="False">
+							<Setter Property="artina:EntryProperties.BorderColor" Value="{ DynamicResource OverImageTextColor }" />
+						</Trigger>
+					</Style.Triggers>
 			</Style>
 
 			<!-- VALIDATIONS -->

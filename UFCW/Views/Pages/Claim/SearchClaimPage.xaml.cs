@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UFCW.Constants;
 using UFCW.Services;
+using UXDivers.Artina.Shared;
 using Xamarin.Forms;
 
 namespace UFCW
@@ -41,7 +42,17 @@ namespace UFCW
 		/// Adjust the UI style for Reset and Search Buttons.
 		/// </summary>
 		private void AdjustUIStyle()
-		{ 
+		{
+			if (Device.RuntimePlatform == Device.iOS)
+			{
+				DependentNameEntry.Style = (Style)Application.Current.Resources["ArtinaRoundedEntryStyle"]; //apply rounded rect style
+			}
+			else if (Device.RuntimePlatform == Device.Android)
+			{
+				DependentNameEntry.Style = (Style)Application.Current.Resources["ArtinaEntryStyle"]; //apply bottom line style
+			}
+
+
 			SearchButton.HeightRequest = 35;
 			SearchButton.FontSize = 14;
 			ResetButton.HeightRequest = 35;

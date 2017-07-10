@@ -54,13 +54,11 @@
 				 <!--Dependent's First Name -->
                     <Entry 
                         Grid.Row="1" Grid.Column="1"
-                        artina:EntryProperties.BorderStyle="RoundRect"
-                        artina:EntryProperties.BorderWidth="0.3"
+						VerticalOptions="Center"
                         Placeholder="Dependent's Name"
-                        Style="{StaticResource ArtinaEntryStyle}" 
-                        TextColor="{    DynamicResource BaseTextColor }"
-                        x:Name="DependentPicker"
-                        artina:EntryProperties.BorderColor="{DynamicResource BaseTextColor}" Text="{Binding FirstDependentName}"/>
+                        TextColor="{DynamicResource BaseTextColor }"
+                        x:Name="DependentNameEntry"
+                        Text="{Binding FirstDependentName}"/>
 					 
 				 <!--From Date picket -->
                     <StackLayout Grid.Row="2" Grid.Column="0" VerticalOptions="Start" Margin="0,5,0,0" Orientation="Vertical">
