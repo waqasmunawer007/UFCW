@@ -21,7 +21,7 @@
                 </Grid.RowDefinitions>
 				<!--Cliam Type filter -->
 					 <Picker 
-                        Title="Select claim type"
+                        Title="Select Claim Type"
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{ DynamicResource BaseTextColor }"
                         artina:PickerProperties.BorderColor="Gray" 
@@ -32,7 +32,7 @@
 					</Picker>
 				<!--Cliam Status filter -->
 					 <Picker 
-                        Title="Select claim status"
+                        Title="Select Claim Status"
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{ DynamicResource BaseTextColor }"
                          artina:PickerProperties.BorderColor="Gray"
@@ -54,7 +54,6 @@
 				 <!--Dependent's First Name -->
                     <Entry 
                         Grid.Row="1" Grid.Column="1"
-						VerticalOptions="Center"
                         Placeholder="Dependent's Name"
                         TextColor="{DynamicResource BaseTextColor }"
                         x:Name="DependentNameEntry"
@@ -138,6 +137,7 @@
                             <Label Text="{Binding INSURED_INITIALS}"  FontSize="14"  Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
                             <Label Text="{Binding PATIENT}"  Grid.Row="0" Grid.Column="2" FontSize="12" VerticalTextAlignment="Center"  TextColor="Black"  LineBreakMode="WordWrap" />
                             <Label Text="{Binding DENTAL_SERVICE}"  Grid.Row="0" Grid.Column="3" FontSize="12"  VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <!-- Detail button-->
                             <artina:Button
                                 Grid.Row="0" Grid.Column="4"
                                 x:Name="DetailButton"
