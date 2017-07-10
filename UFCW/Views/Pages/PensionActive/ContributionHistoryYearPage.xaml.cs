@@ -17,7 +17,6 @@ namespace UFCW.Views.Pages.PensionActive
 			historyByYearVM = new HistoryByYearVM();
 			BindingContext = historyByYearVM;
             HistoryBYearList.ItemsSource = historyByYearVM.historyByYearList;
-            FetchHistoryByYear();
 		}
 
 		/// <summary>
@@ -27,14 +26,16 @@ namespace UFCW.Views.Pages.PensionActive
 		{
 			historyByYearVM.IsBusy = true;
             HistoryByYear[] history = await historyByYearVM.FetchHistoryByYear();
-			if (history != null)
+            if (history != null && history.Length > 0)
 			{
+				HistoryBYearList.IsVisible = true;
+				NoDataLabel.IsVisible = false;
 				UpdatePage(history);
 			}
 			else
 			{
-				//Todo replace it with empty data message in center of the screen
-				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				HistoryBYearList.IsVisible = false;
+				NoDataLabel.IsVisible = true;
 			}
 			historyByYearVM.IsBusy = false;
 		}
@@ -64,6 +65,20 @@ namespace UFCW.Views.Pages.PensionActive
 			historyDetailPage.BindingContext = history;
 			await Navigation.PushAsync(historyDetailPage);
 			((ListView)sender).SelectedItem = null;
+		}
+
+		protected override void OnAppearing()
+		{
+			FetchHistoryByYear();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+			historyByYearVM.historyByYearList.Clear();
+            NoDataLabel.IsVisible = false;
+            HistoryBYearList.IsVisible = false;
 		}
 	}
 }

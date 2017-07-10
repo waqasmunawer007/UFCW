@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Pension.PensionSummaryPlanDocPage" Title="Summary Plan Docs">
 	<ContentPage.Content>
         <StackLayout VerticalOptions = "FillAndExpand" Padding="0,10,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
-                                        VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-            <ListView x:Name="SummaryPlanDocsList"  RowHeight="150">
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="NoDataLabel" Text="No Data Found!" TextColor="{DynamicResource NoDataTextColor}" FontSize="{DynamicResource NoDataTextSize}" IsVisible="false" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+            <ListView x:Name="SummaryPlanDocsList"  RowHeight="150" IsVisible="false">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -18,7 +18,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
          </StackLayout> 
 	</ContentPage.Content>
 </ContentPage>

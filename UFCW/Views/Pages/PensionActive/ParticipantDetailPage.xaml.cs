@@ -15,7 +15,6 @@ namespace UFCW.Views.Pages.PensionActive
         {
             InitializeComponent();
             participantDetailVM = new ParticipantDetailVM();
-            FetchProfile();
         }
         /// <summary>
         /// Fetchs the profile from server.
@@ -32,7 +31,17 @@ namespace UFCW.Views.Pages.PensionActive
             {
 				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
 			}
-        }
+		}
 
+		protected override void OnAppearing()
+		{
+			FetchProfile();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+		}
 	}
 }

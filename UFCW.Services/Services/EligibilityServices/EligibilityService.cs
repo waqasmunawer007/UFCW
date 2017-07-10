@@ -56,6 +56,7 @@ namespace UFCW.Services.UserService
 		/// <param name="email">Email.</param>
         public async Task<Benifits[]> FetchUserBenifits(string token, string SSN, string email)
 		{
+            Debug.WriteLine("Timeout: " + client.Timeout);
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add(WebApiConstants.TOKEN, token);
 			parameters.Add(WebApiConstants.SSN, SSN);

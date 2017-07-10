@@ -6,7 +6,8 @@
 	<ContentPage.Content>
         <StackLayout VerticalOptions = "FillAndExpand" Padding="0,10,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <ListView x:Name="HistoryBYearList" ItemTapped="Handle_ItemTapped" >
+            <Label x:Name="NoDataLabel" Text="No Data Found!" TextColor="{DynamicResource NoDataTextColor}" FontSize="{DynamicResource NoDataTextSize}" IsVisible="false" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+            <ListView x:Name="HistoryBYearList" ItemTapped="Handle_ItemTapped" IsVisible="false">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -19,7 +20,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
          </StackLayout> 
 	</ContentPage.Content>
 </ContentPage>

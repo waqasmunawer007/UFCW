@@ -11,6 +11,7 @@ namespace UFCW.iOS
 			{ "AccentColor", Color.FromHex("#02447a") },
 			{ "BaseTextColor", Color.FromHex("#666666") },
 			{ "BackgroundColor", Color.FromHex("#57a9ed") },
+			{ "NoDataTextColor", Color.FromHex("#666666") },
 			{ "InverseTextColor", Color.White },
 			{ "BrandColor", Color.FromHex("#ad1457") },
 			{ "BrandNameColor", Color.FromHex("#FFFFFF") },

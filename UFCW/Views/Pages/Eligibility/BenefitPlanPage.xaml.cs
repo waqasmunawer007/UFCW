@@ -19,7 +19,6 @@ namespace UFCW
             benifitsVM = new BenifitsViewModel();
             BindingContext = benifitsVM;
             BenifitsList.ItemsSource = benifitsVM.BenifitsList;
-            FetchBenifits();
 		}
 
 		/// <summary>
@@ -29,14 +28,16 @@ namespace UFCW
 		{
             benifitsVM.IsBusy = true;
             Benifits[] banifits = await benifitsVM.FetchBenifits();
-			if (banifits != null)
+            if (banifits != null && banifits.Length > 0)
 			{
+                BenifitsList.IsVisible = true;
+                NoDataLabel.IsVisible = false;
 				UpdatePage(banifits);
 			}
 			else
 			{
-				//todo show this message in center of the screen, if data list is empty
-				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				BenifitsList.IsVisible = false;
+				NoDataLabel.IsVisible = true;
 			}
             benifitsVM.IsBusy = false;
 		}
@@ -48,5 +49,19 @@ namespace UFCW
                 benifitsVM.BenifitsList.Add(benifit);
 			}
 		}
+
+        protected override void OnAppearing()
+        {
+            FetchBenifits();
+            base.OnAppearing();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            NoDataLabel.IsVisible = false;
+            BenifitsList.IsVisible = false;
+            benifitsVM.BenifitsList.Clear();
+        }
 	}
 }

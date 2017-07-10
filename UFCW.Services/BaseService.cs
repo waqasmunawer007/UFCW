@@ -11,6 +11,7 @@ namespace UFCW.Services
         public BaseService()
         {
 			client = new HttpClient();
+            client.Timeout = TimeSpan.FromSeconds(50.0);
 			client.MaxResponseContentBufferSize = 256000;
             client.BaseAddress = new Uri(AppConstants.BaseUrl);
         }

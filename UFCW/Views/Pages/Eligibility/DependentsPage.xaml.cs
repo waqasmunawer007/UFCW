@@ -19,7 +19,6 @@ namespace UFCW
 			dependentsVM = new DependentsViewModel();
 			BindingContext = dependentsVM;
             DependentsList.ItemsSource = dependentsVM.dependentsList;
-			FetchDependents();
 		}
 
 		/// <summary>
@@ -28,15 +27,17 @@ namespace UFCW
         public async void FetchDependents()
         {
 			dependentsVM.IsBusy = true;
-            Dependant[] banifits = await dependentsVM.FetchDependents();
-			if (banifits != null)
+            Dependant[] dependents = await dependentsVM.FetchDependents();
+            if (dependents != null && dependents.Length > 0)
 			{
-				UpdatePage(banifits);
+                DependentsList.IsVisible = true;
+                NoDataLabel.IsVisible = false;
+				UpdatePage(dependents);
 			}
 			else
 			{
-				//todo show this message in center of the screen, if data list is empty
-				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				DependentsList.IsVisible = false;
+				NoDataLabel.IsVisible = true;
 			}
 			dependentsVM.IsBusy = false;
 		}
@@ -62,6 +63,20 @@ namespace UFCW
 			dependantsDetailPage.BindingContext = dependant;
 			await Navigation.PushAsync(dependantsDetailPage);
             ((ListView)sender).SelectedItem = null;
+		}
+
+		protected override void OnAppearing()
+		{
+			FetchDependents();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+			dependentsVM.dependentsList.Clear();
+            NoDataLabel.IsVisible = false;
+            DependentsList.IsVisible = false;
 		}
 	}
 }

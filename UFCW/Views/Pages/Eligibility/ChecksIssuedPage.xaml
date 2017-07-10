@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.ChecksIssuedPage" Title="Issued Checks">
 	<ContentPage.Content>
-    <StackLayout VerticalOptions = "FillAndExpand" Padding="0,10,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-   		<ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
-	             						VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-			<ListView x:Name="ChecksIssuedList" ItemTapped="Handle_ItemTapped" >
+        <StackLayout VerticalOptions = "FillAndExpand" Padding="0,10,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="NoDataLabel" Text="No Data Found!" TextColor="{DynamicResource NoDataTextColor}" FontSize="{DynamicResource NoDataTextSize}" IsVisible="false" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+            <ListView x:Name="ChecksIssuedList" ItemTapped="Handle_ItemTapped" IsVisible="false">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -36,7 +36,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
          </StackLayout>  
 
 
