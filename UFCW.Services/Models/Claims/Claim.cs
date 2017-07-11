@@ -27,6 +27,7 @@ namespace UFCW.Services
 		public int AGE { get; set; }
 		public string INSURED_INITIALS { get; set; }
 		public string INSURED_LAST_NAME { get; set; }
+        public string INSURED_NAME { get { return INSURED_INITIALS + INSURED_LAST_NAME; } }
 		public string ADDRESS1 { get; set; }
 		public string ADDRESS2 { get; set; }
 		public string CITY { get; set; }

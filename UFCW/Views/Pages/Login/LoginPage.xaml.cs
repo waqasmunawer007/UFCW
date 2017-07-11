@@ -28,7 +28,7 @@ namespace UFCW.Views.Login
       
 		async Task LoginClicked()
 		{
-			if (!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
+			//if (!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
 			{
 				loginVm.ShowError = false;
 				loginVm.IsBusy = true;
@@ -53,10 +53,10 @@ namespace UFCW.Views.Login
 					await this.DisplayAlert(AppConstants.LOGIN_FAILED, response.ErrorDetails, null, AppConstants.DIALOG_OK_OPTION);
 				}
 			}
-			else
-			{
-				loginVm.ShowError = true;
-			}
+			//else
+			//{
+			//	loginVm.ShowError = true;
+			//}
 		}
 
 		/// <summary>

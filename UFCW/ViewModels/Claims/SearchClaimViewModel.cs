@@ -288,6 +288,37 @@ namespace UFCW
 			c1.INSURED_INITIALS = "abs";
 			c1.PATIENT = "SELF";
 			c1.DENTAL_SERVICE = "Dental";
+            c1.CLAIM_STATUS = "Processed";
+            c1.CLAIM_TYPE = "Dental";
+            c1.DateCreated = "05/06/2017";//?????????
+
+			//Claimant Information
+			c1.INSURED_LAST_NAME = "RA BRANDEL";
+            c1.ADDRESS1 = "800 QUACCO RD   247 ";
+            c1.ADDRESS2 = "800 QUACCO RD   786";
+            c1.CITY = "SAVANNAH";
+            c1.STATE_CODE = 12345;
+            c1.ZIP_CODE = 54000;
+            c1.PATIENT = "SELF";
+            c1.GENDER = "F";
+            c1.AGE = 63;
+
+            c1.EMPLOYER_NAME = "KROG.-SAVON-SV-PL D";
+            c1.COV_FROM_DATE = "4/1/2002";
+            c1.COV_TO_DATE = "10/1/2005";
+            c1.FUND_ID = "AT MEAT RET-PL M-HI";
+            c1.PLAN_ID = "D";
+            c1.LOCAL_NUMBER = 1996;
+
+            //Dental Summary
+            c1.YTD_DENTAL = "162.00";
+            c1.DENTAL_DEDUCTION = "25.00";
+            c1.EXAM_CLEAN_DATE = "11/9/2005 12:00:00 AM";
+            c1.LT_DENTAL = "1453.80";
+            c1.LT_ORTHODONTIC = "0.00";
+            c1.X_RAY_DATE = "11/9/2005";
+            c1.PAY_REMARKS = "KROG.-SAVON-SV-PL D ";
+
 
 			ClaimDetail c2 = new ClaimDetail();
 			c2.CLAIM_NUMBER = 1213;
