@@ -30,9 +30,8 @@
 			<x:Double x:Key="BaseTitleValueSize">14</x:Double>
 			<x:Double x:Key="BaseButtonHeight">44</x:Double>
             <x:Double x:Key="BaseSmallButtonHeight">32</x:Double>
-			<x:Double x:Key="BaseButtonBorderRadius">22</x:Double>
-
-
+			<x:Double x:Key="BaseButtonBorderRadius">22</x:Double>ss
+            <x:Double x:Key="NoDataTextSize">20</x:Double>
 			<x:Double x:Key="MainMenuLabelFontsize">18</x:Double>
 			<x:Double x:Key="MainMenuIconFontsize">20</x:Double>
 			<x:Double x:Key="MainMenuHeaderFontsize">18</x:Double>

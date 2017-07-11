@@ -41,9 +41,8 @@ namespace UFCW.ViewModels.Eligibility
 
 		public async Task<CheckIssued[]> FetchChecksIssued()
 		{
-            string ssn = "413112352"; //Todo remove this hard code value, once logged in SSN has valid data
 			var beniftisService = new EligibilityService();
-            return await beniftisService.FetchChecksIssued(Settings.UserToken, ssn, Settings.UserEmail);
+            return await beniftisService.FetchChecksIssued(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
 		}
 
 		/// <summary>

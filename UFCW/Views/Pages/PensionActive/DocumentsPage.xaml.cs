@@ -17,7 +17,6 @@ namespace UFCW.Views.Pages.PensionActive
 			documentsVM = new DocumentsVM();
 			BindingContext = documentsVM;
             DocumentsList.ItemsSource = documentsVM.documentsList;
-			FetchDocuments();
 			DocumentsList.ItemTapped += (object sender, ItemTappedEventArgs e) =>
 			{
 				// don't do anything if we just de-selected the row
@@ -34,14 +33,16 @@ namespace UFCW.Views.Pages.PensionActive
 		{
 			documentsVM.IsBusy = true;
             PlanDocument[] documents = await documentsVM.FetchDocuments();
-			if (documents != null)
+			if (documents != null && documents.Length > 0)
 			{
-				UpdatePage(documents);
+                DocumentsList.IsVisible = true;
+                NoDataLabel.IsVisible = false;
+                UpdatePage(documents);
 			}
 			else
 			{
-				//Todo replace it with empty data message in center of the screen
-				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				DocumentsList.IsVisible = false;
+				NoDataLabel.IsVisible = true;
 			}
 			documentsVM.IsBusy = false;
 		}
@@ -62,6 +63,20 @@ namespace UFCW.Views.Pages.PensionActive
         {
 			string url = ((Button)sender).Text;
 			Device.OpenUri(new System.Uri(url));
-        }
+		}
+
+		protected override void OnAppearing()
+		{
+			FetchDocuments();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+			documentsVM.documentsList.Clear();
+            NoDataLabel.IsVisible = false;
+            DocumentsList.IsVisible = false;
+		}
 	}
 }

@@ -17,7 +17,6 @@ namespace UFCW.Views.Pages.Pension
             summaryPlanDocVM = new SummaryPlanDocViewModel();
 			BindingContext = summaryPlanDocVM;
             SummaryPlanDocsList.ItemsSource = summaryPlanDocVM.SummaryPlanDocsList;
-			FetchSummaryPlanDocs();
 			SummaryPlanDocsList.ItemTapped += (object sender, ItemTappedEventArgs e) =>
 			{
 				// don't do anything if we just de-selected the row
@@ -33,14 +32,16 @@ namespace UFCW.Views.Pages.Pension
         {
             summaryPlanDocVM.IsBusy = true;
             SummaryPlanDoc[] list = await summaryPlanDocVM.FetchSummaryPlanDocs();
-            if (list != null)
-            {
+            if (list != null &&  list.Length > 0)
+			{
+                SummaryPlanDocsList.IsVisible = true;
+                NoDataLabel.IsVisible = false;
                 UpdatePage(list);
             }
             else
             {
-                //Todo replace it with empty data message in center of the screen
-                await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				SummaryPlanDocsList.IsVisible = false;
+				NoDataLabel.IsVisible = true;
             }
             summaryPlanDocVM.IsBusy = false;
         }
@@ -64,6 +65,20 @@ namespace UFCW.Views.Pages.Pension
 		{
 			string url = ((Button)sender).Text;
 			Device.OpenUri(new System.Uri(url));
+		}
+
+		protected override void OnAppearing()
+		{
+			FetchSummaryPlanDocs();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+			summaryPlanDocVM.SummaryPlanDocsList.Clear();
+            NoDataLabel.IsVisible = false;
+            SummaryPlanDocsList.IsVisible = false;
 		}
     }
 }

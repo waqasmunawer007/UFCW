@@ -22,7 +22,6 @@ namespace UFCW
             timeLossViewModel = new TimeLossViewModel();
             BindingContext = timeLossViewModel;
             TimeLossList.ItemsSource = timeLossViewModel.timeLossList;
-             GetTimeLosses();
 		}
 		/// <summary>
 		/// Gets the time losses list from the server
@@ -32,14 +31,16 @@ namespace UFCW
         {
             timeLossViewModel.IsBusy = true;
 			TimeLoss[] timeLossServerResponse = await timeLossViewModel.GetTimeLoss();
-            if (timeLossServerResponse != null)
-            {
+            if (timeLossServerResponse != null && timeLossServerResponse.Length > 0)
+			{
+                TimeLossList.IsVisible = true;
+                NoDataLabel.IsVisible = false;
                 UpdatePage(timeLossServerResponse);
             }
     		else
 			{
-                //todo show this message in center of the screen, if data list is empty
-                await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				TimeLossList.IsVisible = false;
+				NoDataLabel.IsVisible = true;
 			}
             timeLossViewModel.IsBusy = false;
         }
@@ -64,6 +65,20 @@ namespace UFCW
             timeLossDetailPage.BindingContext = timeLoss;
             await Navigation.PushAsync(timeLossDetailPage);
             ((ListView)sender).SelectedItem = null;
+		}
+
+		protected override void OnAppearing()
+		{
+			GetTimeLosses();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+			timeLossViewModel.timeLossList.Clear();
+            NoDataLabel.IsVisible = false;
+            TimeLossList.IsVisible = false;
 		}
 	}
 }

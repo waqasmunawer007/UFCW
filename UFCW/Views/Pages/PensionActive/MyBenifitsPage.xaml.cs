@@ -15,7 +15,6 @@ namespace UFCW.Views.Pages.PensionActive
         {
             InitializeComponent();
             benifitsVM = new MyBenifitsVM();
-            FetchBenifits();
 		}
 
 		async Task FetchBenifits()
@@ -30,12 +29,26 @@ namespace UFCW.Views.Pages.PensionActive
 				  "estimates are provided for information only. Your right to any benefit and " +
 				  "the amount of your benefit will depend on the actual credited service verified at the time you apply for retirement and the " +
 				  "provisions of the plan document. If you need any additional information or if you have any questions, please contact the Fund Office.";
+                BenefitsLabel.IsVisible = true;
+                NoDataLabel.IsVisible = false;
 			}
             else
             {
-                await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+                BenefitsLabel.IsVisible = false;
+                NoDataLabel.IsVisible = true;
 			}
-          
+		}
+
+		protected override void OnAppearing()
+		{
+			FetchBenifits();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+            NoDataLabel.IsVisible = false;
 		}
     }
 }

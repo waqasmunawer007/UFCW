@@ -18,7 +18,6 @@ namespace UFCW
 			checksIssuedVM = new ChecksIssuedViewModel();
 			BindingContext = checksIssuedVM;
 			ChecksIssuedList.ItemsSource = checksIssuedVM.checksIssuedList;
-			FetchChecksIssued();
 		}
 
 		/// <summary>
@@ -28,14 +27,15 @@ namespace UFCW
         {
 			checksIssuedVM.IsBusy = true;
             CheckIssued[] checks = await checksIssuedVM.FetchChecksIssued();
-			if (checks != null)
+            if (checks != null && checks.Length > 0)
 			{
+                ChecksIssuedList.IsVisible = true;
+                NoDataLabel.IsVisible = false;
 				UpdatePage(checks);
 			}
 			else
 			{
-				//todo show this message in center of the screen, if data list is empty
-				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+                NoDataLabel.IsVisible = true;
 			}
 			checksIssuedVM.IsBusy = false;
         }
@@ -65,6 +65,20 @@ namespace UFCW
 			checksIssuedDetailPage.BindingContext = checkIssued;
 			await Navigation.PushAsync(checksIssuedDetailPage);
             ((ListView)sender).SelectedItem = null;
+		}
+
+		protected override void OnAppearing()
+		{
+			FetchChecksIssued();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+			checksIssuedVM.checksIssuedList.Clear();
+            NoDataLabel.IsVisible = false;
+            ChecksIssuedList.IsVisible = false;
 		}
 	}
 }

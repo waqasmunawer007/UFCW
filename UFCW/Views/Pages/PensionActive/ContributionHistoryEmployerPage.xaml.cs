@@ -17,7 +17,6 @@ namespace UFCW.Views.Pages.PensionActive
 			historyByEmployerVM = new HistoryByEmployerVM();
 			BindingContext = historyByEmployerVM;
             HistoryByEmployerList.ItemsSource = historyByEmployerVM.historyByEmployerList;
-            FetchHistoryByEmployer();
 		}
 
 		/// <summary>
@@ -27,14 +26,16 @@ namespace UFCW.Views.Pages.PensionActive
 		{
 			historyByEmployerVM.IsBusy = true;
             HistoryByEmployer[] history = await historyByEmployerVM.FetchHistoryByEmployer();
-			if (history != null)
+            if (history != null && history.Length > 0)
 			{
+                HistoryByEmployerList.IsVisible = true;
+                NoDataLabel.IsVisible = false;
 				UpdatePage(history);
 			}
 			else
 			{
-                //Todo replace it with empty data message in center of the screen
-				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				HistoryByEmployerList.IsVisible = false;
+				NoDataLabel.IsVisible = true;
 			}
 			historyByEmployerVM.IsBusy = false;
 		}
@@ -64,6 +65,20 @@ namespace UFCW.Views.Pages.PensionActive
 			historyDetailPage.BindingContext = history;
 			await Navigation.PushAsync(historyDetailPage);
 			((ListView)sender).SelectedItem = null;
+		}
+
+		protected override void OnAppearing()
+		{
+            FetchHistoryByEmployer();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+            historyByEmployerVM.historyByEmployerList.Clear();
+            NoDataLabel.IsVisible = false;
+            HistoryByEmployerList.IsVisible = false;
 		}
 	}
 }

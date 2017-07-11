@@ -15,7 +15,6 @@ namespace UFCW.Views.Pages.PensionActive
         {
             InitializeComponent();
             contributionVM = new CurrentYearContributionVM();
-            FetchCurrentYearContribution();
         }
 
         async Task FetchCurrentYearContribution()
@@ -29,8 +28,18 @@ namespace UFCW.Views.Pages.PensionActive
             {
                await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION); 
             }
-           
-        }
+		}
+
+		protected override void OnAppearing()
+		{
+			FetchCurrentYearContribution();
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+		}
 
     }
 }

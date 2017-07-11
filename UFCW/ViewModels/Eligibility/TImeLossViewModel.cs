@@ -67,9 +67,8 @@ namespace UFCW.ViewModels
         /// <returns>The time loss.</returns>
         public async Task<TimeLoss[]> GetTimeLoss()
         {
-            string ssn = "413112352"; //Todo remove this hard code value, once logged in SSN has valid data
 			var eligibilityService = new EligibilityService();
-            timeLossServerResponse = await eligibilityService.FetchTimeLoss(Settings.UserToken, ssn,Settings.UserEmail);
+            timeLossServerResponse = await eligibilityService.FetchTimeLoss(Settings.UserToken, Settings.UserSSN,Settings.UserEmail);
             return timeLossServerResponse;
         }
     }

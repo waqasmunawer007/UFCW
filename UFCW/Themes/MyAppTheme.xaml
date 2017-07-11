@@ -27,6 +27,7 @@
 
 	<!-- GENERAL COLORS -->
     <Color x:Key="BackgroundColor">#57a9ed</Color>
+    <Color x:Key="NoDataTextColor">#666666</Color>
 	<Color x:Key="InverseTextColor">White</Color>
 	<Color x:Key="BrandColor">#ad1457</Color>
 	<Color x:Key="BrandNameColor">#FFFFFF</Color>
