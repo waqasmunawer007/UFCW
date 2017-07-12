@@ -253,6 +253,14 @@
     <Compile Include="Views\Pages\Claim\ClaimDetailPage.xaml.cs">
       <DependentUpon>ClaimDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Claims\ClaimsDetailVM.cs" />
+    <Compile Include="Views\Pages\Claim\EOBPage.xaml.cs">
+      <DependentUpon>EOBPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Claims\EOBViewModel.cs" />
+    <Compile Include="Views\Pages\Claim\EOBServiceProvidersPage.xaml.cs">
+      <DependentUpon>EOBServiceProvidersPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -435,6 +443,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Claim\ClaimDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Claim\EOBPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Claim\EOBServiceProvidersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

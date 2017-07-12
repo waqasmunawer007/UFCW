@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UFCW.Views.Pages.Claim.EOBPage"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    Title="EOB">
+	<ContentPage.Content>
+        <ScrollView Orientation="Vertical" >
+            <StackLayout Orientation = "Vertical"  Margin="10,20,10,10">
+                <!--Claim Information-->
+                <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Mailed To:"/>
+                <Label FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding INSURED_LAST_NAME}"/>
+                <Label FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding ADDRESS1}"/>
+
+                
+                <Label Font="Bold" Margin="0,10,0,0" FontSize="18" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="EXPLANATION OF BENEFITS"/>
+                <Label Font="Bold" FontSize="15" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="FOR Dental SERVICES"/>
+                <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+                <Grid 
+                ColumnSpacing="1" 
+                RowSpacing="5" 
+                Padding="10,0,10,15"
+                VerticalOptions="Start" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="SSN"/>
+                    <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SSN}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="PARTICIPANT"/>
+                    <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding INSURED_LAST_NAME}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="FUND"/>
+                    <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding FUND_ID}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="EMPLOYER"/>
+                    <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EMPLOYER_NAME}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="PATIENT"/>
+                    <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding PATIENT}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="CLAIM NUMBER"/>
+                    <Label Grid.Row="5" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding CLAIM_NUMBER}"/>
+
+                    <Label Grid.Row="6" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="PROCESSED DATE"/>
+                    <Label Grid.Row="6" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DateCreated}"/>
+                </Grid>
+
+                <artina:Button
+                    Style="{DynamicResource PrimaryActionButtonStyle}"
+                    VerticalOptions="End"
+                    Text="Service Providers ->"
+                    Clicked="Handle_Clicked"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Margin="0,15,0,0"
+                    BackgroundColor="Teal"
+                />
+            </StackLayout>      
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>

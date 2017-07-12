@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW"
     x:Class="UFCW.Views.Pages.Claim.ClaimDetailPage">
 	<ContentPage.Content>
         <ScrollView Orientation="Vertical" >
             <StackLayout Orientation = "Vertical"  Margin="10,20,10,10">
+                <!-- EOB Button -->
+                <artina:Button
+                    Style="{DynamicResource PrimaryActionButtonStyle}"
+                    VerticalOptions="End"
+                    Text="EOB"
+                Clicked="Handle_Clicked"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Margin="0,15,0,0"
+                    BackgroundColor="Teal"
+                />
+
                 <!--Claim Information-->
                 <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Claim Information"/>
                 <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
@@ -85,6 +99,7 @@
                     <Label Grid.Row="13" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding LOCAL_NUMBER}"/>
                 </Grid>
 
+                <!--Dental Summary-->
                 <Label  Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Dental Summary"/>
                 <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
             
