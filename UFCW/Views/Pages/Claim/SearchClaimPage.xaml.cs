@@ -15,29 +15,33 @@ namespace UFCW
         ObservableCollection<ClaimDetail> sampleData = new ObservableCollection<ClaimDetail>();
 		
 
-
 		public SearchClaimPage()
 		{
 			InitializeComponent();
             viewModel = new SearchClaimViewModel(Navigation);
 			BindingContext = viewModel;
             ClaimsList.ItemsSource = viewModel.SearchedClaimsList;
+			ClaimsList.ItemAppearing += (sender, e) =>
+             {
+                 int itemsCount = viewModel.SearchedClaimsList.Count;
+                 if (viewModel.isLoading || itemsCount == 0)
+                     return;
+                 ClaimDetail lastClaimCellItem = e.Item as ClaimDetail;
+                 //hit bottom!
+                 if (lastClaimCellItem.CLAIM_NUMBER == viewModel.SearchedClaimsList[itemsCount - 1].CLAIM_NUMBER)
+                 {
+                     viewModel.LoadMore();
+                 }
+             };
 			AdjustUIStyle(); //adjust Search & Reset button sizes
 		}
 
-   //     void Handle_ClaimDetailClicked(object sender, System.EventArgs e)
-   //     {
-			//var button = sender as Button;
-        //    var claimDetail = button.BindingContext as ClaimDetail;
-        //}
-
-        //private async void LoadMoreClaims_ItemAppearing(object sender, ItemVisibilityEventArgs e)
-        //{
-        //    var viewCellDetails = e.Item as ClaimDetail;
-
-        //}
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            SearchClaimViewModel.PageCount = 0;//TODo Temp code
+        }
        
-
 		/// <summary>
 		/// Adjust the UI style for Reset and Search Buttons.
 		/// </summary>
@@ -51,8 +55,6 @@ namespace UFCW
 			{
 				DependentNameEntry.Style = (Style)Application.Current.Resources["ArtinaEntryStyle"]; //apply bottom line style
 			}
-
-
 			SearchButton.HeightRequest = 35;
 			SearchButton.FontSize = 14;
 			ResetButton.HeightRequest = 35;
