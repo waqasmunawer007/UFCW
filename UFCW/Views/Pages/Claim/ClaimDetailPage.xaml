@@ -8,7 +8,7 @@
         <ScrollView Orientation="Vertical" >
             <StackLayout Orientation = "Vertical"  Margin="10,20,10,10">
                 <!-- EOB Button -->
-                <artina:Button
+               <!-- <artina:Button
                     Style="{DynamicResource PrimaryActionButtonStyle}"
                     VerticalOptions="End"
                     Text="EOB"
@@ -17,7 +17,7 @@
                     WidthRequest="150"
                     Margin="0,15,0,0"
                     BackgroundColor="Teal"
-                />
+                />-->
 
                 <!--Claim Information-->
                 <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Claim Information"/>

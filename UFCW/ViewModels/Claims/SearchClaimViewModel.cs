@@ -31,69 +31,74 @@ namespace UFCW
         public ICommand SearchClaimCommand { get; set; }
         public ICommand ResetFiltersCommand { get; set; }
 
-		//Pickers TODO temp code
-        List<ClaimType> claimTypes = new List<ClaimType>
-		{
-			 new ClaimType{
-				Text = ""
-			},
-            new ClaimType{
-                Text = "cddf"
-            },
-			 new ClaimType{
-				Text = "wew"
-			},
-			 new ClaimType{
-				Text = "cvgrgfddf"
-			}
-			
-		};
-        List<ClaimStatus> claimStatuses = new List<ClaimStatus>
-		{
-			 new ClaimStatus{
-				Text = ""
-			},
-            new ClaimStatus{
-                Text = "fdf"
-            },
-			 new ClaimStatus{
-				Text = "fghgdf"
-			},
-			 new ClaimStatus{
-				Text = "fduif"
-			},
-		};
-        List<Patient> patientTypes = new List<Patient>
-		{
-			new Patient
-			{
-				Text = ""
-			},
-            new Patient
-            {
-                Text = "pate"
-            },
-			 new Patient
-			{
-				Text = "pate1"
-			},
-			 new Patient
-			{
-				Text = "pate2"
-			}
-		};
-        public List<ClaimType> ClaimTypes => claimTypes;
-        public List<ClaimStatus> ClaimStatuses => claimStatuses;
-        public List<Patient> PatientTypes => patientTypes;
+        //Pickers TODO temp code
+              List<ClaimType> claimTypes = new List<ClaimType>
+        {
+        	 new ClaimType{
+        		Text = ""
+        	},
+                  new ClaimType{
+                      Text = "type1"
+                  },
+        	 new ClaimType{
+        		Text = "type2"
+        	},
+        	 new ClaimType{
+        		Text = "type3"
+        	}
 
+        };
+              List<ClaimStatus> claimStatuses = new List<ClaimStatus>
+        {
+        	 new ClaimStatus{
+        		Text = ""
+        	},
+                  new ClaimStatus{
+                      Text = "ST1"
+                  },
+        	 new ClaimStatus{
+        		Text = "ST2"
+        	},
+        	 new ClaimStatus{
+        		Text = "ST3"
+        	},
+        };
+              List<Patient> patientTypes = new List<Patient>
+        {
+        new Patient
+        {
+        	Text = ""
+        },
+                 new Patient
+                 {
+                     Text = "P1"
+                 },
+         new Patient
+        {
+        	Text = "P2"
+        },
+         new Patient
+        {
+        	Text = "P3"
+        }
+        };
+        public List<ClaimType> ClaimTypes=>claimTypes;
+        public List<ClaimStatus> ClaimStatuses=>claimStatuses;
+        public List<Patient> PatientTypes=>patientTypes;
+
+		//public ObservableCollection<ClaimType> ClaimTypes => claimTypes;
+		//public ObservableCollection<ClaimStatus> ClaimStatuses;
+		//public ObservableCollection<Patient> PatientTypes;
         public SearchClaimViewModel(INavigation mainPageNav)
         {
             SearchedClaimsList = new ObservableCollection<ClaimDetail>();
-            LoadMore(); //TODO temp metod
             Navigation = mainPageNav;
             SetupCommands();
-
-        }
+   //         ClaimTypes = new ObservableCollection<ClaimType>();
+			//ClaimStatuses = new ObservableCollection<ClaimStatus>();
+		    //PatientTypes = new ObservableCollection<Patient>();
+            LoadMore(); //TODO temp metod
+		}
         /// <summary>
         /// Setups the commands for Resest,Search And Detail buttons.
         /// </summary>
@@ -123,6 +128,7 @@ namespace UFCW
                 String dependentName = FirstDependentName;
                 DateTime selectedFromDate = FromDate;
                 DateTime selectedToDate = ToDate;
+
 			});
         }
 
@@ -246,10 +252,10 @@ namespace UFCW
         /// </summary>
         /// <returns>The claim search filters.</returns>
         public async Task<ClaimFilters> GetClaimSearchFilters()
-		{
+        {
 			var claimService = new ClaimService();
-			return await claimService.FetchSearchFilters(Settings.UserToken, Settings.UserSSN);
-		}
+            return await claimService.FetchSearchFilters(Settings.UserToken, Settings.UserSSN);
+        }
 		/// <summary>
 		/// Applies the claim search.
 		/// </summary>
@@ -277,8 +283,6 @@ namespace UFCW
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-
-
         public static int PageCount = 0;
         public static int TotalPages = 3;
         public bool isLoading;

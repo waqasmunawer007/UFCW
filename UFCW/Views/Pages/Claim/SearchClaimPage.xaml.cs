@@ -13,7 +13,6 @@ namespace UFCW
 		
 		SearchClaimViewModel viewModel;
         ObservableCollection<ClaimDetail> sampleData = new ObservableCollection<ClaimDetail>();
-		
 
 		public SearchClaimPage()
 		{
@@ -34,6 +33,7 @@ namespace UFCW
                  }
              };
 			AdjustUIStyle(); //adjust Search & Reset button sizes
+            //FetchSearchFilterOptions();
 		}
 
         protected override void OnAppearing()
@@ -67,12 +67,23 @@ namespace UFCW
 			ClaimFilters filters = await viewModel.GetClaimSearchFilters();
 			if (filters != null)
 			{
-				
+				foreach (ClaimType claimType in filters.ClaimTypes)
+				{
+				   viewModel.ClaimTypes.Add(claimType);
+				}
+				foreach (ClaimStatus claimStatus in filters.ClaimStatuses)
+				{
+					viewModel.ClaimStatuses.Add(claimStatus);
+				}
+				foreach (Patient patient in filters.Patients)
+				{
+					viewModel.PatientTypes.Add(patient);
+				}
 			}
 			else
 			{
 				//todo show this message in center of the screen, if data list is empty
-				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				//await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
 			}
 			viewModel.IsBusy = false;
 		}

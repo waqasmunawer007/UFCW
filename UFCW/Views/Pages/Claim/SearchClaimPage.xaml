@@ -26,7 +26,7 @@
                         TextColor="{ DynamicResource BaseTextColor }"
                         artina:PickerProperties.BorderColor="Gray" 
                         ItemsSource="{Binding ClaimTypes}"
-                        ItemDisplayBinding="{Binding Text, Mode=OneWay}"
+                        ItemDisplayBinding="{Binding Text, Mode=TwoWay}"
                         SelectedIndex="{Binding ClaimTypeSelectedIndex}"
                         Grid.Row="0" Grid.Column="0" x:Name="TypePicker" >
 					</Picker>
@@ -38,7 +38,7 @@
                          artina:PickerProperties.BorderColor="Gray"
                         Grid.Row="0"  Grid.Column="1" x:Name="StatusPicker"
                         ItemsSource="{Binding ClaimStatuses}"
-                        ItemDisplayBinding="{Binding Text}"
+                        ItemDisplayBinding="{Binding Text, Mode=TwoWay}"
                         SelectedIndex="{Binding ClaimStatusSelectedIndex}"
                         />
 				 <!--Patient filter -->
@@ -48,7 +48,7 @@
                         TextColor="{ DynamicResource BaseTextColor }"
                         artina:PickerProperties.BorderColor="Gray"
                         ItemsSource="{Binding PatientTypes}"
-                        ItemDisplayBinding="{Binding Text}"
+                        ItemDisplayBinding="{Binding Text, Mode=TwoWay}"
                         SelectedIndex="{Binding PatientSelectedIndex}"
                         Grid.Row="1" Grid.Column="0" x:Name="PatientPicker" />
 				 <!--Dependent's First Name -->
