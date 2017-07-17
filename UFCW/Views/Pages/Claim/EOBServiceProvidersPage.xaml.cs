@@ -17,7 +17,7 @@ namespace UFCW.Views.Pages.Claim
 			NavigationPage.SetBackButtonTitle(this, ""); //hide back button title
 			serviceProvidersVM = new EOBServiceProvidersVM();
 			BindingContext = serviceProvidersVM;
-			ServiceProvidersList.ItemsSource = serviceProvidersVM.serviceProvidersList;
+			//ServiceProvidersList.ItemsSource = serviceProvidersVM.serviceProvidersList;
             FetchServiceProviders();
 		}
 
@@ -30,7 +30,7 @@ namespace UFCW.Views.Pages.Claim
             ClaimDetail[] serviceProviders = await serviceProvidersVM.FetchEOBDetails(claimNumber.ToString());
 			if (serviceProviders != null && serviceProviders.Length > 0)
 			{
-				ServiceProvidersList.IsVisible = true;
+				//ServiceProvidersList.IsVisible = true;
 				NoDataLabel.IsVisible = false;
 				UpdatePage(serviceProviders);
 			}
