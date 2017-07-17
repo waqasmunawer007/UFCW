@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+using UFCW.Constants;
+using UFCW.Helpers;
 using UFCW.Services.Models.User;
 using UFCW.Views.Navigation.Test;
 using UFCW.Views.Pages.Eligibility;
 using UFCW.Views.Pages.Pension;
+using UFCW.Views.Pages.PensionActive;
 using Xamarin.Forms;
 
 namespace UFCW
@@ -40,11 +43,21 @@ namespace UFCW
 		private void InitializeMasterDetail()
 		{
 			Master = new MainMenuPage(new NavigationService(Navigation, LaunchSampleInDetail));
-			EligibilityMenuPage eligibilityMenu = new EligibilityMenuPage();
-			Detail = NavigationPageHelper.Create(eligibilityMenu);
+            Page defaultPage = new EligibilityMenuPage();
 
-   //         RetireeDetailPage retireeDetailDetail = new RetireeDetailPage();
-			//Detail = NavigationPageHelper.Create(retireeDetailDetail);
+            if (Settings.PensionEnrolled)
+            {
+                if (Settings.RetireeOrActive.Equals(AppConstants.STRING_RETIRE))
+                {
+                    defaultPage = new PensionMenuPage();
+                }
+                else
+                {
+                    defaultPage = new ActivePensionMenuPage();
+                }
+            }
+
+            Detail = NavigationPageHelper.Create(defaultPage);
 		}
 
 		private void LaunchSampleInDetail(Page page, bool animated)

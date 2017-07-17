@@ -25,11 +25,17 @@ namespace UFCW.Helpers
 		private const string SSNKey = "ssn_key";
 		private const string TokenKey = "token_key";
 		private const string EmailKey = "email_key";
+		private const string PensionEnrolledKey = "pension_enrolled_key";
+		private const string InsuranceEnrolledKey = "insurance_enrolled_key";
+		private const string RetireeOrActiveKey = "retiree_or_ctive_key";
 
 	    private static readonly string SettingsDefault = string.Empty;
 		private static readonly string SSNDefault = string.Empty;
 		private static readonly string TokenDefault = "0000";
 		private static readonly string EmailDefault = string.Empty;
+
+		private static readonly bool BoolDefault = false;
+		private static readonly string StringDefault = string.Empty;
 
 	    #endregion
 
@@ -75,6 +81,54 @@ namespace UFCW.Helpers
 			set
 			{
 				AppSettings.AddOrUpdateValue<string>(TokenKey, value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the Pension Enrolled Status
+		/// </summary>
+		/// <value>The Pension Enrolled.</value>
+		public static bool PensionEnrolled
+		{
+			get
+			{
+				return AppSettings.GetValueOrDefault<bool>(PensionEnrolledKey, BoolDefault);
+			}
+			set
+			{
+				AppSettings.AddOrUpdateValue<bool>(PensionEnrolledKey, value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the Insurance Enrolled Status
+		/// </summary>
+		/// <value>The Insurance Enrolled.</value>
+		public static bool InsuranceEnrolled
+		{
+			get
+			{
+				return AppSettings.GetValueOrDefault<bool>(InsuranceEnrolledKey, BoolDefault);
+			}
+			set
+			{
+				AppSettings.AddOrUpdateValue<bool>(InsuranceEnrolledKey, value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the Retiree Or Active Status
+		/// </summary>
+		/// <value>The Retiree Or Active.</value>
+		public static string RetireeOrActive
+		{
+			get
+			{
+                return AppSettings.GetValueOrDefault<string>(RetireeOrActiveKey, StringDefault);
+			}
+			set
+			{
+                AppSettings.AddOrUpdateValue<string>(RetireeOrActiveKey, value);
 			}
 		}
 

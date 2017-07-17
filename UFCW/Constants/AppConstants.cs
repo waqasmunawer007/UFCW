@@ -24,6 +24,10 @@ namespace UFCW.Constants
 
 
         public const string RESPONSE_CODE_OK        = "200";
+        public const string STRING_TRUE = "True";
+		public const string STRING_FALSE = "False";
+		public const string STRING_RETIRE = "Retiree";
+		public const string STRING_ACTIVE = "Active";
 		//Error Strings
 		public const string ERROR_MESSAGE           = "Something went wrong. Please check your internet settings and then try again.";
         public const string Empty_Data_MESSAGE      = "No data found";

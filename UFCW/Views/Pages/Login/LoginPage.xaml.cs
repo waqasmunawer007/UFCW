@@ -34,7 +34,8 @@ namespace UFCW.Views.Login
 				loginVm.IsBusy = true;
 				//LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
 				//LoginResponse response = await loginVm.LogiUser("sam@paysolar.com", "P@ssw0rd"); //for Eligibilty & Active pension
-                LoginResponse response = await loginVm.LogiUser("ufcwRetiree@sinettechnologies.com", "P@ssw0rd");
+                //LoginResponse response = await loginVm.LogiUser("ufcwRetiree@sinettechnologies.com", "P@ssw0rd");
+                LoginResponse response = await loginVm.LogiUser("UfcwActive@sinettechnologies.com", "P@ssw0rd");
 				loginVm.IsBusy = false;
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
 				{
@@ -45,7 +46,31 @@ namespace UFCW.Views.Login
 					Settings.UserSSN = user.SSN;
 					Settings.UserEmail = user.Email;
 					Settings.UserToken = response.Token;
-					FetchPensionRetiree(); //Fetch Pension Retiree data
+                    if(response.InsuranceEnrolled != null && response.InsuranceEnrolled == "True")
+                    {
+                        Settings.InsuranceEnrolled = true;   
+                    }
+                    else
+                    {
+                        Settings.InsuranceEnrolled = false;
+					}
+
+                    if (response.PensionEnrolled != null && response.PensionEnrolled == "True")
+					{
+						Settings.PensionEnrolled = true;
+					}
+					else
+					{
+						Settings.PensionEnrolled = false;
+					}
+
+                    Settings.RetireeOrActive = response.RetireeOrActive;
+
+                    //TODO Do it on proper place...
+                    if (Settings.RetireeOrActive != null && Settings.RetireeOrActive.Equals(AppConstants.STRING_RETIRE))
+                    {
+                        FetchPensionRetiree(); //Fetch Pension Retiree data
+                    }
 					await Navigation.PushModalAsync(new RootPage());    
 				}
 				else

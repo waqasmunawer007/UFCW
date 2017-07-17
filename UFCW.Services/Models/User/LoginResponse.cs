@@ -5,6 +5,8 @@ namespace UFCW.Services.Models.User
     {
         public string Token;
         public User Profile;
-        public string PensionStatus;
+		public string RetireeOrActive { get; set; }
+		public string InsuranceEnrolled { get; set; }
+		public string PensionEnrolled { get; set; }
     }
 }

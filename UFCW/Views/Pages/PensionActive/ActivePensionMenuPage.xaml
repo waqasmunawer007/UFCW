@@ -4,7 +4,7 @@
     x:Class="UFCW.Views.Pages.PensionActive.ActivePensionMenuPage"
     xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
     xmlns:local="clr-namespace:UFCW;assembly=UFCW" 
-    Title = "Active Pension"
+    Title = "Pension Active"
     BackgroundColor="{ DynamicResource BackgroundColor }">
     <ContentPage.Content>
         <StackLayout
