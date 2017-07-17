@@ -28,14 +28,14 @@ namespace UFCW.Views.Login
       
 		async Task LoginClicked()
 		{
-			//if (!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
+			if (!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
 			{
 				loginVm.ShowError = false;
 				loginVm.IsBusy = true;
-				//LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
+				LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
 				//LoginResponse response = await loginVm.LogiUser("sam@paysolar.com", "P@ssw0rd"); //for Eligibilty & Active pension
                 //LoginResponse response = await loginVm.LogiUser("ufcwRetiree@sinettechnologies.com", "P@ssw0rd");
-                LoginResponse response = await loginVm.LogiUser("UfcwActive@sinettechnologies.com", "P@ssw0rd");
+                //LoginResponse response = await loginVm.LogiUser("UfcwActive@sinettechnologies.com", "P@ssw0rd");
 				loginVm.IsBusy = false;
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
 				{
@@ -78,10 +78,10 @@ namespace UFCW.Views.Login
 					await this.DisplayAlert(AppConstants.LOGIN_FAILED, response.ErrorDetails, null, AppConstants.DIALOG_OK_OPTION);
 				}
 			}
-			//else
-			//{
-			//	loginVm.ShowError = true;
-			//}
+			else
+			{
+				loginVm.ShowError = true;
+			}
 		}
 
 		/// <summary>
