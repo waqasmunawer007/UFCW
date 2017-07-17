@@ -36,7 +36,6 @@ namespace UFCW.Views.Login
 				//LoginResponse response = await loginVm.LogiUser("sam@paysolar.com", "P@ssw0rd"); //for Eligibilty & Active pension
                 //LoginResponse response = await loginVm.LogiUser("ufcwRetiree@sinettechnologies.com", "P@ssw0rd");
                 //LoginResponse response = await loginVm.LogiUser("UfcwActive@sinettechnologies.com", "P@ssw0rd");
-				loginVm.IsBusy = false;
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))
 				{
 					loginVm.user = response.Profile;
@@ -71,7 +70,12 @@ namespace UFCW.Views.Login
                     {
                         FetchPensionRetiree(); //Fetch Pension Retiree data
                     }
-					await Navigation.PushModalAsync(new RootPage());    
+                    else
+                    {
+                        loginVm.IsBusy = false;
+                        await Navigation.PushModalAsync(new RootPage()); 
+                    }
+					    
 				}
 				else
 				{
@@ -91,13 +95,15 @@ namespace UFCW.Views.Login
 		{
 			
 			Retiree retiree = await pensionViewModel.FetchRetiree();
+            loginVm.IsBusy = false;
 			if (retiree != null)
 			{
 				App.retiree = retiree;
+                await Navigation.PushModalAsync(new RootPage());
 			}
 			else
 			{
-				await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+				//await this.DisplayAlert(AppConstants.ERROR_TITLE, AppConstants.ERROR_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
 			}
 		}
     }

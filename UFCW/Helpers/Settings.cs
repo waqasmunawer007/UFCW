@@ -4,24 +4,24 @@ using Plugin.Settings.Abstractions;
 
 namespace UFCW.Helpers
 {
-  /// <summary>
-  /// This is the Settings static class that can be used in your Core solution or in any
-  /// of your client applications. All settings are laid out the same exact way with getters
-  /// and setters. 
-  /// </summary>
-  public static class Settings
-  {
-	    private static ISettings AppSettings
-	    {
-	      get
-	      {
-	        return CrossSettings.Current;
-	      }
-	    }
+	/// <summary>
+	/// This is the Settings static class that can be used in your Core solution or in any
+	/// of your client applications. All settings are laid out the same exact way with getters
+	/// and setters. 
+	/// </summary>
+	public static class Settings
+	{
+		private static ISettings AppSettings
+		{
+			get
+			{
+				return CrossSettings.Current;
+			}
+		}
 
-	    #region Setting Constants
+		#region Setting Constants
 
-	    private const string SettingsKey = "settings_key";
+		private const string SettingsKey = "settings_key";
 		private const string SSNKey = "ssn_key";
 		private const string TokenKey = "token_key";
 		private const string EmailKey = "email_key";
@@ -29,7 +29,7 @@ namespace UFCW.Helpers
 		private const string InsuranceEnrolledKey = "insurance_enrolled_key";
 		private const string RetireeOrActiveKey = "retiree_or_ctive_key";
 
-	    private static readonly string SettingsDefault = string.Empty;
+		private static readonly string SettingsDefault = string.Empty;
 		private static readonly string SSNDefault = string.Empty;
 		private static readonly string TokenDefault = "0000";
 		private static readonly string EmailDefault = string.Empty;
@@ -37,20 +37,20 @@ namespace UFCW.Helpers
 		private static readonly bool BoolDefault = false;
 		private static readonly string StringDefault = string.Empty;
 
-	    #endregion
+		#endregion
 
 
-	    public static string GeneralSettings
-	    {
-	      get
-	      {
-	        return AppSettings.GetValueOrDefault<string>(SettingsKey, SettingsDefault);
-	      }
-	      set
-	      {
-	        AppSettings.AddOrUpdateValue<string>(SettingsKey, value);
-	      }
-	    }
+		public static string GeneralSettings
+		{
+			get
+			{
+				return AppSettings.GetValueOrDefault(SettingsKey, SettingsDefault);
+			}
+			set
+			{
+				AppSettings.AddOrUpdateValue(SettingsKey, value);
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the user email.
@@ -60,11 +60,11 @@ namespace UFCW.Helpers
 		{
 			get
 			{
-				return AppSettings.GetValueOrDefault<string>(EmailKey, EmailDefault);
+				return AppSettings.GetValueOrDefault(EmailKey, EmailDefault);
 			}
 			set
 			{
-				AppSettings.AddOrUpdateValue<string>(EmailKey, value);
+				AppSettings.AddOrUpdateValue(EmailKey, value);
 			}
 		}
 
@@ -76,11 +76,11 @@ namespace UFCW.Helpers
 		{
 			get
 			{
-				return AppSettings.GetValueOrDefault<string>(TokenKey, TokenDefault);
+				return AppSettings.GetValueOrDefault(TokenKey, TokenDefault);
 			}
 			set
 			{
-				AppSettings.AddOrUpdateValue<string>(TokenKey, value);
+				AppSettings.AddOrUpdateValue(TokenKey, value);
 			}
 		}
 
@@ -92,11 +92,11 @@ namespace UFCW.Helpers
 		{
 			get
 			{
-				return AppSettings.GetValueOrDefault<bool>(PensionEnrolledKey, BoolDefault);
+				return AppSettings.GetValueOrDefault(PensionEnrolledKey, BoolDefault);
 			}
 			set
 			{
-				AppSettings.AddOrUpdateValue<bool>(PensionEnrolledKey, value);
+				AppSettings.AddOrUpdateValue(PensionEnrolledKey, value);
 			}
 		}
 
@@ -108,11 +108,11 @@ namespace UFCW.Helpers
 		{
 			get
 			{
-				return AppSettings.GetValueOrDefault<bool>(InsuranceEnrolledKey, BoolDefault);
+				return AppSettings.GetValueOrDefault(InsuranceEnrolledKey, BoolDefault);
 			}
 			set
 			{
-				AppSettings.AddOrUpdateValue<bool>(InsuranceEnrolledKey, value);
+				AppSettings.AddOrUpdateValue(InsuranceEnrolledKey, value);
 			}
 		}
 
@@ -124,11 +124,11 @@ namespace UFCW.Helpers
 		{
 			get
 			{
-                return AppSettings.GetValueOrDefault<string>(RetireeOrActiveKey, StringDefault);
+				return AppSettings.GetValueOrDefault(RetireeOrActiveKey, StringDefault);
 			}
 			set
 			{
-                AppSettings.AddOrUpdateValue<string>(RetireeOrActiveKey, value);
+				AppSettings.AddOrUpdateValue(RetireeOrActiveKey, value);
 			}
 		}
 
@@ -140,13 +140,13 @@ namespace UFCW.Helpers
 		{
 			get
 			{
-				return AppSettings.GetValueOrDefault<string>(SSNKey, SSNDefault);
+				return AppSettings.GetValueOrDefault(SSNKey, SSNDefault);
 			}
 			set
 			{
-				AppSettings.AddOrUpdateValue<string>(SSNKey, value);
+				AppSettings.AddOrUpdateValue(SSNKey, value);
 			}
 		}
 
-  }
+	}
 }
