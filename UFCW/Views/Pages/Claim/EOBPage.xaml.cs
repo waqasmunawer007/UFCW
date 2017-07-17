@@ -7,15 +7,17 @@ namespace UFCW.Views.Pages.Claim
 {
     public partial class EOBPage : ContentPage
     {
+        ClaimDetail claimDetail;
         void Handle_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new EOBServiceProvidersPage());
+            Navigation.PushAsync(new EOBServiceProvidersPage(claimDetail.CLAIM_NUMBER));
         }
 
-        public EOBPage(ClaimDetail claimDetail)
+        public EOBPage(ClaimDetail detail)
         {
             InitializeComponent();
-            BindingContext = claimDetail;
+            BindingContext = detail;
+            claimDetail = detail;
             NavigationPage.SetBackButtonTitle(this, "");
         }
     }

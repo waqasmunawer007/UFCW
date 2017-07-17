@@ -10,7 +10,7 @@
                 <!--Claim Information-->
                 <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Mailed To:"/>
                 <Label FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding INSURED_LAST_NAME}"/>
-                <Label FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding ADDRESS1}"/>
+                <Label  FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding ADDRESS1}"/>
 
                 
                 <Label Font="Bold" Margin="0,10,0,0" FontSize="18" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="EXPLANATION OF BENEFITS"/>

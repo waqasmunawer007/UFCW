@@ -261,6 +261,7 @@
     <Compile Include="Views\Pages\Claim\EOBServiceProvidersPage.xaml.cs">
       <DependentUpon>EOBServiceProvidersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Claims\EOBServiceProvidersVM.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
