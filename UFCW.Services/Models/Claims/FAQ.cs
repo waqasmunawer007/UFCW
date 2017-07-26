@@ -12,7 +12,8 @@ namespace UFCW.Services
 		public string Tags { get; set; }
 		public string DateCreated { get; set; }
 		public string DateUpdated { get; set; }
-	}
+        public bool IsVisible { get; set; }
+    }
 }
 public class FaqCategory
 {

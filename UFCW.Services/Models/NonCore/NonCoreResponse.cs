@@ -87,4 +87,5 @@ public class NewsLetter
 	public string OrganizationID { get; set; }
 	public string DateCreated { get; set; }
 	public string DateUpdated { get; set; }
+    public bool IsVisible { get; set; }
 }

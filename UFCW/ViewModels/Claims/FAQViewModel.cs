@@ -13,8 +13,8 @@ namespace UFCW
 		public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<FAQ> FAQList;
 		private bool isBusy = false;
-
-		public FAQViewModel()
+        private FAQ _oldFaq;
+        public FAQViewModel()
 		{
 			FAQList = new ObservableCollection<FAQ>();
 		}
@@ -55,7 +55,38 @@ namespace UFCW
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-       
+        internal void ShowOrHideFaq(FAQ faq)
+        {
+            // product.IsVisible = true;
+            // UpDateProducts(product);
+            if (_oldFaq == faq)
+            {
+                // click twice on the same item will hide it
+                faq.IsVisible = !faq.IsVisible;
+                UpDateFaqs(faq);
+            }
+            else
+            {
+                if (_oldFaq != null)
+                {
+                    // hide previous selected item
+                    _oldFaq.IsVisible = false;
+                    UpDateFaqs(_oldFaq);
+                }
+                // show selected item
+                faq.IsVisible = true;
+                UpDateFaqs(faq);
 
-	}
+            }
+            _oldFaq = faq;
+        }
+
+        private void UpDateFaqs(FAQ faq)
+        {
+            var index = FAQList.IndexOf(faq);
+            FAQList.Remove(faq);
+            FAQList.Insert(index, faq);
+        }
+
+    }
 }

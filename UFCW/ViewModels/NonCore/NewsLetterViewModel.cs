@@ -14,8 +14,8 @@ namespace UFCW.ViewModels.NonCore
 		public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<NewsLetter> newsLetterList;
 		private bool isBusy = false;
-
-		public NewsLetterViewModel()
+        private NewsLetter _oldNewsLetter;
+        public NewsLetterViewModel()
 		{
 			newsLetterList = new ObservableCollection<NewsLetter>();
 		}
@@ -104,5 +104,37 @@ namespace UFCW.ViewModels.NonCore
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-	}
+        internal void ShowOrHideNewsLetter(NewsLetter newsLetter)
+        {
+
+            if (_oldNewsLetter == newsLetter)
+            {
+                // click twice on the same item will hide it
+                newsLetter.IsVisible = !newsLetter.IsVisible;
+                UpDateNewsLetterList(newsLetter);
+            }
+            else
+            {
+                if (_oldNewsLetter != null)
+                {
+                    // hide previous selected item
+                    _oldNewsLetter.IsVisible = false;
+                    UpDateNewsLetterList(_oldNewsLetter);
+                }
+                // show selected item
+                newsLetter.IsVisible = true;
+                UpDateNewsLetterList(newsLetter);
+
+            }
+            _oldNewsLetter = newsLetter;
+        }
+        private void UpDateNewsLetterList(NewsLetter newsLetter)
+        {
+            // delete the previous newsletter then place the new newsletter (updated IsVisible Flag) at the same index of newsletter'faq
+            // and  notify changes in newsLetterList 
+            var index = newsLetterList.IndexOf(newsLetter);
+            newsLetterList.Remove(newsLetter);
+            newsLetterList.Insert(index, newsLetter);
+        }
+    }
 }

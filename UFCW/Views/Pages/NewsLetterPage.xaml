@@ -13,20 +13,15 @@
         <StackLayout VerticalOptions = "FillAndExpand" Padding="10,20,10,10" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
                                         VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-            <ListView x:Name="NewsLetterList" HasUnevenRows="true">
+            <ListView x:Name="NewsLetterList" HasUnevenRows="true" ItemTapped="NewsLetterList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                        <Grid VerticalOptions="FillAndExpand" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="150" />
-                            </Grid.RowDefinitions>
-                             <Label Text="{Binding Title}"  Grid.Row="0" Font="Bold" TextColor="Black" Margin="0,5,0,0" />
-                             <WebView Grid.Row="1" Margin="0,5,0,5" Source="{Binding Template, Converter={StaticResource htmlSource}}" />
-                           
-                        </Grid>
-                    </ViewCell>
+                            <StackLayout Margin="0,3">
+                                <Label Text="{Binding Title}" VerticalTextAlignment="Center" FontSize="Medium"  HeightRequest="60" BackgroundColor="Blue" TextColor="White" ></Label>
+                                <WebView  IsVisible="{Binding IsVisible}" Source="{Binding Template, Converter={StaticResource htmlSource}}" />
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

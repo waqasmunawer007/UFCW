@@ -41,5 +41,11 @@ namespace UFCW.Views.Pages
             viewModel.IsBusy = false;
             viewModel.NewsLetterList.Clear();
         }
+
+        private void NewsLetterList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var newsLetter = e.Item as NewsLetter;
+            viewModel.ShowOrHideNewsLetter(newsLetter);
+        }
     }
 }

@@ -14,8 +14,8 @@ namespace UFCW.ViewModels.NonCore
 		public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<FAQ> faqList;
 		private bool isBusy = false;
-
-		public NonCoreFAQViewModel()
+        private FAQ _oldFaq;
+        public NonCoreFAQViewModel()
 		{
 			faqList = new ObservableCollection<FAQ>();
 		}
@@ -56,7 +56,7 @@ namespace UFCW.ViewModels.NonCore
 		{
             this.FAQList.Clear();
 			IsBusy = true;
-			var service = new NonCoreService();
+           var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchPublicNonCoreData();
 			if (responseData != null)
 			{
@@ -100,5 +100,39 @@ namespace UFCW.ViewModels.NonCore
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-	}
+        internal void ShowOrHideFaq(FAQ faq)
+        {
+           
+            if (_oldFaq == faq)
+            {
+                // click twice on the same item will hide it
+                faq.IsVisible = !faq.IsVisible;
+                UpDateFaqs(faq);
+            }
+            else
+            {
+                if (_oldFaq != null)
+                {
+                    // hide previous selected item
+                    _oldFaq.IsVisible = false;
+                     UpDateFaqs(_oldFaq);
+                }
+                     // show selected item
+                faq.IsVisible = true;
+                UpDateFaqs(faq);
+
+            }
+            _oldFaq = faq;
+        }
+
+        private void UpDateFaqs(FAQ faq)
+        {
+            // delete the previous faq then place the new faq (updated IsVisible Flag) at the same index of deleted'faq
+            // and  notify changes in FAQList 
+            var index = FAQList.IndexOf(faq);   
+            FAQList.Remove(faq);
+            FAQList.Insert(index, faq);
+        }
+
+    }
 }

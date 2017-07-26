@@ -50,5 +50,11 @@ namespace UFCW
             base.OnAppearing();
             GoogleAnalytics.Current.Tracker.SendView("FAQs Page");
         }
+
+        private void FAQsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var faq = e.Item as FAQ;
+            viewModel.ShowOrHideFaq(faq);
+        }
     }
 }

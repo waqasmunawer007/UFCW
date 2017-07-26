@@ -44,6 +44,8 @@ namespace UFCW.Constants
         public const string TimeLoss_Event_Message = "TimeLoss Item Selected Event";
         public const string CheckedIssued_Event_Messae = "Checked Issued Item Selected Event";
 
+        
+
     }
 
     public enum Environment

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Plugin.GoogleAnalytics;
 using UFCW.ViewModels.NonCore;
 using Xamarin.Forms;
+using UFCW.Services;
 
 namespace UFCW.Views
 {
@@ -16,13 +17,13 @@ namespace UFCW.Views
 			viewModel = new NonCoreFAQViewModel();
 			BindingContext = viewModel;
             FAQList.ItemsSource = viewModel.FAQList;
-			FAQList.ItemTapped += (object sender, ItemTappedEventArgs e) =>
-			{
-				// don't do anything if we just de-selected the row
-				if (e.Item == null) return;
-				// do something with e.SelectedItem
-				((ListView)sender).SelectedItem = null; // de-select the row
-			};
+			//FAQList.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+			//{
+			//	// don't do anything if we just de-selected the row
+			//	if (e.Item == null) return;
+			//	// do something with e.SelectedItem
+			//	((ListView)sender).SelectedItem = null; // de-select the row
+			//};
         }
 
         protected async override void OnAppearing()
@@ -45,5 +46,10 @@ namespace UFCW.Views
 			viewModel.IsBusy = false;
             viewModel.FAQList.Clear();
 		}
+        private void FAQsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var faq = e.Item as FAQ;
+            viewModel.ShowOrHideFaq(faq);
+        }
     }
 }
