@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UFCW.Constants;
+using UFCW.Services.Models.Claims;
 
 namespace UFCW.Services.Services.Claims
 {
@@ -133,18 +134,15 @@ namespace UFCW.Services.Services.Claims
         /// </summary>
         /// <returns>The claim.</returns>
         /// <param name="parameters">Parameters.</param>
-		public async Task<ClaimDetail[]> SearchClaim(Dictionary<string, object> parameters)
+		public async Task<ClaimSearchResponse> SearchClaim(Dictionary<string, object> parameters)
         {
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
 				HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.ClaimsSearchQueryAPi, content);
 				var json = await responseJson.Content.ReadAsStringAsync();
-				if (!json.Equals("[]")) //only parse json if it contains data
-				{
-					var searchResponse = JsonConvert.DeserializeObject<ClaimDetail[]>(json);
-					return searchResponse;
-				}
+				var searchResponse = JsonConvert.DeserializeObject<ClaimSearchResponse>(json);
+				return searchResponse;
 			}
 			catch (Exception ex)
 			{

@@ -8,6 +8,7 @@ using System.Windows.Input;
 using UFCW.Constants;
 using UFCW.Helpers;
 using UFCW.Services;
+using UFCW.Services.Models.Claims;
 using UFCW.Services.Services.Claims;
 using UFCW.Views.Pages.Claim;
 using Xamarin.Forms;
@@ -16,7 +17,7 @@ namespace UFCW
 {
     public class SearchClaimViewModel : INotifyPropertyChanged
     {
-        private readonly static int PageSize = 1;
+        private readonly static int PageSize = 5;
         private readonly static DateTime MinDate = DateTime.Parse("Jan 1 1970");
         private readonly static DateTime MaxDate = DateTime.Parse("Dec 31 2050");
         private static DateTime FromDefaultDate = DateTime.Parse("Jan 1 1980");
@@ -38,6 +39,14 @@ namespace UFCW
 		public ObservableCollection<ClaimStatus> claimStatuses;
 		public ObservableCollection<Patient> patientTypes;
         int pageNumber = 0;
+       
+
+        //Search filters Values
+        string claimType;
+        string claimStatus;
+        string searchDate;
+        string searchPatient;
+        string searchDependent;
 
         public SearchClaimViewModel(INavigation mainPageNav)
         {
@@ -73,6 +82,8 @@ namespace UFCW
 			});
 			SearchClaimCommand = new Command(() =>
 			{
+                SearchedClaimsList.Clear();
+                pageNumber = 0;
                 IsBusy = true;
 				Patient selectedPatientType = PatientTypes[patientSelectedIndex];
 				ClaimType selectedCliamType = ClaimTypes[claimTypeSelectedIndex];
@@ -80,22 +91,25 @@ namespace UFCW
 				String dependentName = FirstDependentName;
 				DateTime selectedFromDate = FromDate;
 				DateTime selectedToDate = ToDate;
-                ApplyClaimSearch(pageNumber, selectedCliamType.Value, selectedClaimStatus.Value, "date", selectedPatientType.Value, dependentName);
-    //            List<ClaimDetail> list1  = LoadMore(); //Todo add service method here
-				//foreach (ClaimDetail d in list1)
-				//{
-				//	this.SearchedClaimsList.Add(d);
-				//}
+
+				 claimType = selectedCliamType.Value;
+				 claimStatus = selectedClaimStatus.Value;
+				 searchDate = ""; //Todo concate To and From date
+				 searchPatient = selectedPatientType.Value;
+				 searchDependent = dependentName;
+                ApplyClaimSearch();
 			});
         }
 
 
 		#region Properties
 		private bool isBusy = false;
+		private bool isLoading = false;
 		int claimTypeSelectedIndex;
 		int claimStatusSelectedIndex;
 		int patientSelectedIndex;
 		String firstDepedentName;
+
         /// <summary>
         /// Gets or sets a value indicating for Activity Indicator.
         /// </summary>
@@ -109,6 +123,19 @@ namespace UFCW
 				{
 					isBusy = value;
 					OnPropertyChanged("IsBusy");
+				}
+			}
+		}
+
+		public bool IsLoading
+		{
+            get { return isLoading; }
+			set
+			{
+				if (isLoading != value)
+				{
+					isLoading = value;
+					OnPropertyChanged("IsLoading");
 				}
 			}
 		}
@@ -305,17 +332,22 @@ namespace UFCW
 				}
 			}
         }
-	    /// <summary>
-        /// Applies the claim search.
+        /// <summary>
+        /// Loads the more record if user hits bottom of the list view
         /// </summary>
-        /// <returns>The claim search.</returns>
-        /// <param name="pageNumber">Page number.</param>
-        /// <param name="claimType">Claim type.</param>
-        /// <param name="claimStatus">Claim status.</param>
-        /// <param name="searchDate">Search date.</param>
-        /// <param name="searchPatient">Search patient.</param>
-        /// <param name="searchDependent">Search dependent.</param>
-		public async Task ApplyClaimSearch(int pageNumber,string claimType, string claimStatus, string searchDate, string searchPatient,string searchDependent)
+        /// <returns>The more.</returns>
+        public async Task LoadMore()
+        {
+            pageNumber += 1;
+            IsLoading = true;
+            await ApplyClaimSearch();
+            IsLoading = false;
+        }
+	   /// <summary>
+       /// Applies the claim search.
+       /// </summary>
+       /// <returns>The claim search.</returns>
+		public async Task ApplyClaimSearch()
 		{
 			
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -343,9 +375,8 @@ namespace UFCW
 
 
 			var claimService = new ClaimService();
-		    ClaimDetail[] searchedClaims = await claimService.SearchClaim(parameters);
-            Debug.WriteLine("Total records "+ searchedClaims.Length);
-			foreach (ClaimDetail d in searchedClaims)
+		    ClaimSearchResponse searchedClaims = await claimService.SearchClaim(parameters);
+            foreach (ClaimDetail d in searchedClaims.Data)
 			{
 				this.SearchedClaimsList.Add(d);
 			}
@@ -366,82 +397,8 @@ namespace UFCW
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-        public static int PageCount = 0;
-        public static int TotalPages = 3;
-        public bool isLoading;
-        public List<ClaimDetail> LoadMore()
-		{
-            List<ClaimDetail> c = new List<ClaimDetail>();
-            if (PageCount <= TotalPages)
-            {
-				Debug.WriteLine("In Load More");
-                isLoading = true;
-                PageCount++;
-				ClaimDetail c1 = new ClaimDetail();
-				c1.CLAIM_NUMBER = 1212;
-				c1.INSURED_INITIALS = "abs";
-				c1.PATIENT = "SELF";
-				c1.DENTAL_SERVICE = "Dental";
-				c1.CLAIM_STATUS = "Processed";
-				c1.CLAIM_TYPE = "Dental";
-				c1.DateCreated = "05/06/2017";//?????????
-
-				//Claimant Information
-				c1.INSURED_LAST_NAME = "RA BRANDEL";
-				c1.ADDRESS1 = "800 QUACCO RD   247 ";
-				c1.ADDRESS2 = "800 QUACCO RD   786";
-				c1.CITY = "SAVANNAH";
-				c1.STATE_CODE = "12345";
-				c1.ZIP_CODE = 54000;
-				c1.PATIENT = "SELF";
-				c1.GENDER = "F";
-				c1.AGE = 63;
-
-				c1.EMPLOYER_NAME = "KROG.-SAVON-SV-PL D";
-				c1.COV_FROM_DATE = "4/1/2002";
-				c1.COV_TO_DATE = "10/1/2005";
-				c1.FUND_ID = "AT MEAT RET-PL M-HI";
-				c1.PLAN_ID = "D";
-				c1.LOCAL_NUMBER = 1996;
-
-				//Dental Summary
-				c1.YTD_DENTAL = "162.00";
-				c1.DENTAL_DEDUCTION = "25.00";
-				c1.EXAM_CLEAN_DATE = "11/9/2005 12:00:00 AM";
-				c1.LT_DENTAL = "1453.80";
-				c1.LT_ORTHODONTIC = "0.00";
-				c1.X_RAY_DATE = "11/9/2005";
-				c1.PAY_REMARKS = "KROG.-SAVON-SV-PL D ";
 
 
-				ClaimDetail c2 = new ClaimDetail();
-				c2.CLAIM_NUMBER = 1213;
-				c2.INSURED_INITIALS = "absdsd xfr";
-				c2.PATIENT = "SELF";
-				c2.DENTAL_SERVICE = "Dental";
-
-				ClaimDetail c3 = new ClaimDetail();
-				c3.CLAIM_NUMBER = 1214;
-				c3.INSURED_INITIALS = "xyzw";
-				c3.PATIENT = "SELF";
-				c3.DENTAL_SERVICE = "Dental";
-
-				ClaimDetail c4 = new ClaimDetail();
-				c4.CLAIM_NUMBER = 545656;
-				c4.INSURED_INITIALS = "stve";
-				c4.PATIENT = "SELF";
-				c4.DENTAL_SERVICE = "Dental";
-
-                c.Add(c1);
-                Debug.WriteLine("First Element added");
-				c.Add(c2);
-				c.Add(c3);
-				c.Add(c4);
-                isLoading = false;
-            }
-
-            return c;
-		}
 	}
 }
 

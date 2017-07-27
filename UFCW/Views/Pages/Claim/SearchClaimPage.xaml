@@ -126,6 +126,9 @@
                 VerticalOptions="FillAndExpand" 
                 RowHeight="50"
                 >
+                 <ListView.Footer> 
+                    <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
+                  </ListView.Footer>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                      <ViewCell> 
@@ -155,6 +158,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+             
+                
+                  
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
