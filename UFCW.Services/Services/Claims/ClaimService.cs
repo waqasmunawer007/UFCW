@@ -129,25 +129,12 @@ namespace UFCW.Services.Services.Claims
 			return null;
 		}
 		/// <summary>
-		/// Searchs the claim based on different filters value.
-		/// </summary>
-		/// <returns>The claim.</returns>
-		/// <param name="token">Token.</param>
-		/// <param name="ssn">Ssn.</param>
-		/// <param name="ClaimType">Claim type.</param>
-		/// <param name="claimStatus">Claim status.</param>
-		/// <param name="fromData">From data.</param>
-		/// <param name="toDate">To date.</param>
-		public async Task<ClaimDetail[]> SearchClaim(string token, string ssn, string claimType, string claimStatus, string fromDate, string toDate)
-		{
-			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, ssn);
-			parameters.Add(WebApiConstants.ClaimType, claimType);
-			parameters.Add(WebApiConstants.ClaimStatus, claimStatus);
-			parameters.Add(WebApiConstants.FromDate, fromDate);
-			parameters.Add(WebApiConstants.ToDate, toDate);
-
+        /// Searchs the claim based on provided search criteria
+        /// </summary>
+        /// <returns>The claim.</returns>
+        /// <param name="parameters">Parameters.</param>
+		public async Task<ClaimDetail[]> SearchClaim(Dictionary<string, object> parameters)
+        {
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -161,7 +148,7 @@ namespace UFCW.Services.Services.Claims
 			}
 			catch (Exception ex)
 			{
-				Debug.WriteLine("SearchClaim", ex.Message);
+				Debug.WriteLine("SearchClaim Exception", ex.Message);
 			}
 			return null;
 		}

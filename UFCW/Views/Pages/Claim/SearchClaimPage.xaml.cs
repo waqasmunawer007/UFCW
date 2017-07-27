@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using UFCW.Constants;
 using UFCW.Services;
 using UXDivers.Artina.Shared;
@@ -33,19 +34,18 @@ namespace UFCW
                  }
              };
 			AdjustUIStyle(); //adjust Search & Reset button sizes
-            //FetchSearchFilterOptions();
+			FetchSearchFilterOptions();
 		}
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            SearchClaimViewModel.PageCount = 0;//TODo Temp code
+            SearchClaimViewModel.PageCount = 0;//TODo Temp code 
         }
-       
-		/// <summary>
-		/// Adjust the UI style for Reset and Search Buttons.
-		/// </summary>
-		private void AdjustUIStyle()
+        /// <summary>
+        /// Adjust the UI style for Reset and Search Buttons.
+        /// </summary>
+        private void AdjustUIStyle()
 		{
 			if (Device.RuntimePlatform == Device.iOS)
 			{
@@ -64,51 +64,31 @@ namespace UFCW
 		public async void FetchSearchFilterOptions()
 		{
 			viewModel.IsBusy = true;
-			ClaimFilters filters = await viewModel.GetClaimSearchFilters();
-			if (filters != null)
-			{
-				foreach (ClaimType claimType in filters.ClaimTypes)
-				{
-				   viewModel.ClaimTypes.Add(claimType);
-				}
-				foreach (ClaimStatus claimStatus in filters.ClaimStatuses)
-				{
-					viewModel.ClaimStatuses.Add(claimStatus);
-				}
-				foreach (Patient patient in filters.Patients)
-				{
-					viewModel.PatientTypes.Add(patient);
-				}
-			}
-			else
-			{
-				//todo show this message in center of the screen, if data list is empty
-				//await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
-			}
+			await viewModel.GetClaimSearchFilters();
 			viewModel.IsBusy = false;
 		}
-		/// <summary>
-		/// Applies the search filter.
-		/// </summary>
-		/// <param name="claimType">Claim type.</param>
-		/// <param name="claimStatus">Claim status.</param>
-		/// <param name="fromDate">From date.</param>
-		/// <param name="toDate">To date.</param>
-		public async void ApplySearchFilter(string claimType, string claimStatus, string fromDate, string toDate)
-		{
-			viewModel.IsBusy = true;
-			ClaimDetail[] searchedClaims = await viewModel.ApplyClaimSearch(claimType,claimStatus,fromDate,toDate);
-			if (searchedClaims != null)
-			{
-				UpdatePage(searchedClaims);
-			}
-			else
-			{
-				//todo show this message in center of the screen, if data list is empty
-				await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
-			}
-			viewModel.IsBusy = false;
-		}
+		///// <summary>
+		///// Applies the search filter.
+		///// </summary>
+		///// <param name="claimType">Claim type.</param>
+		///// <param name="claimStatus">Claim status.</param>
+		///// <param name="fromDate">From date.</param>
+		///// <param name="toDate">To date.</param>
+		//public async void ApplySearchFilter(string claimType, string claimStatus, string fromDate, string toDate)
+		//{
+		//	viewModel.IsBusy = true;
+		//	ClaimDetail[] searchedClaims = await viewModel.ApplyClaimSearch(claimType,claimStatus,fromDate,toDate);
+		//	if (searchedClaims != null)
+		//	{
+		//		UpdatePage(searchedClaims);
+		//	}
+		//	else
+		//	{
+		//		//todo show this message in center of the screen, if data list is empty
+		//		await this.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, null, AppConstants.DIALOG_OK_OPTION);
+		//	}
+		//	viewModel.IsBusy = false;
+		//}
 		private void UpdatePage(ClaimDetail[] data)
 		{
 			foreach (ClaimDetail claim in data)

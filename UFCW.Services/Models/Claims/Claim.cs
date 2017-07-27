@@ -27,11 +27,11 @@ namespace UFCW.Services
 		public int AGE { get; set; }
 		public string INSURED_INITIALS { get; set; }
 		public string INSURED_LAST_NAME { get; set; }
-        public string INSURED_NAME { get { return INSURED_INITIALS + INSURED_LAST_NAME; } }
+        public string INSURED_NAME { get; set; }
 		public string ADDRESS1 { get; set; }
 		public string ADDRESS2 { get; set; }
 		public string CITY { get; set; }
-		public int STATE_CODE { get; set; }
+		public string STATE_CODE { get; set; }
 		public int ZIP_CODE { get; set; }
 		public string DEP_FIRST_NAME { get; set; }
 		public string DEP_LAST_NAME { get; set; }
@@ -39,8 +39,8 @@ namespace UFCW.Services
 		public string DEP_TYPE { get; set; }
 		public string YTD_DENTAL { get; set; }
 		public string DENTAL_DEDUCTION { get; set; }
-		public object LT_DENTAL { get; set; }
-		public object LT_ORTHODONTIC { get; set; }
+		public string LT_DENTAL { get; set; }
+		public string LT_ORTHODONTIC { get; set; }
 		public string X_RAY_DATE { get; set; }
 		public string EXAM_CLEAN_DATE { get; set; }
 		public string CLAIM_FILE_FLAG { get; set; }

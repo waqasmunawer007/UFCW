@@ -26,9 +26,14 @@ namespace UFCW.Constants
         public const string EMAIL = "Email";
 		public const string ClaimStatus = "CLAIM_STATUS";
 		public const string ClaimType = "CLAIM_TYPE";
+        public const string SearchDate = "searchDate";
+        public const string SearchPatient = "searchPatient";
+        public const string SearchDependent = "searchDependent";
+        public const string PageNumber = "start";
+        public const string PageSize = "length";
 		public const string FromDate = "FROM_DATE";
 		public const string ToDate = "TO_DATE";
-		public const string ClaimNumber = "TO_DATE";
+	    public const string ClaimNumber = "CLAIM_NUMBER";
         #endregion
 
         #region General Constants

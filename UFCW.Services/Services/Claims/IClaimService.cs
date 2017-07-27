@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace UFCW.Services.Services.Claims
@@ -7,7 +8,7 @@ namespace UFCW.Services.Services.Claims
     {
         Task<FAQ[]> FetchFAQ(string token, string ssn);
 		Task<ClaimFilters> FetchSearchFilters(string token, string ssn);
-		Task<ClaimDetail[]> SearchClaim(string token, string ssn,string ClaimType,string claimStatus,string fromData,string toDate);
+		Task<ClaimDetail[]> SearchClaim(Dictionary<string, object> parameters);
 		Task<ClaimDetail[]> FetchClaimDetail(string token, string ssn,string claimNumber);
 		Task<ClaimDetail[]> FetchClaimEOB(string token, string ssn, string claimNumber);
     }

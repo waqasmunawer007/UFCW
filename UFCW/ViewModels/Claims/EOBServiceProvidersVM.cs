@@ -55,7 +55,7 @@ namespace UFCW.ViewModels.Claims
 			detail.PATIENT = "SELF";
 			detail.COV_TO_DATE = "11/9/2005";
 			detail.DEP_TYPE = "Detail?";
-			detail.CHARGES = 9876;
+			detail.CHARGES = "9876";
 			list[0] = detail; 
 
             ClaimDetail detail2 = new ClaimDetail();
@@ -64,7 +64,7 @@ namespace UFCW.ViewModels.Claims
 			detail2.PATIENT = "SELF";
 			detail2.COV_TO_DATE = "11/9/2005";
 			detail2.DEP_TYPE = "Detail?";
-			detail2.CHARGES = 9876;
+			detail2.CHARGES = "9876";
 			list[1] = detail2;
 
             return list;
