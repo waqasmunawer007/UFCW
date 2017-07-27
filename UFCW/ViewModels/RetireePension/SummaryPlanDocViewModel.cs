@@ -2,17 +2,30 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using UFCW.Helpers;
 using UFCW.Services.Models.Pension;
 using UFCW.Services.Services.Pension;
+using Xamarin.Forms;
 
 namespace UFCW.ViewModels.Pension
 {
     public class SummaryPlanDocViewModel: INotifyPropertyChanged
     {
+        public ICommand ShowUrlCommand { set; get; }
+        
+        
         public SummaryPlanDocViewModel()
         {
             SummaryPlanDocsList = new ObservableCollection<SummaryPlanDoc>();
+            ShowUrlCommand = new Command<SummaryPlanDoc>((e)=> {
+                SummaryPlanDoc selectedItem = e;
+                string url = selectedItem.Link;
+
+                Device.OpenUri(new System.Uri(url));
+
+               
+            });
         }
 		public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<SummaryPlanDoc> SummaryPlanDocsList;
@@ -34,6 +47,7 @@ namespace UFCW.ViewModels.Pension
 				}
 			}
 		}
+        
 		public async Task<SummaryPlanDoc[]> FetchSummaryPlanDocs()
 		{
             var pansionService = new PensionService();
