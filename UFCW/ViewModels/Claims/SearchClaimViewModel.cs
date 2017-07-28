@@ -17,7 +17,7 @@ namespace UFCW
 {
     public class SearchClaimViewModel : INotifyPropertyChanged
     {
-        private readonly static int PageSize = 5;
+       
         private readonly static DateTime MinDate = DateTime.Parse("Jan 1 1970");
         private readonly static DateTime MaxDate = DateTime.Parse("Dec 31 2050");
         private static DateTime FromDefaultDate = DateTime.Parse("Jan 1 1980");
@@ -39,7 +39,8 @@ namespace UFCW
 		public ObservableCollection<ClaimStatus> claimStatuses;
 		public ObservableCollection<Patient> patientTypes;
         int pageNumber = 0;
-       
+		private readonly static int PageSize = 5;
+        int TotalPages = 0;
 
         //Search filters Values
         string claimType;
@@ -84,20 +85,27 @@ namespace UFCW
 			{
                 SearchedClaimsList.Clear();
                 pageNumber = 0;
+                TotalPages = 0;
                 IsBusy = true;
-				Patient selectedPatientType = PatientTypes[patientSelectedIndex];
-				ClaimType selectedCliamType = ClaimTypes[claimTypeSelectedIndex];
-				ClaimStatus selectedClaimStatus = ClaimStatuses[claimStatusSelectedIndex];
-				String dependentName = FirstDependentName;
-				DateTime selectedFromDate = FromDate;
-				DateTime selectedToDate = ToDate;
 
-				 claimType = selectedCliamType.Value;
-				 claimStatus = selectedClaimStatus.Value;
-				 searchDate = ""; //Todo concate To and From date
-				 searchPatient = selectedPatientType.Value;
-				 searchDependent = dependentName;
-                ApplyClaimSearch();
+                if (PatientTypes.Count > 0) //make sure Search Option fetched from server before going to hit Search request 
+                {
+					Patient selectedPatientType = PatientTypes[patientSelectedIndex];
+					ClaimType selectedCliamType = ClaimTypes[claimTypeSelectedIndex];
+					ClaimStatus selectedClaimStatus = ClaimStatuses[claimStatusSelectedIndex];
+					String dependentName = FirstDependentName;
+					DateTime selectedFromDate = FromDate;
+					DateTime selectedToDate = ToDate;
+                    string fromDateString = selectedFromDate.ToString("yyyy-MM-dd");
+                    string toDateString = selectedToDate.ToString("yyyy-MM-dd");
+					
+                    claimType = selectedCliamType.Value;
+					claimStatus = selectedClaimStatus.Value;
+					searchDate = fromDateString +" - "+toDateString; 
+					searchPatient = selectedPatientType.Value;
+					searchDependent = dependentName;
+					ApplyClaimSearch();
+                }
 			});
         }
 
@@ -306,9 +314,9 @@ namespace UFCW
                     Value = ""
                 };
                 this.ClaimTypes.Add(emptyClaimType);
-				foreach (ClaimType claimType in filters.ClaimTypes)
+				foreach (ClaimType cType in filters.ClaimTypes)
 				{
-					this.ClaimTypes.Add(claimType);
+					this.ClaimTypes.Add(cType);
 				}
                 ClaimStatus emptyClaimStatus = new ClaimStatus()
 				{
@@ -316,9 +324,9 @@ namespace UFCW
                     Value = ""
 				};
                 this.ClaimStatuses.Add(emptyClaimStatus);
-				foreach (ClaimStatus claimStatus in filters.ClaimStatuses)
+				foreach (ClaimStatus cStatus in filters.ClaimStatuses)
 				{
-					this.ClaimStatuses.Add(claimStatus);
+					this.ClaimStatuses.Add(cStatus);
 				}
                 Patient emptyPatient = new Patient()
 				{
@@ -339,9 +347,18 @@ namespace UFCW
         public async Task LoadMore()
         {
             pageNumber += 1;
-            IsLoading = true;
-            await ApplyClaimSearch();
-            IsLoading = false;
+            if (pageNumber < TotalPages)
+            {
+				IsLoading = true;
+				await ApplyClaimSearch();
+				IsLoading = false;
+            }
+            else
+            {
+                pageNumber = 0;
+                TotalPages = 0;
+            }
+           
         }
 	   /// <summary>
        /// Applies the claim search.
@@ -376,10 +393,15 @@ namespace UFCW
 
 			var claimService = new ClaimService();
 		    ClaimSearchResponse searchedClaims = await claimService.SearchClaim(parameters);
-            foreach (ClaimDetail d in searchedClaims.Data)
-			{
-				this.SearchedClaimsList.Add(d);
-			}
+            if (searchedClaims != null)
+            {
+                TotalPages = searchedClaims.RecordsFiltered;
+				foreach (ClaimDetail d in searchedClaims.Data)
+				{
+					this.SearchedClaimsList.Add(d);
+				}
+
+            }
             IsBusy = false;
 
 		}

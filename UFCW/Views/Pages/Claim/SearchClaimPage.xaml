@@ -62,7 +62,7 @@
 				 <!--From Date picket -->
                     <StackLayout Grid.Row="2" Grid.Column="0" VerticalOptions="Start" Margin="0,5,0,0" Orientation="Vertical">
                         <Label Text="From Date" FontSize="14" TextColor="{DynamicResource BaseTextColor }" />
-                         <DatePicker  x:Name="FromDatePicker" VerticalOptions="CenterAndExpand" 
+                         <DatePicker x:Name="FromDatePicker" VerticalOptions="CenterAndExpand" 
                                 Date="{Binding FromDate}" 
                                 MinimumDate="{Binding MinimumDate}" 
                                 MaximumDate="{Binding MaximumDate}"

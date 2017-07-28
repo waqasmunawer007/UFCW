@@ -11,12 +11,12 @@
                 <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Mailed To:"/>
                 <Label FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding INSURED_LAST_NAME}"/>
                 <Label  FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="{Binding ADDRESS1}"/>
-
-                
                 <Label Font="Bold" Margin="0,10,0,0" FontSize="18" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="EXPLANATION OF BENEFITS"/>
                 <Label Font="Bold" FontSize="15" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="FOR Dental SERVICES"/>
                 <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+                <!-- Benefits Explanation data Grid -->
                 <Grid 
+                x:Name="BenefitsExplanation"    
                 ColumnSpacing="1" 
                 RowSpacing="5" 
                 Padding="10,0,10,15"
@@ -47,16 +47,35 @@
                     <Label Grid.Row="6" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DateCreated}"/>
                 </Grid>
 
-                <artina:Button
-                    Style="{DynamicResource PrimaryActionButtonStyle}"
-                    VerticalOptions="End"
-                    Text="Service Providers ->"
-                    Clicked="Handle_Clicked"
-                    HorizontalOptions="Center"
-                    WidthRequest="150"
-                    Margin="0,15,0,0"
-                    BackgroundColor="Teal"
-                />
+                
+              <!-- Service Providers data Grid -->
+                <Label Font="Bold" FontSize="15" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="SERVICES PROVIDER"/>
+                <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+                <Grid 
+                ColumnSpacing="1" 
+                RowSpacing="5" 
+                Padding="10,0,10,15"
+                VerticalOptions="Start" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Dates"/>
+                    <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SERV_FROM_DATE}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Charges"/>
+                    <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding CHARGES}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Provider Name"/>
+                    <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding PROVIDER_NAME}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Doctor Name"/>
+                    <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DOCTOR_NAME}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Benefits Payable"/>
+                    <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding PAYABLE_AMT}"/>
+                </Grid>
+               
             </StackLayout>      
         </ScrollView>
 	</ContentPage.Content>

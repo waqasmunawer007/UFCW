@@ -70,7 +70,6 @@ namespace UFCW.Views.Pages.Claim
 
 		protected override void OnAppearing()
 		{
-			//FetchServiceProviders();
 			base.OnAppearing();
 		}
 
