@@ -154,8 +154,7 @@ namespace UFCW
 			set
 			{
 				if (searchedClaimsList != value)
-				{
-                    Debug.WriteLine("Property changes called");
+                {
                     searchedClaimsList = value;
 					OnPropertyChanged("SearchedClaimsList");
 				}

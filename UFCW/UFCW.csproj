@@ -262,6 +262,11 @@
       <DependentUpon>EOBServiceProvidersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Claims\EOBServiceProvidersVM.cs" />
+    <Compile Include="ViewModels\Eligibility\EligibilityReportViewModel.cs" />
+    <Compile Include="Views\Pages\Eligibility\EligibilityDetailPage.xaml.cs">
+      <DependentUpon>EligibilityDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Eligibility\EligibilityDetailViewModel.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -450,6 +455,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Claim\EOBServiceProvidersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Eligibility\EligibilityDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

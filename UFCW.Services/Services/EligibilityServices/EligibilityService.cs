@@ -141,5 +141,67 @@ namespace UFCW.Services.UserService
 			}
             return null;
 		}
+        /// <summary>
+        /// Fetchs the eligibility report.
+        /// </summary>
+        /// <returns>The eligibility report.</returns>
+        /// <param name="Token">Token.</param>
+        /// <param name="SSN">Ssn.</param>
+        /// <param name="pageNumber">Page number.</param>
+        /// <param name="pageSize">Page size.</param>
+        public async Task<EligibilityReportResponse> FetchEligibilityReport(string Token, string SSN, int pageNumber, int pageSize)
+        {
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add(WebApiConstants.TOKEN, Token);
+			parameters.Add(WebApiConstants.SSN, SSN);
+            parameters.Add(WebApiConstants.PageNumber, pageNumber);
+            parameters.Add(WebApiConstants.PageNumber, pageSize);
+			try
+			{
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
+                HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.EligibilityReportApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (json != null)
+                {
+					var reportResponse = JsonConvert.DeserializeObject<EligibilityReportResponse>(json);
+					return reportResponse;
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("EligibilityReport Exception", ex.Message);
+			}
+			return null;  
+        }
+        /// <summary>
+        /// Fetchs the eligibility detail.
+        /// </summary>
+        /// <returns>The eligibility detail.</returns>
+        /// <param name="Token">Token.</param>
+        /// <param name="SSN">Ssn.</param>
+        /// <param name="EligibilityID">Eligibility identifier.</param>
+        public async Task<EligibilityDetail> FetchEligibilityDetail(string Token, string SSN, string EligibilityID)
+        {
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add(WebApiConstants.TOKEN, Token);
+			parameters.Add(WebApiConstants.SSN, SSN);
+            parameters.Add(WebApiConstants.EligibilityID,EligibilityID );
+			try
+			{
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
+                HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.EligibilityDetailApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (json != null)
+				{
+                    var reportResponse = JsonConvert.DeserializeObject<EligibilityDetail>(json);
+					return reportResponse;
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("EligibilityDetail Exception", ex.Message);
+			}
+			return null;
+		}
     }
 }

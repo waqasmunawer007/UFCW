@@ -9,6 +9,8 @@ namespace UFCW.Constants
 		public static string ChecksIssuedApi = "Eligibility/ChecksIssued";
 		public static string TimeLossApi = "Eligibility/TimeLoss";
 		public static string DependentsApi = "Eligibility/Dependents";
+        public static string EligibilityReportApi = "eligibility/report";
+        public static string EligibilityDetailApi = "eligibility/details";
 		#endregion
 
 		#region Calims API's
@@ -34,6 +36,7 @@ namespace UFCW.Constants
 		public const string FromDate = "FROM_DATE";
 		public const string ToDate = "TO_DATE";
 	    public const string ClaimNumber = "CLAIM_NUMBER";
+        public const string EligibilityID = "EligibilityID";
         #endregion
 
 
