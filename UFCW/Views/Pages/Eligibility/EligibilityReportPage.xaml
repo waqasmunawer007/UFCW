@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.EligibilityReportPage" Title="Eligibility Report">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    x:Class="UFCW.EligibilityReportPage" 
+    Title="Eligibility Report">
 	<ContentPage.Content>
-		<Label VerticalOptions = "CenterAndExpand" HorizontalOptions = "CenterAndExpand" Text ="Eligibility Report Page"/>
+		<StackLayout Orientation = "Vertical"  Padding="0,0,0,10" >
+         <!-- Header Layout -->
+             <Grid 
+                ColumnSpacing="10" 
+                RowSpacing="2"
+                BackgroundColor="{DynamicResource MainMenuBackgroundColor}"
+                Margin="0,0,0,0"
+                Padding="10,10,10,10"
+                VerticalOptions="Start" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row ="0"  HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"  VerticalTextAlignment="Center" Grid.Column="0" Text="Participant Name" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="12" VerticalTextAlignment="Center"  Grid.Column="1" Text="Eligibility Month" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="12" VerticalTextAlignment="Center"  Grid.Column="2" Text="Effective Date" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="12" VerticalTextAlignment="Center"  Grid.Column="3" Text="Coverage" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="12" VerticalTextAlignment="Center"  Grid.Column="4" Text="" LineBreakMode="WordWrap"/>
+             </Grid>
+             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <ListView
+                x:Name="ReportList" 
+                VerticalOptions="FillAndExpand" 
+                RowHeight="50"
+                >
+                 <ListView.Footer> 
+                    <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
+                  </ListView.Footer>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                     <ViewCell> 
+                        <Grid x:Name="Item" HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10" ColumnSpacing="10"  >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                             
+                            <Label  Text="{Binding Name}" VerticalTextAlignment="Center" FontSize="12" Grid.Row="0" Grid.Column="0" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding Month}"  FontSize="12"  Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding Date}"  Grid.Row="0" Grid.Column="2" FontSize="12" VerticalTextAlignment="Center"  TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding Coverage}"  Grid.Row="0" Grid.Column="3" FontSize="12"  VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
+                             <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="4" Text="" LineBreakMode="WordWrap"/>
+                            <!-- Detail Button -->
+                            <artina:Button
+                                Grid.Row="0" Grid.Column="4"
+                                x:Name="DetailButton"
+                                Command="{Binding DetailEligibilityCommand}"
+                                BindingContext="{Binding Source={x:Reference ReportList}, Path=BindingContext}"
+                                CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
+                                Style="{DynamicResource PrimaryActionSmallButtonStyle}"
+                                Text="Details"
+                                VerticalOptions="Center"
+                                FontSize="10"
+                                WidthRequest="30"/>
+                       </Grid>
+                    </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -116,12 +116,13 @@
                 </Grid.RowDefinitions>
                 <Label Grid.Row ="0"  HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"  VerticalTextAlignment="Center" Grid.Column="0" Text="Claim Number" LineBreakMode="WordWrap"/>
                 <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="1" Text="Insured Name" LineBreakMode="WordWrap"/>
-                <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="2" Text="Patient" LineBreakMode="WordWrap"/>
-                <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="3" Text="Service Providers" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="2" Text="Fund" LineBreakMode="WordWrap"/>
+                <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="3" Text="Plan" LineBreakMode="WordWrap"/>
                 <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="4" Text="" LineBreakMode="WordWrap"/>
              </Grid>
             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
-			<ListView 
+            <!-- Searched Result List -->
+            <ListView 
                 x:Name="ClaimsList" 
                 VerticalOptions="FillAndExpand" 
                 RowHeight="50"
@@ -137,10 +138,10 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                              
-                            <Label  Text="{Binding CLAIM_NUMBER}" VerticalTextAlignment="Center" FontSize="14" Grid.Row="0" Grid.Column="0" TextColor="Black"  LineBreakMode="WordWrap" />
-                            <Label Text="{Binding INSURED_INITIALS}"  FontSize="14"  Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
-                            <Label Text="{Binding PATIENT}"  Grid.Row="0" Grid.Column="2" FontSize="12" VerticalTextAlignment="Center"  TextColor="Black"  LineBreakMode="WordWrap" />
-                            <Label Text="{Binding DENTAL_SERVICE}"  Grid.Row="0" Grid.Column="3" FontSize="12"  VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label  Text="{Binding CLAIM_NUMBER}" VerticalTextAlignment="Center" FontSize="12" Grid.Row="0" Grid.Column="0" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding INSURED_INITIALS}"  FontSize="12"  Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding FUND_ID}"  Grid.Row="0" Grid.Column="2" FontSize="12" VerticalTextAlignment="Center"  TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label Text="{Binding PLAN_ID}"  Grid.Row="0" Grid.Column="3" FontSize="12"  VerticalTextAlignment="Center" TextColor="Black"  LineBreakMode="WordWrap" />
                             <!-- Detail Button -->
                             <artina:Button
                                 Grid.Row="0" Grid.Column="4"
@@ -159,8 +160,6 @@
                 </ListView.ItemTemplate>
             </ListView>
              
-                
-                  
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

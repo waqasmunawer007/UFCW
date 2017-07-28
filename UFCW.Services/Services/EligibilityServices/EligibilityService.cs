@@ -155,7 +155,7 @@ namespace UFCW.Services.UserService
 			parameters.Add(WebApiConstants.TOKEN, Token);
 			parameters.Add(WebApiConstants.SSN, SSN);
             parameters.Add(WebApiConstants.PageNumber, pageNumber);
-            parameters.Add(WebApiConstants.PageNumber, pageSize);
+            parameters.Add(WebApiConstants.PageSize, pageSize);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);

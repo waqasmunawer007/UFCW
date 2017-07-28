@@ -51,11 +51,12 @@ namespace UFCW
                 {
                     defaultPage = new PensionMenuPage();
                 }
-                else
+                else 
                 {
                     defaultPage = new ActivePensionMenuPage();
                 }
             }
+
 
             Detail = NavigationPageHelper.Create(defaultPage);
 		}

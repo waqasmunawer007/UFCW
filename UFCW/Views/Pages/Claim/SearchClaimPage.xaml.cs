@@ -34,12 +34,12 @@ namespace UFCW
                  }
              };
 			AdjustUIStyle(); //adjust Search & Reset button sizes
-			FetchSearchFilterOptions();
 		}
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            FetchSearchFilterOptions();
         }
         /// <summary>
         /// Adjust the UI style for Reset and Search Buttons.

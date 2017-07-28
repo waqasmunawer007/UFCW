@@ -19,9 +19,9 @@ namespace UFCW.ViewModels.Eligibility
         public ObservableCollection<Eligibilty> eligibilityReportData;
 
 		
-		private readonly static int PageSize = 5;
-		int TotalPages;
-        int pageNumber;
+		private readonly static int PageSize = 10;
+		public int TotalPages;
+        public int pageNumber;
 		private bool isBusy = false;
 		private bool isLoading = false;
 
@@ -39,6 +39,13 @@ namespace UFCW.ViewModels.Eligibility
             pageNumber = 0;
             TotalPages = 0;
 		}
+
+        public void ResetData()
+        {
+			EligibilityReportData.Clear();
+			pageNumber = 0;
+			TotalPages = 0;
+        }
 
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
@@ -115,9 +122,7 @@ namespace UFCW.ViewModels.Eligibility
 				{
 					this.EligibilityReportData.Add(e);
 				}
-
 			}
-			IsBusy = false;
 		}
 
 		/// <summary>
