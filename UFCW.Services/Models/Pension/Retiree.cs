@@ -67,6 +67,7 @@ namespace UFCW.Services.Models.Pension
         public string Gender { get; set; }
         [JsonProperty(PropertyName = "BIRTH_DATE")]
 		public string BirthDate { get; set; }
+       
 
 		public string FirstName
 		{
@@ -116,7 +117,11 @@ namespace UFCW.Services.Models.Pension
 		public Int64 YTD_DOM_REL_Deduction { get; set; }
 		[JsonProperty(PropertyName = "STATUS")]
 		public string S { get; set; }
-	}
+
+       
+
+
+    }
 
 	public class MyTaxes
 	{
