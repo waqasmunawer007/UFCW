@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Converters\DatetimeToStringConverter.cs" />
+    <Compile Include="Converters\HideAccountDepositNumberConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

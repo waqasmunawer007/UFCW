@@ -11,9 +11,13 @@ namespace UFCW.Converters
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            
-            string date = (string)value;
-            return date.Substring(0,10); // remove the time from datetime
+            if (value != null)
+            {
+                string date = (string)value;
+                return date.Substring(0, 10); // remove the time from datetime
+
+            }
+            return null;
    
         }
 
