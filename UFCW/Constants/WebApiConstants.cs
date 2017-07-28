@@ -36,6 +36,13 @@ namespace UFCW.Constants
 	    public const string ClaimNumber = "CLAIM_NUMBER";
         #endregion
 
+
+        #region Error Codes
+        public const int Error103 = 103; // Invalid Token request
+        public const int Error104 = 104; //Token Expired
+
+        #endregion
+
         #region General Constants
         public const string API_MEDIA_TYPE = "application/json";
 
