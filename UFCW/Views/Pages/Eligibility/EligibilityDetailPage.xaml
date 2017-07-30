@@ -1,5 +1,73 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.Pages.Eligibility.EligibilityDetailPage">
 	<ContentPage.Content>
+        <ScrollView Orientation="Vertical" >
+            <StackLayout Orientation = "Vertical"  Margin="10,20,10,10">
+
+              <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Employee Information"/>
+              <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+               <!-- Employee Information -->
+              <Grid 
+                ColumnSpacing="1" 
+                RowSpacing="5" 
+                Padding="10,0,10,15"
+                VerticalOptions="Start" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Insured Name"/>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityDetail.InsuredName}"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Employer"/>
+                <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityObj.Employer}"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Address"/>
+                <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityDetail.Address}"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="City"/>
+                <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityDetail.City}"/>
+
+                 <Label Grid.Row="4" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="State Code"/>
+                <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityDetail.StateCode}"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Zip Code"/>
+                <Label Grid.Row="5" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityDetail.ZipCode}"/>
+
+                <Label Grid.Row="6" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Fund"/>
+                <Label Grid.Row="6" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityDetail.Fund}"/>
+
+                <Label Grid.Row="7" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Plan"/>
+                <Label Grid.Row="7" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityObj.Plan}"/>
+
+            </Grid>
+
+           <Label  Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Eligibility Information"/>
+           <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+        <!-- Eligibility Information -->
+            <Grid  
+                ColumnSpacing="1" 
+                RowSpacing="5" 
+                Padding="10,0,10,15"    
+                VerticalOptions="StartAndExpand" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Eligibility Month"/>
+                    <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityObj.Month}"/>  
+
+                    <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Effective Date"/>
+                    <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityObj.Date}"/>
+                
+                    <Label Grid.Row="2" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Coverage Type"/>
+                    <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityObj.Coverage}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="Coverage From Date"/>
+                    <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding EligibilityObj.Date}"/>
+              
+                </Grid>
+
+            </StackLayout>      
+        </ScrollView>
 	</ContentPage.Content>
 </ContentPage>

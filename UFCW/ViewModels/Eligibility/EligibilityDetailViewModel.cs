@@ -15,13 +15,12 @@ namespace UFCW.ViewModels.Eligibility
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private EligibilityDetail eligibilityDetail;
+        private Eligibilty eligibility;
 		private bool isBusy = false;
-        string eligibilityID;
-	
 
-		public EligibilityDetailViewModel(string eligibilityId)
+		public EligibilityDetailViewModel()
 		{
-            eligibilityID = eligibilityId;
+           
 		}
 
 		/// <summary>
@@ -40,7 +39,20 @@ namespace UFCW.ViewModels.Eligibility
 				}
 			}
 		}
-	
+
+		public Eligibilty EligibilityObj
+		{
+			get { return eligibility; }
+			set
+			{
+				if (eligibility != value)
+				{
+					eligibility = value;
+					OnPropertyChanged("EligibilityObj");
+				}
+			}
+		}
+
         public EligibilityDetail EligibilityDetail
 		{
 			get { return eligibilityDetail; }
@@ -49,7 +61,7 @@ namespace UFCW.ViewModels.Eligibility
 				if (eligibilityDetail != value)
 				{
 					eligibilityDetail = value;
-					OnPropertyChanged("EligibilityDetail");
+					OnPropertyChanged("EligibilityDetailItem");
 				}
 			}
 		}
@@ -58,14 +70,14 @@ namespace UFCW.ViewModels.Eligibility
 		/// Applies the claim search.
 		/// </summary>
 		/// <returns>The claim search.</returns>
-		public async Task FetchEligibilityDetail()
+		public async Task FetchEligibilityDetail(string eligibilityId)
 		{
             IsBusy = true;
 			var eligibilityService = new EligibilityService();
-            EligibilityDetail detail = await eligibilityService.FetchEligibilityDetail(Settings.UserToken, Settings.UserSSN, eligibilityID);
+            EligibilityDetail detail = await eligibilityService.FetchEligibilityDetail(Settings.UserToken, Settings.UserSSN, eligibilityId);
 			if (detail != null)
 			{
-                EligibilityDetail = detail;
+                this.EligibilityDetail = detail;
 			}
             IsBusy = false;
 		}

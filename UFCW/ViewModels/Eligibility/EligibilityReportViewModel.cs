@@ -29,15 +29,18 @@ namespace UFCW.ViewModels.Eligibility
 		{
 			eligibilityReportData = new ObservableCollection<Eligibilty>();
 			Navigation = mainPageNav;
+			pageNumber = 0;
+			TotalPages = 0;
+
+
 			DetailEligibilityCommand = new Command(async (e) =>
-		   {
+		    {
                 Eligibilty selectedItem = (e as Eligibilty);
-		        EligibilityDetailPage detailPage = new EligibilityDetailPage();
+		        EligibilityDetailPage detailPage = new EligibilityDetailPage(selectedItem);
 			    detailPage.BindingContext = selectedItem;
 			    await Navigation.PushAsync(detailPage);
-		   });
-            pageNumber = 0;
-            TotalPages = 0;
+		    });
+           
 		}
 
         public void ResetData()
