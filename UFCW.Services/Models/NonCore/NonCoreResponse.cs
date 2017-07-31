@@ -71,7 +71,7 @@ public class Document
 	public string PdfDocumentID { get; set; }
 	public string FileName { get; set; }
 	public string Url { get; set; }
-	public int FileSize { get; set; }//
+	public double FileSize { get; set; }//
 	public string DocumentBlob { get; set; }
 	public string Title { get; set; }
 	public string Tags { get; set; }

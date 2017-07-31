@@ -6,7 +6,7 @@
 	<ContentPage.Content>
 		<StackLayout Orientation = "Vertical"  Padding="0,0,0,10" >
              <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" Margin="10,10,0,0" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Benefit Fund Links"/>
-              <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor}" />
+              <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor}" /> 
          <!-- Header Layout -->
              <Grid 
                 ColumnSpacing="10" 
@@ -22,6 +22,7 @@
                 <Label Grid.Row ="0" Font="Bold"  FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center"  Grid.Column="1" Text="Category" />
                 <Label Grid.Row ="0"  Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center"  Grid.Column="2" Text="Action"/>
              </Grid>
+             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <ListView
                 x:Name="LinksList" 
                 VerticalOptions="FillAndExpand" 
@@ -47,7 +48,7 @@
                                 Style="{DynamicResource PrimaryActionSmallButtonStyle}"
                                 Text="Visit"
                                 VerticalOptions="Center"
-                                FontSize="10"
+                                FontSize="12"
                                 WidthRequest="60"/>
                          </Grid>
                     </ViewCell>

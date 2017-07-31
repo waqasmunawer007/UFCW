@@ -16,18 +16,17 @@ namespace UFCW
             viewModel = new NewsViewModel();
 			BindingContext = viewModel;
             NewsList.ItemsSource = viewModel.NewsList;
+			viewModel.FetchPublicNews();
 		}
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            viewModel.FetchPublicNews();
+           
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            viewModel.IsBusy = false;
-            viewModel.NewsList.Clear();
         }
 
         protected async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.Views.AboutUsPage">
-	<ContentPage.Content>
-        <AbsoluteLayout>
-        <WebView Source=""
-            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-            AbsoluteLayout.LayoutFlags="All" />
-    </AbsoluteLayout>
-	</ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="UFCW.Views.AboutUsPage">
+    <StackLayout Orientation = "Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,10,0,10" >
+     <ActivityIndicator Margin="0,10,0,0" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
+	 <WebView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <WebView.Source>
+            <HtmlWebViewSource Html="{Binding URL}"/>
+        </WebView.Source>
+    </WebView>
+     </StackLayout>   
 </ContentPage>

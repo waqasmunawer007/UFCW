@@ -18,16 +18,22 @@ namespace UFCW.ViewModels.NonCore
 		public ICommand VisitButtonCommand { get; set; }
 		private bool isBusy = false;
 
-		public LinksViewModel()
+        public LinksViewModel()
 		{
            linksList = new ObservableCollection<LinkResponse>(); 
 
 			VisitButtonCommand = new Command((e) =>
 			{
 				LinkResponse selectedItem = (e as LinkResponse);
-				//EligibilityDetailPage detailPage = new EligibilityDetailPage(selectedItem);
-				//detailPage.BindingContext = selectedItem;
-				//await Navigation.PushAsync(detailPage);
+                if (selectedItem.Links != null && selectedItem.Links.Count > 0)
+                {
+                    String url = selectedItem.Links[0].Url;
+                    if (!String.IsNullOrEmpty(url))
+                    {
+                        Device.OpenUri(new System.Uri(url));
+
+                    }
+                }
 			});
 		}
 		/// <summary>
@@ -66,30 +72,18 @@ namespace UFCW.ViewModels.NonCore
         /// <returns>The public links.</returns>
 		public async Task FetchPublicLinks()
 		{
+            this.LinksList.Clear();
 			IsBusy = true;
 			var service = new NonCoreService();
-			//NonCoreResponse responseData = await service.FetchPublicNonCoreData();
-			//if (responseData != null)
-			//{
-			//             foreach (LinkResponse link in responseData.Links)
-			//	{
-
-			//                 this.LinksList.Add(link);
-			//	}
-			//             Debug.WriteLine("Total links " + LinksList.Count);
-			//}
-			for (int i = 0; i < 3; i++)
+			NonCoreResponse responseData = await service.FetchPublicNonCoreData();
+			if (responseData != null)
 			{
-                LinkResponse linkResponse = new LinkResponse();
-                linkResponse.LinkCategory = "Health & Welfare Links";
-                List<Link> links = new List<Link>();
-                Link link = new Link();
-                link.Url = "http://www.cigna.com/";
-                links.Add(link);
-                linkResponse.Links = links;     
-				
-                this.LinksList.Add(linkResponse);
+	             foreach (LinkResponse link in responseData.Links)
+				{
 
+	                 this.LinksList.Add(link);
+				}
+			            
 			}
 			IsBusy = false;
 		}

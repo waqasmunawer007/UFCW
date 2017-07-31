@@ -55,29 +55,17 @@ namespace UFCW.ViewModels
 		public async Task FetchPublicNews()
 		{
             IsBusy = true;
+            this.NewsList.Clear();
 			var service = new NonCoreService();
-            //NonCoreResponse responseData = await service.FetchPublicNonCoreData();
-            //if (responseData != null)
-            //{
-            //    foreach(News news in responseData.News)
-            //    {
+            NonCoreResponse responseData = await service.FetchPublicNonCoreData();
+            if (responseData != null)
+            {
+                foreach(News news in responseData.News)
+                {
 
-            //        this.NewsList.Add(news);
-            //    }
-            
-				
-            //    Debug.WriteLine("Total news "+ NewsList.Count);
-            //}
-			for (int i = 0; i < 3; i++)
-			{
-				News news = new News();
-				news.Title = "Title";
-				news.SubTitle = "subtitle";
-				news.DateCreated = "Tuesday April, 2017";
-                news.Content = "<p>Test Public News 1 Body</p>";
-				this.NewsList.Add(news);
-
-			}
+                    this.NewsList.Add(news);
+                }
+            }
             IsBusy = false;
 		}
 	

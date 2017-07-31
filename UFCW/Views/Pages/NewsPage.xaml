@@ -20,8 +20,8 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Label  Text="{Binding Title}" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseFontSize}" Grid.Row="0" Grid.Column="0" TextColor="Black"   />
-                            <Label Text="{Binding SubTitle}"  FontSize="12"  Grid.Row="1" Grid.Column="0"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor}"   />
-                            <Label Text="{Binding DateCreated}"  FontSize="12"  Grid.Row="2" Grid.Column="0"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor}"   />
+                            <Label Text="{Binding SubTitle}"  FontSize="14"  Grid.Row="1" Grid.Column="0"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor}"   />
+                            <Label Text="{Binding DateCreated}"  FontSize="14"  Grid.Row="2" Grid.Column="0"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor}"   />
                             <!-- Arrow Button -->
                            <Label HorizontalOptions="End"  Grid.RowSpan="3" Grid.Column="1" VerticalOptions="CenterAndExpand" WidthRequest = "20" Margin="0,0,20,0"  Style="{DynamicResource MainMenuRightChevronStyle}"/>
                        </Grid>

@@ -12,19 +12,18 @@ namespace UFCW
 		{
 			InitializeComponent();
             viewModel = new LinksViewModel();
+            BindingContext = viewModel;
             LinksList.ItemsSource = viewModel.LinksList;
+            viewModel.FetchPublicLinks();
 		}
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            viewModel.FetchPublicLinks();
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-			viewModel.IsBusy = false;
-            viewModel.LinksList.Clear();
         }
 	}
 }
