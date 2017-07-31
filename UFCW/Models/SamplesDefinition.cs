@@ -141,7 +141,7 @@ namespace UFCW
 
             samplesList.Add(new Sample("Claims", typeof(SearchClaimPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person));
             samplesList.Add(new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person));
-            samplesList.Add(new Sample("Documents", typeof(DocumentsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile));
+            samplesList.Add(new Sample("Documents", typeof(NonCoreDocument), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile));
             samplesList.Add(new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public));
             samplesList.Add(new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy));
             samplesList.Add(new Sample("FAQ", typeof(FAQsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help));
@@ -408,8 +408,8 @@ namespace UFCW
 		}
 
         internal static void SetLoginItemsGrid()
-		{
-			var categories = new Dictionary<string, SampleCategory>();
+        {
+            var categories = new Dictionary<string, SampleCategory>();
 
             categories.Add(
                 "Register",
@@ -423,64 +423,64 @@ namespace UFCW
                     Badge = 2,
                     Shape = GrialShapesFont.Circle,
                     page = new AccountPage()
-				}
-			);
-			categories.Add(
-				"ForgotPassword",
-				new SampleCategory
-				{
-					Name = "Forgot Password",
-					BackgroundColor = Color.FromHex(_categoriesColors[2]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Lock,
-					IconColor = Color.FromHex(_categoriesColors[0]),
-					Badge = 2,
-					Shape = GrialShapesFont.Circle,
-					page = new AccountPage()
-				}
-			);
-			categories.Add(
-				"NewsLetter",
-				new SampleCategory
-				{
-					Name = "News Letter",
-					BackgroundColor = Color.FromHex(_categoriesColors[2]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Copy,
-					IconColor = Color.FromHex(_categoriesColors[0]),
-					Badge = 2,
-					Shape = GrialShapesFont.Circle,
-					page = new NewsLetterPage()
-				}
-			);
-			categories.Add(
-				"News",
-				new SampleCategory
-				{
-					Name = "News",
-					BackgroundColor = Color.FromHex(_categoriesColors[0]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = FontAwesomeFont.Copy,
-					IconColor = Color.FromHex(_categoriesColors[0]),
-					Badge = 5,
-					Shape = GrialShapesFont.Circle,
-                     page = new NewsPage()
-				}
-			);
+                }
+            );
+            categories.Add(
+                "ForgotPassword",
+                new SampleCategory
+                {
+                    Name = "Forgot Password",
+                    BackgroundColor = Color.FromHex(_categoriesColors[2]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = GrialShapesFont.Lock,
+                    IconColor = Color.FromHex(_categoriesColors[0]),
+                    Badge = 2,
+                    Shape = GrialShapesFont.Circle,
+                    page = new AccountPage()
+                }
+            );
+            categories.Add(
+                "NewsLetter",
+                new SampleCategory
+                {
+                    Name = "News Letter",
+                    BackgroundColor = Color.FromHex(_categoriesColors[2]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = GrialShapesFont.Copy,
+                    IconColor = Color.FromHex(_categoriesColors[0]),
+                    Badge = 2,
+                    Shape = GrialShapesFont.Circle,
+                    page = new NewsLetterPage()
+                }
+            );
+            categories.Add(
+                "News",
+                new SampleCategory
+                {
+                    Name = "News",
+                    BackgroundColor = Color.FromHex(_categoriesColors[0]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = FontAwesomeFont.Copy,
+                    IconColor = Color.FromHex(_categoriesColors[0]),
+                    Badge = 5,
+                    Shape = GrialShapesFont.Circle,
+                    page = new NewsPage()
+                }
+            );
 
 
-			categories.Add(
-				"Documents",
-				new SampleCategory
-				{
-					Name = "Documents",
-					BackgroundColor = Color.FromHex(_categoriesColors[0]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
+            categories.Add(
+                "Documents",
+                new SampleCategory
+                {
+                    Name = "Documents",
+                    BackgroundColor = Color.FromHex(_categoriesColors[0]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
                     Icon = GrialShapesFont.Folder,
-					IconColor = Color.FromHex(_categoriesColors[0]),
-					Badge = 2,
-					Shape = GrialShapesFont.Circle,
-                    page = new DocumentsPage()
+                    IconColor = Color.FromHex(_categoriesColors[0]),
+                    Badge = 2,
+                    Shape = GrialShapesFont.Circle,
+                    page = new NonCoreDocument() {ifPublicDocRequest = true}
 				}
 			);
 			categories.Add(

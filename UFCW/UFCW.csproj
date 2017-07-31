@@ -271,7 +271,7 @@
     <Compile Include="ViewModels\Eligibility\EligibilityDetailViewModel.cs" />
     <Compile Include="ViewModels\NonCore\NewsViewModel.cs" />
     <Compile Include="ViewModels\NonCore\LinksViewModel.cs" />
-    <Compile Include="ViewModels\NonCore\DocumentsViewModel.cs" />
+    <Compile Include="ViewModels\NonCore\NonCoreDocumentsViewModel.cs" />
     <Compile Include="Views\Pages\NewsLetterPage.xaml.cs">
       <DependentUpon>NewsLetterPage.xaml</DependentUpon>
     </Compile>
@@ -282,6 +282,9 @@
       <DependentUpon>NewsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\NonCore\AboutUsViewModel.cs" />
+    <Compile Include="Views\Pages\NonCoreDocument.xaml.cs">
+      <DependentUpon>NonCoreDocument.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -479,6 +482,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\NewsDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\NonCoreDocument.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

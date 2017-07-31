@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared" 
+    x:Class="UFCW.Views.Pages.NonCoreDocument">
+	<ContentPage.Content>
+         <StackLayout VerticalOptions = "FillAndExpand" Padding="0,0,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <ListView x:Name="NonCoreDocumentsList" VerticalOptions = "FillAndExpand" HorizontalOptions="FillAndExpand" RowHeight="150" IsVisible="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <StackLayout  BackgroundColor="{DynamicResource MainMenuBackgroundColor}" x:Name="Item" Padding="10,5,10,5" Orientation="Vertical" VerticalOptions="FillAndExpand"> 
+                                <Label HorizontalOptions="StartAndExpand" Margin="0,4,0,0" Font="Bold" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="Title"/>
+                                <Label HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="{Binding Title}"/>
+                                <Label HorizontalOptions="StartAndExpand" Margin="0,5,0,0" Font="Bold" VerticalTextAlignment="Start" TextColor="{ DynamicResource DetailLabelHeaderColor}" Text="Link"/>
+                                <artina:Button  Command="{Binding UrlCommand}"
+                                                Style="{DynamicResource PrimaryActionButtonStyle}"
+                                                 WidthRequest="80"
+                                                HeightRequest="40"
+                                         BindingContext="{Binding Source={x:Reference NonCoreDocumentsList}, Path=BindingContext}"
+                                        CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
+                                        Margin="5,8,0,0" HorizontalOptions="Start"  TextColor="White" Text="View"/>
+                            
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+         </StackLayout> 
+	</ContentPage.Content>
+</ContentPage>

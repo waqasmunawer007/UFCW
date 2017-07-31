@@ -6,6 +6,7 @@ namespace UFCW.Constants
         public static Environment environment       = Environment.STAGING;
 		public static string BaseUrlStaging         = "http://sinettechnologies.net/api/";
 		public static string BaseUrlLive            = "http://sinettechnologies.net/api/";
+        public static string BaseWebAppURL           = "http://sinettechnologies.net";
         public static string BaseUrl                = BaseUrlLive;
 
         public static string LoginApi               = "Login";

@@ -12,7 +12,36 @@ namespace UFCW.Services.Services.NonCore
 {
     public class NonCoreService : BaseService, INonCoreService
     {
-        
+
+        /// <summary>
+        /// Fetchs the auth non core data.
+        /// </summary>
+        /// <returns>The auth non core data.</returns>
+        /// <param name="token">Token.</param>
+        /// <param name="ssn">Ssn.</param>
+        public async Task<NonCoreResponse> FetchAuthNonCoreData(string token, string ssn)
+        {
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add(WebApiConstants.TOKEN, token);
+			parameters.Add(WebApiConstants.SSN, ssn);
+			try
+			{
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+                HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.AuthNonCoreApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (json != null) //only parse json if it contains data
+				{
+					var nonCoreResponseData = JsonConvert.DeserializeObject<NonCoreResponse>(json);
+					return nonCoreResponseData;
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("FetchAuthNonCoreException", ex.Message);
+			}
+			return null;
+        }
+
         public async Task<NonCoreResponse> FetchPublicNonCoreData()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();

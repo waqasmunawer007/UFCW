@@ -7,5 +7,6 @@ namespace UFCW.Services.Services.NonCore
     public interface INonCoreService
     {
 		Task<NonCoreResponse> FetchPublicNonCoreData();
+        Task<NonCoreResponse> FetchAuthNonCoreData(string token,string ssn);
     }
 }
