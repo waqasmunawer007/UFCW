@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.ActivePension;
@@ -17,6 +18,7 @@ namespace UFCW.Views.Pages.PensionActive
 			historyByEmployerVM = new HistoryByEmployerVM();
 			BindingContext = historyByEmployerVM;
             HistoryByEmployerList.ItemsSource = historyByEmployerVM.historyByEmployerList;
+
 		}
 
 		/// <summary>
@@ -71,7 +73,8 @@ namespace UFCW.Views.Pages.PensionActive
 		{
             FetchHistoryByEmployer();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("Contribution History (Employer) Page");
+        }
 
 		protected override void OnDisappearing()
 		{

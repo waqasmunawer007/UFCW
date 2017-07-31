@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.Pension;
@@ -14,5 +15,10 @@ namespace UFCW.Views.Pages.Pension
 			InitializeComponent();
 			BindingContext = App.retiree.Personal_Information; 
 		}
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("Retiree Detail Page");
+        }
     }
 }

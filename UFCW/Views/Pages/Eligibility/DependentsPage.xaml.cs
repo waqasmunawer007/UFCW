@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.Eligibility;
@@ -69,7 +70,8 @@ namespace UFCW
 		{
 			FetchDependents();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("Dependants Page");
+        }
 
 		protected override void OnDisappearing()
 		{

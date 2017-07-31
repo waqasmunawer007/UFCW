@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.ActivePension;
@@ -71,7 +72,8 @@ namespace UFCW.Views.Pages.PensionActive
 		{
 			FetchHistoryByYear();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("Contribution History (Year) Page");
+        }
 
 		protected override void OnDisappearing()
 		{

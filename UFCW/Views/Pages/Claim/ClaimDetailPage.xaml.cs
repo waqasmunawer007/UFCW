@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Services;
 using UFCW.ViewModels.Claims;
@@ -25,6 +26,11 @@ namespace UFCW.Views.Pages.Claim
             System.Diagnostics.Debug.WriteLine("Inside the constructor of ClaimDetailPage...");
             //claimsDetailVM = new ClaimsDetailVM(Navigation);
             //BindingContext = claimsDetailVM;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("Claim Detail Page");
         }
     }
 }

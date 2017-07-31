@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -12,5 +13,10 @@ namespace UFCW.Views.Pages
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
 		}
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("Check Issued Detial Page");
+        }
     }
 }

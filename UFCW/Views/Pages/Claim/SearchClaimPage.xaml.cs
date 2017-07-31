@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UFCW.Constants;
@@ -40,6 +41,7 @@ namespace UFCW
         {
             base.OnAppearing();
             SearchClaimViewModel.PageCount = 0;//TODo Temp code
+            GoogleAnalytics.Current.Tracker.SendView("Search Claim Page");
         }
        
 		/// <summary>

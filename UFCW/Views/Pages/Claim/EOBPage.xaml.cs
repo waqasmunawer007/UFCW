@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Services;
 using Xamarin.Forms;
@@ -19,6 +20,11 @@ namespace UFCW.Views.Pages.Claim
             BindingContext = detail;
             claimDetail = detail;
             NavigationPage.SetBackButtonTitle(this, "");
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("EOB Page");
         }
     }
 }

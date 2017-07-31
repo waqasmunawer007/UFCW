@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using UFCW.Constants;
 using UFCW.Services.Models.Eligibility;
@@ -71,7 +72,8 @@ namespace UFCW
 		{
 			FetchChecksIssued();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("Check Issued Page");
+        }
 
 		protected override void OnDisappearing()
 		{

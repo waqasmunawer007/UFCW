@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UFCW.Constants;
@@ -43,7 +44,8 @@ namespace UFCW.Views.Pages.PensionActive
 		{
 			FetchBenifits();
 			base.OnAppearing();
-		}
+            GoogleAnalytics.Current.Tracker.SendView("My Benefits Page");
+        }
 
 		protected override void OnDisappearing()
 		{

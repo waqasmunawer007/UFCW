@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.GoogleAnalytics;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -54,6 +55,7 @@ namespace UFCW
         {
             FetchBenifits();
             base.OnAppearing();
+            GoogleAnalytics.Current.Tracker.SendView("Benefits Plan Page");
         }
 
         protected override void OnDisappearing()
