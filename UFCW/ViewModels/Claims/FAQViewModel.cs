@@ -55,5 +55,7 @@ namespace UFCW
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+       
+
 	}
 }

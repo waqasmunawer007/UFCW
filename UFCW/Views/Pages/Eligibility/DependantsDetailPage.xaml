@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="UFCW.Views.Pages.DependantsDetailPage" Title="Dependant Detail">
-	<ContentPage.Content>
+    xmlns:local="clr-namespace:UFCW.Converters" x:Class="UFCW.Views.Pages.DependantsDetailPage" Title="Dependant Detail">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:HideSNNconverter x:Key="SSNnumberConverter"></local:HideSNNconverter>
+            <local:DatetimeToStringConverter x:Key="RetrieveDateFromDateTime"></local:DatetimeToStringConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
         <ScrollView Orientation="Vertical" >
 			<StackLayout Orientation = "Vertical"  Padding="0,20,0,10">
 			 <Label Font="Bold" Margin="10,0,0,0" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" FontSize="{DynamicResource BaseFontSize}" Text="{Binding FirstName}"/>
@@ -16,7 +22,7 @@
 		                </Grid.RowDefinitions>
 					
 		               <Label Grid.Row="0" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="SSN"/>
-		                <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SSN}"/>
+                    <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SSN ,Converter={StaticResource SSNnumberConverter}}"/>
 
 		                 <Label Grid.Row="1" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Dependent Type"/>
 		                <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DependentType}"/>
@@ -25,7 +31,7 @@
 		                <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Gender}"/>
 
 		                <Label Grid.Row="3" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Birth Date"/>
-		                <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding BirthDate}"/>
+                    <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding BirthDate , Converter={StaticResource RetrieveDateFromDateTime}}"/>
 
 		                <Label Grid.Row="4" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Fund"/>
 		                <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding FundID}"/>
@@ -35,7 +41,7 @@
 
 		            
 		                <Label Grid.Row="6" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Coverage Termination"/>
-		                <Label Grid.Row="6" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding TerminationDate}"/>  
+                    <Label Grid.Row="6" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding TerminationDate , Converter={StaticResource RetrieveDateFromDateTime}}"/>  
 
 		                <Label Grid.Row="7" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Pending Info"/>
 		                <Label Grid.Row="7" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding IsPending}"/>

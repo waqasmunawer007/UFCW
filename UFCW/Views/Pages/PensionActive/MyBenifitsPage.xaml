@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="UFCW.Views.Pages.PensionActive.MyBenifitsPage"
-    Title="My Benifits">
+    Title="My Benefits">
 	<ContentPage.Content>
         <StackLayout Orientation = "Vertical"  Margin="10,20,10,10">
-            <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Benifts Detail"/>
+            <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Benefts Detail"/>
             <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
             <Label x:Name="BenefitsLabel" HorizontalTextAlignment="Start" IsVisible="false"></Label>
             <Label x:Name="NoDataLabel" Text="No Data Found!" TextColor="{DynamicResource NoDataTextColor}" FontSize="{DynamicResource NoDataTextSize}" IsVisible="false" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
