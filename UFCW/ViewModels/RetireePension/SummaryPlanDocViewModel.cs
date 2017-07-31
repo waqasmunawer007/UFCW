@@ -21,9 +21,10 @@ namespace UFCW.ViewModels.Pension
             ShowUrlCommand = new Command<SummaryPlanDoc>((e)=> {
                 SummaryPlanDoc selectedItem = e;
                 string url = selectedItem.Link;
-
-                Device.OpenUri(new System.Uri(url));
-
+                if (!String.IsNullOrEmpty(url))
+                {
+                    Device.OpenUri(new System.Uri(url));
+                }
                
             });
         }

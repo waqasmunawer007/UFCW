@@ -18,7 +18,7 @@ namespace UFCW.Converters
                 if (str.Length > 4)
                 {
                     string str2 = str.Trim(); //removing extra spaces
-                    string newString = new String('X', str2.Length - 4) + str2.Substring(str2.Length - 4); // creating new String which replace all digit with 'X' except last 4
+                    string newString = new String('*', str2.Length - 4) + str2.Substring(str2.Length - 4); // creating new String which replace all digit with 'X' except last 4
                     return newString;
                 }
                 else

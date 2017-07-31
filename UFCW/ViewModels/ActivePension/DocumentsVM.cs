@@ -27,9 +27,10 @@ namespace UFCW.ViewModels.ActivePension
             UrlCommand = new Command<PlanDocument>((e) => {
                 PlanDocument selectedItem = e;
                 string url = selectedItem.Link;
-
-                Device.OpenUri(new System.Uri(url));
-
+                if (!String.IsNullOrEmpty(url))
+                {
+                    Device.OpenUri(new System.Uri(url));
+                }
 
             });
         }
