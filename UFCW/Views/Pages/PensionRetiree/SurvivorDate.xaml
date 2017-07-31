@@ -21,10 +21,10 @@
                         <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SucrvivorBirthDate}"/>
                     
                         <Label Grid.Row="2" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Gross"/>
-                        <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SucrvivorGross}"/>
+                    <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SucrvivorGross , StringFormat='{0:C}'}"/>
 
                         <Label Grid.Row="3" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Rate Amount"/>
-                        <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SucrvivorRateAMT}"/>
+                    <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SucrvivorRateAMT , StringFormat='{0:C}'}"/>
                     
                         <Label Grid.Row="4" Grid.Column="0" Font="Bold"  FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Status"/>
                         <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" TextColor="{ DynamicResource BaseTextColor }" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SucrvivorStatus}"/>

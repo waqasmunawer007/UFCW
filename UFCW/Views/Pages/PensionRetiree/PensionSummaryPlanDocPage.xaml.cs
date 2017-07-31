@@ -56,17 +56,8 @@ namespace UFCW.Views.Pages.Pension
                 summaryPlanDocVM.SummaryPlanDocsList.Add(summaryDoc);
 			}
 		}
-        /// <summary>
-        /// Handle Link clicked.
-        /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
-		public void LinkClicked(object sender, System.EventArgs e)
-		{
-			string url = ((Button)sender).Text;
-			Device.OpenUri(new System.Uri(url));
-		}
-
+       
+	
 		protected override void OnAppearing()
 		{
 			FetchSummaryPlanDocs();

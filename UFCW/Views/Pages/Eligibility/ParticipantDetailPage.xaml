@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-		x:Class="UFCW.ParticipantDetailPage" Title="My Profile">
-	<ContentPage.Content>
+             xmlns:local="clr-namespace:UFCW.Converters"
+		x:Class="UFCW.ParticipantDetailPage"   Title="My Profile">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:HideSNNconverter x:Key="SSNnumberConverter"></local:HideSNNconverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
 		<ScrollView Orientation="Vertical" >
 
 			<StackLayout Orientation = "Vertical"  Margin="10,20,10,10">
@@ -26,7 +32,7 @@
                 <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding OtherNames}"/>
 
                 <Label Grid.Row="3" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="SSN"/>
-                <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SSN}"/>
+                    <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding SSN ,Converter={StaticResource SSNnumberConverter}}"/>
 
 				 <Label Grid.Row="4" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Date Of Birth"/>
                 <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DateOfBirth}"/>

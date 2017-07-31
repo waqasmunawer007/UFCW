@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		 xmlns:local="clr-namespace:UFCW;assembly=UFCW"
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-		x:Class="UFCW.BenefitPlanPage" Title="My Benefit Plans">
+		x:Class="UFCW.BenefitPlanPage" Title="Benefits FAQ">
 	<ContentPage.Resources>
 		 <ResourceDictionary>
             <local:HTMLSourceConverter x:Key="htmlSource" ></local:HTMLSourceConverter>
