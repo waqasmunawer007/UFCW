@@ -1,6 +1,59 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UFCW.LinksPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    x:Class="UFCW.LinksPage">
 	<ContentPage.Content>
-		<Label VerticalOptions = "CenterAndExpand" HorizontalOptions = "CenterAndExpand" Text ="Links Page"/>
+		<StackLayout Orientation = "Vertical"  Padding="0,0,0,10" >
+             <Label Font="Bold" FontSize="{DynamicResource BaseFontSize}" Margin="10,10,0,0" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" Text="Benefit Fund Links"/>
+              <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor}" />
+         <!-- Header Layout -->
+             <Grid 
+                ColumnSpacing="10" 
+                RowSpacing="2"
+                BackgroundColor="{DynamicResource MainMenuBackgroundColor}"
+                Margin="0,0,0,0"
+                Padding="10,10,10,10"
+                VerticalOptions="Start" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row ="0" Font="Bold"  VerticalOptions="Center" FontSize="{DynamicResource BaseFontSize}"  Grid.Column="0" Text="Links" />
+                <Label Grid.Row ="0" Font="Bold"  FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center"  Grid.Column="1" Text="Category" />
+                <Label Grid.Row ="0"  Font="Bold" FontSize="{DynamicResource BaseFontSize}" VerticalTextAlignment="Center"  Grid.Column="2" Text="Action"/>
+             </Grid>
+            <ListView
+                x:Name="LinksList" 
+                VerticalOptions="FillAndExpand" 
+                RowHeight="50"
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                     <ViewCell> 
+                        <Grid x:Name="Item" HorizontalOptions="StartAndExpand" VerticalOptions="Fill" Padding="10" ColumnSpacing="10"  >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label  Text="{Binding LinkCategory}" VerticalTextAlignment="Center" FontSize="12" Grid.Row="0" Grid.Column="0" TextColor="Black"   />
+                            <Label Text="{Binding LinkCategory}"  FontSize="12"  Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black"   />
+                            <!-- Detail Button -->
+                            <artina:Button
+                                Grid.Row="0" Grid.Column="2"
+                                x:Name="VisitButton"
+                                HorizontalOptions="Start"    
+                                Command="{Binding VisitButtonCommand}"
+                                BindingContext="{Binding Source={x:Reference LinksList}, Path=BindingContext}"
+                                CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
+                                Style="{DynamicResource PrimaryActionSmallButtonStyle}"
+                                Text="Visit"
+                                VerticalOptions="Center"
+                                FontSize="10"
+                                WidthRequest="60"/>
+                         </Grid>
+                    </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

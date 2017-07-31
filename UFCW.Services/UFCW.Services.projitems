@@ -21,6 +21,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)Services\ActivePension\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\Claims\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\Claims\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\NonCore\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\NonCore\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\UserService.cs" />
@@ -56,5 +58,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Claims\ClaimSearchResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\EligibilityReportResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Eligibility\EligibilityDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\NonCore\NonCoreResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\NonCore\NonCoreService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\NonCore\INonCoreService.cs" />
   </ItemGroup>
 </Project>

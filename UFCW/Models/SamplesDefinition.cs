@@ -3,8 +3,10 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using UFCW.Constants;
 using UFCW.Helpers;
+using UFCW.Views;
 using UFCW.Views.Login;
 using UFCW.Views.Navigation.Test;
+using UFCW.Views.Pages;
 using UFCW.Views.Pages.Eligibility;
 using UFCW.Views.Pages.Pension;
 using UFCW.Views.Pages.PensionActive;
@@ -139,7 +141,7 @@ namespace UFCW
 
             samplesList.Add(new Sample("Claims", typeof(SearchClaimPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person));
             samplesList.Add(new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person));
-            samplesList.Add(new Sample("Documents", typeof(DocumentPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile));
+            samplesList.Add(new Sample("Documents", typeof(DocumentsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile));
             samplesList.Add(new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public));
             samplesList.Add(new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy));
             samplesList.Add(new Sample("FAQ", typeof(FAQsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help));
@@ -438,17 +440,17 @@ namespace UFCW
 				}
 			);
 			categories.Add(
-				"Notifications",
+				"NewsLetter",
 				new SampleCategory
 				{
-					Name = "Notifications",
+					Name = "News Letter",
 					BackgroundColor = Color.FromHex(_categoriesColors[2]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Notifications,
+					Icon = GrialShapesFont.Copy,
 					IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
-					page = new AccountPage()
+					page = new NewsLetterPage()
 				}
 			);
 			categories.Add(
@@ -462,23 +464,23 @@ namespace UFCW
 					IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 5,
 					Shape = GrialShapesFont.Circle,
-					page = new AccountPage()
+                     page = new NewsPage()
 				}
 			);
 
 
 			categories.Add(
-				"ContactUs",
+				"Documents",
 				new SampleCategory
 				{
-					Name = "Contact Us",
+					Name = "Documents",
 					BackgroundColor = Color.FromHex(_categoriesColors[0]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.SocialWhatsapp,
+                    Icon = GrialShapesFont.Folder,
 					IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
-					page = new AccountPage()
+                    page = new DocumentsPage()
 				}
 			);
 			categories.Add(
@@ -492,7 +494,7 @@ namespace UFCW
 					IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 2,
 					Shape = GrialShapesFont.Circle,
-					page = new AccountPage()
+					page = new AboutUsPage()
 				}
 			);
 			categories.Add(
@@ -506,7 +508,7 @@ namespace UFCW
 					IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 1,
 					Shape = GrialShapesFont.Circle,
-					page = new AccountPage()
+                      page = new FAQsPage()
 				}
 			);
 			categories.Add(
@@ -520,7 +522,7 @@ namespace UFCW
 					IconColor = Color.FromHex(_categoriesColors[0]),
 					Badge = 5,
 					Shape = GrialShapesFont.Circle,
-					page = new AccountPage()
+                    page = new LinksPage()
 				}
 			);
             loginGridItemsList = new List<SampleCategory>();

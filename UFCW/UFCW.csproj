@@ -236,9 +236,6 @@
     <Compile Include="Views\Pages\Eligibility\SelfPaymentPage.xaml.cs">
       <DependentUpon>SelfPaymentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\DocumentPage.xaml.cs">
-      <DependentUpon>DocumentPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\Claims\FAQViewModel.cs" />
     <Compile Include="Views\Pages\Claim\ClaimsReportPage.xaml.cs">
       <DependentUpon>ClaimsReportPage.xaml</DependentUpon>
@@ -267,6 +264,18 @@
       <DependentUpon>EligibilityDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Eligibility\EligibilityDetailViewModel.cs" />
+    <Compile Include="ViewModels\NonCore\NewsViewModel.cs" />
+    <Compile Include="ViewModels\NonCore\LinksViewModel.cs" />
+    <Compile Include="ViewModels\NonCore\DocumentsViewModel.cs" />
+    <Compile Include="Views\Pages\NewsLetterPage.xaml.cs">
+      <DependentUpon>NewsLetterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AboutUsPage.xaml.cs">
+      <DependentUpon>AboutUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\NewsDetailPage.xaml.cs">
+      <DependentUpon>NewsDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -436,9 +445,6 @@
     <EmbeddedResource Include="Views\Pages\Eligibility\SelfPaymentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pages\DocumentPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Claim\ClaimsReportPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -458,6 +464,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Eligibility\EligibilityDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\NewsLetterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AboutUsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\NewsDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -544,6 +559,7 @@
     <Folder Include="ViewModels\ActivePension\" />
     <Folder Include="ViewModels\Claims\" />
     <Folder Include="Views\Pages\Claim\" />
+    <Folder Include="ViewModels\NonCore\" />
   </ItemGroup>
   <Import Project="..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets" Condition="Exists('..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

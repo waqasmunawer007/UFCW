@@ -11,6 +11,10 @@ namespace UFCW.Constants
 		public static string DependentsApi = "Eligibility/Dependents";
         public static string EligibilityReportApi = "eligibility/report";
         public static string EligibilityDetailApi = "eligibility/details";
+
+        public static string PublicNonCoreApi = "NonCorePublic";
+        public static string AuthNonCoreApi = "NonCoreAuthenticated";
+
 		#endregion
 
 		#region Calims API's
