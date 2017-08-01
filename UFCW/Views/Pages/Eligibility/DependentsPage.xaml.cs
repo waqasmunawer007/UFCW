@@ -64,6 +64,7 @@ namespace UFCW
 			dependantsDetailPage.BindingContext = dependant;
 			await Navigation.PushAsync(dependantsDetailPage);
             ((ListView)sender).SelectedItem = null;
+            GoogleAnalytics.Current.Tracker.SendEvent("ListView", "ItemTapped", AppConstants.Dependant_Event_Message , 1);
 		}
 
 		protected override void OnAppearing()

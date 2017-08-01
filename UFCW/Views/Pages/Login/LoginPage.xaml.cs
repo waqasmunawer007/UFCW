@@ -33,7 +33,7 @@ namespace UFCW.Views.Login
         }
         async Task LoginClicked()
 		{
-            GoogleAnalytics.Current.Tracker.SendEvent("Button", "Clicked", "login button clicked",1);
+            GoogleAnalytics.Current.Tracker.SendEvent("Button", "Clicked", AppConstants.Login_Event_Message, 1);
             if (!String.IsNullOrEmpty(loginVm.Email) && !String.IsNullOrEmpty(loginVm.Password))
 			{
 				loginVm.ShowError = false;

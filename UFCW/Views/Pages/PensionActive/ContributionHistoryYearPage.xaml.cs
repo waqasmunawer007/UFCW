@@ -66,7 +66,8 @@ namespace UFCW.Views.Pages.PensionActive
 			historyDetailPage.BindingContext = history;
 			await Navigation.PushAsync(historyDetailPage);
 			((ListView)sender).SelectedItem = null;
-		}
+            GoogleAnalytics.Current.Tracker.SendEvent("ListView", "ItemTapped", AppConstants.HistoryByYear_Message , 1);
+        }
 
 		protected override void OnAppearing()
 		{

@@ -66,6 +66,7 @@ namespace UFCW
             timeLossDetailPage.BindingContext = timeLoss;
             await Navigation.PushAsync(timeLossDetailPage);
             ((ListView)sender).SelectedItem = null;
+            GoogleAnalytics.Current.Tracker.SendEvent("ListView", "ItemTapped", AppConstants.TimeLoss_Event_Message , 1);
 		}
 
 		protected override void OnAppearing()

@@ -26,6 +26,7 @@ namespace UFCW
 			MainPage = new NavigationPage(new UFCW.Views.Login.LoginPage());
 			nav = MainPage.Navigation;
 
+            //Google analytics initialization
 
             GoogleAnalytics.Current.Config.TrackingId = "UA-103573382-1";
             //GoogleAnalytics.Current.Config.AppId = "AppID";

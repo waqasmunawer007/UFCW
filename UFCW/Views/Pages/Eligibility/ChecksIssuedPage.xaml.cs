@@ -66,6 +66,7 @@ namespace UFCW
 			checksIssuedDetailPage.BindingContext = checkIssued;
 			await Navigation.PushAsync(checksIssuedDetailPage);
             ((ListView)sender).SelectedItem = null;
+            GoogleAnalytics.Current.Tracker.SendEvent("ListView","ItemTapped",AppConstants.CheckedIssued_Event_Messae,1);
 		}
 
 		protected override void OnAppearing()

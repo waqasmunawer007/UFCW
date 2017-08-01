@@ -35,6 +35,13 @@ namespace UFCW.Constants
 		public const string DIALOG_OK_OPTION        = "Try again!";
 		public const string LOGIN_FAILED            = "Login Failed!";
 
+        //Google Analytics event messages
+        public const string Login_Event_Message = "login button clicked";
+        public const string HistoryByYear_Message = "Contribution History By Year Item Selected Event";
+        public const string HistoryByEmployer_Message = "Contribution History By Employer Item Selected Event";
+        public const string Dependant_Event_Message = "Eligibility Dependant Item Selected Event";
+        public const string TimeLoss_Event_Message = "TimeLoss Item Selected Event";
+        public const string CheckedIssued_Event_Messae = "Checked Issued Item Selected Event";
 
     }
 
