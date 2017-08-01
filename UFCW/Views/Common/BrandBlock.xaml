@@ -2,9 +2,14 @@
 <ContentView 
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="UFCW.BrandBlock" 
+	x:Class="UFCW.BrandBlock"
+    xmlns:local="clr-namespace:UFCW.Converters"
 	Padding="20">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:HideSNNconverter x:Key="SSNNumberConverter"></local:HideSNNconverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 	<Grid  
 		ColumnSpacing="10"
 		Padding="0"
@@ -14,15 +19,16 @@
 			<ColumnDefinition Width="Auto" />
 			<ColumnDefinition Width="Auto" />
 		</Grid.ColumnDefinitions>
-
-		
-		<Image 
+		<!--<Image 
 			Grid.Column="0"
 			HeightRequest="64" 
 			WidthRequest="64" 
-			Source="{ StaticResource BrandImage }" 
+			Source="{StaticResource ThemeAvatarSample0Image}" 
 			BackgroundColor="{ DynamicResource MainMenuBackgroundColor}"
-			/>		
+			/>		-->
+         <Label Grid.Column="0"
+            HeightRequest="30" 
+            WidthRequest="30"  Style="{DynamicResource MainMenuaAccountCircleStyle}"/>
 		<StackLayout
 			Grid.Column="1"
 			Orientation="Vertical"
@@ -30,14 +36,20 @@
 			VerticalOptions="Center"
 			Spacing="0">
 			<Label
-				Style="{ DynamicResource BrandNameStyle }"
-				Text="UFCW" 
+				Style="{DynamicResource BrandNameStyle}"
+                FontSize = "14"
+				Text="{Binding Name}" 
 				FontAttributes="Bold" 
 				VerticalTextAlignment="Start"/>
+            <Label
+                Style="{DynamicResource BrandNameStyle }"
+                Text="{Binding PenstionStatus}" 
+                FontSize="12"
+                VerticalTextAlignment="Start"/>
 			<Label 
 				Style="{ DynamicResource BrandNameStyle }"
-				Text="a voice for working America"
-				FontSize="10"	
+				Text="{Binding SSN,Converter={StaticResource SSNNumberConverter}}"
+				FontSize="12"	
 				VerticalTextAlignment="Start"/>
 		</StackLayout>
 

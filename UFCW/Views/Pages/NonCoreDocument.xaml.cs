@@ -22,9 +22,6 @@ namespace UFCW.Views.Pages
 				// do something with e.SelectedItem
 				((ListView)sender).SelectedItem = null; // de-select the row
 			};
-			
-           
-
         }
         protected override void OnAppearing()
         {

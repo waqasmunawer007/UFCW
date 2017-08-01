@@ -9,24 +9,32 @@ namespace UFCW
 	public partial class NewsPage : ContentPage
 	{
         NewsViewModel viewModel;
-
+        public bool ifPublicNewsRequest = false;
 		public NewsPage()
 		{
 			InitializeComponent();
             viewModel = new NewsViewModel();
 			BindingContext = viewModel;
-            NewsList.ItemsSource = viewModel.NewsList;
-			viewModel.FetchPublicNews();
+            NewsList.ItemsSource = viewModel.NewsList;	
 		}
         protected override void OnAppearing()
         {
             base.OnAppearing();
-           
+			if (ifPublicNewsRequest)
+			{
+				viewModel.FetchPublicNews();
+			}
+			else
+			{
+                viewModel.FetchAuthNews();
+			}
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+            viewModel.IsBusy = false;
+            viewModel.NewsList.Clear();
         }
 
         protected async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using UFCW.Helpers;
 using UFCW.Services.Models.NonCore;
 using UFCW.Services.Services.NonCore;
 
@@ -68,7 +69,28 @@ namespace UFCW.ViewModels
             }
             IsBusy = false;
 		}
-	
+
+        /// <summary>
+        /// Fetchs the news for authenticated user.
+        /// </summary>
+        /// <returns>The auth news.</returns>
+		public async Task FetchAuthNews()
+		{
+			IsBusy = true;
+			this.NewsList.Clear();
+			var service = new NonCoreService();
+            NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
+			if (responseData != null)
+			{
+				foreach (News news in responseData.News)
+				{
+
+					this.NewsList.Add(news);
+				}
+			}
+			IsBusy = false;
+		}
+
 
 		/// <summary>
 		/// Ons the property changed.

@@ -45,6 +45,8 @@ namespace UFCW.Views.Login
 					Settings.UserSSN = user.SSN;
 					Settings.UserEmail = user.Email;
 					Settings.UserToken = response.Token;
+                    Settings.UserName = user.FirstName;
+
                     if(response.InsuranceEnrolled != null && response.InsuranceEnrolled == "True")
                     {
                         Settings.InsuranceEnrolled = true;   

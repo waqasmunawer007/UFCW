@@ -328,6 +328,15 @@
 				<Setter Property="HorizontalOptions" Value="End" />
 			</Style>
 
+            <!-- Account Circle -->
+            <Style x:Key="MainMenuaAccountCircleStyle" TargetType="Label" BasedOn="{ StaticResource FontIconBase }">
+                <Setter Property="Text" Value="{ x:Static local:GrialShapesFont.AccountCircle }" />
+                <Setter Property="TextColor" Value="{ DynamicResource BackgroundColor }" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="{DynamicResource MainMenuChevronRightFontsize}" />
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+
 			<!-- NOTIFICATION STYLES -->
 			<Style x:Key="NotificationItemTemplateShape" TargetType="Label" BasedOn="{ StaticResource FontIconBase }">
 				<Setter Property="Text" Value="{ x:Static local:GrialShapesFont.Circle }" />

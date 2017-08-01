@@ -25,6 +25,7 @@ namespace UFCW.Helpers
 		private const string SSNKey = "ssn_key";
 		private const string TokenKey = "token_key";
 		private const string EmailKey = "email_key";
+        private const string UserNameKey = "user_name_key";
 		private const string PensionEnrolledKey = "pension_enrolled_key";
 		private const string InsuranceEnrolledKey = "insurance_enrolled_key";
 		private const string RetireeOrActiveKey = "retiree_or_ctive_key";
@@ -33,6 +34,7 @@ namespace UFCW.Helpers
 		private static readonly string SSNDefault = string.Empty;
 		private static readonly string TokenDefault = "0000";
 		private static readonly string EmailDefault = string.Empty;
+        private static readonly string UserNameDefault = string.Empty;
 
 		private static readonly bool BoolDefault = false;
 		private static readonly string StringDefault = string.Empty;
@@ -49,6 +51,18 @@ namespace UFCW.Helpers
 			set
 			{
 				AppSettings.AddOrUpdateValue(SettingsKey, value);
+			}
+		}
+
+		public static string UserName
+		{
+			get
+			{
+                return AppSettings.GetValueOrDefault(UserNameKey, UserNameDefault);
+			}
+			set
+			{
+				AppSettings.AddOrUpdateValue(UserNameKey, value);
 			}
 		}
 

@@ -8,18 +8,29 @@ namespace UFCW.Views
     public partial class AboutUsPage : ContentPage
     {
         AboutUsViewModel viewModel;
+		public bool ifPublicAboutUsRequest = false;
         public AboutUsPage()
         {
             InitializeComponent();
             viewModel = new AboutUsViewModel();
             BindingContext = viewModel;
-			viewModel.FetchPublicAboutUS();
+			
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-		
-
+			if (ifPublicAboutUsRequest)
+			{
+				viewModel.FetchPublicAboutUS();
+			}
+			else
+			{
+				viewModel.FetchPublicAboutUS();
+			}
+		}
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
         }
     }
 }

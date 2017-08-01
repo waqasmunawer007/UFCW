@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using UFCW.Helpers;
 using UFCW.Services.Models.NonCore;
 using UFCW.Services.Services.NonCore;
 using Xamarin.Forms;
@@ -84,6 +85,27 @@ namespace UFCW.ViewModels.NonCore
 	                 this.LinksList.Add(link);
 				}
 			            
+			}
+			IsBusy = false;
+		}
+        /// <summary>
+        /// Fetchs the links for authenticated user.
+        /// </summary>
+        /// <returns>The auth links.</returns>
+		public async Task FetchAuthLinks()
+		{
+			this.LinksList.Clear();
+			IsBusy = true;
+			var service = new NonCoreService();
+			NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
+			if (responseData != null)
+			{
+				foreach (LinkResponse link in responseData.Links)
+				{
+
+					this.LinksList.Add(link);
+				}
+
 			}
 			IsBusy = false;
 		}

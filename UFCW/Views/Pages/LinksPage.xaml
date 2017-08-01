@@ -48,7 +48,7 @@
                                 Style="{DynamicResource PrimaryActionSmallButtonStyle}"
                                 Text="Visit"
                                 VerticalOptions="Center"
-                                FontSize="12"
+                                FontSize="11"
                                 WidthRequest="60"/>
                          </Grid>
                     </ViewCell>

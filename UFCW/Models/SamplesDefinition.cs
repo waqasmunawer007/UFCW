@@ -134,14 +134,14 @@ namespace UFCW
             if (Settings.PensionEnrolled)
             {
                 if (Settings.RetireeOrActive.Equals(AppConstants.STRING_RETIRE))
-                    samplesList.Add(new Sample("Pension Retiree", typeof(PensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person));
+                    samplesList.Add(new Sample("Pension", typeof(PensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy));
                 if (Settings.RetireeOrActive.Equals(AppConstants.STRING_ACTIVE))
-                    samplesList.Add(new Sample("Pension Active", typeof(ActivePensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person));
+                    samplesList.Add(new Sample("Pension", typeof(ActivePensionMenuPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy));
             }
 
-            samplesList.Add(new Sample("Claims", typeof(SearchClaimPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person));
-            samplesList.Add(new Sample("My Account", typeof(AccountPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Person));
-            samplesList.Add(new Sample("Documents", typeof(NonCoreDocument), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.InsertFile));
+            samplesList.Add(new Sample("Claims", typeof(SearchClaimPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.InsertFile));
+            samplesList.Add(new Sample("News Letter", typeof(NewsLetterPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy));
+            samplesList.Add(new Sample("Documents", typeof(NonCoreDocument), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Folder));
             samplesList.Add(new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public));
             samplesList.Add(new Sample("News", typeof(NewsPage), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Copy));
             samplesList.Add(new Sample("FAQ", typeof(FAQsPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Help));
@@ -315,7 +315,6 @@ namespace UFCW
 					SamplesList = new List<Sample> {
 					new Sample("Document Timeline", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder, false, true),
 						new Sample("Timeline", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.QueryBuilder, false, true),
-
 						new Sample("User Profile", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.AccountCircle),
 						new Sample("Social", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
 						new Sample("Social Variant", typeof(LoginPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Group),
@@ -351,18 +350,8 @@ namespace UFCW
 		internal static void InitializeHamubergerMenuOptions()
 		{
 			 Dictionary<string, SampleCategory> hamburgerMenuCategories = CreateHamburgerMenuOptions();
-			 
-			//_samplesCategoryList = new List<SampleCategory>();
-
-			//foreach (var sample in _hamburgerMenuCategories.Values)
-			//{
-			//	_samplesCategoryList.Add(sample);
-			//}
-
-			//_allSamples = new List<Sample>();
 
 			_hamburgerMenuGroupedByCategory = new List<SampleGroup>();
-
 			foreach (var sampleCategory in hamburgerMenuCategories.Values)
 			{
 				var sampleItem = new SampleGroup(sampleCategory.Name.ToUpper());
@@ -380,7 +369,6 @@ namespace UFCW
 		internal static void InitializeSamples()
 		{
 			_samplesCategories = CreateSamples();
-            Debug.WriteLine("Samples Created: " + _samplesCategories.Count);
 			_samplesCategoryList = new List<SampleCategory>();
 
 			foreach (var sample in _samplesCategories.Values)
@@ -450,7 +438,7 @@ namespace UFCW
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 2,
                     Shape = GrialShapesFont.Circle,
-                    page = new NewsLetterPage()
+                    page = new NewsLetterPage() { ifPublicNewsLetterRequest = true }
                 }
             );
             categories.Add(
@@ -464,7 +452,7 @@ namespace UFCW
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 5,
                     Shape = GrialShapesFont.Circle,
-                    page = new NewsPage()
+                    page = new NewsPage() { ifPublicNewsRequest = true }
                 }
             );
 
@@ -480,49 +468,49 @@ namespace UFCW
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 2,
                     Shape = GrialShapesFont.Circle,
-                    page = new NonCoreDocument() {ifPublicDocRequest = true}
-				}
-			);
-			categories.Add(
-				"AboutUs",
-				new SampleCategory
-				{
-					Name = "About Us",
-					BackgroundColor = Color.FromHex(_categoriesColors[0]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Help,
-					IconColor = Color.FromHex(_categoriesColors[0]),
-					Badge = 2,
-					Shape = GrialShapesFont.Circle,
-					page = new AboutUsPage()
-				}
-			);
-			categories.Add(
-				"FAQ",
-				new SampleCategory
-				{
-					Name = "FAQ",
-					BackgroundColor = Color.FromHex(_categoriesColors[0]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Help,
-					IconColor = Color.FromHex(_categoriesColors[0]),
-					Badge = 1,
-					Shape = GrialShapesFont.Circle,
-                      page = new FAQsPage()
-				}
-			);
-			categories.Add(
-				"Links",
-				new SampleCategory
-				{
-					Name = "Links",
-					BackgroundColor = Color.FromHex(_categoriesColors[0]),
-					BackgroundImage = SampleData.LoginImageGalleryItems[0],
-					Icon = GrialShapesFont.Public,
-					IconColor = Color.FromHex(_categoriesColors[0]),
-					Badge = 5,
-					Shape = GrialShapesFont.Circle,
-                    page = new LinksPage()
+                    page = new NonCoreDocument() { ifPublicDocRequest = true }
+                }
+            );
+            categories.Add(
+                "AboutUs",
+                new SampleCategory
+                {
+                    Name = "About Us",
+                    BackgroundColor = Color.FromHex(_categoriesColors[0]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = GrialShapesFont.Help,
+                    IconColor = Color.FromHex(_categoriesColors[0]),
+                    Badge = 2,
+                    Shape = GrialShapesFont.Circle,
+                    page = new AboutUsPage() { ifPublicAboutUsRequest = true }
+                }
+            );
+            categories.Add(
+                "FAQ",
+                new SampleCategory
+                {
+                    Name = "FAQ",
+                    BackgroundColor = Color.FromHex(_categoriesColors[0]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = GrialShapesFont.Help,
+                    IconColor = Color.FromHex(_categoriesColors[0]),
+                    Badge = 1,
+                    Shape = GrialShapesFont.Circle,
+                    page = new FAQsPage()
+                }
+            );
+            categories.Add(
+                "Links",
+                new SampleCategory
+                {
+                    Name = "Links",
+                    BackgroundColor = Color.FromHex(_categoriesColors[0]),
+                    BackgroundImage = SampleData.LoginImageGalleryItems[0],
+                    Icon = GrialShapesFont.Public,
+                    IconColor = Color.FromHex(_categoriesColors[0]),
+                    Badge = 5,
+                    Shape = GrialShapesFont.Circle,
+                    page = new LinksPage() {ifPublicLinksRequest = true}
 				}
 			);
             loginGridItemsList = new List<SampleCategory>();

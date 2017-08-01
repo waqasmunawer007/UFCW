@@ -285,6 +285,8 @@
     <Compile Include="Views\Pages\NonCoreDocument.xaml.cs">
       <DependentUpon>NonCoreDocument.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\NonCore\NewsLetterViewModel.cs" />
+    <Compile Include="Models\Profile.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

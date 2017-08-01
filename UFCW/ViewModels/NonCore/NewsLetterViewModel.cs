@@ -1,19 +1,24 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using UFCW.Helpers;
 using UFCW.Services.Models.NonCore;
 using UFCW.Services.Services.NonCore;
 
 namespace UFCW.ViewModels.NonCore
 {
-	public class AboutUsViewModel : INotifyPropertyChanged
+	public class NewsLetterViewModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		public string url = "";
+		public ObservableCollection<NewsLetter> newsLetterList;
 		private bool isBusy = false;
 
-		public AboutUsViewModel(){}
+		public NewsLetterViewModel()
+		{
+			newsLetterList = new ObservableCollection<NewsLetter>();
+		}
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
 		/// </summary>
@@ -31,50 +36,60 @@ namespace UFCW.ViewModels.NonCore
 			}
 		}
 
-		public String URL
+		public ObservableCollection<NewsLetter> NewsLetterList
 		{
-			get { return url; }
+			get { return newsLetterList; }
 			set
 			{
-				if (url != value)
+				if (newsLetterList != value)
 				{
-					url = value;
-					OnPropertyChanged("URL");
+					newsLetterList = value;
+					OnPropertyChanged("NewsLetterList");
 				}
 			}
 		}
-
 		/// <summary>
-		/// Fetchs the public news.
+		/// Fetchs the public links.
 		/// </summary>
-		/// <returns>The public news.</returns>
-		public async Task FetchPublicAboutUS()
+		/// <returns>The public links.</returns>
+		public async Task FetchPublicNewsLetter()
 		{
+            this.NewsLetterList.Clear();
 			IsBusy = true;
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchPublicNonCoreData();
 			if (responseData != null)
 			{
-                URL = responseData.AboutUS;
+                foreach (NewsLetter newsLetter in responseData.NewsLetters)
+                {
+
+                    this.NewsLetterList.Add(newsLetter);
+                }
 			}
 			IsBusy = false;
-	     }
+		}
+	
         /// <summary>
-        /// Fetchs the authentcated user about us.
+        /// Fetchs the auth news letter.
         /// </summary>
-        /// <returns>The auth about us.</returns>
-		public async Task FetchAuthAboutUS()
+        /// <returns>The auth news letter.</returns>
+		public async Task FetchAuthNewsLetter()
 		{
+            this.NewsLetterList.Clear();
 			IsBusy = true;
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
 			if (responseData != null)
 			{
-				URL = responseData.AboutUS;
+				foreach (NewsLetter newsLetter in responseData.NewsLetters)
+				{
+
+                    this.NewsLetterList.Add(newsLetter);
+				}
+
 			}
 			IsBusy = false;
 		}
-
 
 
 		/// <summary>

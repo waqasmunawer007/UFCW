@@ -44,7 +44,7 @@ namespace UFCW.ViewModels.ActivePension
 				"MyBenifits",
 				new SampleCategory
 				{
-					Name = "My Benifits",
+					Name = "Benefits FAQ",
 					BackgroundColor = Color.FromHex(SamplesDefinition._categoriesColors[2]),
 					BackgroundImage = SampleData.LoginImageGalleryItems[0],
 					Icon = GrialShapesFont.CardAmericaExpress,
