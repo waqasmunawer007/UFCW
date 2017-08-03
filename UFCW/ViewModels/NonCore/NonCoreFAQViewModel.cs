@@ -127,7 +127,7 @@ namespace UFCW.ViewModels.NonCore
 
         private void UpDateFaqs(FAQ faq)
         {
-            // delete the previous faq then place the new faq (updated IsVisible Flag) at the same index of deleted'faq
+            // delete the previous faq then place the updated faq  at the same index of deleted'faq
             // and  notify changes in FAQList 
             var index = FAQList.IndexOf(faq);   
             FAQList.Remove(faq);

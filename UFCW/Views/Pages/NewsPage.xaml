@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:UFCW.Converters"
     Title="News Page"
     x:Class="UFCW.NewsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CustomDateFormateConverter x:Key="CustomDateFormate"></local:CustomDateFormateConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 	<ContentPage.Content>
 		<StackLayout Orientation = "Vertical"  Padding="0,0,0,10" >
          <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -21,7 +27,7 @@
                             </Grid.RowDefinitions>
                             <Label  Text="{Binding Title}" VerticalTextAlignment="Center" FontSize="{DynamicResource BaseFontSize}" Grid.Row="0" Grid.Column="0" TextColor="Black"   />
                             <Label Text="{Binding SubTitle}"  FontSize="14"  Grid.Row="1" Grid.Column="0"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor}"   />
-                            <Label Text="{Binding DateCreated}"  FontSize="14"  Grid.Row="2" Grid.Column="0"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor}"   />
+                                <Label Text="{Binding DateCreated , Converter={StaticResource CustomDateFormate}}"  FontSize="14"  Grid.Row="2" Grid.Column="0"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor}"   />
                             <!-- Arrow Button -->
                            <Label HorizontalOptions="End"  Grid.RowSpan="3" Grid.Column="1" VerticalOptions="CenterAndExpand" WidthRequest = "20" Margin="0,0,20,0"  Style="{DynamicResource MainMenuRightChevronStyle}"/>
                        </Grid>

@@ -35,6 +35,7 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Converters\CustomDateFormateConverter.cs" />
     <Compile Include="Converters\DatetimeToStringConverter.cs" />
     <Compile Include="Converters\ShowHideVisibilityConverter.cs" />
     <Compile Include="Converters\HideAccountDepositNumberConverter.cs" />
