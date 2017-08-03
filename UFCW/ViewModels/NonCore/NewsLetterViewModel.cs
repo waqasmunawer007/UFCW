@@ -132,9 +132,9 @@ namespace UFCW.ViewModels.NonCore
         {
             // delete the previous newsletter then place the new newsletter (updated IsVisible Flag) at the same index of newsletter'faq
             // and  notify changes in newsLetterList 
-            var index = newsLetterList.IndexOf(newsLetter);
-            newsLetterList.Remove(newsLetter);
-            newsLetterList.Insert(index, newsLetter);
+            var index = NewsLetterList.IndexOf(newsLetter);
+            NewsLetterList.Remove(newsLetter);
+            NewsLetterList.Insert(index, newsLetter);
         }
     }
 }
