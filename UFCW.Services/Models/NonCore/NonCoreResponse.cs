@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace UFCW.Services.Models.NonCore
 {
@@ -79,7 +80,7 @@ public class Document
 	public string DateUpdated { get; set; }
 }
 
-public class NewsLetter
+public class NewsLetter: INotifyPropertyChanged
 {
 	public string NewsLetterID { get; set; }
 	public string Title { get; set; }
@@ -87,5 +88,48 @@ public class NewsLetter
 	public string OrganizationID { get; set; }
 	public string DateCreated { get; set; }
 	public string DateUpdated { get; set; }
-    public bool IsVisible { get; set; }
+    public bool isVisible { get; set; }
+    public int height { get; set; }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+
+	public bool IsVisible
+	{
+		get { return isVisible; }
+		set
+		{
+			if (isVisible != value)
+			{
+				isVisible = value;
+				OnPropertyChanged("IsVisible");
+			}
+		}
+	}
+
+	public int Height
+	{
+		get { return height; }
+		set
+		{
+			if (height != value)
+			{
+				height = value;
+				OnPropertyChanged("Height");
+			}
+		}
+	}
+
+	/// <summary>
+	/// Ons the property changed.
+	/// </summary>
+	/// <param name="propertyName">Property name.</param>
+	protected virtual void OnPropertyChanged(string propertyName)
+	{
+		var changed = PropertyChanged;
+		if (changed != null)
+		{
+			PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
 }

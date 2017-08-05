@@ -90,8 +90,6 @@ namespace UFCW.ViewModels.NonCore
 			}
 			IsBusy = false;
 		}
-
-
 		/// <summary>
 		/// Ons the property changed.
 		/// </summary>
@@ -106,35 +104,50 @@ namespace UFCW.ViewModels.NonCore
 		}
         internal void ShowOrHideNewsLetter(NewsLetter newsLetter)
         {
-
-            if (_oldNewsLetter == newsLetter)
+			var index = NewsLetterList.IndexOf(newsLetter);
+			NewsLetter selectedLetter = NewsLetterList[index];
+            if (selectedLetter.IsVisible)
             {
-                // click twice on the same item will hide it
-                newsLetter.IsVisible = !newsLetter.IsVisible;
-                UpDateNewsLetterList(newsLetter);
+                selectedLetter.IsVisible = false;
+				
             }
             else
             {
-                if (_oldNewsLetter != null)
-                {
-                    // hide previous selected item
-                    _oldNewsLetter.IsVisible = false;
-                    UpDateNewsLetterList(_oldNewsLetter);
-                }
-                // show selected item
-                newsLetter.IsVisible = true;
-                UpDateNewsLetterList(newsLetter);
-
+                selectedLetter.IsVisible = true;
+				
             }
-            _oldNewsLetter = newsLetter;
+
+            //if (_oldNewsLetter == newsLetter)
+            //{
+            //    // click twice on the same item will hide it
+            //    newsLetter.IsVisible = !newsLetter.IsVisible;
+            //    UpDateNewsLetterList(newsLetter);
+            //}
+            //else
+            //{
+            //    if (_oldNewsLetter != null)
+            //    {
+            //        // hide previous selected item
+            //        _oldNewsLetter.IsVisible = false;
+            //        UpDateNewsLetterList(_oldNewsLetter);
+            //    }
+            //    // show selected item
+            //    newsLetter.IsVisible = true;
+            //    UpDateNewsLetterList(newsLetter);
+            //}
+            //_oldNewsLetter = newsLetter;
         }
         private void UpDateNewsLetterList(NewsLetter newsLetter)
         {
             // delete the previous newsletter then place the new newsletter (updated IsVisible Flag) at the same index of newsletter'faq
             // and  notify changes in newsLetterList 
-            var index = NewsLetterList.IndexOf(newsLetter);
-            NewsLetterList.Remove(newsLetter);
-            NewsLetterList.Insert(index, newsLetter);
+            int index = NewsLetterList.IndexOf(newsLetter);
+            if (index != -1)
+            {
+				NewsLetterList.Remove(newsLetter);
+				NewsLetterList.Insert(index, newsLetter);
+            }
+
         }
     }
 }

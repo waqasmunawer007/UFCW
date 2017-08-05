@@ -2,29 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:UFCW;assembly=UFCW"
+     xmlns:accordion="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.AccordionView"
     x:Class="UFCW.Views.Pages.NewsLetterPage">
-    <ContentPage.Resources>
-         <ResourceDictionary>
-            <local:HTMLSourceConverter x:Key="htmlSource" ></local:HTMLSourceConverter>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    
-	<ContentPage.Content>
-        <StackLayout VerticalOptions = "FillAndExpand" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
-                                        VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-            <ListView x:Name="NewsLetterList" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="NewsLetterList_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Margin="0,0,0,10">
-                                <Label Text="{Binding Title}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium"  HeightRequest="60" BackgroundColor="{StaticResource BackgroundColor}" TextColor="White" ></Label>
-                                <WebView  IsVisible="{Binding IsVisible}" HeightRequest="100" Source="{Binding Template, Converter={StaticResource htmlSource}}" /> 
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-         </StackLayout> 
-	</ContentPage.Content>
 </ContentPage>
