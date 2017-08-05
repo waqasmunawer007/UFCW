@@ -3,27 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:UFCW;assembly=UFCW"
     x:Class="UFCW.Views.NonCoreFAQPage">
-    <ContentPage.Resources>
-         <ResourceDictionary>
-            <local:HTMLSourceConverter x:Key="htmlSource" ></local:HTMLSourceConverter>
-        </ResourceDictionary>
-    </ContentPage.Resources>
 	<ContentPage.Content>
-         <StackLayout VerticalOptions = "StartAndExpand"  HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
-                                        VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <ListView x:Name="FAQList" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="FAQsList_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout  Margin="0,0,0,10" >
-                                 <Label Text="{Binding Question}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium"  HeightRequest="60" BackgroundColor="{StaticResource BackgroundColor}" TextColor="White" ></Label>
-                                 <WebView  IsVisible="{Binding IsVisible}" HeightRequest="100" Source="{Binding Answer, Converter={StaticResource htmlSource}}" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-         </StackLayout> 
+        
 	</ContentPage.Content>
 </ContentPage>

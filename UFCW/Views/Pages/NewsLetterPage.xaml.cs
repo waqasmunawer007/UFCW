@@ -70,7 +70,7 @@ namespace UFCW.Views.Pages
                 //browser shows news html string
 				var browser = new WebView()
 				{
-					HeightRequest = 70,
+					HeightRequest = 100,
 					HorizontalOptions = LayoutOptions.FillAndExpand,
 
 				};
