@@ -24,6 +24,8 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>XC iOS: com.ufcw</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>
@@ -36,9 +38,9 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
     <OptimizePNGs>false</OptimizePNGs>
-    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignProvision>XC iOS: com.ufcw</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -49,6 +51,8 @@
     <MtouchArch>i386</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
+    <CodesignProvision>xamarin-distribution</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,11 +65,12 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision>xamarin-distribution</CodesignProvision>
+    <CodesignProvision>UFCW-Adhoc</CodesignProvision>
+    <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PlayerDebug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -78,9 +83,10 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignProvision>UFCW-Adhoc</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PlayerDebug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -94,6 +100,8 @@
     <MtouchArch>i386</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>xamarin-distribution</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Plugin.GoogleAnalytics, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">

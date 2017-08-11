@@ -46,7 +46,7 @@ namespace UFCW.Views.Login
 				{
 					loginVm.user = response.Profile;
 					User user = response.Profile;
-					App.user = user; //Todo need to store in local storage
+					App.user = user;
 					// store ssn,email & token in key-pair formats locally.
 					Settings.UserSSN = user.SSN;
 					Settings.UserEmail = user.Email;
