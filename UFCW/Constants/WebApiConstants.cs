@@ -3,7 +3,8 @@ namespace UFCW.Constants
 {
     public class WebApiConstants
     {
-		#region API's
+        
+		#region Eligibility module API's
 		public static string BenifitsApi = "Eligibility/BenefitPlans";
 		public static string ParticipantApi = "Eligibility/Participant";
 		public static string ChecksIssuedApi = "Eligibility/ChecksIssued";
@@ -11,10 +12,6 @@ namespace UFCW.Constants
 		public static string DependentsApi = "Eligibility/Dependents";
         public static string EligibilityReportApi = "eligibility/report";
         public static string EligibilityDetailApi = "eligibility/details";
-
-        public static string PublicNonCoreApi = "NonCorePublic";
-        public static string AuthNonCoreApi = "NonCoreAuthenticated";
-
 		#endregion
 
 		#region Calims API's
@@ -25,6 +22,16 @@ namespace UFCW.Constants
         public static string ClaimsEOBApi = "Claims/EOB";
 		#endregion
 
+		#region Non Core module APIs
+		public static string PublicNonCoreApi = "NonCorePublic";
+		public static string AuthNonCoreApi = "NonCoreAuthenticated";
+		#endregion
+
+		#region Forgot Password & Register New user 
+		public static string ForgotPaswordWebURL = "/Account/ForgotPassword";
+		public static string RegisterUserWebURL = "/Account/Register";
+		#endregion
+		
 
 		#region Fields Constatns
 		public const string TOKEN = "Token";

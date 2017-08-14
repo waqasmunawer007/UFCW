@@ -1,5 +1,7 @@
 ﻿﻿using System;
 using System.Threading.Tasks;
+using UFCW.Constants;
+using UFCW.Views.Pages.Account;
 using Xamarin.Forms;
 
 namespace UFCW
@@ -92,10 +94,23 @@ namespace UFCW
             SampleCategory scatagory = (SampleCategory)BindingContext;
 			_processingTag = true;
 
+                
 			try
 			{
 				await AnimateItem(this, animationDuration);
-                await Navigation.PushAsync(scatagory.page);
+				if (scatagory.page.GetType() == typeof(ForgotPasswordPage))
+				{
+                    Device.OpenUri(new System.Uri(AppConstants.BaseWebAppURL + WebApiConstants.ForgotPaswordWebURL));
+				}
+				else if (scatagory.page.GetType() == typeof(RegisterUserPage))
+				{
+                    Device.OpenUri(new System.Uri(AppConstants.BaseWebAppURL + WebApiConstants.RegisterUserWebURL));
+				}
+				else
+				{
+					await Navigation.PushAsync(scatagory.page);
+				}
+               
 			}
 			finally
 			{

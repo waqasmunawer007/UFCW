@@ -24,7 +24,7 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignProvision>XC iOS: com.ufcw</CodesignProvision>
+    <CodesignProvision>UFCW-Adhoc</CodesignProvision>
     <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">

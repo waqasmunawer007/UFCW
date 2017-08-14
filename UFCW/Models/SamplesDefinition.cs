@@ -7,6 +7,7 @@ using UFCW.Views;
 using UFCW.Views.Login;
 using UFCW.Views.Navigation.Test;
 using UFCW.Views.Pages;
+using UFCW.Views.Pages.Account;
 using UFCW.Views.Pages.Eligibility;
 using UFCW.Views.Pages.Pension;
 using UFCW.Views.Pages.PensionActive;
@@ -410,7 +411,7 @@ namespace UFCW
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 2,
                     Shape = GrialShapesFont.Circle,
-                    page = new AccountPage()
+                    page = new RegisterUserPage()
                 }
             );
             categories.Add(
@@ -424,7 +425,7 @@ namespace UFCW
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 2,
                     Shape = GrialShapesFont.Circle,
-                    page = new AccountPage()
+                    page = new ForgotPasswordPage()
                 }
             );
             categories.Add(
