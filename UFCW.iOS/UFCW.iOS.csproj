@@ -40,7 +40,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
     <OptimizePNGs>false</OptimizePNGs>
-    <CodesignProvision>XC iOS: com.ufcw</CodesignProvision>
+    <CodesignProvision>UFCW-Adhoc</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -65,11 +65,11 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision>UFCW-Adhoc</CodesignProvision>
+    <CodesignProvision></CodesignProvision>
     <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PlayerDebug|iPhone' ">
