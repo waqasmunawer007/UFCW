@@ -57,7 +57,7 @@ namespace UFCW.ViewModels
 		{
             IsBusy = true;
             this.NewsList.Clear();
-			var service = new NonCoreService();
+            var service = new NonCoreService();
             NonCoreResponse responseData = await service.FetchPublicNonCoreData();
             if (responseData != null)
             {

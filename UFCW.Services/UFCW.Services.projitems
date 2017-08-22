@@ -23,6 +23,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)Services\Claims\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\NonCore\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\NonCore\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\Inbox\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\Inbox\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserService\UserService.cs" />
@@ -61,5 +63,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\NonCore\NonCoreResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NonCore\NonCoreService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NonCore\INonCoreService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Inbox\Message.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Inbox\InboxService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Inbox\IInboxService.cs" />
   </ItemGroup>
 </Project>

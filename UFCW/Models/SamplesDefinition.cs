@@ -9,6 +9,7 @@ using UFCW.Views.Navigation.Test;
 using UFCW.Views.Pages;
 using UFCW.Views.Pages.Account;
 using UFCW.Views.Pages.Eligibility;
+using UFCW.Views.Pages.Inbox;
 using UFCW.Views.Pages.Pension;
 using UFCW.Views.Pages.PensionActive;
 using Xamarin.Forms;
@@ -141,6 +142,7 @@ namespace UFCW
             }
 
             samplesList.Add(new Sample("Claims", typeof(SearchClaimPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.InsertFile));
+            samplesList.Add(new Sample("Inbox", typeof(InboxPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy));
             samplesList.Add(new Sample("News Letter", typeof(NewsLetterPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy));
             samplesList.Add(new Sample("Documents", typeof(NonCoreDocument), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Folder));
             samplesList.Add(new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public));

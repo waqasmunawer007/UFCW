@@ -20,11 +20,12 @@ namespace UFCW.Constants
 		public static string AP_CrntYrContributionApi   = "PensionActive/CurrentYearContribution";
 		public static string AP_ContHistoryEmployerApi  = "PensionActive/HistoryByEmployer";
 		public static string AP_ContHistoryYearApi      = "PensionActive/HistoryByYear";
-		public static string AP_DocumentsApi            = "PensionActive/SummaryPlanDocuments";
+        public static string AP_DocumentsApi            = "PensionActive/SummaryPlanDocuments";
 
-       
+		//Inbox
+        public static string AP_FetchInboxListApi = "TODO";
 
-        public const string RESPONSE_CODE_OK        = "200";
+		public const string RESPONSE_CODE_OK        = "200";
         public const string STRING_TRUE = "True";
 		public const string STRING_FALSE = "False";
 		public const string STRING_RETIRE = "Retiree";
@@ -44,7 +45,7 @@ namespace UFCW.Constants
         public const string TimeLoss_Event_Message = "TimeLoss Item Selected Event";
         public const string CheckedIssued_Event_Messae = "Checked Issued Item Selected Event";
 
-        
+       
 
     }
 
