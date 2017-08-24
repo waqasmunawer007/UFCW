@@ -28,7 +28,7 @@ namespace UFCW.Services.Services.Inbox
 				//var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
                 //HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_FetchInboxListApi, content);
                 //var json = await responseJson.Content.ReadAsStringAsync();
-                var json = "[\n    {\n        \"From\": \"Umar\",\n        \"To\": \"Sam\",\n        \"Subject\": \"This is subject\",\n        \"Date\": \"8/18/2017\",\n        \"Time\": \"9:05:39 AM\",\n        \"Body\": \"This is body\"\n    },\n    {\n        \"From\": \"Waqas\",\n        \"To\": \"Samules\",\n        \"Subject\": \"This is subject2\",\n        \"Date\": \"22/18/2017\",\n        \"Time\": \"10:05:39 AM\",\n        \"Body\": \"This is body2\"\n    }\n]";
+                var json = "[\n    {\n        \"From\": \"UmarUmarUmar\",\n        \"To\": \"Sam\",\n        \"Subject\": \"This is subjectThis is subjectThis is subject\",\n        \"Date\": \"8/18/2017\",\n        \"Time\": \"9:05:39 AM\",\n        \"Body\": \"This is body\"\n    },\n    {\n        \"From\": \"WaqasWaqas Waqas\",\n        \"To\": \"Samules\",\n        \"Subject\": \"This is subject2\",\n        \"Date\": \"22/18/2017\",\n        \"Time\": \"10:05:39 AM\",\n        \"Body\": \"This is body2\"\n    }\n]";
 				if (!json.Equals("[]")) //only parse json if it contains data
 				{
                     Message[] messagesList = JsonConvert.DeserializeObject<Message[]>(json);

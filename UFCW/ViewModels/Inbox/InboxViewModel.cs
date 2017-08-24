@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using UFCW.Helpers;
 using UFCW.Services.Models.Inbox;
 using UFCW.Services.Services.Inbox;
+using System.Windows.Input;
+using Xamarin.Forms;
+using System.Diagnostics;
+using UFCW.Views.Pages.Inbox;
 
 namespace UFCW.ViewModels.Inbox
 {
@@ -14,11 +18,25 @@ namespace UFCW.ViewModels.Inbox
 		public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Message> messagesList;
 		private bool isBusy = false;
+        public ICommand DetailClaimCommand { get; set; }
+        INavigation Navigation;
 
-		public InboxViewModel()
-		{
+		public InboxViewModel(INavigation pageNav)
+        {
 			messagesList = new ObservableCollection<Message>();
+            Navigation = pageNav;
+            SetupCommands();
 		}
+
+        private void SetupCommands()
+        {
+            DetailClaimCommand = new Command(async (e) =>
+            {
+                Message selectedItem = (e as Message);
+                ViewMessagePage detailPage = new ViewMessagePage(selectedItem);
+                await Navigation.PushAsync(detailPage);
+            });
+        }
 
 
 		/// <summary>

@@ -1,7 +1,9 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Plugin.GoogleAnalytics;
+using UFCW.Constants;
 using UFCW.Services.Models.Inbox;
 using UFCW.ViewModels.Inbox;
 using Xamarin.Forms;
@@ -11,13 +13,14 @@ namespace UFCW.Views.Pages.Inbox
     public partial class InboxPage : ContentPage
     {
         InboxViewModel inboxVM;
+        public bool ifPublicNewsRequest = true;
 		public InboxPage()
 		{
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, ""); //hide back button title
-            inboxVM = new InboxViewModel();
+            inboxVM = new InboxViewModel(Navigation);
 			BindingContext = inboxVM;
-            //ChecksIssuedList.ItemsSource = inboxVM.messagesList;
+            MessagesList.ItemsSource = inboxVM.messagesList;
 		}
 
 		
@@ -27,13 +30,13 @@ namespace UFCW.Views.Pages.Inbox
             Message[] messages = await inboxVM.FetchMessagesList();
 			if (messages != null && messages.Length > 0)
 			{
-				//ChecksIssuedList.IsVisible = true;
-				//NoDataLabel.IsVisible = false;
+				MessagesList.IsVisible = true;
+				NoDataLabel.IsVisible = false;
 				UpdatePage(messages);
 			}
 			else
 			{
-				//NoDataLabel.IsVisible = true;
+				NoDataLabel.IsVisible = true;
 			}
 			inboxVM.IsBusy = false;
 		}
@@ -50,21 +53,17 @@ namespace UFCW.Views.Pages.Inbox
 			}
 		}
 
-		/// <summary>
-		/// Handles the Check Issued tapped event.
-		/// </summary>
-		/// <param name="sender">Sender.</param>
-		/// <param name="e">E.</param>
-		//protected async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
-		//{
-			//var selectedCheck = ((ListView)sender).SelectedItem;
-			//CheckIssued checkIssued = (CheckIssued)selectedCheck;
+		protected async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+		{
+			var selectedCheck = ((ListView)sender).SelectedItem;
+            Message message = (Message)selectedCheck;
+            Debug.WriteLine("This is message from: " + message.From);
 			//CheckIssuedDetailPage checksIssuedDetailPage = new CheckIssuedDetailPage();
 			//checksIssuedDetailPage.BindingContext = checkIssued;
 			//await Navigation.PushAsync(checksIssuedDetailPage);
 			//((ListView)sender).SelectedItem = null;
 			//GoogleAnalytics.Current.Tracker.SendEvent("ListView", "ItemTapped", AppConstants.CheckedIssued_Event_Messae, 1);
-		//}
+		}
 
 		protected override void OnAppearing()
 		{
@@ -77,8 +76,8 @@ namespace UFCW.Views.Pages.Inbox
 		{
 			base.OnDisappearing();
             inboxVM.messagesList.Clear();
-			//NoDataLabel.IsVisible = false;
-			//ChecksIssuedList.IsVisible = false;
+			NoDataLabel.IsVisible = false;
+			MessagesList.IsVisible = false;
 		}
 	}
 }

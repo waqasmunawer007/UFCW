@@ -455,7 +455,8 @@ namespace UFCW
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 5,
                     Shape = GrialShapesFont.Circle,
-                    page = new NewsPage() { ifPublicNewsRequest = true }
+                    //page = new NewsPage() { ifPublicNewsRequest = true }
+                    page = new InboxPage() { ifPublicNewsRequest = true }
                 }
             );
 
