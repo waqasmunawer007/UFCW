@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    x:Class="UFCW.Views.Pages.Inbox.ComposeMessagePage">
+	<ContentPage.Content>
+        <ScrollView Orientation="Vertical" >
+            <StackLayout Orientation = "Vertical"  Padding="0,10,0,10">
+                <Grid 
+                    ColumnSpacing="1" 
+                    RowSpacing="5" 
+                    Padding="10,0,10,10"
+                    VerticalOptions="Start"  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="2800" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="To:"/>
+                    <!--Recipient Picker-->
+                     <Picker x:Name="picker" Grid.Row="0" Grid.Column="1">
+                      HorizontalOptions="StartAndExpand"
+                    </Picker>
+                    
+                    <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Subject:"/>
+                    <Entry 
+                        Grid.Row="1" Grid.Column="1"
+                        Placeholder="Type Subject..."
+                        TextColor="{DynamicResource BaseTextColor }"
+                        x:Name="SubjectInput"
+                        WidthRequest="280"
+                    />
+                   
+                    <Label Grid.Row="2" Grid.Column="0" Font="Bold" VerticalOptions="Start" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Message:"/>
+                    <Editor x:Name="MessageBody"
+                        Grid.Row="2"  
+                        Grid.Column="1" 
+                        HorizontalOptions="StartAndExpand" 
+                        TextColor="{ DynamicResource BaseTextColor }"  
+                        FontSize="{DynamicResource BaseTitleValueSize}"
+                        WidthRequest="280"
+                        HeightRequest="100"/>
+                </Grid>
+                <artina:Button
+                    Style="{DynamicResource PrimaryActionButtonStyle}"
+                    x:Name="SendButton"
+                    Text="Send"
+                    HorizontalOptions="End"
+                    Clicked="Handle_Clicked"
+                    Margin="0,0,10,0"
+                />
+                <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+             </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

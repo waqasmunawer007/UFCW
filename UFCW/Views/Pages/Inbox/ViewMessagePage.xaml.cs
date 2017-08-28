@@ -7,6 +7,11 @@ namespace UFCW.Views.Pages.Inbox
 {
     public partial class ViewMessagePage : ContentPage
     {
+        void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ComposeMessagePage());
+        }
+
         public ViewMessagePage(Message message)
         {
             InitializeComponent();

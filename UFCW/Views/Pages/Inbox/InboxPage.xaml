@@ -4,7 +4,7 @@
     x:Class="UFCW.Views.Pages.Inbox.InboxPage"
     Title="Inbox">
 	<ContentPage.Content>
-        <StackLayout VerticalOptions = "FillAndExpand" Padding="0,10,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
+        <StackLayout VerticalOptions = "FillAndExpand" Padding="0,0,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Label x:Name="NoDataLabel" Text="No Data Found!" TextColor="{DynamicResource NoDataTextColor}" FontSize="{DynamicResource NoDataTextSize}" IsVisible="false" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
             <!-- Header Layout -->
@@ -13,14 +13,15 @@
                 RowSpacing="2"
                 BackgroundColor="{DynamicResource MainMenuBackgroundColor}"
                 Margin="0,10,0,0"
-                Padding="10,10,10,10"
-                VerticalOptions="Start" >
+                Padding="10,0,10,10"
+                VerticalOptions="Start"
+                HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="45" />
+                    <RowDefinition Height="30" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="70" />
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row ="0"  HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"  VerticalTextAlignment="Center" Grid.Column="0" Text="From" LineBreakMode="WordWrap"/>
@@ -31,7 +32,8 @@
             <!-- Searched Result List -->
             <ListView 
                 x:Name="MessagesList" 
-                VerticalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
                 RowHeight="50"
                 >
                  <ListView.Footer> 
@@ -40,20 +42,20 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                      <ViewCell> 
-                        <Grid x:Name="Item" HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10" ColumnSpacing="10"  >
+                        <Grid x:Name="Item" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Padding="10" ColumnSpacing="10"  >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="70" />
-                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="230" />
                                 <ColumnDefinition Width="50" />
                             </Grid.ColumnDefinitions>
                             <Label  Text="{Binding From}" VerticalTextAlignment="Center" FontSize="12" Grid.Row="0" Grid.Column="0" TextColor="Black"  LineBreakMode="WordWrap" />
-                            <Label Text="{Binding Subject}"  FontSize="12"  Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
+                            <Label Text="{Binding Subject}"  FontSize="12"  Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
                             <!-- Detail Button -->
                             <Button
-                                Grid.Row="0" Grid.Column="4"
+                                Grid.Row="0" Grid.Column="2"
                                 x:Name="DetailButton"
                                 Command="{Binding DetailClaimCommand}"
                                 BindingContext="{Binding Source={x:Reference MessagesList}, Path=BindingContext}"
