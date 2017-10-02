@@ -4,5 +4,6 @@
 	<color name="ComplementColor">#FF525ABB</color>
 	<color name="BaseTextColor">#FF666666</color>
 	<color name="SplashColor">#FF57a9ed</color>
-    
+    <color name="entry_background">#ffffff</color>
+    <color name="entry_border">#BDBDBD</color>
 </resources>

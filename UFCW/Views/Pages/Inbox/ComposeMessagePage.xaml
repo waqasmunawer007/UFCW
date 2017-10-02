@@ -18,20 +18,28 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="80" />
-                        <ColumnDefinition Width="2800" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="To:"/>
                     <!--Recipient Picker-->
-                     <Picker x:Name="picker" Grid.Row="0" Grid.Column="1">
-                      HorizontalOptions="StartAndExpand"
+                     <Picker x:Name="picker" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                        
+                        >
+
                     </Picker>
                     
                     <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Subject:"/>
                     <Entry 
                         Grid.Row="1" Grid.Column="1"
-                        Placeholder="Type Subject..."
+                        HorizontalOptions="FillAndExpand"
+                        Placeholder="Subject..."
                         TextColor="{DynamicResource BaseTextColor }"
+                        artina:EntryProperties.BorderStyle="RoundRect"
+                        artina:EntryProperties.BorderWidth="2"
+
+                        artina:EntryProperties.BorderColor = "Black"
+                        PlaceholderColor="Gray"
                         x:Name="SubjectInput"
                         WidthRequest="280"
                     />
@@ -43,6 +51,7 @@
                         HorizontalOptions="StartAndExpand" 
                         TextColor="{ DynamicResource BaseTextColor }"  
                         FontSize="{DynamicResource BaseTitleValueSize}"
+
                         WidthRequest="280"
                         HeightRequest="100"/>
                 </Grid>
@@ -54,7 +63,7 @@
                     Clicked="Handle_Clicked"
                     Margin="0,0,10,0"
                 />
-                <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
+                <!--<BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />-->
              </StackLayout>
         </ScrollView>
     </ContentPage.Content>

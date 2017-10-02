@@ -195,6 +195,7 @@
     <Compile Include="Renderers\CustomFontLabelRenderer.cs" />
     <Compile Include="Renderers\LoginEntryRenderer.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Renderers\BorderedEditorRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -266,6 +267,7 @@
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\tabs0_icon.png" />
+    <AndroidResource Include="Resources\drawable\EditTextProperties.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
