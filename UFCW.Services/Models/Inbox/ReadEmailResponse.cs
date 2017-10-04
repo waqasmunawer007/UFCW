@@ -11,8 +11,9 @@ namespace UFCW.Services.Models.Inbox
 		public string ToUserId { get; set; }
 		public string ToDescription { get; set; }
 		public string FromUserId { get; set; }
-		public object FromDescription { get; set; }
+		public string FromDescription { get; set; }
 		public string DateCreated { get; set; }
 		public string DateUpdated { get; set; }
+		
     }
 }

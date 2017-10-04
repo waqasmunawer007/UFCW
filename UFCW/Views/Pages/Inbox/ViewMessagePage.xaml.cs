@@ -1,22 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using Plugin.GoogleAnalytics;
 using UFCW.Services.Models.Inbox;
+using UFCW.ViewModels.Inbox;
 using Xamarin.Forms;
 
 namespace UFCW.Views.Pages.Inbox
 {
     public partial class ViewMessagePage : ContentPage
     {
+        MessageDetailVM viewModel;
+        string messageId;
         void Handle_Clicked(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new ComposeMessagePage());
         }
-
-        public ViewMessagePage(Message message)
+        public  ViewMessagePage(string messageId)
         {
             InitializeComponent();
-            BindingContext = message;
-            Title = message.From;
+            this.messageId = messageId;
+            viewModel = new MessageDetailVM(Navigation);
+            BindingContext = viewModel;
         }
+		protected async override void OnAppearing()
+		{
+			base.OnAppearing();
+            InBoxMessage message = await viewModel.GetMessage(messageId);
+			BindingContext = message;
+			GoogleAnalytics.Current.Tracker.SendView("View Message Page Opened");
+		}
     }
 }

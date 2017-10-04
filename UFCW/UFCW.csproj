@@ -311,6 +311,10 @@
     </Compile>
     <Compile Include="ViewModels\Inbox\ComposeMessageVM.cs" />
     <Compile Include="Views\CustomView\BorederedEditor.cs" />
+    <Compile Include="Views\Pages\Inbox\SentMessagePage.xaml.cs">
+      <DependentUpon>SentMessagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Inbox\MessageDetailVM.cs" />
   </ItemGroup>
   <Import Project="..\UFCW.Services\UFCW.Services.projitems" Label="Shared" Condition="Exists('..\UFCW.Services\UFCW.Services.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -529,6 +533,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pages\Inbox\ComposeMessagePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\Inbox\SentMessagePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

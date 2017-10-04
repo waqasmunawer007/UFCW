@@ -33,7 +33,8 @@ namespace UFCW.Constants
 		#endregion
 
 		#region Mailbox 
-		public static string MailboxApi = "Mailbox";
+		public static string MailboxApi = "Mailbox/GetList";
+        public static string GetMessageApi = "Mailbox/GetMessage";
 		public static string SendMessageApi = "Mailbox/SendMail";
         public static string ReadMessageApi = "Mailbox/ReadMail";
 		#endregion

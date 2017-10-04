@@ -5,10 +5,12 @@
     x:Class="UFCW.Views.Pages.Inbox.ViewMessagePage">
 	<ContentPage.Content>
         <ScrollView Orientation="Vertical" >
-            <StackLayout Orientation = "Vertical"  Padding="0,10,0,10">
+            <StackLayout Orientation = "Vertical"  Padding="0,0,0,10">
              <!--<Label Font="Bold" Margin="10,0,0,0" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" FontSize="{DynamicResource BaseFontSize}" Text="{Binding DraftCheckNumber , StringFormat='Check #  {0:N}'}"/>-->
               <!--<BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />-->
+               <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
                 <Grid 
+                    x:Name="MessageGrid"
                     ColumnSpacing="1" 
                     RowSpacing="5" 
                     Padding="10,0,10,10"
@@ -22,16 +24,16 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Date:"/>
-                    <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Date}"/>
+                    <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DateCreated}"/>
                     
                     <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="From:"/>
-                    <Label Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding From}"/>                        
+                    <Label Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding FromDescription}"/>                        
                    
                     <Label Grid.Row="2" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Subject:"/>
                     <Label Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Subject}"/>
 
                     <Label Grid.Row="3" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="To:"/>
-                    <Label Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding To}"/>
+                    <Label Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding ToDescription}"/>
 
                     <Label Grid.Row="4" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Message:"/>
                     <Label Grid.Row="4" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Body}"/>

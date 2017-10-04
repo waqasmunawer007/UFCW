@@ -7,8 +7,9 @@ namespace UFCW.Services.Services.Inbox
 {
     public interface IInboxService
 	{
-        Task<MailboxResponse> FetchMailbox(string userId); 
+        Task<MailboxResponse> FetchMailbox(); 
         Task<SendMessageResponse> SendMessage(Dictionary<string, object> parameters);
-        Task<ReadEmailResponse> ReadMessage(string userId);
+        Task<ReadEmailResponse> ReadMessage(string messageId);
+        Task<InBoxMessage> GetMessage(string messageId);
 	}
 }

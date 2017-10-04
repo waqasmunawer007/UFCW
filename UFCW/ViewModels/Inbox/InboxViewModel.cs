@@ -17,13 +17,16 @@ namespace UFCW.ViewModels.Inbox
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<InBoxMessage> inboxMessagesList;
+        public ObservableCollection<SentMessage> sentMessagesList;
 		private bool isBusy = false;
         public ICommand InboxMessageCommand { get; set; }
+        public ICommand SentMessageCommand { get; set; }
         INavigation Navigation;
 
 		public InboxViewModel(INavigation pageNav)
         {
 			inboxMessagesList = new ObservableCollection<InBoxMessage>();
+            sentMessagesList = new ObservableCollection<SentMessage>();
             Navigation = pageNav;
             SetupCommands();
 		}
@@ -32,13 +35,42 @@ namespace UFCW.ViewModels.Inbox
         {
             InboxMessageCommand = new Command(async (e) =>
             {
-                Message selectedItem = (e as Message);
-                ViewMessagePage detailPage = new ViewMessagePage(selectedItem);
+                InBoxMessage selectedItem = (e as InBoxMessage);
+                ViewMessagePage detailPage = new ViewMessagePage(selectedItem.MailBoxMessageID);
                 await Navigation.PushAsync(detailPage);
             });
+			InboxMessageCommand = new Command(async (e) =>
+			{
+				InBoxMessage selectedItem = (e as InBoxMessage);
+                ViewMessagePage detailPage = new ViewMessagePage(selectedItem.MailBoxMessageID);
+				await Navigation.PushAsync(detailPage);
+			});
         }
 
-
+		public ObservableCollection<InBoxMessage> InboxMessagesList
+		{
+			get { return inboxMessagesList; }
+			set
+			{
+				if (inboxMessagesList != value)
+				{
+					inboxMessagesList = value;
+					OnPropertyChanged("InboxMessagesList");
+				}
+			}
+		}
+        public ObservableCollection<SentMessage> SentMessagesList
+		{
+			get { return sentMessagesList; }
+			set
+			{
+				if (sentMessagesList != value)
+				{
+					sentMessagesList = value;
+					OnPropertyChanged("SentMessagesList");
+				}
+			}
+		}
 		/// <summary>
 		/// Gets or sets a value indicating for Activity Indicator.
 		/// </summary>
@@ -63,7 +95,7 @@ namespace UFCW.ViewModels.Inbox
         public async Task<MailboxResponse> FetchMessagesList()
 		{
 			var service = new InboxService();
-            return await service.FetchMailbox("ea2f9819-456a-49bf-a288-297cda67a2d8");
+            return await service.FetchMailbox();
 		}
 
 		/// <summary>

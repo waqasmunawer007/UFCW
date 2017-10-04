@@ -19,14 +19,13 @@ namespace UFCW.Services.Services.Inbox
         /// </summary>
         /// <returns>The mailbox.</returns>
         /// <param name="id">Identifier.</param>
-        public async Task<MailboxResponse> FetchMailbox(string userId)
+        public async Task<MailboxResponse> FetchMailbox()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, 0494);
-			parameters.Add(WebApiConstants.SSN, 254049432);
-            //parameters.Add(WebApiConstants.TOKEN, Settings.UserToken); //Todo temp code
-            //parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
-            parameters.Add(WebApiConstants.UserID, userId);
+		
+            parameters.Add(WebApiConstants.TOKEN, Settings.UserToken); //Todo temp code
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
+            parameters.Add(WebApiConstants.UserID, Settings.UserID);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -44,11 +43,32 @@ namespace UFCW.Services.Services.Inbox
 			}
 			return null;
         }
-        public async Task<ReadEmailResponse> ReadMessage(string userId)
+
+        public async Task<InBoxMessage> GetMessage(string messageId)
+        {
+			try
+			{
+                string url = WebApiConstants.GetMessageApi+ "?Id=" + messageId;
+				HttpResponseMessage responseJson = await client.GetAsync(url);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (json != null)
+				{
+					var readMailbox = JsonConvert.DeserializeObject<InBoxMessage>(json);
+					return readMailbox;
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("GetMessage", ex.Message);
+			}
+			return null;
+        }
+
+        public async Task<ReadEmailResponse> ReadMessage(string messageId)
         {
             try
             {
-				string url = WebApiConstants.ReadMessageApi + userId;
+                string url = WebApiConstants.ReadMessageApi+ "?Id=" + messageId;
 				HttpResponseMessage responseJson = await client.GetAsync(url);
                 var json = await responseJson.Content.ReadAsStringAsync();
 				if (json != null)
@@ -83,24 +103,3 @@ namespace UFCW.Services.Services.Inbox
         }
     }
 }
-
-/*
-[
-    {
-        "From": "Umar",
-        "To": "Sam",
-        "Subject": "This is subject",
-        "Date": "8/18/2017",
-        "Time": "9:05:39 AM",
-        "Body": "This is body"
-    },
-    {
-        "From": "Waqas",
-        "To": "Samules",
-        "Subject": "This is subject2",
-        "Date": "22/18/2017",
-        "Time": "10:05:39 AM",
-        "Body": "This is body2"
-    }
-]
- */

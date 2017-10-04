@@ -20,10 +20,8 @@ namespace UFCW.Views.Pages.Inbox
 			NavigationPage.SetBackButtonTitle(this, ""); //hide back button title
             inboxVM = new InboxViewModel(Navigation);
 			BindingContext = inboxVM;
-            MessagesList.ItemsSource = inboxVM.inboxMessagesList;
+            MessagesList.ItemsSource = inboxVM.InboxMessagesList;
 		}
-
-		
 		public async void FetchMailbox()
 		{
 			inboxVM.IsBusy = true;
@@ -43,7 +41,6 @@ namespace UFCW.Views.Pages.Inbox
 			}
 			inboxVM.IsBusy = false;
 		}
-
 		/// <summary>
 		/// Updates the listview 
 		/// </summary>
@@ -52,33 +49,19 @@ namespace UFCW.Views.Pages.Inbox
 		{
             foreach (InBoxMessage message in inboxMessages)
 			{
-                inboxVM.inboxMessagesList.Add(message);
+                inboxVM.InboxMessagesList.Add(message);
 			}
 		}
-
-		//protected async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
-		//{
-		//	var selectedCheck = ((ListView)sender).SelectedItem;
-  //          Message message = (Message)selectedCheck;
-  //          Debug.WriteLine("This is message from: " + message.From);
-		//	//CheckIssuedDetailPage checksIssuedDetailPage = new CheckIssuedDetailPage();
-		//	//checksIssuedDetailPage.BindingContext = checkIssued;
-		//	//await Navigation.PushAsync(checksIssuedDetailPage);
-		//	//((ListView)sender).SelectedItem = null;
-		//	//GoogleAnalytics.Current.Tracker.SendEvent("ListView", "ItemTapped", AppConstants.CheckedIssued_Event_Messae, 1);
-		//}
-
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
             FetchMailbox();
 			GoogleAnalytics.Current.Tracker.SendView("Inbox Issued Page");
 		}
-
 		protected override void OnDisappearing()
 		{
 			base.OnDisappearing();
-            inboxVM.inboxMessagesList.Clear();
+            inboxVM.InboxMessagesList.Clear();
 			NoDataLabel.IsVisible = false;
 			MessagesList.IsVisible = false;
 		}

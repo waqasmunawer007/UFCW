@@ -24,7 +24,7 @@ namespace UFCW.Services.Models.Inbox
 		public string DateCreated { get; set; }
 		public string DateUpdated { get; set; }
 	}
-	public class InBoxMessage
+    public class InBoxMessage:BaseResponse
 	{
 		public string MailBoxMessageID { get; set; }
 		public string Subject { get; set; }
