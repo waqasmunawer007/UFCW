@@ -33,8 +33,8 @@ namespace UFCW.Views.Pages.PensionActive
 
 		protected override void OnAppearing()
 		{
-			FetchCurrentYearContribution();
 			base.OnAppearing();
+            FetchCurrentYearContribution();
             GoogleAnalytics.Current.Tracker.SendView("Current Year Contribution Page");
         }
 

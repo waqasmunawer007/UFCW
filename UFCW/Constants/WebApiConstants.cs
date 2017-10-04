@@ -31,12 +31,19 @@ namespace UFCW.Constants
 		public static string ForgotPaswordWebURL = "/Account/ForgotPassword";
 		public static string RegisterUserWebURL = "/Account/Register";
 		#endregion
-		
+
+		#region Mailbox 
+		public static string MailboxApi = "Mailbox";
+		public static string SendMessageApi = "Mailbox/SendMail";
+        public static string ReadMessageApi = "Mailbox/ReadMail";
+		#endregion
+
 
 		#region Fields Constatns
 		public const string TOKEN = "Token";
         public const string SSN = "SSN";
         public const string EMAIL = "Email";
+        public const string UserID = "ID";
 		public const string ClaimStatus = "CLAIM_STATUS";
 		public const string ClaimType = "CLAIM_TYPE";
         public const string SearchDate = "searchDate";

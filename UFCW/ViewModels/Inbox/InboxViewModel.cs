@@ -16,21 +16,21 @@ namespace UFCW.ViewModels.Inbox
 	public class InboxViewModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<Message> messagesList;
+        public ObservableCollection<InBoxMessage> inboxMessagesList;
 		private bool isBusy = false;
-        public ICommand DetailClaimCommand { get; set; }
+        public ICommand InboxMessageCommand { get; set; }
         INavigation Navigation;
 
 		public InboxViewModel(INavigation pageNav)
         {
-			messagesList = new ObservableCollection<Message>();
+			inboxMessagesList = new ObservableCollection<InBoxMessage>();
             Navigation = pageNav;
             SetupCommands();
 		}
 
         private void SetupCommands()
         {
-            DetailClaimCommand = new Command(async (e) =>
+            InboxMessageCommand = new Command(async (e) =>
             {
                 Message selectedItem = (e as Message);
                 ViewMessagePage detailPage = new ViewMessagePage(selectedItem);
@@ -60,10 +60,10 @@ namespace UFCW.ViewModels.Inbox
         /// Fetchs the messages list.
         /// </summary>
         /// <returns>The messages list.</returns>
-        public async Task<Message[]> FetchMessagesList()
+        public async Task<MailboxResponse> FetchMessagesList()
 		{
 			var service = new InboxService();
-            return await service.FetchInboxList(Settings.UserToken, Settings.UserSSN);
+            return await service.FetchMailbox("ea2f9819-456a-49bf-a288-297cda67a2d8");
 		}
 
 		/// <summary>

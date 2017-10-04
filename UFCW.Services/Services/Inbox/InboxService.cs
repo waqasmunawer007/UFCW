@@ -6,50 +6,82 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UFCW.Constants;
+using UFCW.Helpers;
 using UFCW.Services.Models.Inbox;
 using UFCW.Services.Services.Inbox;
 namespace UFCW.Services.Services.Inbox
 {
 	public class InboxService : BaseService, IInboxService
 	{
+      
         /// <summary>
-        /// Fetchs the inbox list.
+        /// Fetchs the mailbox include both sent and inbox messages.
         /// </summary>
-        /// <returns>The inbox list.</returns>
-        /// <param name="Token">Token.</param>
-        /// <param name="SSN">Ssn.</param>
-		public async Task<Message[]> FetchInboxList(string Token, string SSN)
-		{
+        /// <returns>The mailbox.</returns>
+        /// <param name="id">Identifier.</param>
+        public async Task<MailboxResponse> FetchMailbox(string userId)
+        {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, 0494);
+			parameters.Add(WebApiConstants.SSN, 254049432);
+            //parameters.Add(WebApiConstants.TOKEN, Settings.UserToken); //Todo temp code
+            //parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
+            parameters.Add(WebApiConstants.UserID, userId);
 			try
 			{
-				//var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
-                //HttpResponseMessage responseJson = await client.PostAsync(AppConstants.AP_FetchInboxListApi, content);
-                //var json = await responseJson.Content.ReadAsStringAsync();
-                var json = "[\n    {\n        \"From\": \"UmarUmarUmar\",\n        \"To\": \"Sam\",\n        \"Subject\": \"This is subjectThis is subjectThis is subject\",\n        \"Date\": \"8/18/2017\",\n        \"Time\": \"9:05:39 AM\",\n        \"Body\": \"This is body\"\n    },\n    {\n        \"From\": \"WaqasWaqas Waqas\",\n        \"To\": \"Samules\",\n        \"Subject\": \"This is subject2\",\n        \"Date\": \"22/18/2017\",\n        \"Time\": \"10:05:39 AM\",\n        \"Body\": \"This is body2\"\n    }\n]";
-				if (!json.Equals("[]")) //only parse json if it contains data
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+                HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.MailboxApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (json != null) //only parse json if it contains data
 				{
-                    Message[] messagesList = JsonConvert.DeserializeObject<Message[]>(json);
-                    if (messagesList.Length > 0)
-                    {
-                        Debug.WriteLine("Sender[0]: " + messagesList[0].From);
-                    }
-                    else
-                    {
-                        Debug.WriteLine("No message received...");
-                    }
-					return messagesList;
+					var mailbox = JsonConvert.DeserializeObject<MailboxResponse>(json);
+					return mailbox;
 				}
 			}
 			catch (Exception ex)
 			{
-				Debug.WriteLine("FetchInboxList", ex.Message);
+				Debug.WriteLine("FetchMailbox", ex.Message);
 			}
 			return null;
-		}
-	}
+        }
+        public async Task<ReadEmailResponse> ReadMessage(string userId)
+        {
+            try
+            {
+				string url = WebApiConstants.ReadMessageApi + userId;
+				HttpResponseMessage responseJson = await client.GetAsync(url);
+                var json = await responseJson.Content.ReadAsStringAsync();
+				if (json != null)
+				{
+					var readMailbox = JsonConvert.DeserializeObject<ReadEmailResponse>(json);
+					return readMailbox;
+				}
+            }catch(Exception ex)
+            {
+                Debug.WriteLine("ReadMessage", ex.Message);
+            }
+            return null;
+        }
+        public async Task<SendMessageResponse> SendMessage(Dictionary<string, object> parameters)
+        {
+			try
+			{
+				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
+                HttpResponseMessage responseJson = await client.PostAsync(WebApiConstants.SendMessageApi, content);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (json != null)
+				{
+					var mailbox = JsonConvert.DeserializeObject<SendMessageResponse>(json);
+					return mailbox;
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("SendMessage", ex.Message);
+			}
+			return null;
+        }
+    }
 }
 
 /*

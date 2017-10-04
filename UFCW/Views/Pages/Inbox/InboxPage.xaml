@@ -5,10 +5,10 @@
     Title="Inbox">
 	<ContentPage.Content>
         <StackLayout VerticalOptions = "FillAndExpand" Padding="0,0,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
-            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Label x:Name="NoDataLabel" Text="No Data Found!" TextColor="{DynamicResource NoDataTextColor}" FontSize="{DynamicResource NoDataTextSize}" IsVisible="false" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
             <!-- Header Layout -->
              <Grid 
+                x:Name="MessageGrid"
                 ColumnSpacing="10" 
                 RowSpacing="2"
                 BackgroundColor="{DynamicResource MainMenuBackgroundColor}"
@@ -28,17 +28,14 @@
                 <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="1" Text="Subject" LineBreakMode="WordWrap"/>
                 <Label Grid.Row ="0" FontSize="14" VerticalTextAlignment="Center"  Grid.Column="4" Text="" LineBreakMode="WordWrap"/>
              </Grid>
-            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <!-- Searched Result List -->
+            <!-- Inbox messages List -->
+             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <ListView 
                 x:Name="MessagesList" 
                 VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
                 RowHeight="50"
                 >
-                 <ListView.Footer> 
-                    <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
-                  </ListView.Footer>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                      <ViewCell> 
@@ -51,13 +48,13 @@
                                 <ColumnDefinition Width="230" />
                                 <ColumnDefinition Width="50" />
                             </Grid.ColumnDefinitions>
-                            <Label  Text="{Binding From}" VerticalTextAlignment="Center" FontSize="12" Grid.Row="0" Grid.Column="0" TextColor="Black"  LineBreakMode="WordWrap" />
+                            <Label  Text="{Binding FromDescription}" VerticalTextAlignment="Center" FontSize="12" Grid.Row="0" Grid.Column="0" TextColor="Black"  LineBreakMode="WordWrap" />
                             <Label Text="{Binding Subject}"  FontSize="12"  Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
                             <!-- Detail Button -->
                             <Button
                                 Grid.Row="0" Grid.Column="2"
                                 x:Name="DetailButton"
-                                Command="{Binding DetailClaimCommand}"
+                                Command="{Binding InboxMessageCommand}"
                                 BindingContext="{Binding Source={x:Reference MessagesList}, Path=BindingContext}"
                                 CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
                                 Style="{DynamicResource PrimaryActionSmallButtonStyle}"

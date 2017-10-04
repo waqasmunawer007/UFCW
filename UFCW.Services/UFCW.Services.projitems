@@ -66,5 +66,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Inbox\Message.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Inbox\InboxService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Inbox\IInboxService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Inbox\MailboxResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Inbox\SendMessageResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Inbox\ReadEmailResponse.cs" />
   </ItemGroup>
 </Project>
