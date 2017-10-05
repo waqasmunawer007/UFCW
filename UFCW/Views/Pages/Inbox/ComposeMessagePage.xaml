@@ -23,35 +23,37 @@
 
                     <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="To:"/>
                     <!--Recipient Picker-->
-                     <Picker x:Name="picker" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                    <Picker 
                         
-                        >
-
+                        HorizontalOptions="FillAndExpand"
+                        artina:PickerProperties.BorderWidth="1" 
+                        TextColor="{DynamicResource BaseTextColor }"
+                        artina:PickerProperties.BorderColor="Gray" 
+                        ItemsSource="{Binding ToConatacts}"
+                        ItemDisplayBinding="{Binding ToText, Mode=TwoWay}"
+                        SelectedIndex="{Binding ToContactSelectedIndex}"
+                        Grid.Row="0" Grid.Column="1" x:Name="TypePicker" >
                     </Picker>
-                    
+                   <!--  <Picker x:Name="picker" Grid.Row="0" Grid.Column="1" >
+                    </Picker>-->
                     <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Subject:"/>
                     <Entry 
                         Grid.Row="1" Grid.Column="1"
                         HorizontalOptions="FillAndExpand"
-                        Placeholder="Subject..."
+                        Text="{Binding Subject}"
                         TextColor="{DynamicResource BaseTextColor }"
-                        artina:EntryProperties.BorderStyle="RoundRect"
-                        artina:EntryProperties.BorderWidth="2"
-
-                        artina:EntryProperties.BorderColor = "Black"
                         PlaceholderColor="Gray"
                         x:Name="SubjectInput"
                         WidthRequest="280"
                     />
-                   
                     <Label Grid.Row="2" Grid.Column="0" Font="Bold" VerticalOptions="Start" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Message:"/>
                     <Editor x:Name="MessageBody"
                         Grid.Row="2"  
                         Grid.Column="1" 
-                        HorizontalOptions="StartAndExpand" 
+                        HorizontalOptions="StartAndExpand"
+                        Text="{Binding MessageBody}"
                         TextColor="{ DynamicResource BaseTextColor }"  
                         FontSize="{DynamicResource BaseTitleValueSize}"
-
                         WidthRequest="280"
                         HeightRequest="100"/>
                 </Grid>
@@ -60,7 +62,7 @@
                     x:Name="SendButton"
                     Text="Send"
                     HorizontalOptions="End"
-                    Clicked="Handle_Clicked"
+                    Command="{Binding ComposeMessageCommand}"
                     Margin="0,0,10,0"
                 />
                 <!--<BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />-->

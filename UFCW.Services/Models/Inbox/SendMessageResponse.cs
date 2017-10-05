@@ -3,6 +3,6 @@ namespace UFCW.Services.Models.Inbox
 {
     public class SendMessageResponse: BaseResponse
     {
-        public string MessageSent { get; set; }
+        public bool MessageSent { get; set; }
     }
 }

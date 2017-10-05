@@ -56,6 +56,18 @@ namespace UFCW.Constants
 		public const string ToDate = "TO_DATE";
 	    public const string ClaimNumber = "CLAIM_NUMBER";
         public const string EligibilityID = "EligibilityID";
+
+		public const string MailBoxMessageID = "MailBoxMessageID";
+
+
+		public const string Subject = "Subject";
+		public const string Body = "Body";
+		public const string IsEmailNotified = "IsEmailNotified";
+		public const string MessageTo = "To";
+        public const string ToDescription = "ToDescription";
+        public const string From = "From";
+        public const string FromDescription = "FromDescription";
+
         #endregion
 
 

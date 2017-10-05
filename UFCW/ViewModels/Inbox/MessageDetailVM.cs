@@ -14,23 +14,9 @@ namespace UFCW.ViewModels.Inbox
 		public event PropertyChangedEventHandler PropertyChanged;
 	
 		private bool isBusy = false;
-		public ICommand ReplyMessageCommand { get; set; }
         public InBoxMessage inboxMessage { get; set; }
-		INavigation Navigation;
-
-		public MessageDetailVM(INavigation pageNav)
-		{
-			Navigation = pageNav;
-			SetupCommands();
-		}
-
-		private void SetupCommands()
-		{
-			ReplyMessageCommand = new Command((e) =>
-			{
-                Navigation.PushAsync(new ComposeMessagePage());
-			});
-		}
+		
+		public MessageDetailVM(){}
 
 		public InBoxMessage InboxMessage
 		{

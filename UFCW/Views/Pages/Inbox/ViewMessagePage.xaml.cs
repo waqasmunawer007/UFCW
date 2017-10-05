@@ -13,13 +13,13 @@ namespace UFCW.Views.Pages.Inbox
         string messageId;
         void Handle_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ComposeMessagePage());
+            Navigation.PushAsync(new ComposeMessagePage(messageId));
         }
         public  ViewMessagePage(string messageId)
         {
             InitializeComponent();
             this.messageId = messageId;
-            viewModel = new MessageDetailVM(Navigation);
+            viewModel = new MessageDetailVM();
             BindingContext = viewModel;
         }
 		protected async override void OnAppearing()
