@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="UFCW.Views.Pages.Inbox.InboxPage"
+    Icon="tabs0_icon"
     Title="Inbox">
 	<ContentPage.Content>
         <StackLayout VerticalOptions = "FillAndExpand" Padding="0,0,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">
@@ -12,7 +13,7 @@
                 ColumnSpacing="10" 
                 RowSpacing="2"
                 BackgroundColor="{DynamicResource MainMenuBackgroundColor}"
-                Margin="0,10,0,0"
+                Margin="0,0,0,0"
                 Padding="10,0,10,10"
                 VerticalOptions="Start"
                 HorizontalOptions="FillAndExpand">
@@ -34,19 +35,19 @@
                 x:Name="MessagesList" 
                 VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
-                RowHeight="50"
+                RowHeight="60"
                 >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                      <ViewCell> 
                         <Grid x:Name="Item" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Padding="10" ColumnSpacing="10"  >
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="50" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="70" />
-                                <ColumnDefinition Width="230" />
-                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="70" />
                             </Grid.ColumnDefinitions>
                             <Label  Text="{Binding FromDescription}" VerticalTextAlignment="Center" FontSize="12" Grid.Row="0" Grid.Column="0" TextColor="Black"  LineBreakMode="WordWrap" />
                             <Label Text="{Binding Subject}"  FontSize="12"  Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="Black"/>
@@ -58,10 +59,13 @@
                                 BindingContext="{Binding Source={x:Reference MessagesList}, Path=BindingContext}"
                                 CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
                                 Style="{DynamicResource PrimaryActionSmallButtonStyle}"
+
                                 Text="View"
+                                Margin="0,0,10,10"
                                 VerticalOptions="Center"
                                 FontSize="10"
-                                WidthRequest="30"/>
+                                HeightRequest="40"
+                                WidthRequest="50"/>
                        </Grid>
                     </ViewCell>
                     </DataTemplate>

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:m ="clr-namespace:UFCW.Converters" 
     xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
     x:Class="UFCW.Views.Pages.Inbox.ViewMessagePage">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <m:DatetimeToStringConverter x:Key="DateConverter"></m:DatetimeToStringConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 	<ContentPage.Content>
         <ScrollView Orientation="Vertical" >
             <StackLayout Orientation = "Vertical"  Padding="0,0,0,10">
@@ -20,11 +26,11 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="80" />
-                        <ColumnDefinition Width="280" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Date:"/>
-                    <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DateCreated}"/>
+                    <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DateCreated,Converter={StaticResource DateConverter}}"/>
                     
                     <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="From:"/>
                     <Label Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding FromDescription}"/>                        
@@ -45,6 +51,7 @@
                     HorizontalOptions="End"
                     Clicked="Handle_Clicked"
                     Margin="0,0,10,0"
+                    WidthRequest="70"
                 />
                  <BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />
              </StackLayout>

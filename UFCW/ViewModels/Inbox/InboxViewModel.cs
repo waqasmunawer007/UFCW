@@ -39,9 +39,9 @@ namespace UFCW.ViewModels.Inbox
                 ViewMessagePage detailPage = new ViewMessagePage(selectedItem.MailBoxMessageID);
                 await Navigation.PushAsync(detailPage);
             });
-			InboxMessageCommand = new Command(async (e) =>
+			SentMessageCommand = new Command(async (e) =>
 			{
-				InBoxMessage selectedItem = (e as InBoxMessage);
+				SentMessage selectedItem = (e as SentMessage);
                 ViewMessagePage detailPage = new ViewMessagePage(selectedItem.MailBoxMessageID);
 				await Navigation.PushAsync(detailPage);
 			});

@@ -19,7 +19,6 @@ namespace UFCW.ViewModels.Inbox
 		private bool isBusy = false;
 		public ICommand ComposeMessageCommand { get; set; }
 		INavigation Navigation;
-        private string messageId;
         private ObservableCollection<ToContactItem> toConatacts;
         private string subject;
         private string messageBody;
@@ -27,10 +26,9 @@ namespace UFCW.ViewModels.Inbox
 
 
 
-		public ComposeMessageVM(INavigation nav ,string messageId) 
+		public ComposeMessageVM(INavigation nav) 
         {
             Navigation = nav;
-            this.messageId = messageId;
 			toConatacts = new ObservableCollection<ToContactItem>()
 			{
 			    new ToContactItem(){ToText = "",ToValue = ""},
@@ -43,19 +41,33 @@ namespace UFCW.ViewModels.Inbox
            // ToConatacts = toConatacts;
 			ComposeMessageCommand = new Command(async (e) =>
 			{
+                
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 ToContactItem selectedToContact = ToConatacts[toContactSelectedIndex];
-                parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
-                parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
-                parameters.Add(WebApiConstants.UserID, Settings.UserID);
-                parameters.Add(WebApiConstants.MailBoxMessageID, this.messageId);
-                parameters.Add(WebApiConstants.MessageTo, ""); //Todo need to clear from the client
-                parameters.Add(WebApiConstants.ToDescription,selectedToContact.ToValue);
-                parameters.Add(WebApiConstants.From, Settings.UserID);
-                parameters.Add(WebApiConstants.FromDescription, Settings.UserName);
-                parameters.Add(WebApiConstants.Subject,Subject);
-                parameters.Add(WebApiConstants.Body,MessageBody);
-                await ComposeMessage(parameters);
+                if (!String.IsNullOrEmpty(selectedToContact.ToValue) && !String.IsNullOrEmpty(Subject) && !String.IsNullOrEmpty(MessageBody))
+                {
+                    string uuid = System.Guid.NewGuid().ToString();
+					parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+					parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
+					parameters.Add(WebApiConstants.UserID, Settings.UserID);
+					parameters.Add(WebApiConstants.MailBoxMessageID, uuid);
+					parameters.Add(WebApiConstants.MessageTo, ""); //Todo need to clear from the client
+					parameters.Add(WebApiConstants.ToDescription, selectedToContact.ToValue);
+					parameters.Add(WebApiConstants.From, Settings.UserID);
+					parameters.Add(WebApiConstants.FromDescription, Settings.UserName);
+					parameters.Add(WebApiConstants.Subject, Subject);
+					parameters.Add(WebApiConstants.Body, MessageBody);
+					await ComposeMessage(parameters);
+					Subject = "";
+					MessageBody = "";
+                    ToContactSelectedIndex = 0;
+
+                }
+                else
+                {
+                   await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE,AppConstants.COMPOSE_VALIDATION_MESSAGE , "OK");
+                }
+
 				//ViewMessagePage detailPage = new ViewMessagePage(selectedItem.MailBoxMessageID);
 				//await Navigation.PushAsync(detailPage);
 			});

@@ -32,6 +32,7 @@ namespace UFCW.Constants
 		public const string STRING_ACTIVE = "Active";
 		//Error Strings
 		public const string ERROR_MESSAGE           = "Something went wrong. Please check your internet settings and then try again.";
+        public const string COMPOSE_VALIDATION_MESSAGE = "Please fill all the form fields.";
         public const string Empty_Data_MESSAGE      = "No data found";
 		public const string ERROR_TITLE             = "Error";
 		public const string DIALOG_OK_OPTION        = "Try again!";

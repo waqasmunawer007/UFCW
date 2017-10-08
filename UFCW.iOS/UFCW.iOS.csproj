@@ -348,6 +348,7 @@
     <BundleResource Include="Resources\pass_recovery_bg_tablet.jpg" />
     <BundleResource Include="Resources\pass_recovery_bg_tablet%402x.jpg" />
     <BundleResource Include="Resources\hamburguer_icon.png" />
+    <BundleResource Include="Resources\tabs0_icon%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UFCW\UFCW.csproj">

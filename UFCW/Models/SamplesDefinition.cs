@@ -142,7 +142,7 @@ namespace UFCW
             }
 
             samplesList.Add(new Sample("Claims", typeof(SearchClaimPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.InsertFile));
-            samplesList.Add(new Sample("Inbox", typeof(InboxPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy));
+            samplesList.Add(new Sample("Messages", typeof(MailboxTabbedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Email));
             samplesList.Add(new Sample("News Letter", typeof(NewsLetterPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy));
             samplesList.Add(new Sample("Documents", typeof(NonCoreDocument), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Folder));
             samplesList.Add(new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public));

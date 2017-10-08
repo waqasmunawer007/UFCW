@@ -44,6 +44,26 @@ namespace UFCW.Services.Services.Inbox
 			return null;
         }
 
+        public async Task<AdminMailbox[]> GetAdminMailbox()
+        {
+			try
+			{
+                string url = WebApiConstants.GetAdminMailboxApi;
+				HttpResponseMessage responseJson = await client.GetAsync(url);
+				var json = await responseJson.Content.ReadAsStringAsync();
+				if (!json.Equals("[]")) //only parse json if it contains data
+				{
+					var adminMainboxResponse = JsonConvert.DeserializeObject<AdminMailbox[]>(json);
+					return adminMainboxResponse;
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("GetAdminMailbox", ex.Message);
+			}
+			return null;
+        }
+
         public async Task<InBoxMessage> GetMessage(string messageId)
         {
 			try

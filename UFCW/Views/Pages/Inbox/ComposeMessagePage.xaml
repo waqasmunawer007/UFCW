@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+    Icon="tabs0_icon"
+    Title="Compose"
     x:Class="UFCW.Views.Pages.Inbox.ComposeMessagePage">
 	<ContentPage.Content>
         <ScrollView Orientation="Vertical" >
@@ -14,7 +16,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
-                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="153"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="80" />
@@ -47,15 +49,20 @@
                         WidthRequest="280"
                     />
                     <Label Grid.Row="2" Grid.Column="0" Font="Bold" VerticalOptions="Start" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Message:"/>
-                    <Editor x:Name="MessageBody"
-                        Grid.Row="2"  
-                        Grid.Column="1" 
+
+                    <StackLayout Grid.Row="2"   Grid.Column="1"  BackgroundColor="{DynamicResource MainMenuBackgroundColor}" Padding="1">
+                        <Editor x:Name="MessageBody"
                         HorizontalOptions="StartAndExpand"
+                        BackgroundColor="White"
                         Text="{Binding MessageBody}"
+                            
+                        WidthRequest="280" HeightRequest="150"
                         TextColor="{ DynamicResource BaseTextColor }"  
                         FontSize="{DynamicResource BaseTitleValueSize}"
-                        WidthRequest="280"
-                        HeightRequest="100"/>
+                       
+                        />
+                    </StackLayout>
+
                 </Grid>
                 <artina:Button
                     Style="{DynamicResource PrimaryActionButtonStyle}"
@@ -63,7 +70,8 @@
                     Text="Send"
                     HorizontalOptions="End"
                     Command="{Binding ComposeMessageCommand}"
-                    Margin="0,0,10,0"
+                    Margin="0,10,10,0"
+                    WidthRequest="70"
                 />
                 <!--<BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />-->
              </StackLayout>

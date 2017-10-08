@@ -37,6 +37,9 @@ namespace UFCW.Constants
         public static string GetMessageApi = "Mailbox/GetMessage";
 		public static string SendMessageApi = "Mailbox/SendMail";
         public static string ReadMessageApi = "Mailbox/ReadMail";
+        public static string GetAdminMailboxApi = "Mailbox/GetAdminMailbox";
+
+
 		#endregion
 
 

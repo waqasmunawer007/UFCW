@@ -18,6 +18,13 @@ namespace UFCW.Views.Pages.Inbox
 			inboxVM = new InboxViewModel(Navigation);
 			BindingContext = inboxVM;
             MessagesList.ItemsSource = inboxVM.SentMessagesList;
+			MessagesList.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+			{
+				// don't do anything if we just de-selected the row
+				if (e.Item == null) return;
+				// do something with e.SelectedItem
+				((ListView)sender).SelectedItem = null; // de-select the row
+			};
 		}
 		public async void FetchMailbox()
 		{

@@ -13,7 +13,7 @@ namespace UFCW.Views.Pages.Inbox
         string messageId;
         void Handle_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ComposeMessagePage(messageId));
+            Navigation.PushAsync(new ComposeMessagePage());
         }
         public  ViewMessagePage(string messageId)
         {

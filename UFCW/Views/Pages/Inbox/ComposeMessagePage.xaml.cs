@@ -9,13 +9,10 @@ namespace UFCW.Views.Pages.Inbox
     public partial class ComposeMessagePage : ContentPage
     {
         ComposeMessageVM viewModel;
-        private string messageID = "";
-        public ComposeMessagePage(string messageID)
+        public ComposeMessagePage()
         {
             InitializeComponent();
-            this.messageID = messageID;
-            Title = "Compose Message";
-            viewModel = new ComposeMessageVM(Navigation,messageID);
+            viewModel = new ComposeMessageVM(Navigation);
             BindingContext = viewModel;
         }
 	}

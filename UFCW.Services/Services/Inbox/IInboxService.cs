@@ -11,5 +11,6 @@ namespace UFCW.Services.Services.Inbox
         Task<SendMessageResponse> SendMessage(Dictionary<string, object> parameters);
         Task<ReadEmailResponse> ReadMessage(string messageId);
         Task<InBoxMessage> GetMessage(string messageId);
+        Task<AdminMailbox[]> GetAdminMailbox();
 	}
 }

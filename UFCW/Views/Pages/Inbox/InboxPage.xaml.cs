@@ -21,6 +21,13 @@ namespace UFCW.Views.Pages.Inbox
             inboxVM = new InboxViewModel(Navigation);
 			BindingContext = inboxVM;
             MessagesList.ItemsSource = inboxVM.InboxMessagesList;
+			MessagesList.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+			{
+				// don't do anything if we just de-selected the row
+				if (e.Item == null) return;
+				// do something with e.SelectedItem
+				((ListView)sender).SelectedItem = null; // de-select the row
+			};
 		}
 		public async void FetchMailbox()
 		{
@@ -39,7 +46,7 @@ namespace UFCW.Views.Pages.Inbox
                 MessagesList.IsVisible = false;
                 MessageGrid.IsVisible = false;
 			}
-			inboxVM.IsBusy = false;
+            inboxVM.IsBusy = false;
 		}
 		/// <summary>
 		/// Updates the listview 
