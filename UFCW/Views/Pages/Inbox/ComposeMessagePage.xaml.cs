@@ -15,5 +15,12 @@ namespace UFCW.Views.Pages.Inbox
             viewModel = new ComposeMessageVM(Navigation);
             BindingContext = viewModel;
         }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await viewModel.FetchAdmainMailbox();
+
+        }
 	}
 }

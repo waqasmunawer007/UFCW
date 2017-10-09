@@ -32,7 +32,7 @@
                         TextColor="{DynamicResource BaseTextColor }"
                         artina:PickerProperties.BorderColor="Gray" 
                         ItemsSource="{Binding ToConatacts}"
-                        ItemDisplayBinding="{Binding ToText, Mode=TwoWay}"
+                        ItemDisplayBinding="{Binding Text, Mode=TwoWay}"
                         SelectedIndex="{Binding ToContactSelectedIndex}"
                         Grid.Row="0" Grid.Column="1" x:Name="TypePicker" >
                     </Picker>
@@ -73,6 +73,7 @@
                     Margin="0,10,10,0"
                     WidthRequest="70"
                 />
+                <ActivityIndicator Margin="0,10,0,0" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
                 <!--<BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />-->
              </StackLayout>
         </ScrollView>

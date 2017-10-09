@@ -3,8 +3,7 @@ namespace UFCW.Services.Models.Inbox
 {
     public class AdminMailbox:BaseResponse
     {
-        public AdminMailbox()
-        {
-        }
+        public string Text { get; set; }
+        public string Value { get; set; }
     }
 }

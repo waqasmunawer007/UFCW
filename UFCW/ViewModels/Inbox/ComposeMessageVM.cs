@@ -19,57 +19,41 @@ namespace UFCW.ViewModels.Inbox
 		private bool isBusy = false;
 		public ICommand ComposeMessageCommand { get; set; }
 		INavigation Navigation;
-        private ObservableCollection<ToContactItem> toConatacts;
+        private ObservableCollection<AdminMailbox> toConatacts;
         private string subject;
         private string messageBody;
         int toContactSelectedIndex;
 
-
-
 		public ComposeMessageVM(INavigation nav) 
         {
             Navigation = nav;
-			toConatacts = new ObservableCollection<ToContactItem>()
-			{
-			    new ToContactItem(){ToText = "",ToValue = ""},
-				new ToContactItem(){ToText = "AddressChange",ToValue = "AddressChange"},
-				new ToContactItem(){ToText = "ContactUs",ToValue = "ContactUs"},
-				new ToContactItem(){ToText = "PensionAdmin",ToValue = "PensionAdmin"},
-				new ToContactItem(){ToText = "HWAdmin",ToValue = "HWAdmin"}
-
-			};
-           // ToConatacts = toConatacts;
+            toConatacts = new ObservableCollection<AdminMailbox>();
+			
 			ComposeMessageCommand = new Command(async (e) =>
 			{
-                
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
-                ToContactItem selectedToContact = ToConatacts[toContactSelectedIndex];
-                if (!String.IsNullOrEmpty(selectedToContact.ToValue) && !String.IsNullOrEmpty(Subject) && !String.IsNullOrEmpty(MessageBody))
+                AdminMailbox selectedToContact = ToConatacts[toContactSelectedIndex];
+                if (!String.IsNullOrEmpty(selectedToContact.Value) && !String.IsNullOrEmpty(Subject) && !String.IsNullOrEmpty(MessageBody))
                 {
                     string uuid = System.Guid.NewGuid().ToString();
 					parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 					parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 					parameters.Add(WebApiConstants.UserID, Settings.UserID);
 					parameters.Add(WebApiConstants.MailBoxMessageID, uuid);
-					parameters.Add(WebApiConstants.MessageTo, ""); //Todo need to clear from the client
-					parameters.Add(WebApiConstants.ToDescription, selectedToContact.ToValue);
+                    parameters.Add(WebApiConstants.MessageTo, selectedToContact.Value); 
+                    parameters.Add(WebApiConstants.ToDescription, selectedToContact.Text);
 					parameters.Add(WebApiConstants.From, Settings.UserID);
 					parameters.Add(WebApiConstants.FromDescription, Settings.UserName);
 					parameters.Add(WebApiConstants.Subject, Subject);
 					parameters.Add(WebApiConstants.Body, MessageBody);
-					await ComposeMessage(parameters);
-					Subject = "";
-					MessageBody = "";
-                    ToContactSelectedIndex = 0;
+                    await ComposeMessage(parameters);
+					
 
                 }
                 else
                 {
                    await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE,AppConstants.COMPOSE_VALIDATION_MESSAGE , "OK");
                 }
-
-				//ViewMessagePage detailPage = new ViewMessagePage(selectedItem.MailBoxMessageID);
-				//await Navigation.PushAsync(detailPage);
 			});
         }
 
@@ -98,7 +82,7 @@ namespace UFCW.ViewModels.Inbox
 			}
 		}
 
-		public ObservableCollection<ToContactItem> ToConatacts
+		public ObservableCollection<AdminMailbox> ToConatacts
 		{
 			get { return toConatacts; }
 			set
@@ -148,17 +132,39 @@ namespace UFCW.ViewModels.Inbox
 		public async Task<SendMessageResponse> ComposeMessage(Dictionary<string, object> parameters)
 		{
 			IsBusy = true;
-
 			var service = new InboxService();
             SendMessageResponse message = await service.SendMessage(parameters);
             if (message.MessageSent)
 			{
-			
+				Subject = "";
+				MessageBody = "";
+				ToContactSelectedIndex = 0;
+			    await Application.Current.MainPage.DisplayAlert("", AppConstants.COMPOSE_EAMIl_SENT, "OK");
 			}
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_MESSAGE, AppConstants.ERROR_MESSAGE, "OK"); 
+            }
 			IsBusy = false;
 			return message;
 		}
 
+		public async Task<AdminMailbox[]> FetchAdmainMailbox()
+		{
+			var service = new InboxService();
+            AdminMailbox[] adminMailbox = await service.GetAdminMailbox();
+			this.ToConatacts.Clear();
+            if (adminMailbox != null)
+            {
+                AdminMailbox emptyMailbox = new AdminMailbox() { Text = "", Value = "" };
+                ToConatacts.Add(emptyMailbox);
+				foreach (AdminMailbox mailboxEmail in adminMailbox)
+				{
+					this.ToConatacts.Add(mailboxEmail);
+				}
+            }
+			return adminMailbox;
+		}
 		/// <summary>
 		/// Ons the property changed.
 		/// </summary>
