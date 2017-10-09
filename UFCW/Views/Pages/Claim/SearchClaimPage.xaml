@@ -89,11 +89,11 @@
 					 
 			</Grid>
 			<!-- Search & Reset Button layout -->
-			<StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="EndAndExpand" Margin="0,30,10,0">
+			<StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="40" HorizontalOptions="EndAndExpand" Margin="0,30,10,0">
 				 <artina:Button
 					x:Name="ResetButton"
                     Command="{Binding ResetFiltersCommand}"
-		            Style="{DynamicResource PrimaryActionButtonStyle}"
+		            Style="{DynamicResource PrimaryActionSmallButtonStyle}"
 		            Text="Reset"
 		            WidthRequest="80"/>
 				 <artina:Button
