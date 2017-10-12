@@ -11,9 +11,11 @@ namespace UFCW.Views.Pages.Inbox
     {
         MessageDetailVM viewModel;
         string messageId;
+        InBoxMessage message;
         void Handle_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ComposeMessagePage());
+            ComposeMessagePage composePage = new ComposeMessagePage(message);
+            Navigation.PushAsync(composePage);
         }
         public  ViewMessagePage(string messageId)
         {
@@ -25,7 +27,7 @@ namespace UFCW.Views.Pages.Inbox
 		protected async override void OnAppearing()
 		{
 			base.OnAppearing();
-            InBoxMessage message = await viewModel.GetMessage(messageId);
+           message = await viewModel.GetMessage(messageId);
 			BindingContext = message;
 			GoogleAnalytics.Current.Tracker.SendView("View Message Page Opened");
 		}

@@ -12,7 +12,7 @@ namespace UFCW.Views.Pages.Inbox
             InitializeComponent();
             Children.Add(new InboxPage());
             Children.Add(new SentMessagePage());
-            Children.Add(new ComposeMessagePage());
+            Children.Add(new ComposeMessagePage(null));
 
         }
     }

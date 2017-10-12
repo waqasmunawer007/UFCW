@@ -26,7 +26,7 @@
                     <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="To:"/>
                     <!--Recipient Picker-->
                     <Picker 
-                        
+                      
                         HorizontalOptions="FillAndExpand"
                         artina:PickerProperties.BorderWidth="1" 
                         TextColor="{DynamicResource BaseTextColor }"

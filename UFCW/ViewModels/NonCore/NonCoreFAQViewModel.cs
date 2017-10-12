@@ -73,7 +73,6 @@ namespace UFCW.ViewModels.NonCore
 			else
 			{
 				IsBusy = false;
-				//await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
 			}
             return responseData;
 		}
@@ -100,7 +99,6 @@ namespace UFCW.ViewModels.NonCore
 			else
 			{
 				IsBusy = false;
-				//await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
 			}
             return responseData;
 		}

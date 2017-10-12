@@ -56,7 +56,19 @@ namespace UFCW.ViewModels.Inbox
                 }
 			});
         }
-
+        public int SelectedToContactIndex(string toContactId)
+        {
+            int index = 0;
+            for (int i = 0; i < ToConatacts.Count; i++)
+            {
+                if (toContactId.Equals(ToConatacts[i].Text))
+                {
+                    index = i;
+                    return index;
+                }
+            }
+            return index;
+        }
 		public string Subject
 		{
 			get { return subject; }
