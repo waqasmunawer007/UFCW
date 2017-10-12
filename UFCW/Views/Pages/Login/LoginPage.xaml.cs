@@ -38,8 +38,8 @@ namespace UFCW.Views.Login
 			{
 				loginVm.ShowError = false;
 				loginVm.IsBusy = true;
-				//LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
-				LoginResponse response = await loginVm.LogiUser("UfcwActiveHW@sinettechnologies.com", "P@ssw0rd"); //for Eligibilty & Active pension
+				LoginResponse response = await loginVm.LogiUser(loginVm.Email, loginVm.Password);
+				//LoginResponse response = await loginVm.LogiUser("UfcwActiveHW@sinettechnologies.com", "P@ssw0rd"); //for Eligibilty & Active pension
               //  LoginResponse response = await loginVm.LogiUser("ufcwRetiree@sinettechnologies.com", "P@ssw0rd");
                 //LoginResponse response = await loginVm.LogiUser("UfcwActive@sinettechnologies.com", "P@ssw0rd");
 				if (String.IsNullOrEmpty(response.ErrorText) && String.IsNullOrEmpty(response.ErrorDetails))

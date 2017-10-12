@@ -33,7 +33,6 @@ namespace UFCW.Views.Pages.Inbox
                     {
                         viewModel.Subject =  inboxMessage.Subject;
                     }
-					
                 }
                
             }

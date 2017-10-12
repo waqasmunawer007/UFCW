@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="UFCW.Views.Pages.Inbox.InboxPage"
     Icon="tabs0_icon"
+    Padding="10"
     Title="Inbox">
 	<ContentPage.Content>
         <StackLayout VerticalOptions = "FillAndExpand" Padding="0,0,0,0" BackgroundColor="{DynamicResource BasePageColor}" HorizontalOptions = "FillAndExpand" Orientation="Vertical">

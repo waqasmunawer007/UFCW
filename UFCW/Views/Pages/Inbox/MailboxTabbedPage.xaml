@@ -4,6 +4,7 @@
     BackgroundColor="{DynamicResource BaseTabbedPageColor}"
     xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
     xmlns:local="clr-namespace:UFCW;assembly=UFCW"
+
     x:Class="UFCW.Views.Pages.Inbox.MailboxTabbedPage">
 
 </TabbedPage>
