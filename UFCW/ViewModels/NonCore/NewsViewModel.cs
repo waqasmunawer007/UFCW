@@ -3,9 +3,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using UFCW.Constants;
 using UFCW.Helpers;
 using UFCW.Services.Models.NonCore;
 using UFCW.Services.Services.NonCore;
+using Xamarin.Forms;
 
 namespace UFCW.ViewModels
 {
@@ -59,15 +61,20 @@ namespace UFCW.ViewModels
             this.NewsList.Clear();
             var service = new NonCoreService();
             NonCoreResponse responseData = await service.FetchPublicNonCoreData();
-            if (responseData != null)
-            {
-                foreach(News news in responseData.News)
-                {
 
-                    this.NewsList.Add(news);
-                }
-            }
-            IsBusy = false;
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
+			{
+				foreach (News news in responseData.News)
+				{
+					this.NewsList.Add(news);
+				}
+				IsBusy = false;
+			}
+			else
+			{
+				IsBusy = false;
+				await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
 		}
 
         /// <summary>
@@ -80,15 +87,19 @@ namespace UFCW.ViewModels
 			this.NewsList.Clear();
 			var service = new NonCoreService();
             NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
-			if (responseData != null)
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
 				foreach (News news in responseData.News)
 				{
-
 					this.NewsList.Add(news);
 				}
+				IsBusy = false;
 			}
-			IsBusy = false;
+			else
+			{
+				IsBusy = false;
+				await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
 		}
 
 

@@ -72,15 +72,20 @@ namespace UFCW.ViewModels.NonCore
             this.DocumentList.Clear();
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchPublicNonCoreData();
-			if (responseData != null)
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
-                foreach (Document document in responseData.Documents)
+				foreach (Document document in responseData.Documents)
 				{
 
-                    this.DocumentList.Add(document);
+					this.DocumentList.Add(document);
 				}
+				IsBusy = false;
 			}
-			IsBusy = false;
+			else
+			{
+				IsBusy = false;
+				await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
 		}
 
         /// <summary>
@@ -93,15 +98,20 @@ namespace UFCW.ViewModels.NonCore
 			this.DocumentList.Clear();
 			var service = new NonCoreService();
             NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
-			if (responseData != null)
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
 				foreach (Document document in responseData.Documents)
 				{
 
 					this.DocumentList.Add(document);
 				}
+				IsBusy = false;
 			}
-			IsBusy = false;
+			else
+			{
+				IsBusy = false;
+				await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
 		}
 
 

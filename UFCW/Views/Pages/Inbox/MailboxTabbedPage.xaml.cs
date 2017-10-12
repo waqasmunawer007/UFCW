@@ -10,9 +10,10 @@ namespace UFCW.Views.Pages.Inbox
         public MailboxTabbedPage()
         {
             InitializeComponent();
-            Children.Add(new ComposeMessagePage());
             Children.Add(new InboxPage());
             Children.Add(new SentMessagePage());
+            Children.Add(new ComposeMessagePage());
+
         }
     }
 }

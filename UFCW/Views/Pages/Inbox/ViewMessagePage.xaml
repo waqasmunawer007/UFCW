@@ -2,55 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:m ="clr-namespace:UFCW.Converters" 
+    xmlns:local="clr-namespace:UFCW;assembly=UFCW"
     xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
     x:Class="UFCW.Views.Pages.Inbox.ViewMessagePage">
      <ContentPage.Resources>
         <ResourceDictionary>
-            <m:DatetimeToStringConverter x:Key="DateConverter"></m:DatetimeToStringConverter>
+             <local:HTMLSourceConverter x:Key="htmlSource" ></local:HTMLSourceConverter>
+            <m:DateTimFormatConverter x:Key="DateConverter"></m:DateTimFormatConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
 	<ContentPage.Content>
         <ScrollView Orientation="Vertical" >
-            <StackLayout Orientation = "Vertical"  Padding="0,0,0,10">
+            <StackLayout Orientation = "Vertical"  Padding="10,0,0,10">
              <!--<Label Font="Bold" Margin="10,0,0,0" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }" FontSize="{DynamicResource BaseFontSize}" Text="{Binding DraftCheckNumber , StringFormat='Check #  {0:N}'}"/>-->
               <!--<BoxView WidthRequest="1000" HeightRequest="1" BackgroundColor="{ DynamicResource BaseTextColor }" />-->
                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
-                <Grid 
-                    x:Name="MessageGrid"
-                    ColumnSpacing="1" 
-                    RowSpacing="5" 
-                    Padding="10,0,10,10"
-                    VerticalOptions="Start"  >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+               <!-- Date -->
+                <StackLayout Orientation = "Horizontal"  Padding="0,0,0,0">
+                 <Label  Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Date:"/>
+                 <Label  HorizontalTextAlignment="Start" Margin="10,10,0,10" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" TextColor="{ DynamicResource DetailLabelHeaderColor }"  Text="{Binding DateCreated,Converter={StaticResource DateConverter}}"/>
+                </StackLayout>
 
-                    <Label Grid.Row="0" Grid.Column="0" Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Date:"/>
-                    <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding DateCreated,Converter={StaticResource DateConverter}}"/>
-                    
-                    <Label Grid.Row="1" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="From:"/>
-                    <Label Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"  VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding FromDescription}"/>                        
-                   
-                    <Label Grid.Row="2" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Subject:"/>
-                    <Label Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"  FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Subject}"/>
+                <!-- From -->
+                <StackLayout Orientation = "Horizontal"  Padding="0,0,0,0">
+                 <Label  Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="From:"/>
+                 <Label  HorizontalTextAlignment="Start" Margin="10,10,0,10" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" TextColor="{ DynamicResource DetailLabelHeaderColor }"  Text="{Binding FromDescription}"/>
+                </StackLayout>
 
-                    <Label Grid.Row="3" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center"  TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="To:"/>
-                    <Label Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding ToDescription}"/>
+                 <!-- From -->
+                <StackLayout Orientation = "Horizontal"  Padding="0,0,0,0">
+                 <Label  Font="Bold" FontSize="16" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="To:"/>
+                 <Label  HorizontalTextAlignment="Start" Margin="10,10,0,10" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  FontSize="{DynamicResource BaseTitleValueSize}" TextColor="{ DynamicResource DetailLabelHeaderColor }"  Text="{Binding ToDescription}"/>
+                </StackLayout>
 
-                    <Label Grid.Row="4" Grid.Column="0" Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Message:"/>
-                    <Label Grid.Row="4" Grid.Column="1" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{ DynamicResource BaseTextColor }"   FontSize="{DynamicResource BaseTitleValueSize}" Text="{Binding Body}"/>
-                </Grid>
+                <!-- Message -->
+                <Label Font="Bold" FontSize="{DynamicResource BaseTitleFontSize}" VerticalTextAlignment="Center" TextColor="{ DynamicResource DetailLabelHeaderColor }" Text="Message:"/>
+                <WebView  VerticalOptions="Start" HeightRequest = "100" Margin="0,0,0,0" HorizontalOptions="FillAndExpand"  Source="{Binding Body, Converter={StaticResource htmlSource}}" />
+              
                 <artina:Button
                     Style="{DynamicResource PrimaryActionButtonStyle}"
                     x:Name="ReplyButton"
                     Text="Reply"
                     HorizontalOptions="End"
                     Clicked="Handle_Clicked"
-                    Margin="0,0,10,0"
+                    Margin="0,10,10,0"
                     FontSize="11"
                     WidthRequest="80"
                 />

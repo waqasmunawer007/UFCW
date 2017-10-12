@@ -3,9 +3,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using UFCW.Constants;
 using UFCW.Helpers;
 using UFCW.Services.Models.NonCore;
 using UFCW.Services.Services.NonCore;
+using Xamarin.Forms;
 
 namespace UFCW.ViewModels.NonCore
 {
@@ -58,15 +60,20 @@ namespace UFCW.ViewModels.NonCore
 			IsBusy = true;
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchPublicNonCoreData();
-			if (responseData != null)
+            if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
                 foreach (NewsLetter newsLetter in responseData.NewsLetters)
                 {
 
                     this.NewsLetterList.Add(newsLetter);
                 }
+                IsBusy = false;
 			}
-			IsBusy = false;
+			else
+			{
+				IsBusy = false;
+				await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
 		}
 	
         /// <summary>
@@ -79,16 +86,20 @@ namespace UFCW.ViewModels.NonCore
 			IsBusy = true;
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
-			if (responseData != null)
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
 				foreach (NewsLetter newsLetter in responseData.NewsLetters)
 				{
 
-                    this.NewsLetterList.Add(newsLetter);
+					this.NewsLetterList.Add(newsLetter);
 				}
-
+				IsBusy = false;
 			}
-			IsBusy = false;
+			else
+			{
+				IsBusy = false;
+				await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
 		}
 		/// <summary>
 		/// Ons the property changed.

@@ -5,6 +5,8 @@ using UFCW.ViewModels.NonCore;
 using Xamarin.Forms;
 using UFCW.Services;
 using Xamarin.CustomControls;
+using UFCW.Services.Models.NonCore;
+using UFCW.Constants;
 
 namespace UFCW.Views
 {
@@ -31,13 +33,32 @@ namespace UFCW.Views
 			GoogleAnalytics.Current.Tracker.SendView("NonCore FAQ Page");
 			if (ifPublicFAQRequest)
 			{
-                await viewModel.FetchPublicFAQ();
-				ShowExpandableData();
+                NonCoreResponse responseData = await viewModel.FetchPublicFAQ();
+                if (responseData != null && String.IsNullOrEmpty(responseData.Message))
+                { 
+                    ShowExpandableData();
+                }
+                else
+                {
+					progressIndicator.IsVisible = false;
+					progressIndicator.IsRunning = false;
+					await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");  
+                }
+				
 			}
 			else
 			{
-                await viewModel.FetchAuthFAQ();
-				ShowExpandableData();
+				NonCoreResponse responseData = await viewModel.FetchAuthFAQ();
+				if (responseData != null && String.IsNullOrEmpty(responseData.Message))
+				{
+					ShowExpandableData();
+				}
+				else
+				{
+					progressIndicator.IsVisible = false;
+					progressIndicator.IsRunning = false;
+                    await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+				}
 			}
 		}
 

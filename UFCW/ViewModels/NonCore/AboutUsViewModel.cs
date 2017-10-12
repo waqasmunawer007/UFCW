@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Constants;
 using UFCW.Helpers;
 using UFCW.Services.Models.NonCore;
 using UFCW.Services.Services.NonCore;
+using Xamarin.Forms;
 
 namespace UFCW.ViewModels.NonCore
 {
@@ -52,9 +54,13 @@ namespace UFCW.ViewModels.NonCore
 		{
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchPublicNonCoreData();
-			if (responseData != null)
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
-                URL = responseData.AboutUS;
+				URL = responseData.AboutUS;
+			}
+			else
+			{
+				await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
 			}
 	     }
         /// <summary>
@@ -65,10 +71,15 @@ namespace UFCW.ViewModels.NonCore
 		{
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
-			if (responseData != null)
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
-				URL = responseData.AboutUS;
+                URL = responseData.AboutUS;
 			}
+			else
+			{
+				await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
+
 		}
 
 

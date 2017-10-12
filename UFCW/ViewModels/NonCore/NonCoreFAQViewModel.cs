@@ -2,10 +2,12 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using UFCW.Constants;
 using UFCW.Helpers;
 using UFCW.Services;
 using UFCW.Services.Models.NonCore;
 using UFCW.Services.Services.NonCore;
+using Xamarin.Forms;
 
 namespace UFCW.ViewModels.NonCore
 {
@@ -52,41 +54,55 @@ namespace UFCW.ViewModels.NonCore
 		/// Fetchs the public links.
 		/// </summary>
 		/// <returns>The public links.</returns>
-		public async Task FetchPublicFAQ()
+		public async Task<NonCoreResponse> FetchPublicFAQ()
 		{
             this.FAQList.Clear();
 			IsBusy = true;
            var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchPublicNonCoreData();
-			if (responseData != null)
+
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
-                foreach (FAQ faq in responseData.FAQ)
+				foreach (FAQ faq in responseData.FAQ)
 				{
 
-                    this.FAQList.Add(faq);
+					this.FAQList.Add(faq);
 				}
+				IsBusy = false;
 			}
-			IsBusy = false;
+			else
+			{
+				IsBusy = false;
+				//await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
+            return responseData;
 		}
 
 		/// <summary>
 		/// Fetchs the auth news letter.
 		/// </summary>
 		/// <returns>The auth news letter.</returns>
-		public async Task FetchAuthFAQ()
+		public  async Task<NonCoreResponse>  FetchAuthFAQ()
 		{
             this.FAQList.Clear();
 			IsBusy = true;
 			var service = new NonCoreService();
 			NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
-			if (responseData != null)
+			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
-                foreach (FAQ faq in responseData.FAQ)
+				foreach (FAQ faq in responseData.FAQ)
 				{
-                    this.FAQList.Add(faq);
+
+					this.FAQList.Add(faq);
 				}
+				IsBusy = false;
 			}
-			IsBusy = false;
+			else
+			{
+				IsBusy = false;
+				//await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, responseData.Message, "OK");
+			}
+            return responseData;
 		}
 		/// <summary>
 		/// Ons the property changed.

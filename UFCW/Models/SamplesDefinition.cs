@@ -142,7 +142,7 @@ namespace UFCW
             }
 
             samplesList.Add(new Sample("Claims", typeof(SearchClaimPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.InsertFile));
-            samplesList.Add(new Sample("Messages", typeof(MailboxTabbedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Email));
+            samplesList.Add(new Sample("Mailbox", typeof(MailboxTabbedPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Email));
             samplesList.Add(new Sample("News Letter", typeof(NewsLetterPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Copy));
             samplesList.Add(new Sample("Documents", typeof(NonCoreDocument), SampleData.LoginImageGalleryItems[0], FontAwesomeFont.Folder));
             samplesList.Add(new Sample("Links", typeof(LinksPage), SampleData.LoginImageGalleryItems[0], GrialShapesFont.Public));
@@ -455,8 +455,8 @@ namespace UFCW
                     IconColor = Color.FromHex(_categoriesColors[0]),
                     Badge = 5,
                     Shape = GrialShapesFont.Circle,
-                    //page = new NewsPage() { ifPublicNewsRequest = true }
-                    page = new InboxPage() { ifPublicNewsRequest = true }
+                    page = new NewsPage() { ifPublicNewsRequest = true }
+                    
                 }
             );
 

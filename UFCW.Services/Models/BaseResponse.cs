@@ -10,7 +10,7 @@ namespace UFCW.Services.Models
 		public int ErrorCode { get; set; }
 		public string ErrorText { get; set; }
 		public string ErrorDetails { get; set; }
-
+        public string Message { get; set; }
         public BaseResponse() {}
     }
 }
