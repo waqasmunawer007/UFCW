@@ -22,7 +22,6 @@ namespace UFCW.ViewModels.Inbox
         public ICommand InboxMessageCommand { get; set; }
         public ICommand SentMessageCommand { get; set; }
         INavigation Navigation;
-
 		public InboxViewModel(INavigation pageNav)
         {
 			inboxMessagesList = new ObservableCollection<InBoxMessage>();

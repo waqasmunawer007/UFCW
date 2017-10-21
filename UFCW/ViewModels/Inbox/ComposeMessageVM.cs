@@ -8,6 +8,7 @@ using UFCW.Constants;
 using UFCW.Helpers;
 using UFCW.Services.Models.Inbox;
 using UFCW.Services.Services.Inbox;
+using UFCW.Views.Pages.Inbox;
 using Xamarin.Forms;
 
 namespace UFCW.ViewModels.Inbox
@@ -15,7 +16,7 @@ namespace UFCW.ViewModels.Inbox
 	public class ComposeMessageVM : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-
+        ComposeMessagePage composeMessagePage;
 		private bool isBusy = false;
 		public ICommand ComposeMessageCommand { get; set; }
 		INavigation Navigation;
@@ -24,9 +25,10 @@ namespace UFCW.ViewModels.Inbox
         private string messageBody;
         int toContactSelectedIndex;
 
-		public ComposeMessageVM(INavigation nav) 
+		public ComposeMessageVM(INavigation nav,ComposeMessagePage composeMessagePage) 
         {
             Navigation = nav;
+            this.composeMessagePage = composeMessagePage;
             toConatacts = new ObservableCollection<AdminMailbox>();
 			
 			ComposeMessageCommand = new Command(async (e) =>
@@ -147,18 +149,28 @@ namespace UFCW.ViewModels.Inbox
 			IsBusy = true;
 			var service = new InboxService();
             SendMessageResponse message = await service.SendMessage(parameters);
+            IsBusy = false;
             if (message.MessageSent)
 			{
-				Subject = "";
-				MessageBody = "";
-				ToContactSelectedIndex = 0;
+				//Subject = "";
+				//MessageBody = "";
+				//ToContactSelectedIndex = 0;
 			    await Application.Current.MainPage.DisplayAlert("", AppConstants.COMPOSE_EAMIl_SENT, "OK");
+                var masterTabbedPage = this.composeMessagePage.Parent as MailboxTabbedPage;
+                if (masterTabbedPage != null)
+                {
+                   masterTabbedPage.CurrentPage = masterTabbedPage.Children[0]; 
+                }
+                else
+                {
+				    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);	
+					await Navigation.PopAsync(); //return back to Inbox view
+                }
 			}
             else
             {
                 await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_MESSAGE, AppConstants.ERROR_MESSAGE, "OK"); 
             }
-			IsBusy = false;
 			return message;
 		}
 

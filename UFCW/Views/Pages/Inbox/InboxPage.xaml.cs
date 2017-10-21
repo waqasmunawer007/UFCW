@@ -31,6 +31,7 @@ namespace UFCW.Views.Pages.Inbox
 		}
 		public async void FetchMailbox()
 		{
+            
 			inboxVM.IsBusy = true;
             MailboxResponse messages = await inboxVM.FetchMessagesList();
             if (messages != null && messages.InBoxMessages.Count > 0)

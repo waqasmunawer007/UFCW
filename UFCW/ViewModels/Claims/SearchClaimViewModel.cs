@@ -380,13 +380,22 @@ namespace UFCW
 
 			var claimService = new ClaimService();
 		    ClaimSearchResponse searchedClaims = await claimService.SearchClaim(parameters);
-            if (searchedClaims != null)
+            if (searchedClaims != null && String.IsNullOrEmpty(searchedClaims.Message))
             {
-                TotalPages = searchedClaims.RecordsFiltered;
-				foreach (ClaimDetail d in searchedClaims.Data)
-				{
-					this.SearchedClaimsList.Add(d);
-				}
+                if (searchedClaims.Data.Count > 0)
+                {
+					TotalPages = searchedClaims.RecordsFiltered;
+					foreach (ClaimDetail d in searchedClaims.Data)
+					{
+						this.SearchedClaimsList.Add(d);
+					}
+                }
+                else
+                {
+					IsBusy = false;
+                    await Application.Current.MainPage.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, "OK"); 
+                }
+
 
             }
             IsBusy = false;

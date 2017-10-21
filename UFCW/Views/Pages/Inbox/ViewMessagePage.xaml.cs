@@ -27,7 +27,7 @@ namespace UFCW.Views.Pages.Inbox
 		protected async override void OnAppearing()
 		{
 			base.OnAppearing();
-           message = await viewModel.GetMessage(messageId);
+            message = await viewModel.GetMessage(messageId);
 			BindingContext = message;
 			GoogleAnalytics.Current.Tracker.SendView("View Message Page Opened");
 		}

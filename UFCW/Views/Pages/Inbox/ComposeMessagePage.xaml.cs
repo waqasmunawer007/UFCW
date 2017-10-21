@@ -11,12 +11,12 @@ namespace UFCW.Views.Pages.Inbox
     {
         ComposeMessageVM viewModel;
         private InBoxMessage inboxMessage = null;
-        AdminMailbox mailbox = null;
+
         public ComposeMessagePage(InBoxMessage inboxMessage)
         {
             InitializeComponent();
             this.inboxMessage = inboxMessage;
-            viewModel = new ComposeMessageVM(Navigation);
+            viewModel = new ComposeMessageVM(Navigation,this);
             BindingContext = viewModel;
 
             if (inboxMessage != null)

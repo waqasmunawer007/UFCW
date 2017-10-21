@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace UFCW.Services.Models.ActivePension
 {
-    public class Profile
+    public class Profile:BaseResponse
     {
 		[JsonProperty(PropertyName = "PARTICIPANT_ID")]
 		public string ParticipantID { get; set; }
@@ -30,7 +30,7 @@ namespace UFCW.Services.Models.ActivePension
         [JsonProperty(PropertyName = "GENDER")]
         public string Gender { get; set; }
 		[JsonProperty(PropertyName = "IS_ADMIN_APPROVED")]
-		public bool IsAdminApproved { get; set; }
+		public string IsAdminApproved { get; set; }
 
         public string Name
         {
