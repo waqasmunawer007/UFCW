@@ -97,7 +97,7 @@ namespace UFCW.ViewModels.NonCore
 			IsBusy = true;
 			this.DocumentList.Clear();
 			var service = new NonCoreService();
-            NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
+            NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN,Settings.UserEmail);
 			if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
 				foreach (Document document in responseData.Documents)

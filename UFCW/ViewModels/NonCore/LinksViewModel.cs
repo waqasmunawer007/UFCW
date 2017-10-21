@@ -103,7 +103,7 @@ namespace UFCW.ViewModels.NonCore
 			this.LinksList.Clear();
 			IsBusy = true;
 			var service = new NonCoreService();
-			NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN);
+			NonCoreResponse responseData = await service.FetchAuthNonCoreData(Settings.UserToken, Settings.UserSSN,Settings.UserEmail);
             if (responseData != null && String.IsNullOrEmpty(responseData.Message))
 			{
 				foreach (LinkResponse link in responseData.Links)

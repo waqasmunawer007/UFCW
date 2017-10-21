@@ -42,7 +42,7 @@ namespace UFCW.ViewModels.Eligibility
 		public async Task<CheckIssued[]> FetchChecksIssued()
 		{
 			var beniftisService = new EligibilityService();
-            return await beniftisService.FetchChecksIssued(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
+            return await beniftisService.FetchChecksIssued();
 		}
 
 		/// <summary>

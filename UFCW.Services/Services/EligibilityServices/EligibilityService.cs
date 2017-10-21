@@ -11,6 +11,7 @@ using System.Text;
 using UFCW.Services.Services.EligibilityServices;
 using UFCW.Services.Models.Eligibility;
 using UFCW.Services.Models.Eligibility.Benifits;
+using UFCW.Helpers;
 
 namespace UFCW.Services.UserService
 {
@@ -23,12 +24,12 @@ namespace UFCW.Services.UserService
        /// <param name="Token">Token.</param>
        /// <param name="SSN">Ssn.</param>
        /// <param name="Email">Email.</param>
-        public async Task<TimeLoss[]> FetchTimeLoss(string Token, string SSN, string Email)
+        public async Task<TimeLoss[]> FetchTimeLoss()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add(WebApiConstants.TOKEN, Token);
-            parameters.Add(WebApiConstants.SSN, SSN);
-            parameters.Add(WebApiConstants.EMAIL, Email);
+            parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+            parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -54,13 +55,12 @@ namespace UFCW.Services.UserService
 		/// <param name="token">Token.</param>
 		/// <param name="SSN">Ssn.</param>
 		/// <param name="email">Email.</param>
-        public async Task<Benifits[]> FetchUserBenifits(string token, string SSN, string email)
+        public async Task<Benifits[]> FetchUserBenifits()
 		{
             Debug.WriteLine("Timeout: " + client.Timeout);
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, SSN);
-            parameters.Add(WebApiConstants.EMAIL, email);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
@@ -87,12 +87,12 @@ namespace UFCW.Services.UserService
 		/// <param name="token">Token.</param>
 		/// <param name="SSN">Ssn.</param>
 		/// <param name="email">Email.</param>
-		public async Task<CheckIssued[]> FetchChecksIssued(string token, string SSN, string email)
+		public async Task<CheckIssued[]> FetchChecksIssued()
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, SSN);
-			parameters.Add(WebApiConstants.EMAIL, email);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
@@ -118,12 +118,12 @@ namespace UFCW.Services.UserService
 		/// <param name="token">Token.</param>
 		/// <param name="SSN">Ssn.</param>
 		/// <param name="email">Email.</param>
-        public async Task<Dependant[]> FetchDependents(string token, string SSN, string email)
+        public async Task<Dependant[]> FetchDependents()
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, SSN);
-			parameters.Add(WebApiConstants.EMAIL, email);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, WebApiConstants.API_MEDIA_TYPE);
@@ -149,11 +149,12 @@ namespace UFCW.Services.UserService
         /// <param name="SSN">Ssn.</param>
         /// <param name="pageNumber">Page number.</param>
         /// <param name="pageSize">Page size.</param>
-        public async Task<EligibilityReportResponse> FetchEligibilityReport(string Token, string SSN, int pageNumber, int pageSize)
+        public async Task<EligibilityReportResponse> FetchEligibilityReport(int pageNumber, int pageSize)
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
             parameters.Add(WebApiConstants.PageNumber, pageNumber);
             parameters.Add(WebApiConstants.PageSize, pageSize);
 			try
@@ -180,11 +181,11 @@ namespace UFCW.Services.UserService
         /// <param name="Token">Token.</param>
         /// <param name="SSN">Ssn.</param>
         /// <param name="EligibilityID">Eligibility identifier.</param>
-        public async Task<EligibilityDetail> FetchEligibilityDetail(string Token, string SSN, string EligibilityID)
+        public async Task<EligibilityDetail> FetchEligibilityDetail(string EligibilityID)
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
             parameters.Add(WebApiConstants.EligibilityID,EligibilityID );
 			try
 			{

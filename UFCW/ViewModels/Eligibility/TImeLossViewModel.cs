@@ -68,7 +68,7 @@ namespace UFCW.ViewModels
         public async Task<TimeLoss[]> GetTimeLoss()
         {
 			var eligibilityService = new EligibilityService();
-            timeLossServerResponse = await eligibilityService.FetchTimeLoss(Settings.UserToken, Settings.UserSSN,Settings.UserEmail);
+            timeLossServerResponse = await eligibilityService.FetchTimeLoss();
             return timeLossServerResponse;
         }
     }

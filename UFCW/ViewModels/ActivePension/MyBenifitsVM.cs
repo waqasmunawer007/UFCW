@@ -60,7 +60,7 @@ namespace UFCW.ViewModels.ActivePension
 		public async Task<MyBenifits> FetchBenifits()
 		{
 			var pensionService = new ActivePensionService();
-            benifits = await pensionService.FetchBenifits(Settings.UserToken, Settings.UserSSN);;
+            benifits = await pensionService.FetchBenifits();;
             return benifits;
 		}
 		/// <summary>

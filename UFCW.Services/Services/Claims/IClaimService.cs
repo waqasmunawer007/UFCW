@@ -7,10 +7,10 @@ namespace UFCW.Services.Services.Claims
 {
     public interface IClaimService
     {
-        Task<FAQ[]> FetchFAQ(string token, string ssn);
-		Task<ClaimFilters> FetchSearchFilters(string token, string ssn);
+        Task<FAQ[]> FetchFAQ();
+		Task<ClaimFilters> FetchSearchFilters();
 		Task<ClaimSearchResponse> SearchClaim(Dictionary<string, object> parameters);
-		Task<ClaimDetail[]> FetchClaimDetail(string token, string ssn,string claimNumber);
-		Task<ClaimDetail[]> FetchClaimEOB(string token, string ssn, string claimNumber);
+		Task<ClaimDetail[]> FetchClaimDetail(string claimNumber);
+		Task<ClaimDetail[]> FetchClaimEOB(string claimNumber);
     }
 }

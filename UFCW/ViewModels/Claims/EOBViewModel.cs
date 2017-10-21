@@ -37,11 +37,11 @@ namespace UFCW.ViewModels.Claims
 			}
 		}
 
-		public async Task<ClaimDetail[]> FetchChecksIssued()
-		{
-			var service = new ClaimService();
-            return await service.FetchClaimEOB(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
-		}
+		//public async Task<ClaimDetail[]> FetchChecksIssued()
+		//{
+		//	var service = new ClaimService();
+  //          return await service.FetchClaimEOB(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
+		//}
 
 		/// <summary>
 		/// Ons the property changed.

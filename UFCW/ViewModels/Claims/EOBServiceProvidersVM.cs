@@ -37,39 +37,11 @@ namespace UFCW.ViewModels.Claims
 				}
 			}
 		}
-
         public async Task<ClaimDetail[]> FetchEOBDetails(string claimNumber)
 		{
 			var service = new ClaimService();
-            //return await service.FetchClaimEOB(Settings.UserToken, Settings.UserSSN, claimNumber);
-            return GetTempServiceProviders();
+            return await service.FetchClaimEOB(claimNumber);
 		}
-
-        ClaimDetail[] GetTempServiceProviders()
-        {
-            ClaimDetail[] list = new ClaimDetail[2];
-
-			ClaimDetail detail = new ClaimDetail();
-			detail.CLAIM_NUMBER = 123123;
-			detail.INSURED_INITIALS = "UMAR";
-			detail.PATIENT = "SELF";
-			detail.COV_TO_DATE = "11/9/2005";
-			detail.DEP_TYPE = "Detail?";
-			detail.CHARGES = "9876";
-			list[0] = detail; 
-
-            ClaimDetail detail2 = new ClaimDetail();
-			detail2.CLAIM_NUMBER = 345678;
-			detail2.INSURED_INITIALS = "UMAR";
-			detail2.PATIENT = "SELF";
-			detail2.COV_TO_DATE = "11/9/2005";
-			detail2.DEP_TYPE = "Detail?";
-			detail2.CHARGES = "9876";
-			list[1] = detail2;
-
-            return list;
-        }
-
 		/// <summary>
 		/// Ons the property changed.
 		/// </summary>

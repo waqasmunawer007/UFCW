@@ -62,7 +62,7 @@ namespace UFCW.ViewModels.ActivePension
 		public async Task<Profile> FetchProfile()
 		{
 			var pensionService = new ActivePensionService();
-            _profile = await pensionService.FetchProfile(Settings.UserToken, Settings.UserSSN);
+            _profile = await pensionService.FetchProfile();
             return _profile;
 		}
 

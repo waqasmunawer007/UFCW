@@ -74,7 +74,7 @@ namespace UFCW.ViewModels.Eligibility
 		{
             IsBusy = true;
 			var eligibilityService = new EligibilityService();
-            EligibilityDetail detail = await eligibilityService.FetchEligibilityDetail(Settings.UserToken, Settings.UserSSN, eligibilityId);
+            EligibilityDetail detail = await eligibilityService.FetchEligibilityDetail(eligibilityId);
 			if (detail != null)
 			{
                 this.EligibilityDetail = detail;

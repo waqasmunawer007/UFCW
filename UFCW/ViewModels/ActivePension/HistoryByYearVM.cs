@@ -45,7 +45,7 @@ namespace UFCW.ViewModels.ActivePension
         public async Task<HistoryByYear[]> FetchHistoryByYear()
 		{
 			var service = new ActivePensionService();
-            return await service.FetchHistoryByYear(Settings.UserToken, Settings.UserSSN);
+            return await service.FetchHistoryByYear();
 		}
 
 		/// <summary>

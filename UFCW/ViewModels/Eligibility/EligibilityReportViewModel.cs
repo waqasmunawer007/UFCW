@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using UFCW.Constants;
 using UFCW.Helpers;
 using UFCW.Services.Models.Eligibility;
 using UFCW.Services.UserService;
@@ -117,15 +118,27 @@ namespace UFCW.ViewModels.Eligibility
 		public async Task FetchEligibilityReport()
 		{
 			var eligibilityService = new EligibilityService();
-            EligibilityReportResponse reportData = await eligibilityService.FetchEligibilityReport(Settings.UserToken, Settings.UserSSN, pageNumber, PageSize);
-			if (reportData != null)
+            EligibilityReportResponse reportData = await eligibilityService.FetchEligibilityReport(pageNumber, PageSize);
+			if (reportData != null && String.IsNullOrEmpty(reportData.Message))
 			{
-				TotalPages = reportData.RecordsFiltered;
-                foreach (Eligibilty e in reportData.data)
-				{
-					this.EligibilityReportData.Add(e);
-				}
+                if (reportData.data.Count > 0)
+                {
+					TotalPages = reportData.RecordsFiltered;
+					foreach (Eligibilty e in reportData.data)
+					{
+						this.EligibilityReportData.Add(e);
+					}  
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("", AppConstants.Empty_Data_MESSAGE, "OK"); 
+                }
+				
 			}
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert(AppConstants.ERROR_TITLE, reportData.Message, "OK");
+            }
 		}
 
 		/// <summary>

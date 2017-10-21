@@ -40,7 +40,7 @@ namespace UFCW.ViewModels.Eligibility
         public async Task<Dependant[]> FetchDependents()
 		{
 			var eligibilityService = new EligibilityService();
-            return await eligibilityService.FetchDependents(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
+            return await eligibilityService.FetchDependents();
 		}
 
 		/// <summary>

@@ -41,7 +41,7 @@ namespace UFCW.ViewModels.ActivePension
 		public async Task<HistoryByEmployer[]> FetchHistoryByEmployer()
 		{
             var service = new ActivePensionService();
-            return await service.FetchHistoryByEmployer(Settings.UserToken, Settings.UserSSN);
+            return await service.FetchHistoryByEmployer();
 		}
 		/// <summary>
 		/// Ons the property changed.

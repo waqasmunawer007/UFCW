@@ -37,7 +37,7 @@ namespace UFCW.ViewModels
         public async Task<Benifits[]> FetchBenifits()
 		{
 			var eligibilityService = new EligibilityService();
-            return await eligibilityService.FetchUserBenifits(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
+            return await eligibilityService.FetchUserBenifits();
 		}
 
 		/// <summary>

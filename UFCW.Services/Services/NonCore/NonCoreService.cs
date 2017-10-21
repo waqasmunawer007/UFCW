@@ -19,11 +19,11 @@ namespace UFCW.Services.Services.NonCore
         /// <returns>The auth non core data.</returns>
         /// <param name="token">Token.</param>
         /// <param name="ssn">Ssn.</param>
-        public async Task<NonCoreResponse> FetchAuthNonCoreData(string token, string ssn)
+        public async Task<NonCoreResponse> FetchAuthNonCoreData(string token, string ssn,string email)
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, ssn);
+            parameters.Add(WebApiConstants.EMAIL, email);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");

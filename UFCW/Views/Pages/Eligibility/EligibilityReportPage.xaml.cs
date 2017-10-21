@@ -39,7 +39,6 @@ namespace UFCW
             base.OnDisappearing();
 			viewModel.ResetData();
         }
-
 		public async void GetEligibilityReport()
 		{
             viewModel.ResetData();

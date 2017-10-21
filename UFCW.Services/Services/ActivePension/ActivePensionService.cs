@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UFCW.Constants;
+using UFCW.Helpers;
 using UFCW.Services.Models.ActivePension;
 
 namespace UFCW.Services.Services.ActivePension
@@ -16,13 +17,11 @@ namespace UFCW.Services.Services.ActivePension
         /// Fetchs the benifits.
         /// </summary>
         /// <returns>The benifits.</returns>
-        /// <param name="Token">Token.</param>
-        /// <param name="SSN">Ssn.</param>
-        public async Task<MyBenifits> FetchBenifits(string Token, string SSN)
+        public async Task<MyBenifits> FetchBenifits()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+            parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+            parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -39,17 +38,15 @@ namespace UFCW.Services.Services.ActivePension
             return null;
         }
 
-        /// <summary>
-        /// Fetchs the current year contribution.
-        /// </summary>
-        /// <returns>The current year contribution.</returns>
-        /// <param name="Token">Token.</param>
-        /// <param name="SSN">Ssn.</param>
-        public async Task<CurrentYearContribution> FetchCurrentYearContribution(string Token, string SSN)
+       /// <summary>
+       /// Fetchs the current year contribution.
+       /// </summary>
+       /// <returns>The current year contribution.</returns>
+        public async Task<CurrentYearContribution> FetchCurrentYearContribution()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -64,18 +61,15 @@ namespace UFCW.Services.Services.ActivePension
             }
             return null;
         }
-
         /// <summary>
         /// Fetchs the documents.
         /// </summary>
         /// <returns>The documents.</returns>
-        /// <param name="Token">Token.</param>
-        /// <param name="SSN">Ssn.</param>
-        public async Task<PlanDocument[]> FetchDocuments(string Token, string SSN)
+        public async Task<PlanDocument[]> FetchDocuments()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -94,17 +88,15 @@ namespace UFCW.Services.Services.ActivePension
             return null;
         }
 
-        /// <summary>
-        /// Fetchs the history by emploer.
-        /// </summary>
-        /// <returns>The history by emploer.</returns>
-        /// <param name="Token">Token.</param>
-        /// <param name="SSN">Ssn.</param>
-        public async Task<HistoryByEmployer[]> FetchHistoryByEmployer(string Token, string SSN)
+       /// <summary>
+       /// Fetchs the history by employer.
+       /// </summary>
+       /// <returns>The history by employer.</returns>
+        public async Task<HistoryByEmployer[]> FetchHistoryByEmployer()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -127,13 +119,11 @@ namespace UFCW.Services.Services.ActivePension
         /// Fetchs the history by year.
         /// </summary>
         /// <returns>The history by year.</returns>
-        /// <param name="Token">Token.</param>
-        /// <param name="SSN">Ssn.</param>
-        public async Task<HistoryByYear[]> FetchHistoryByYear(string Token, string SSN)
+        public async Task<HistoryByYear[]> FetchHistoryByYear()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -153,17 +143,15 @@ namespace UFCW.Services.Services.ActivePension
             return null;
         }
 
-        /// <summary>
-        /// Fetchs the profile.
-        /// </summary>
-        /// <returns>The profile.</returns>
-        /// <param name="Token">Token.</param>
-        /// <param name="SSN">Ssn.</param>
-        public async Task<Profile> FetchProfile(string Token, string SSN)
+       /// <summary>
+       /// Fetchs the profile.
+       /// </summary>
+       /// <returns>The profile.</returns>
+        public async Task<Profile> FetchProfile()
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");

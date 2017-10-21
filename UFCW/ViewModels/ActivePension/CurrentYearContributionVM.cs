@@ -62,7 +62,7 @@ namespace UFCW.ViewModels.ActivePension
 		public async Task<CurrentYearContribution> FetchCurrentYearContribution()
 		{
 			var pensionService = new ActivePensionService();
-            currentYearContribution = await pensionService.FetchCurrentYearContribution(Settings.UserToken, Settings.UserSSN);
+            currentYearContribution = await pensionService.FetchCurrentYearContribution();
             return currentYearContribution;
 		}
 

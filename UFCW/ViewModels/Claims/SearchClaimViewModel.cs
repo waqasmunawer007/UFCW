@@ -304,7 +304,7 @@ namespace UFCW
             this.PatientTypes.Clear();
 
 			var claimService = new ClaimService();
-            ClaimFilters filters = await claimService.FetchSearchFilters(Settings.UserToken, Settings.UserSSN);
+            ClaimFilters filters = await claimService.FetchSearchFilters();
 			if (filters != null)
 			{
                 ClaimType emptyClaimType = new ClaimType()
@@ -367,7 +367,7 @@ namespace UFCW
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
-			parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
+            parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
 			parameters.Add(WebApiConstants.ClaimType, claimType);
 			parameters.Add(WebApiConstants.ClaimStatus, claimStatus);
 			parameters.Add(WebApiConstants.SearchDate, searchDate);
@@ -375,17 +375,6 @@ namespace UFCW
 			parameters.Add(WebApiConstants.SearchDependent, searchDependent);
 			parameters.Add(WebApiConstants.PageNumber, pageNumber);
 			parameters.Add(WebApiConstants.PageSize, PageSize);
-
-            //Todo remove this code once the search works with dynamic search criteria
-			//parameters.Add(WebApiConstants.TOKEN, "0494");
-			//parameters.Add(WebApiConstants.SSN, "254049432");
-			//parameters.Add(WebApiConstants.ClaimType,"MED");
-			//parameters.Add(WebApiConstants.ClaimStatus,"I");
-			//parameters.Add(WebApiConstants.SearchDate,"2003-01-11 - 2017-01-11");
-			//parameters.Add(WebApiConstants.SearchPatient,"");
-			//parameters.Add(WebApiConstants.SearchDependent,"");
-			//parameters.Add(WebApiConstants.PageNumber, pageNumber);
-			//parameters.Add(WebApiConstants.PageSize, PageSize);
 
 
 			var claimService = new ClaimService();

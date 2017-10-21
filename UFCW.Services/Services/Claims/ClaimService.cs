@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UFCW.Constants;
+using UFCW.Helpers;
 using UFCW.Services.Models.Claims;
 
 namespace UFCW.Services.Services.Claims
@@ -20,11 +21,11 @@ namespace UFCW.Services.Services.Claims
 		/// <param name="token">Token.</param>
 		/// <param name="ssn">Ssn.</param>
 		/// <param name="claimNumber">Claim number.</param>
-		public async Task<ClaimDetail[]> FetchClaimDetail(string token, string ssn, string claimNumber)
+		public async Task<ClaimDetail[]> FetchClaimDetail(string claimNumber)
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, ssn);
+            parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+            parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
 			parameters.Add(WebApiConstants.ClaimNumber, claimNumber);
 			try
 			{
@@ -50,11 +51,11 @@ namespace UFCW.Services.Services.Claims
 		/// <param name="token">Token.</param>
 		/// <param name="ssn">Ssn.</param>
 		/// <param name="claimNumber">Claim number.</param>
-		public async Task<ClaimDetail[]> FetchClaimEOB(string token, string ssn, string claimNumber)
+		public async Task<ClaimDetail[]> FetchClaimEOB(string claimNumber)
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, ssn);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
 			parameters.Add(WebApiConstants.ClaimNumber, claimNumber);
 			try
 			{
@@ -80,11 +81,11 @@ namespace UFCW.Services.Services.Claims
 		/// <returns>The FAQ.</returns>
 		/// <param name="token">Token.</param>
 		/// <param name="ssn">Ssn.</param>
-		public async Task<FAQ[]> FetchFAQ(string token, string ssn)
+		public async Task<FAQ[]> FetchFAQ()
         {
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, ssn);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
 			
 			try
 			{
@@ -109,12 +110,13 @@ namespace UFCW.Services.Services.Claims
 		/// <returns>The search filters.</returns>
 		/// <param name="token">Token.</param>
 		/// <param name="ssn">Ssn.</param>
-		public async Task<ClaimFilters> FetchSearchFilters(string token, string ssn)
+		public async Task<ClaimFilters> FetchSearchFilters()
 		{
 
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, token);
-			parameters.Add(WebApiConstants.SSN, ssn);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");

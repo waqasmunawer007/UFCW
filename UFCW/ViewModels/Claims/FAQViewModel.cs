@@ -41,7 +41,7 @@ namespace UFCW
 		public async Task<FAQ[]> GetFAQs()
 		{
 			var claimService = new ClaimService();
-			return await claimService.FetchFAQ(Settings.UserToken, Settings.UserSSN);
+			return await claimService.FetchFAQ();
 		}
 		/// <summary>
 		/// Ons the property changed.

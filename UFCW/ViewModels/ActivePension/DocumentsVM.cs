@@ -59,7 +59,7 @@ namespace UFCW.ViewModels.ActivePension
         public async Task<PlanDocument[]> FetchDocuments()
 		{
             var beniftisService = new ActivePensionService();
-            return await beniftisService.FetchDocuments(Settings.UserToken, Settings.UserSSN);
+            return await beniftisService.FetchDocuments();
 		}
 		/// <summary>
 		/// Ons the property changed.
