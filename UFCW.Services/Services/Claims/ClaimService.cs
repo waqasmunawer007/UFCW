@@ -26,6 +26,7 @@ namespace UFCW.Services.Services.Claims
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
             parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			parameters.Add(WebApiConstants.ClaimNumber, claimNumber);
 			try
 			{
@@ -56,6 +57,7 @@ namespace UFCW.Services.Services.Claims
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			parameters.Add(WebApiConstants.ClaimNumber, claimNumber);
 			try
 			{
@@ -86,6 +88,7 @@ namespace UFCW.Services.Services.Claims
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			
 			try
 			{

@@ -11,13 +11,7 @@ namespace UFCW.ViewModels.Pension
     {
 		public event PropertyChangedEventHandler PropertyChanged;
 		public Retiree retiree;
-
 		private bool isBusy = false;
-
-		//string email = "UfcwRetiree@sinettechnologies.com";
-		//string token = "0000";
-		//string ssn = "512429544";
-
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UFCW.ViewModels.Pension.RetireeViewModel"/> class.
         /// </summary>
@@ -66,7 +60,7 @@ namespace UFCW.ViewModels.Pension
         public async Task<Retiree> FetchRetiree()
 		{
 			var pensionService = new PensionService();
-			return await pensionService.FetchRetiree(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
+			return await pensionService.FetchRetiree();
 		}
 
 		/// <summary>

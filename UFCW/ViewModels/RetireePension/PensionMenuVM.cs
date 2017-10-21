@@ -72,7 +72,7 @@ namespace UFCW.ViewModels.Pension
 		public async Task<Retiree> FetchRetiree()
 		{
 			var pensionService = new PensionService();
-			return await pensionService.FetchRetiree(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
+			return await pensionService.FetchRetiree();
 		}
 
 		/// <summary>

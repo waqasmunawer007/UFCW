@@ -6,8 +6,8 @@ namespace UFCW.Services.Services.Pension
 {
     public interface IPensionService
     {
-        Task<Retiree> FetchRetiree(String Token, String SSN, String Email); //Fetch Retiree
-        Task<SummaryPlanDoc[]> FetchSummaryPlanDoc(string Token, string SSN, string Email);//Fetch Sumary Plan Docs
+        Task<Retiree> FetchRetiree(); //Fetch Retiree
+        Task<SummaryPlanDoc[]> FetchSummaryPlanDoc();//Fetch Sumary Plan Docs
 
 	}
 }

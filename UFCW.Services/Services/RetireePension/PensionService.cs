@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UFCW.Constants;
+using UFCW.Helpers;
 using UFCW.Services.Models.Pension;
 using UFCW.Views.Pages.Pension;
 
@@ -20,12 +21,12 @@ namespace UFCW.Services.Services.Pension
 		/// <param name="Token">Token.</param>
 		/// <param name="SSN">Ssn.</param>
 		/// <param name="Email">Email.</param>
-		public async Task<Retiree> FetchRetiree(string Token, string SSN, string Email)
+		public async Task<Retiree> FetchRetiree()
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
-			parameters.Add(WebApiConstants.EMAIL, Email);
+            parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
+            parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -48,11 +49,12 @@ namespace UFCW.Services.Services.Pension
 		/// <param name="Token">Token.</param>
 		/// <param name="SSN">Ssn.</param>
 		/// <param name="Email">Email.</param>
-		public async Task<SummaryPlanDoc[]> FetchSummaryPlanDoc(string Token, string SSN, string Email)
+		public async Task<SummaryPlanDoc[]> FetchSummaryPlanDoc()
 		{
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
-			parameters.Add(WebApiConstants.TOKEN, Token);
-			parameters.Add(WebApiConstants.SSN, SSN);
+			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
+			parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
+			parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");

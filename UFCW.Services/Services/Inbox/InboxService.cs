@@ -25,6 +25,7 @@ namespace UFCW.Services.Services.Inbox
 		
             parameters.Add(WebApiConstants.TOKEN, Settings.UserToken); //Todo temp code
             parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
+            parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
             parameters.Add(WebApiConstants.UserID, Settings.UserID);
 			try
 			{

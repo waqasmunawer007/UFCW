@@ -368,6 +368,7 @@ namespace UFCW
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
             parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			parameters.Add(WebApiConstants.ClaimType, claimType);
 			parameters.Add(WebApiConstants.ClaimStatus, claimStatus);
 			parameters.Add(WebApiConstants.SearchDate, searchDate);

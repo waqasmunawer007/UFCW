@@ -38,6 +38,7 @@ namespace UFCW.ViewModels.Inbox
                     string uuid = System.Guid.NewGuid().ToString();
 					parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 					parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
+                    parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
 					parameters.Add(WebApiConstants.UserID, Settings.UserID);
 					parameters.Add(WebApiConstants.MailBoxMessageID, uuid);
                     parameters.Add(WebApiConstants.MessageTo, selectedToContact.Value); 

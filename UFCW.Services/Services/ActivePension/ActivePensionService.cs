@@ -22,6 +22,7 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
             parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -47,6 +48,7 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -70,6 +72,7 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -97,6 +100,7 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -124,6 +128,7 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
@@ -152,6 +157,7 @@ namespace UFCW.Services.Services.ActivePension
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
 			parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
 			parameters.Add(WebApiConstants.EMAIL, Settings.UserName);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
             try
             {
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");

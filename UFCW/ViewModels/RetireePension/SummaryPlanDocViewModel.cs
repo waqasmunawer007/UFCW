@@ -52,7 +52,7 @@ namespace UFCW.ViewModels.Pension
 		public async Task<SummaryPlanDoc[]> FetchSummaryPlanDocs()
 		{
             var pansionService = new PensionService();
-            return await pansionService.FetchSummaryPlanDoc(Settings.UserToken, Settings.UserSSN, Settings.UserEmail);
+            return await pansionService.FetchSummaryPlanDoc();
 		}
 
 		/// <summary>
