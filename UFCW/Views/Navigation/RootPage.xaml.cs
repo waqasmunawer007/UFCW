@@ -49,7 +49,7 @@ namespace UFCW
             {
                 if (Settings.RetireeOrActive.Equals(AppConstants.STRING_RETIRE))
                 {
-                    defaultPage = new PensionMenuPage();
+                    defaultPage = new PensionMenuPage(); //Retiree Pension
                 }
                 else 
                 {
