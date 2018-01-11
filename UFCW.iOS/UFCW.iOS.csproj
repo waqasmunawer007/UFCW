@@ -22,7 +22,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>i386, x86_64</MtouchArch>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignProvision>UFCW-Adhoc</CodesignProvision>
     <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
@@ -40,7 +40,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
     <OptimizePNGs>false</OptimizePNGs>
-    <CodesignProvision>UFCW-Adhoc</CodesignProvision>
+    <CodesignProvision>adhoc_new2</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -51,7 +51,7 @@
     <MtouchArch>i386</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
-    <CodesignProvision>xamarin-distribution</CodesignProvision>
+    <CodesignProvision>adhoc_new2</CodesignProvision>
     <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
@@ -65,12 +65,12 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution: Sinet Technologies Inc (F6D899A94Z)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchI18n>
     </MtouchI18n>
     <CodesignProvision></CodesignProvision>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PlayerDebug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -349,6 +349,7 @@
     <BundleResource Include="Resources\pass_recovery_bg_tablet%402x.jpg" />
     <BundleResource Include="Resources\hamburguer_icon.png" />
     <BundleResource Include="Resources\tabs0_icon.png" />
+    <BundleResource Include="Resources\hamburguer_icon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UFCW\UFCW.csproj">
@@ -361,6 +362,10 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Splash.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Images.xcassets\NewImages.imageset\" />
+    <Folder Include="Resources\Images.xcassets\hamburger_icon.imageset\" />
   </ItemGroup>
   <Import Project="..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets" Condition="Exists('..\packages\UXDivers.Artina.Shared.2.0.52\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\UXDivers.Artina.Shared.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

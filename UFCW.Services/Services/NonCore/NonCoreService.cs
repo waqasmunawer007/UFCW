@@ -25,6 +25,7 @@ namespace UFCW.Services.Services.NonCore
 			Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add(WebApiConstants.TOKEN, Settings.UserToken);
             parameters.Add(WebApiConstants.EMAIL, Settings.UserEmail);
+            parameters.Add(WebApiConstants.SSN, Settings.UserSSN);
 			try
 			{
 				var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
